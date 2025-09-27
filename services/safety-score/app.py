@@ -1,8 +1,12 @@
 from fastapi import FastAPI
 <<<<<<< HEAD
+<<<<<<< HEAD
 from fastapi.middleware.cors import CORSMiddleware
 =======
 >>>>>>> 166347e (feat(safety-score): add Chicago crime data ingest + safety scoring API)
+=======
+from fastapi.middleware.cors import CORSMiddleware
+>>>>>>> b2f92c2 (Working Safety Score)
 from pydantic import BaseModel
 from typing import List
 from scoring import score_route
@@ -10,6 +14,9 @@ from scoring import score_route
 app = FastAPI()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b2f92c2 (Working Safety Score)
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
@@ -19,8 +26,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+<<<<<<< HEAD
 =======
 >>>>>>> 166347e (feat(safety-score): add Chicago crime data ingest + safety scoring API)
+=======
+>>>>>>> b2f92c2 (Working Safety Score)
 class RoutePoint(BaseModel):
     lat: float
     lon: float
