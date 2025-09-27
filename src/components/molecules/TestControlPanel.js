@@ -1,12 +1,14 @@
 import ActionButton from '../atoms/ActionButton.js';
 import LocationInput from '../atoms/LocationInput.js';
 import OutputDisplay from '../atoms/OutputDisplay.js';
+import SafetyScoreService from '../../services/SafetyScoreService.js';
 
 class TestControlPanel {
     constructor() {
         this.startLocationInput = new LocationInput('startLocation');
         this.endLocationInput = new LocationInput('endLocation');
         this.outputDisplay = new OutputDisplay('output');
+        this.safetyScoreService = new SafetyScoreService();
         
         this.geocodeButton = new ActionButton('geocodeBtn', () => this.testGeocoding());
         this.directionsButton = new ActionButton('directionsBtn', () => this.testDirections());
@@ -35,7 +37,7 @@ class TestControlPanel {
         });
     }
 
-    testDirections() {
+    async testDirections() {
         const start = this.startLocationInput.getValue();
         const end = this.endLocationInput.getValue();
         
@@ -46,7 +48,7 @@ class TestControlPanel {
         };
         
         const directionsService = new google.maps.DirectionsService();
-        directionsService.route(request, (result, status) => {
+        directionsService.route(request, async (result, status) => {
             if (status === "OK") {
                 // Emit event for directions update
                 this.dispatchEvent('directionsSuccess', {
@@ -56,6 +58,20 @@ class TestControlPanel {
                 });
                 
                 this.outputDisplay.updateOutput(`Directions found! Distance: ${result.routes[0].legs[0].distance.text}, Duration: ${result.routes[0].legs[0].duration.text}`);
+                
+                // Get safety score for the route
+                try {
+                    this.outputDisplay.updateOutput("Calculating safety score...");
+                    const routePoints = this.safetyScoreService.extractRoutePointsFromDirections(result);
+                    const safetyData = await this.safetyScoreService.getSafetyScore(routePoints);
+                    
+                    this.outputDisplay.updateOutput(`Safety Score: ${safetyData.safety_score}/100`);
+                    if (safetyData.breakdown) {
+                        this.outputDisplay.updateOutput(`Safety breakdown: ${JSON.stringify(safetyData.breakdown)}`);
+                    }
+                } catch (error) {
+                    this.outputDisplay.updateOutput(`Safety score calculation failed: ${error.message}`);
+                }
             } else {
                 this.outputDisplay.updateOutput(`Directions failed: ${status}`);
             }

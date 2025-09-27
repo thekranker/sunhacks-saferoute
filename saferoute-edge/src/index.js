@@ -28,13 +28,16 @@ export default {
 		  }
   
 		  // 2. Forward to backend
+		  console.log("Forwarding to backend:", env.BACKEND_URL + "/score-route");
 		  const backendRes = await fetch(env.BACKEND_URL + "/score-route", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ ...body, route_id: routeId })
 		  });
-  
+
+		  console.log("Backend response status:", backendRes.status);
 		  const result = await backendRes.text();
+		  console.log("Backend response:", result);
   
 		  // 3. Save to KV
 		  await env.SAFEROUTE_CACHE.put(routeKey, result);
