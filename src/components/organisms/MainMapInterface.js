@@ -6,7 +6,9 @@ class MainMapInterface {
         this.mapComponent = new MapComponent('map');
         this.controlPanel = new TestControlPanel();
         this.directionsService = null;
-        this.directionsRenderer = null;
+        this.directionsRenderers = []; // Array to hold multiple renderers
+        this.currentRoutes = [];
+        this.selectedRouteIndex = 0;
         this.init();
     }
 
@@ -14,10 +16,8 @@ class MainMapInterface {
         // Initialize the map
         this.mapComponent.init();
         
-        // Initialize directions service and renderer
+        // Initialize directions service
         this.directionsService = new google.maps.DirectionsService();
-        this.directionsRenderer = new google.maps.DirectionsRenderer();
-        this.directionsRenderer.setMap(this.mapComponent.getMap());
 
         // Bind event listeners
         this.bindEvents();
@@ -34,59 +34,115 @@ class MainMapInterface {
             this.mapComponent.addMarker(location, address);
         });
 
-        // Listen for directions success
-        document.addEventListener('directionsSuccess', (event) => {
-            const { result, safetyScore, isSafetyOptimized } = event.detail;
-            
-            // Set route color based on safety score
-            if (safetyScore !== undefined && isSafetyOptimized) {
-                this.setRouteColor(safetyScore);
-            }
-            
-            this.directionsRenderer.setDirections(result);
+        // Listen for displaying multiple routes
+        document.addEventListener('displayMultipleRoutes', (event) => {
+            const { routes, selectedIndex, origin, destination } = event.detail;
+            this.displayMultipleRoutes(routes, selectedIndex, origin, destination);
+        });
+
+        // Listen for route selection changes
+        document.addEventListener('routeSelectionChanged', (event) => {
+            const { selectedIndex } = event.detail;
+            this.updateRouteSelection(selectedIndex);
         });
 
         // Listen for clear map
         document.addEventListener('clearMap', () => {
-            if (this.directionsRenderer) {
-                this.directionsRenderer.setDirections({ routes: [] });
-            }
+            this.clearAllRoutes();
         });
     }
 
-    setRouteColor(safetyScore) {
-        // Convert safety score to percentage (assuming it's between 0-1)
+    displayMultipleRoutes(routes, selectedIndex, origin, destination) {
+        // Clear existing routes
+        this.clearAllRoutes();
+        
+        this.currentRoutes = routes;
+        this.selectedRouteIndex = selectedIndex;
+        
+        // Create a renderer for each route
+        routes.forEach((routeData, index) => {
+            const renderer = new google.maps.DirectionsRenderer();
+            renderer.setMap(this.mapComponent.getMap());
+            
+            // Create directions result for this route
+            const result = {
+                routes: [routeData.route],
+                request: {
+                    origin: origin,
+                    destination: destination,
+                    travelMode: google.maps.TravelMode.WALKING
+                },
+                geocoded_waypoints: [],
+                status: "OK"
+            };
+            
+            // Set route styling based on whether it's selected or not
+            this.setRouteStyle(renderer, routeData.safetyScore, index === selectedIndex);
+            
+            renderer.setDirections(result);
+            this.directionsRenderers.push(renderer);
+        });
+    }
+
+    updateRouteSelection(newSelectedIndex) {
+        if (newSelectedIndex < 0 || newSelectedIndex >= this.currentRoutes.length) {
+            return;
+        }
+        
+        this.selectedRouteIndex = newSelectedIndex;
+        
+        // Update styling for all routes
+        this.directionsRenderers.forEach((renderer, index) => {
+            const routeData = this.currentRoutes[index];
+            this.setRouteStyle(renderer, routeData.safetyScore, index === newSelectedIndex);
+        });
+    }
+
+    setRouteStyle(renderer, safetyScore, isSelected) {
         const safetyPercentage = safetyScore * 100;
         
         let routeColor;
-        let routeWeight = 6; // Default weight
+        let routeWeight;
+        let routeOpacity;
         
+        // Determine base color based on safety score
         if (safetyPercentage >= 90) {
-            // Green for high safety (90%+)
             routeColor = '#4CAF50'; // Green
-            routeWeight = 8; // Thicker line for high safety
         } else if (safetyPercentage >= 75) {
-            // Yellow for medium safety (75-89%)
             routeColor = '#FFC107'; // Yellow/Amber
-            routeWeight = 6; // Medium thickness
         } else {
-            // Red for low safety (<75%)
             routeColor = '#F44336'; // Red
-            routeWeight = 4; // Thinner line for low safety
         }
         
-        // Configure the directions renderer with custom styling
-        this.directionsRenderer.setOptions({
+        // Adjust styling based on selection status
+        if (isSelected) {
+            routeWeight = 8; // Thicker for selected route
+            routeOpacity = 0.9; // More opaque
+        } else {
+            routeWeight = 5; // Thinner for alternative routes
+            routeOpacity = 0.5; // More transparent (like Google Maps alternatives)
+        }
+        
+        renderer.setOptions({
             polylineOptions: {
                 strokeColor: routeColor,
                 strokeWeight: routeWeight,
-                strokeOpacity: 0.8
+                strokeOpacity: routeOpacity
             },
-            suppressMarkers: false, // Keep start/end markers
-            suppressInfoWindows: false // Keep info windows
+            suppressMarkers: !isSelected, // Only show markers for selected route
+            suppressInfoWindows: !isSelected // Only show info windows for selected route
         });
-        
-        console.log(`Route color set to ${routeColor} for safety score: ${safetyPercentage.toFixed(1)}%`);
+    }
+
+    clearAllRoutes() {
+        // Clear all existing renderers
+        this.directionsRenderers.forEach(renderer => {
+            renderer.setDirections({ routes: [] });
+            renderer.setMap(null);
+        });
+        this.directionsRenderers = [];
+        this.currentRoutes = [];
+        this.selectedRouteIndex = 0;
     }
 
     getMap() {
@@ -97,8 +153,8 @@ class MainMapInterface {
         return this.directionsService;
     }
 
-    getDirectionsRenderer() {
-        return this.directionsRenderer;
+    getDirectionsRenderers() {
+        return this.directionsRenderers;
     }
 }
 
