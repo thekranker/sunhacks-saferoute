@@ -42,7 +42,7 @@ class TestControlPanel {
         const request = {
             origin: start,
             destination: end,
-            travelMode: google.maps.TravelMode.DRIVING
+            travelMode: google.maps.TravelMode.WALKING
         };
         
         const directionsService = new google.maps.DirectionsService();
