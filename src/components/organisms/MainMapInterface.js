@@ -36,7 +36,13 @@ class MainMapInterface {
 
         // Listen for directions success
         document.addEventListener('directionsSuccess', (event) => {
-            const { result } = event.detail;
+            const { result, safetyScore, isSafetyOptimized } = event.detail;
+            
+            // Set route color based on safety score
+            if (safetyScore !== undefined && isSafetyOptimized) {
+                this.setRouteColor(safetyScore);
+            }
+            
             this.directionsRenderer.setDirections(result);
         });
 
@@ -46,6 +52,41 @@ class MainMapInterface {
                 this.directionsRenderer.setDirections({ routes: [] });
             }
         });
+    }
+
+    setRouteColor(safetyScore) {
+        // Convert safety score to percentage (assuming it's between 0-1)
+        const safetyPercentage = safetyScore * 100;
+        
+        let routeColor;
+        let routeWeight = 6; // Default weight
+        
+        if (safetyPercentage >= 90) {
+            // Green for high safety (90%+)
+            routeColor = '#4CAF50'; // Green
+            routeWeight = 8; // Thicker line for high safety
+        } else if (safetyPercentage >= 75) {
+            // Yellow for medium safety (75-89%)
+            routeColor = '#FFC107'; // Yellow/Amber
+            routeWeight = 6; // Medium thickness
+        } else {
+            // Red for low safety (<75%)
+            routeColor = '#F44336'; // Red
+            routeWeight = 4; // Thinner line for low safety
+        }
+        
+        // Configure the directions renderer with custom styling
+        this.directionsRenderer.setOptions({
+            polylineOptions: {
+                strokeColor: routeColor,
+                strokeWeight: routeWeight,
+                strokeOpacity: 0.8
+            },
+            suppressMarkers: false, // Keep start/end markers
+            suppressInfoWindows: false // Keep info windows
+        });
+        
+        console.log(`Route color set to ${routeColor} for safety score: ${safetyPercentage.toFixed(1)}%`);
     }
 
     getMap() {
