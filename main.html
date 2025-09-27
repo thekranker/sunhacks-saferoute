@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeRoute - Google Maps Test</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SafeRoute - Google Maps Test</h1>
+            <p>Test the Google Maps functionality with geocoding and directions</p>
+        </header>
+        
+        <div class="controls">
+            <div class="input-group">
+                <label for="startLocation">Start Location:</label>
+                <input type="text" id="startLocation" placeholder="Enter start address">
+            </div>
+            
+            <div class="input-group">
+                <label for="endLocation">End Location:</label>
+                <input type="text" id="endLocation" placeholder="Enter destination address">
+            </div>
+            
+            <div class="button-group">
+                <button id="geocodeBtn">Test Geocoding</button>
+                <button id="directionsBtn">Get Directions</button>
+                <button id="clearBtn">Clear Map</button>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        
+        <div class="output-container">
+            <h3>Output Log:</h3>
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <!-- Google Maps API -->
+    <script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX1Ytmu1hSFVwBT7jPjH470VP2w0G-7VA&callback=initMap">
+    </script>
+    
+    <!-- Main application script -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
