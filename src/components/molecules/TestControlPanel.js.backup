@@ -1,7 +1,6 @@
 import ActionButton from '../atoms/ActionButton.js';
 import LocationInput from '../atoms/LocationInput.js';
 import OutputDisplay from '../atoms/OutputDisplay.js';
-import RouteSelector from '../atoms/RouteSelector.js';
 import SafetyScoreService from '../../services/SafetyScoreService.js';
 
 class TestControlPanel {
@@ -9,17 +8,11 @@ class TestControlPanel {
         this.startLocationInput = new LocationInput('startLocation');
         this.endLocationInput = new LocationInput('endLocation');
         this.outputDisplay = new OutputDisplay('output');
-        this.routeSelector = new RouteSelector('routeSelector');
         this.safetyScoreService = new SafetyScoreService();
         
         this.geocodeButton = new ActionButton('geocodeBtn', () => this.testGeocoding());
         this.directionsButton = new ActionButton('directionsBtn', () => this.testDirections());
         this.clearButton = new ActionButton('clearBtn', () => this.clearMap());
-        
-        // Set up route selection callback
-        this.routeSelector.setOnRouteSelect((routeData, index) => {
-            this.onRouteSelected(routeData, index);
-        });
     }
 
     testGeocoding() {
@@ -49,7 +42,6 @@ class TestControlPanel {
         const end = this.endLocationInput.getValue();
         
         this.outputDisplay.updateOutput("Finding safest route...");
-        this.routeSelector.hide(); // Hide route selector initially
         
         try {
             // Get multiple alternative routes
@@ -65,17 +57,11 @@ class TestControlPanel {
             // Calculate safety scores for all routes
             const routesWithSafety = await this.calculateSafetyScores(routes);
             
-            // Sort routes by safety score (highest first)
-            routesWithSafety.sort((a, b) => b.safetyScore - a.safetyScore);
+            // Select the safest route
+            const safestRoute = this.selectSafestRoute(routesWithSafety);
             
-            // Show route selector with all routes
-            this.routeSelector.setRoutes(routesWithSafety);
-            this.routeSelector.show();
-            
-            // Display all routes on map with the safest one selected
-            this.displayAllRoutes(routesWithSafety);
-            
-            this.outputDisplay.updateOutput(`Routes displayed. Safest route (${routesWithSafety[0].summary}) auto-selected.`);
+            // Display the safest route
+            this.displayRoute(safestRoute);
             
         } catch (error) {
             this.outputDisplay.updateOutput(`Route calculation failed: ${error.message}`);
@@ -195,28 +181,60 @@ class TestControlPanel {
         return routesWithSafety;
     }
 
-    displayAllRoutes(routesWithSafety) {
-        // Emit event for displaying all routes with the safest one selected
-        this.dispatchEvent('displayMultipleRoutes', {
-            routes: routesWithSafety,
-            selectedIndex: 0, // Auto-select the safest route (first in sorted array)
-            origin: this.startLocationInput.getValue(),
-            destination: this.endLocationInput.getValue()
-        });
+    selectSafestRoute(routesWithSafety) {
+        if (routesWithSafety.length === 0) {
+            throw new Error("No routes available for selection");
+        }
+        
+        // Sort by safety score (highest first)
+        routesWithSafety.sort((a, b) => b.safetyScore - a.safetyScore);
+        
+        const safestRoute = routesWithSafety[0];
+        
+        this.outputDisplay.updateOutput(`Selected safest route: ${safestRoute.summary}`);
+        this.outputDisplay.updateOutput(`Safety Score: ${safestRoute.safetyScore}/1.0`);
+        this.outputDisplay.updateOutput(`Distance: ${safestRoute.distance}, Duration: ${safestRoute.duration}`);
+        
+        // Show comparison with other routes
+        if (routesWithSafety.length > 1) {
+            this.outputDisplay.updateOutput("--- Route Comparison ---");
+            routesWithSafety.forEach((routeData, index) => {
+                const status = index === 0 ? " (SELECTED)" : "";
+                this.outputDisplay.updateOutput(`${routeData.summary}: Safety ${routeData.safetyScore}/1.0, ${routeData.distance}${status}`);
+            });
+        }
+        
+        if (safestRoute.safetyBreakdown && Object.keys(safestRoute.safetyBreakdown).length > 0) {
+            this.outputDisplay.updateOutput(`Safety breakdown: ${JSON.stringify(safestRoute.safetyBreakdown)}`);
+        }
+        
+        return safestRoute;
     }
 
-    onRouteSelected(routeData, index) {
-        this.outputDisplay.updateOutput(`Selected route: ${routeData.summary} (Safety: ${(routeData.safetyScore * 100).toFixed(1)}%)`);
+    displayRoute(safestRoute) {
+        // Create a proper directions result object for the safest route
+        const result = {
+            routes: [safestRoute.route],
+            request: {
+                origin: this.startLocationInput.getValue(),
+                destination: this.endLocationInput.getValue(),
+                travelMode: google.maps.TravelMode.WALKING
+            },
+            geocoded_waypoints: [],
+            status: "OK"
+        };
         
-        // Emit event for route selection change
-        this.dispatchEvent('routeSelectionChanged', {
-            routeData: routeData,
-            selectedIndex: index
+        // Emit event for directions update with safety score
+        this.dispatchEvent('directionsSuccess', {
+            result: result,
+            distance: safestRoute.distance,
+            duration: safestRoute.duration,
+            safetyScore: safestRoute.safetyScore,
+            isSafetyOptimized: true
         });
     }
 
     clearMap() {
-        this.routeSelector.hide();
         this.dispatchEvent('clearMap');
         this.outputDisplay.updateOutput("Map cleared!");
     }

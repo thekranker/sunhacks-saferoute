@@ -97,6 +97,91 @@ button:disabled {
     width: 100%;
 }
 
+/* Route Selector Styles */
+.route-selector {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.route-selector-header {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.route-option {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.route-option:hover {
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.route-option.selected {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+}
+
+.safety-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.route-info {
+    flex-grow: 1;
+}
+
+.route-summary {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.route-details {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: #666;
+}
+
+.safety-score {
+    font-weight: bold;
+}
+
+.selection-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2196f3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.route-option:not(.selected) .selection-indicator {
+    background-color: transparent;
+    border: 2px solid #ddd;
+}
+
 .output-container {
     background: white;
     padding: 20px;
@@ -136,5 +221,10 @@ button:disabled {
     
     button {
         width: 100%;
+    }
+    
+    .route-details {
+        flex-direction: column;
+        gap: 5px;
     }
 }
