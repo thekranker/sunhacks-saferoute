@@ -18,7 +18,7 @@
 	],
 
 	"vars": {
-		"BACKEND_URL": "https://includes-ballot-usr-sub.trycloudflare.com", 
+		"BACKEND_URL": "http://127.0.0.1:8081", 
 		"CACHE_VERSION": "v1"
 	}
 
