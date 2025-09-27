@@ -28,6 +28,7 @@ def score_route(points, buffer_m=50):
     points: list of dicts [{"lat":.., "lon":..}, ...]
     buffer_m: radius (in meters) around the route to consider
     """
+<<<<<<< HEAD
     if len(points) < 2:
         # For single points, create a small buffer around the point
         point = Point(points[0]["lon"], points[0]["lat"])
@@ -38,6 +39,12 @@ def score_route(points, buffer_m=50):
         # Approximate buffer in degrees (good enough for demo)
         deg_buffer = buffer_m / 111_000  # ~111km per degree
         route_buffer = line.buffer(deg_buffer)
+=======
+    line = LineString([(p["lon"], p["lat"]) for p in points])
+    # Approximate buffer in degrees (good enough for demo)
+    deg_buffer = buffer_m / 111_000  # ~111km per degree
+    route_buffer = line.buffer(deg_buffer)
+>>>>>>> 166347e (feat(safety-score): add Chicago crime data ingest + safety scoring API)
 
     con = sqlite3.connect(DB_PATH)
     cur = con.cursor()
