@@ -9,6 +9,8 @@ class MainMapInterface {
         this.directionsRenderers = []; // Array to hold multiple renderers
         this.currentRoutes = [];
         this.selectedRouteIndex = 0;
+        this.origin = '';
+        this.destination = '';
         this.init();
     }
 
@@ -58,6 +60,8 @@ class MainMapInterface {
         
         this.currentRoutes = routes;
         this.selectedRouteIndex = selectedIndex;
+        this.origin = origin;
+        this.destination = destination;
         
         // Create a renderer for each route
         routes.forEach((routeData, index) => {
@@ -91,10 +95,31 @@ class MainMapInterface {
         
         this.selectedRouteIndex = newSelectedIndex;
         
-        // Update styling for all routes
+        // Force refresh all renderers with updated styling
         this.directionsRenderers.forEach((renderer, index) => {
             const routeData = this.currentRoutes[index];
-            this.setRouteStyle(renderer, routeData.safetyScore, index === newSelectedIndex);
+            const isSelected = index === newSelectedIndex;
+            
+            // Update the styling
+            this.setRouteStyle(renderer, routeData.safetyScore, isSelected);
+            
+            // Force the renderer to refresh by clearing and re-setting directions
+            const result = {
+                routes: [routeData.route],
+                request: {
+                    origin: this.origin,
+                    destination: this.destination,
+                    travelMode: google.maps.TravelMode.WALKING
+                },
+                geocoded_waypoints: [],
+                status: "OK"
+            };
+            
+            // Clear and re-set to force refresh
+            renderer.setDirections({ routes: [] });
+            setTimeout(() => {
+                renderer.setDirections(result);
+            }, 10);
         });
     }
 
@@ -143,6 +168,8 @@ class MainMapInterface {
         this.directionsRenderers = [];
         this.currentRoutes = [];
         this.selectedRouteIndex = 0;
+        this.origin = '';
+        this.destination = '';
     }
 
     getMap() {
