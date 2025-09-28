@@ -16,6 +16,7 @@ class TestControlPanel {
         // User's current location
         this.userLocation = null;
         this.userLocationAddress = '';
+        this.locationWatchId = null;
         
         // Smart caching system for performance optimization
         this.cache = {
@@ -25,9 +26,12 @@ class TestControlPanel {
             streetview: new Map()    // Cache streetview analysis
         };
         
-        this.getLocationButton = new ActionButton('getLocationBtn', () => this.getUserLocation());
         this.directionsButton = new ActionButton('directionsBtn', () => this.testDirections());
+        this.safestRouteButton = new ActionButton('safestRouteBtn', () => this.findSafestRoute());
         this.clearButton = new ActionButton('clearBtn', () => this.clearMap());
+        
+        // Automatically get user location on initialization
+        this.autoDetectLocation();
         
         // Set up route selection callback
         this.routeSelector.setOnRouteSelect((routeData, index) => {
@@ -35,13 +39,13 @@ class TestControlPanel {
         });
     }
 
-    getUserLocation() {
+    autoDetectLocation() {
         if (!navigator.geolocation) {
-            this.outputDisplay.updateOutput("Geolocation is not supported by this browser.");
+            this.outputDisplay.updateOutput("📍 Geolocation not supported. Please enter your location manually.");
             return;
         }
 
-        this.outputDisplay.updateOutput("Getting your location...");
+        this.outputDisplay.updateOutput("📍 Automatically detecting your location...");
         
         navigator.geolocation.getCurrentPosition(
             (position) => {
@@ -64,48 +68,54 @@ class TestControlPanel {
                             formattedAddress: this.userLocationAddress
                         });
                         
-                        this.outputDisplay.updateOutput(`Location found: ${this.userLocationAddress}`);
+                        this.outputDisplay.updateOutput(`✅ Location detected: ${this.userLocationAddress}`);
+                        
+                        // Start continuous location tracking
+                        this.startLocationTracking();
                     } else {
-                        this.outputDisplay.updateOutput(`Location found but couldn't get address: ${status}`);
+                        this.outputDisplay.updateOutput(`📍 Location detected but couldn't get address: ${status}`);
+                        // Start tracking even without address
+                        this.startLocationTracking();
                     }
                 });
             },
             (error) => {
-                let errorMessage = "Error getting location: ";
+                let errorMessage = "📍 Could not detect location automatically. ";
                 switch(error.code) {
                     case error.PERMISSION_DENIED:
-                        errorMessage += "Permission denied. Please allow location access.";
+                        errorMessage += "Please allow location access or enter your destination to get started.";
                         break;
                     case error.POSITION_UNAVAILABLE:
-                        errorMessage += "Location information unavailable.";
+                        errorMessage += "Location unavailable. Please enter your destination to get started.";
                         break;
                     case error.TIMEOUT:
-                        errorMessage += "Location request timed out.";
+                        errorMessage += "Location detection timed out. Please enter your destination to get started.";
                         break;
                     default:
-                        errorMessage += "Unknown error occurred.";
+                        errorMessage += "Please enter your destination to get started.";
                         break;
                 }
                 this.outputDisplay.updateOutput(errorMessage);
             },
             {
                 enableHighAccuracy: true,
-                timeout: 10000,
-                maximumAge: 60000
+                timeout: 15000,
+                maximumAge: 300000 // 5 minutes
             }
         );
     }
 
     async testDirections() {
         if (!this.userLocation) {
-            this.outputDisplay.updateOutput("Please get your location first by clicking 'Use My Location'");
+            this.outputDisplay.updateOutput("📍 Location not detected. Please allow location access or try refreshing the page.");
             return;
         }
         
         const start = this.userLocationAddress;
         const end = this.endLocationInput.getValue();
         
-        this.outputDisplay.updateOutput("Finding routes with safety options...");
+        this.showLoadingIndicator();
+        this.outputDisplay.updateOutput("🔍 Finding routes with safety options...");
         this.routeSelector.hide(); // Hide route selector initially
         
         try {
@@ -172,9 +182,11 @@ class TestControlPanel {
             this.displayAllRoutes(routesWithAI);
             
             this.outputDisplay.updateOutput(`✅ All routes complete with AI analysis. Safest route (${routesWithAI[0].summary}) auto-selected.`);
+            this.hideLoadingIndicator();
             
         } catch (error) {
             this.outputDisplay.updateOutput(`Route calculation failed: ${error.message}`);
+            this.hideLoadingIndicator();
         }
     }
 
@@ -539,14 +551,15 @@ class TestControlPanel {
 
     async findSafestRoute() {
         if (!this.userLocation) {
-            this.outputDisplay.updateOutput("Please get your location first by clicking 'Use My Location'");
+            this.outputDisplay.updateOutput("📍 Location not detected. Please allow location access or try refreshing the page.");
             return;
         }
         
         const start = this.userLocationAddress;
         const end = this.endLocationInput.getValue();
         
-        this.outputDisplay.updateOutput("Finding the safest possible route (may be longer)...");
+        this.showLoadingIndicator();
+        this.outputDisplay.updateOutput("🛡️ Finding the safest possible route (may be longer)...");
         this.routeSelector.hide();
         
         try {
@@ -583,9 +596,11 @@ class TestControlPanel {
             this.displayAllRoutes(filteredRoutes);
             
             this.outputDisplay.updateOutput(`Ultra-safe routes displayed. Safest route auto-selected with ${(filteredRoutes[0].safetyScore * 100).toFixed(1)}% safety score.`);
+            this.hideLoadingIndicator();
             
         } catch (error) {
             this.outputDisplay.updateOutput(`Safest route calculation failed: ${error.message}`);
+            this.hideLoadingIndicator();
         }
     }
 
@@ -834,6 +849,64 @@ class TestControlPanel {
         this.routeSelector.hide();
         this.dispatchEvent('clearMap');
         this.outputDisplay.updateOutput("Map cleared!");
+    }
+
+    showLoadingIndicator() {
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        if (loadingIndicator) {
+            loadingIndicator.style.display = 'flex';
+        }
+    }
+
+    hideLoadingIndicator() {
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        if (loadingIndicator) {
+            loadingIndicator.style.display = 'none';
+        }
+    }
+
+    startLocationTracking() {
+        if (!navigator.geolocation) {
+            return;
+        }
+
+        // Stop any existing tracking
+        if (this.locationWatchId) {
+            navigator.geolocation.clearWatch(this.locationWatchId);
+        }
+
+        // Start continuous location tracking
+        this.locationWatchId = navigator.geolocation.watchPosition(
+            (position) => {
+                const userLat = position.coords.latitude;
+                const userLng = position.coords.longitude;
+                const userLocation = new google.maps.LatLng(userLat, userLng);
+                
+                // Update user location
+                this.userLocation = userLocation;
+                
+                // Emit event to update the blue dot on the map
+                this.dispatchEvent('userLocationUpdate', {
+                    location: userLocation,
+                    address: this.userLocationAddress
+                });
+            },
+            (error) => {
+                console.warn('Location tracking error:', error);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 30000 // 30 seconds
+            }
+        );
+    }
+
+    stopLocationTracking() {
+        if (this.locationWatchId) {
+            navigator.geolocation.clearWatch(this.locationWatchId);
+            this.locationWatchId = null;
+        }
     }
 
     dispatchEvent(eventName, data = {}) {

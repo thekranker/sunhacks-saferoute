@@ -31,9 +31,13 @@ class MainMapInterface {
         // Listen for geocoding success
         document.addEventListener('geocodeSuccess', (event) => {
             const { location, address } = event.detail;
-            this.mapComponent.setCenter(location);
-            this.mapComponent.setZoom(15);
-            this.mapComponent.addMarker(location, address);
+            this.mapComponent.setUserLocation(location, address);
+        });
+
+        // Listen for user location updates (continuous tracking)
+        document.addEventListener('userLocationUpdate', (event) => {
+            const { location, address } = event.detail;
+            this.mapComponent.updateUserLocation(location);
         });
 
         // Listen for displaying multiple routes
@@ -51,6 +55,7 @@ class MainMapInterface {
         // Listen for clear map
         document.addEventListener('clearMap', () => {
             this.clearAllRoutes();
+            // Don't clear user location - keep the blue dot
         });
     }
 

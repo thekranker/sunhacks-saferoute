@@ -9,20 +9,35 @@
 <body>
     <div class="container">
         <header>
-            <h1>SafeRoute - Google Maps Test</h1>
-            <p>Test the Google Maps functionality with geocoding and directions</p>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>SafeRoute</h1>
+                    <p>Find the safest walking routes with AI-powered safety analysis</p>
+                </div>
+                <div class="theme-toggle-container">
+                    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
         </header>
         
         <div class="controls">
             <div class="input-group">
-                <label for="endLocation">Destination:</label>
-                <input type="text" id="endLocation" placeholder="Enter destination address">
+                <label for="endLocation">📍 Destination:</label>
+                <input type="text" id="endLocation" placeholder="Enter destination address (e.g., '123 Main St, City')">
             </div>
             
             <div class="button-group">
-                <button id="getLocationBtn">Use My Location</button>
-                <button id="directionsBtn">Get Directions</button>
-                <button id="clearBtn">Clear Map</button>
+                <button id="directionsBtn" class="primary-btn">
+                    <span>🛡️</span> Find Safe Routes
+                </button>
+                <button id="safestRouteBtn" class="safety-btn">
+                    <span>🛡️</span> Ultra Safe Route
+                </button>
+                <button id="clearBtn" class="secondary-btn">
+                    <span>🗑️</span> Clear Map
+                </button>
             </div>
         </div>
         
@@ -36,7 +51,13 @@
         </div>
         
         <div class="output-container">
-            <h3>Output Log:</h3>
+            <div class="output-header">
+                <h3>📊 Analysis Log</h3>
+                <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <span>Analyzing safety...</span>
+                </div>
+            </div>
             <div id="output"></div>
         </div>
     </div>
