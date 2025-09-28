@@ -7283,3 +7283,309 @@ However, the original analysis somewhat overlooks several positive safety factor
 2025-09-28 04:19:01,141 - INFO - Final Score: 82%
 2025-09-28 04:19:01,141 - INFO - ================================================================================
 2025-09-28 04:19:01,142 - INFO - 127.0.0.1 - - [28/Sep/2025 04:19:01] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:21:53,522 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://10.8.10.6:5002
+2025-09-28 05:21:53,522 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 05:21:53,523 - INFO -  * Restarting with stat
+2025-09-28 05:21:54,754 - WARNING -  * Debugger is active!
+2025-09-28 05:21:54,764 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 05:22:35,983 - INFO - 127.0.0.1 - - [28/Sep/2025 05:22:35] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:22:35,983 - INFO - 127.0.0.1 - - [28/Sep/2025 05:22:35] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:22:35,984 - INFO - 127.0.0.1 - - [28/Sep/2025 05:22:35] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:22:35,987 - INFO - ================================================================================
+2025-09-28 05:22:35,988 - INFO - ================================================================================
+2025-09-28 05:22:35,988 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:22:35,988 - INFO - ================================================================================
+2025-09-28 05:22:35,988 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:22:35,989 - INFO - ================================================================================
+2025-09-28 05:22:35,989 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:22:35,989 - INFO - ================================================================================
+2025-09-28 05:22:35,989 - INFO - Analyzing route: tooker house → oliv tempe
+2025-09-28 05:22:35,989 - INFO - ================================================================================
+2025-09-28 05:22:35,989 - INFO - Analyzing route: tooker house → oliv tempe
+2025-09-28 05:22:35,989 - INFO - Analyzing route: tooker house → oliv tempe
+2025-09-28 05:22:36,196 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 568105310495 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "568105310495"
+}
+metadata {
+  key: "consumer"
+  value: "projects/568105310495"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 568105310495 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495"
+}
+]
+2025-09-28 05:22:36,196 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 568105310495 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "568105310495"
+}
+metadata {
+  key: "consumer"
+  value: "projects/568105310495"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 568105310495 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495"
+}
+]
+2025-09-28 05:22:36,196 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 568105310495 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "568105310495"
+}
+metadata {
+  key: "consumer"
+  value: "projects/568105310495"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 568105310495 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=568105310495"
+}
+]
+2025-09-28 05:22:36,197 - INFO - 127.0.0.1 - - [28/Sep/2025 05:22:36] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 05:22:36,197 - INFO - 127.0.0.1 - - [28/Sep/2025 05:22:36] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 05:22:36,197 - INFO - 127.0.0.1 - - [28/Sep/2025 05:22:36] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 05:26:47,800 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://10.8.10.6:5002
+2025-09-28 05:26:47,801 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 05:26:47,802 - INFO -  * Restarting with stat
+2025-09-28 05:26:49,004 - WARNING -  * Debugger is active!
+2025-09-28 05:26:49,012 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 05:26:54,908 - INFO - 127.0.0.1 - - [28/Sep/2025 05:26:54] "GET /health HTTP/1.1" 200 -
+2025-09-28 05:26:59,682 - INFO - ================================================================================
+2025-09-28 05:26:59,682 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:26:59,682 - INFO - ================================================================================
+2025-09-28 05:26:59,682 - INFO - Analyzing route: Tempe, AZ → Phoenix, AZ
+2025-09-28 05:26:59,888 - ERROR - Initial analysis failed: 403 Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked. [reason: "API_KEY_SERVICE_BLOCKED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "methodName"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+metadata {
+  key: "consumer"
+  value: "projects/568105310495"
+}
+metadata {
+  key: "apiName"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked."
+]
+2025-09-28 05:26:59,889 - INFO - 127.0.0.1 - - [28/Sep/2025 05:26:59] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 05:28:06,233 - INFO - ================================================================================
+2025-09-28 05:28:06,233 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:28:06,233 - INFO - ================================================================================
+2025-09-28 05:28:06,234 - INFO - Analyzing route: Tempe, AZ → Phoenix, AZ
+2025-09-28 05:28:11,733 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:28:11,733 - INFO -   Safety Score: 82%
+2025-09-28 05:28:11,733 - INFO -   Main Concerns: ['Heavy Traffic & Congestion (especially during peak hours)', 'Distracted Driving (common in urban areas with high volume)', 'Extreme Heat (summer, impacts vehicle reliability and driver fatigue)']
+2025-09-28 05:28:11,733 - INFO -   Quick Tips: ['Check traffic conditions before departing and allow ample time', 'Maintain a safe following distance, especially in stop-and-go traffic', 'Ensure vehicle is in good condition (tires, fluids) and stay hydrated']
+2025-09-28 05:28:11,733 - INFO - Starting validation agent...
+2025-09-28 05:28:11,733 - INFO - ============================================================
+2025-09-28 05:28:11,733 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:28:11,733 - INFO - ============================================================
+2025-09-28 05:28:11,733 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:28:11,733 - INFO -   Safety Score: 82%
+2025-09-28 05:28:11,733 - INFO -   Main Concerns: ['Heavy Traffic & Congestion (especially during peak hours)', 'Distracted Driving (common in urban areas with high volume)', 'Extreme Heat (summer, impacts vehicle reliability and driver fatigue)']
+2025-09-28 05:28:11,733 - INFO -   Quick Tips: ['Check traffic conditions before departing and allow ample time', 'Maintain a safe following distance, especially in stop-and-go traffic', 'Ensure vehicle is in good condition (tires, fluids) and stay hydrated']
+2025-09-28 05:28:11,733 - INFO -   Raw Response: N/A...
+2025-09-28 05:28:11,733 - INFO - Sending validation request to Gemini...
+2025-09-28 05:28:26,579 - INFO - ============================================================
+2025-09-28 05:28:26,579 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:28:26,579 - INFO - ============================================================
+2025-09-28 05:28:26,579 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:28:26,579 - INFO -   Original Score: 82%
+2025-09-28 05:28:26,579 - INFO -   Validation Score: 75%
+2025-09-28 05:28:26,579 - INFO -   Adjustment Needed: -7 points
+2025-09-28 05:28:26,579 - INFO -   Final Score: 75%
+2025-09-28 05:28:26,579 - INFO -   Confidence: high
+2025-09-28 05:28:26,579 - INFO - VALIDATION REASONING:
+2025-09-28 05:28:26,579 - INFO -   The original analysis correctly identifies the primary challenges of heavy traffic, congestion, distracted driving, and extreme heat. These are absolutely critical and defining safety factors for driving between Tempe and Phoenix, especially on routes like I-10 or US-60 during peak hours. However, a score of 82% feels somewhat optimistic given the *intensity* and *consistency* of these hazards. Extreme heat isn't just an 'impacts vehicle reliability and driver fatigue' factor; it can lead to tire blowouts, engine overheating, and severe driver impairment. The sheer volume of traffic and associated aggressive/distracted driving is a daily reality. The analysis also missed a couple of significant, albeit sometimes seasonal, high-risk factors specific to this region: sudden dust storms (haboobs) which cause near-zero visibility and sun glare, which can be intense year-round, especially during sunrise/sunset on east-west stretches. While infrastructure is generally good and emergency services are prompt in the metro area, the consistent high-risk factors warrant a slightly lower, more realistic safety score.
+2025-09-28 05:28:26,579 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:28:26,579 - INFO -   - Dust Storms (Haboobs): Can occur suddenly, causing zero visibility and extreme danger, particularly during monsoon season (summer).
+2025-09-28 05:28:26,579 - INFO -   - Intense Sun Glare: Especially during sunrise and sunset, the low sun angle can severely impair visibility on major east-west corridors.
+2025-09-28 05:28:26,579 - INFO -   - Aggressive Driving/Road Rage: High traffic combined with extreme heat can exacerbate aggressive driving behaviors.
+2025-09-28 05:28:26,579 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:28:26,579 - INFO -   - Monitor weather forecasts closely, especially during monsoon season, for dust storm warnings. If caught in a dust storm, pull off the road if safe, turn off lights, and take your foot off the brake.
+2025-09-28 05:28:26,580 - INFO -   - Always keep sunglasses handy and ensure your windshield is clean to mitigate sun glare.
+2025-09-28 05:28:26,580 - INFO -   - Practice defensive driving, anticipate aggressive maneuvers from others, and avoid engaging with agitated drivers.
+2025-09-28 05:28:26,580 - INFO - VALIDATION NOTES: The route from Tempe to Phoenix is a quintessential urban/suburban commute within a major metropolitan area known for its extreme heat and traffic. While the road network is well-maintained and emergency response is robust, the inherent risks associated with high-volume traffic, the unique climate hazards (extreme heat, dust storms, intense sun), and prevalent distracted/aggressive driving make it a moderately challenging environment. The adjustment reflects a more 'harsh but realistic' assessment of these consistent and potential high-impact factors.
+2025-09-28 05:28:26,580 - INFO - ============================================================
+2025-09-28 05:28:26,580 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:28:26,580 - INFO - ============================================================
+2025-09-28 05:28:26,580 - INFO - Original AI Score: 82%
+2025-09-28 05:28:26,580 - INFO - Validation Adjustment: -7 points
+2025-09-28 05:28:26,580 - INFO - Final Safety Score: 75%
+2025-09-28 05:28:26,580 - INFO - ============================================================
+2025-09-28 05:28:26,580 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:28:26,580 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:28:26,833 - INFO - Using precise coordinates: 33.436902599999996,-112.0062771
+2025-09-28 05:28:26,833 - INFO - ================================================================================
+2025-09-28 05:28:26,833 - INFO - STREET VIEW AGENT STARTING TEXT-BASED ANALYSIS
+2025-09-28 05:28:26,833 - INFO - ================================================================================
+2025-09-28 05:28:26,833 - INFO - Location: Tempe, AZ to Phoenix, AZ
+2025-09-28 05:28:26,833 - INFO - Coordinates: 33.436902599999996,-112.0062771
+2025-09-28 05:28:26,833 - INFO - Time Context: day
+2025-09-28 05:28:26,834 - INFO - Note: Using text-based analysis (no street view images required)
+2025-09-28 05:28:26,834 - INFO - 
+2025-09-28 05:28:26,834 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:28:26,834 - INFO -   - Analyzing location safety based on area knowledge
+2025-09-28 05:28:26,834 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:28:26,834 - INFO -   - Considering typical infrastructure and crime patterns
+2025-09-28 05:28:26,834 - INFO -   - Assessing pedestrian safety factors
+2025-09-28 05:28:26,834 - INFO - 
+2025-09-28 05:28:26,834 - INFO - Sending text-based analysis request to Gemini...
+2025-09-28 05:28:26,834 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:28:26,834 - INFO -   - Requesting detailed observations and recommendations
+2025-09-28 05:28:26,834 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:28:55,786 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:28:55,787 - INFO -   - Response length: 9483 characters
+2025-09-28 05:28:55,787 - INFO - ================================================================================
+2025-09-28 05:28:55,787 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:28:55,787 - INFO - ================================================================================
+2025-09-28 05:28:55,787 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:28:55,787 - INFO -   Overall Safety Score: 64.2%
+2025-09-28 05:28:55,787 - INFO -   Confidence Level: medium-high
+2025-09-28 05:28:55,787 - INFO -   Time Context: day
+2025-09-28 05:28:55,787 - INFO -   Image Quality: text-based
+2025-09-28 05:28:55,787 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:28:55,788 - INFO -   This location on W Washington Street in Phoenix, near the I-17 overpass, is an urban arterial corridor characterized by a mix of commercial, light industrial, and older residential properties. During the day, natural light provides good visibility, and essential pedestrian infrastructure like sidewalks, crosswalks, and streetlights are expected to be present. However, the condition of this infrastructure is likely variable, with potential for uneven sidewalks, faded crosswalks, and mixed building upkeep. A significant concern is the high volume and speed of traffic on W Washington Street, coupled with potentially limited separation from pedestrians and proximity to major highways. Crime markers like graffiti and security bars suggest moderate local crime concerns. While human activity provides some natural surveillance, the area's mixed demographics, including potential transient populations, introduce an element of unpredictability. Overall, it's a typical older urban environment with standard amenities but notable traffic and moderate social-safety risks.
+2025-09-28 05:28:55,788 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:28:55,788 - INFO -   - High traffic danger due to busy arterial road with significant volume and speed
+2025-09-28 05:28:55,788 - INFO -   - Variable condition of pedestrian infrastructure, potentially impacting accessibility and safety
+2025-09-28 05:28:55,788 - INFO -   - Moderate crime risk, indicated by common urban crime markers and area reputation
+2025-09-28 05:28:55,788 - INFO -   - Potential presence of transient populations, influencing social environment
+2025-09-28 05:28:55,788 - INFO -   - General urban blight and maintenance issues in some parts of the corridor
+2025-09-28 05:28:55,788 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:28:55,788 - INFO -   - Excellent natural light and visibility during the day
+2025-09-28 05:28:55,788 - INFO -   - Presence of basic pedestrian infrastructure (sidewalks, crosswalks, signals)
+2025-09-28 05:28:55,788 - INFO -   - Moderate human activity providing natural surveillance
+2025-09-28 05:28:55,788 - INFO -   - Sparse desert landscaping minimizes vegetation-related obstructions
+2025-09-28 05:28:55,788 - INFO -   - Expected regular police presence in an urban setting
+2025-09-28 05:28:55,788 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:28:55,788 - INFO -   - Implement traffic calming measures and improve pedestrian-vehicle separation on W Washington Street.
+2025-09-28 05:28:55,788 - INFO -   - Conduct a comprehensive assessment of pedestrian infrastructure, prioritizing repair of cracked sidewalks, clear markings for crosswalks, and ensuring ADA compliance for curb cuts.
+2025-09-28 05:28:55,788 - INFO -   - Increase maintenance and cleanliness initiatives to address graffiti and urban blight.
+2025-09-28 05:28:55,788 - INFO -   - Enhance community engagement and support services to address transient populations and improve overall social cohesion.
+2025-09-28 05:28:55,788 - INFO -   - Improve surveillance and lighting in less visible areas, especially near businesses and parking lots.
+2025-09-28 05:28:55,788 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:28:55,788 - INFO -   Exposure Visibility: 85% (Weight: 20%)
+2025-09-28 05:28:55,788 - INFO -   Infrastructure Condition: 65% (Weight: 15%)
+2025-09-28 05:28:55,788 - INFO -   Crime Markers: 55% (Weight: 20%)
+2025-09-28 05:28:55,788 - INFO -   Pedestrian Infrastructure: 60% (Weight: 15%)
+2025-09-28 05:28:55,788 - INFO -   Traffic Danger: 40% (Weight: 15%)
+2025-09-28 05:28:55,788 - INFO -   Vegetation Obstructions: 80% (Weight: 10%)
+2025-09-28 05:28:55,788 - INFO -   Human Activity: 70% (Weight: 5%)
+2025-09-28 05:28:55,788 - INFO - ANALYSIS NOTES: The assessment relies on general knowledge of urban Phoenix environments, arterial road characteristics, and crime trends in central urban areas. Specific, real-time visual inspection would be needed to confirm exact conditions of individual infrastructure elements or precise levels of human activity/crime markers at the given coordinates.
+2025-09-28 05:28:55,788 - INFO - ================================================================================
+2025-09-28 05:28:55,788 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:28:55,788 - INFO - ================================================================================
+2025-09-28 05:28:55,788 - INFO - Street View Safety Score: 64.2%
+2025-09-28 05:28:55,788 - INFO - ================================================================================
+2025-09-28 05:28:55,788 - INFO -   Street view safety score: 64.2%
+2025-09-28 05:28:55,789 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:28:55,789 - INFO - ================================================================================
+2025-09-28 05:28:55,789 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:28:55,789 - INFO - ================================================================================
+2025-09-28 05:28:55,789 - INFO - Original Score: 82%
+2025-09-28 05:28:55,789 - INFO - Validation Adjustment: -7 points
+2025-09-28 05:28:55,789 - INFO - Final Score: 75%
+2025-09-28 05:28:55,789 - INFO - ================================================================================
+2025-09-28 05:28:55,789 - INFO - 127.0.0.1 - - [28/Sep/2025 05:28:55] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:29:08,313 - INFO - 127.0.0.1 - - [28/Sep/2025 05:29:08] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:29:08,314 - INFO - 127.0.0.1 - - [28/Sep/2025 05:29:08] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:29:08,317 - INFO - ================================================================================
+2025-09-28 05:29:08,317 - INFO - ================================================================================
+2025-09-28 05:29:08,317 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:29:08,317 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:29:08,317 - INFO - ================================================================================
+2025-09-28 05:29:08,317 - INFO - ================================================================================
+2025-09-28 05:29:08,318 - INFO - Analyzing route: oliv tempe → tooker house
+2025-09-28 05:29:08,318 - INFO - Analyzing route: oliv tempe → tooker house
+2025-09-28 05:29:15,892 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:29:15,892 - INFO -   Safety Score: 82%
+2025-09-28 05:29:15,892 - INFO -   Main Concerns: ['Vehicular traffic on E University Drive (a busy road).', 'Reduced visibility and potential for opportunistic crime, particularly after dark.']
+2025-09-28 05:29:15,892 - INFO -   Quick Tips: ['Always use designated crosswalks and obey traffic signals.', 'Stay aware of your surroundings; avoid distractions like phones.', 'Consider walking with a friend or using well-lit, populated paths if walking alone at night.']
+2025-09-28 05:29:15,892 - INFO - Starting validation agent...
+2025-09-28 05:29:15,892 - INFO - ============================================================
+2025-09-28 05:29:15,892 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:29:15,892 - INFO - ============================================================
+2025-09-28 05:29:15,892 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:29:15,892 - INFO -   Safety Score: 82%
+2025-09-28 05:29:15,892 - INFO -   Main Concerns: ['Vehicular traffic on E University Drive (a busy road).', 'Reduced visibility and potential for opportunistic crime, particularly after dark.']
+2025-09-28 05:29:15,892 - INFO -   Quick Tips: ['Always use designated crosswalks and obey traffic signals.', 'Stay aware of your surroundings; avoid distractions like phones.', 'Consider walking with a friend or using well-lit, populated paths if walking alone at night.']
+2025-09-28 05:29:15,892 - INFO -   Raw Response: N/A...
+2025-09-28 05:29:15,892 - INFO - Sending validation request to Gemini...
+2025-09-28 05:29:18,598 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:29:18,598 - INFO -   Safety Score: 80%
+2025-09-28 05:29:18,598 - INFO -   Main Concerns: ['High Traffic & Crosswalks: Navigating busy intersections on major roads (University Dr, Rural Rd, Apache Blvd) with high vehicle and pedestrian traffic.', 'Nighttime Personal Safety: Increased vulnerability to opportunistic crime due to reduced visibility and fewer people, particularly when walking alone after dark.', 'Situational Awareness: Risk of distraction (phones/headphones) impairing the ability to notice immediate surroundings and potential hazards.']
+2025-09-28 05:29:18,598 - INFO -   Quick Tips: ['Prioritize Awareness: Minimize phone use and avoid headphones, especially when crossing streets or walking in less crowded areas.', "Travel Smart at Night: Walk with others or utilize ASU's safety resources (e.g., LiveSafe app, safety escorts) after dark.", 'Utilize Designated Paths: Stick to well-lit, designated pedestrian paths and always use crosswalks and traffic signals.']
+2025-09-28 05:29:18,598 - INFO - Starting validation agent...
+2025-09-28 05:29:18,599 - INFO - ============================================================
+2025-09-28 05:29:18,599 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:29:18,599 - INFO - ============================================================
+2025-09-28 05:29:18,599 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:29:18,599 - INFO -   Safety Score: 80%
+2025-09-28 05:29:18,599 - INFO -   Main Concerns: ['High Traffic & Crosswalks: Navigating busy intersections on major roads (University Dr, Rural Rd, Apache Blvd) with high vehicle and pedestrian traffic.', 'Nighttime Personal Safety: Increased vulnerability to opportunistic crime due to reduced visibility and fewer people, particularly when walking alone after dark.', 'Situational Awareness: Risk of distraction (phones/headphones) impairing the ability to notice immediate surroundings and potential hazards.']
+2025-09-28 05:29:18,599 - INFO -   Quick Tips: ['Prioritize Awareness: Minimize phone use and avoid headphones, especially when crossing streets or walking in less crowded areas.', "Travel Smart at Night: Walk with others or utilize ASU's safety resources (e.g., LiveSafe app, safety escorts) after dark.", 'Utilize Designated Paths: Stick to well-lit, designated pedestrian paths and always use crosswalks and traffic signals.']
+2025-09-28 05:29:18,599 - INFO -   Raw Response: N/A...
+2025-09-28 05:29:18,600 - INFO - Sending validation request to Gemini...
