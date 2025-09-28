@@ -192,7 +192,7 @@ def analyze_route():
         }
         
         streetview_result = analyze_streetview_safety(
-            None,  # No image data needed
+            None,  # Will fetch real Street View image
             streetview_location_info
         )
         
@@ -470,7 +470,7 @@ def analyze_route_with_streetview():
         }
         
         streetview_result = analyze_streetview_safety(
-            None,  # No image data needed
+            None,  # Will fetch real Street View image
             streetview_location_info
         )
         

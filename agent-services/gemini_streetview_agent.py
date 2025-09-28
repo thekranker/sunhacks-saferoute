@@ -3,6 +3,9 @@ import os
 import json
 import logging
 import base64
+import requests
+import io
+from PIL import Image
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -38,6 +41,10 @@ class GeminiStreetViewAgent:
     
     def __init__(self):
         self.logger = logger
+        self.google_api_key = os.getenv('GOOGLE_API_KEY')
+        if not self.google_api_key:
+            self.logger.error("Error: Please set the GOOGLE_API_KEY in your .env file")
+            exit(1)
         self.safety_metrics = {
             "exposure_visibility": {
                 "weight": 0.20,
@@ -69,13 +76,138 @@ class GeminiStreetViewAgent:
             }
         }
     
-    def analyze_streetview_safety(self, image_data=None, location_info=None):
+    def fetch_streetview_image(self, location_info):
         """
-        Analyze street view safety indicators using text-based analysis.
-        No longer requires actual street view images.
+        Fetch a real Google Street View image for the given location.
         
         Args:
-            image_data (str, optional): Base64 encoded image data (ignored)
+            location_info (dict): Location information with coordinates or address
+            
+        Returns:
+            str: Base64 encoded image data, or None if failed
+        """
+        try:
+            # Extract coordinates or geocode address
+            if 'coordinates' in location_info:
+                lat, lng = location_info['coordinates'].split(',')
+                lat, lng = float(lat.strip()), float(lng.strip())
+            else:
+                # Geocode the address to get coordinates
+                geocoded = self._geocode_address(location_info.get('address', ''))
+                if not geocoded:
+                    self.logger.error("Failed to geocode address for Street View")
+                    return None
+                lat, lng = geocoded['lat'], geocoded['lng']
+            
+            # Fetch Street View image
+            url = "https://maps.googleapis.com/maps/api/streetview"
+            params = {
+                'location': f"{lat},{lng}",
+                'size': '640x640',  # Good resolution for analysis
+                'fov': '90',  # Wide field of view
+                'heading': '0',  # North-facing
+                'pitch': '0',  # Level view
+                'key': self.google_api_key
+            }
+            
+            self.logger.info(f"Fetching Street View image for {lat},{lng}")
+            response = requests.get(url, params=params, timeout=15)
+            response.raise_for_status()
+            
+            # Convert to base64
+            image_data = base64.b64encode(response.content).decode('utf-8')
+            self.logger.info(f"Successfully fetched Street View image ({len(image_data)} chars)")
+            return image_data
+            
+        except Exception as e:
+            self.logger.error(f"Failed to fetch Street View image: {str(e)}")
+            return None
+    
+    def _geocode_address(self, address):
+        """
+        Geocode an address to get coordinates.
+        
+        Args:
+            address (str): Address to geocode
+            
+        Returns:
+            dict: Coordinates and formatted address, or None if failed
+        """
+        try:
+            url = "https://maps.googleapis.com/maps/api/geocode/json"
+            params = {
+                'address': address,
+                'key': self.google_api_key
+            }
+            
+            response = requests.get(url, params=params, timeout=10)
+            response.raise_for_status()
+            
+            data = response.json()
+            
+            if data['status'] == 'OK' and data['results']:
+                result = data['results'][0]
+                location = result['geometry']['location']
+                return {
+                    'lat': location['lat'],
+                    'lng': location['lng'],
+                    'formatted_address': result['formatted_address']
+                }
+            else:
+                self.logger.warning(f"Geocoding failed for {address}: {data.get('status', 'Unknown error')}")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"Geocoding error for {address}: {str(e)}")
+            return None
+    
+    def _fallback_text_analysis(self, location_info):
+        """
+        Fallback to text-based analysis when Street View image cannot be fetched.
+        
+        Args:
+            location_info (dict): Location information
+            
+        Returns:
+            dict: Analysis results with safety score and detailed breakdown
+        """
+        try:
+            self.logger.info("FALLING BACK TO TEXT-BASED ANALYSIS")
+            self.logger.info("  - Analyzing location safety based on area knowledge")
+            self.logger.info("  - Evaluating 7 safety metrics with weighted scoring")
+            self.logger.info("  - Considering typical infrastructure and crime patterns")
+            
+            # Create comprehensive text-based analysis prompt
+            analysis_prompt = self._create_text_based_analysis_prompt(location_info)
+            
+            # Generate content without image
+            response = model.generate_content(analysis_prompt)
+            
+            # Parse analysis response
+            analysis_result = self._parse_streetview_response(response.text, location_info)
+            
+            # Mark as fallback analysis
+            analysis_result["analysis_type"] = "text_based_fallback"
+            analysis_result["image_quality"] = "unavailable"
+            
+            return analysis_result
+            
+        except Exception as e:
+            self.logger.error(f"Fallback text analysis failed: {str(e)}")
+            return {
+                "success": False,
+                "error": str(e),
+                "safety_score": 0,
+                "confidence_level": "low",
+                "analysis_type": "failed"
+            }
+    
+    def analyze_streetview_safety(self, image_data=None, location_info=None):
+        """
+        Analyze street view safety indicators using real Google Street View images.
+        
+        Args:
+            image_data (str, optional): Base64 encoded image data (if provided, will be used)
             location_info (dict): Location information (address, coordinates, time_context)
             
         Returns:
@@ -83,30 +215,39 @@ class GeminiStreetViewAgent:
         """
         try:
             self.logger.info("=" * 80)
-            self.logger.info("STREET VIEW AGENT STARTING TEXT-BASED ANALYSIS")
+            self.logger.info("STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS")
             self.logger.info("=" * 80)
             self.logger.info(f"Location: {location_info.get('address', 'Unknown')}")
             self.logger.info(f"Coordinates: {location_info.get('coordinates', 'Unknown')}")
             self.logger.info(f"Time Context: {location_info.get('time_context', 'Unknown')}")
-            self.logger.info("Note: Using text-based analysis (no street view images required)")
-            self.logger.info("")
+            
+            # Fetch real Street View image if not provided
+            if not image_data:
+                self.logger.info("No image data provided, fetching real Street View image...")
+                image_data = self.fetch_streetview_image(location_info)
+                if not image_data:
+                    self.logger.warning("Failed to fetch Street View image, falling back to text-based analysis")
+                    return self._fallback_text_analysis(location_info)
+            else:
+                self.logger.info("Using provided image data for analysis")
+            
             self.logger.info("STREET VIEW AGENT THINKING PROCESS:")
-            self.logger.info("  - Analyzing location safety based on area knowledge")
+            self.logger.info("  - Analyzing actual Street View image for visual safety indicators")
             self.logger.info("  - Evaluating 7 safety metrics with weighted scoring")
-            self.logger.info("  - Considering typical infrastructure and crime patterns")
-            self.logger.info("  - Assessing pedestrian safety factors")
+            self.logger.info("  - Looking for lighting, infrastructure, crime markers, etc.")
+            self.logger.info("  - Assessing pedestrian safety factors from visual evidence")
             self.logger.info("")
             
-            # Create comprehensive text-based analysis prompt
-            analysis_prompt = self._create_text_based_analysis_prompt(location_info)
+            # Create comprehensive image-based analysis prompt
+            analysis_prompt = self._create_streetview_analysis_prompt(location_info)
             
-            self.logger.info("Sending text-based analysis request to Gemini...")
+            self.logger.info("Sending image analysis request to Gemini...")
             self.logger.info("  - Prompt includes 7 weighted safety metrics")
-            self.logger.info("  - Requesting detailed observations and recommendations")
+            self.logger.info("  - Requesting detailed visual observations and recommendations")
             self.logger.info("  - Expecting JSON response with metric breakdown")
             
-            # Generate content without image
-            response = model.generate_content(analysis_prompt)
+            # Generate content with image
+            response = model.generate_content([analysis_prompt, {"mime_type": "image/jpeg", "data": image_data}])
             
             self.logger.info("Received response from Gemini, parsing analysis...")
             self.logger.info(f"  - Response length: {len(response.text)} characters")
@@ -129,10 +270,10 @@ class GeminiStreetViewAgent:
             }
     
     def _create_streetview_analysis_prompt(self, location_info):
-        """Create comprehensive prompt for street view safety analysis."""
+        """Create comprehensive prompt for real street view image safety analysis."""
         
         prompt = f"""
-        You are a safety analysis expert specializing in visual assessment of street environments. Analyze this street view image for pedestrian safety indicators.
+        You are a safety analysis expert specializing in visual assessment of street environments. Analyze this Google Street View image for pedestrian safety indicators.
 
         LOCATION CONTEXT:
         - Address: {location_info.get('address', 'Unknown')}
@@ -140,7 +281,7 @@ class GeminiStreetViewAgent:
         - Time Context: {location_info.get('time_context', 'Unknown')}
 
         YOUR TASK:
-        Analyze this street view image for the following safety metrics and provide a comprehensive safety assessment:
+        Carefully examine this Street View image and analyze it for the following safety metrics. Look at what you can actually see in the image:
 
         1. EXPOSURE/VISIBILITY (Weight: 20%):
            - Lighting conditions (day/night, streetlights, building lights)
@@ -250,8 +391,10 @@ class GeminiStreetViewAgent:
             "analysis_notes": "<any additional observations or limitations>"
         }}
 
+        IMPORTANT: Base your analysis ONLY on what you can actually see in this Street View image. 
         Be thorough, accurate, and realistic in your assessment. Focus on actual safety factors visible in the image.
-        Consider both risks and positive safety indicators. Be specific about what you observe.
+        Consider both risks and positive safety indicators. Be specific about what you observe in the image.
+        If certain elements are not visible in the image, note that in your observations.
         """
         
         return prompt
@@ -428,6 +571,7 @@ class GeminiStreetViewAgent:
                 "time_context": analysis_data.get('time_context', 'unknown'),
                 "image_quality": analysis_data.get('image_quality', 'unknown'),
                 "analysis_notes": analysis_data.get('analysis_notes', ''),
+                "analysis_type": "real_streetview_image",
                 "location_info": location_info,
                 "analysis_timestamp": datetime.now().isoformat(),
                 "raw_analysis": response_text

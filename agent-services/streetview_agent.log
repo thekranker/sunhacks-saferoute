@@ -89,3 +89,104 @@ Please retry in 11.15127338s. [violations {
 2025-09-28 03:39:29,401 - INFO - ================================================================================
 2025-09-28 03:39:29,401 - INFO - Street View Safety Score: 83.5%
 2025-09-28 03:39:29,402 - INFO - ================================================================================
+2025-09-28 05:33:30,463 - INFO - ================================================================================
+2025-09-28 05:33:30,464 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:33:30,464 - INFO - ================================================================================
+2025-09-28 05:33:30,464 - INFO - Location: 123 E Apache Blvd, Tempe, AZ 85281
+2025-09-28 05:33:30,464 - INFO - Coordinates: 33.4255,-111.9400
+2025-09-28 05:33:30,464 - INFO - Time Context: day
+2025-09-28 05:33:30,464 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:33:30,464 - INFO - Fetching Street View image for 33.4255,-111.94
+2025-09-28 05:33:30,959 - INFO - Successfully fetched Street View image (107444 chars)
+2025-09-28 05:33:30,960 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:33:30,960 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:33:30,960 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:33:30,960 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:33:30,960 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:33:30,960 - INFO - 
+2025-09-28 05:33:30,960 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:33:30,960 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:33:30,960 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:33:30,960 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:33:31,214 - ERROR - Street view analysis failed: 403 Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked. [reason: "API_KEY_SERVICE_BLOCKED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "methodName"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+metadata {
+  key: "consumer"
+  value: "projects/568105310495"
+}
+metadata {
+  key: "apiName"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked."
+]
+2025-09-28 05:35:47,601 - INFO - ================================================================================
+2025-09-28 05:35:47,602 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:35:47,602 - INFO - ================================================================================
+2025-09-28 05:35:47,602 - INFO - Location: 123 E Apache Blvd, Tempe, AZ 85281
+2025-09-28 05:35:47,602 - INFO - Coordinates: 33.4255,-111.9400
+2025-09-28 05:35:47,602 - INFO - Time Context: day
+2025-09-28 05:35:47,602 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:35:47,602 - INFO - Fetching Street View image for 33.4255,-111.94
+2025-09-28 05:35:48,072 - INFO - Successfully fetched Street View image (107444 chars)
+2025-09-28 05:35:48,074 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:35:48,074 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:35:48,074 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:35:48,074 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:35:48,074 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:35:48,074 - INFO - 
+2025-09-28 05:35:48,074 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:35:48,074 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:35:48,074 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:35:48,074 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:36:12,397 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:36:12,398 - INFO -   - Response length: 9623 characters
+2025-09-28 05:36:12,399 - INFO - ================================================================================
+2025-09-28 05:36:12,399 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:36:12,399 - INFO - ================================================================================
+2025-09-28 05:36:12,399 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:36:12,399 - INFO -   Overall Safety Score: 88.2%
+2025-09-28 05:36:12,399 - INFO -   Confidence Level: high
+2025-09-28 05:36:12,399 - INFO -   Time Context: day
+2025-09-28 05:36:12,399 - INFO -   Image Quality: good
+2025-09-28 05:36:12,399 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:36:12,400 - INFO -   The image displays a vibrant urban street environment during a clear day. The location is an intersection with a multi-lane road that accommodates both vehicular traffic and light rail. Pedestrian infrastructure includes wide, well-maintained sidewalks and clearly marked crosswalks. Buildings on both sides are commercial and appear well-kept, contributing to an inviting atmosphere. There is no visible sign of neglect, vandalism, or overt crime-related markers. Traffic is controlled by traffic lights. Vegetation is manicured and does not obstruct views. While the area benefits from good visibility and infrastructure, the proximity to a busy road and light rail tracks without additional physical pedestrian barriers presents some inherent traffic-related risks. Human activity is present, indicating a frequented area.
+2025-09-28 05:36:12,400 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:36:12,400 - INFO -   - Proximity of pedestrians to a multi-lane road with light rail tracks
+2025-09-28 05:36:12,400 - INFO -   - Lack of explicit pedestrian walk/don't walk signals visible in the frame (though implied by traffic lights)
+2025-09-28 05:36:12,400 - INFO -   - No physical barriers (e.g., bollards) separating sidewalks from active traffic lanes
+2025-09-28 05:36:12,400 - INFO -   - Potential for high traffic volume and speed, despite intersection controls
+2025-09-28 05:36:12,400 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:36:12,400 - INFO -   - Excellent daytime visibility and clear sightlines
+2025-09-28 05:36:12,400 - INFO -   - Well-maintained pedestrian infrastructure (sidewalks, crosswalks)
+2025-09-28 05:36:12,400 - INFO -   - Absence of crime-related markers (graffiti, boarded-up buildings)
+2025-09-28 05:36:12,400 - INFO -   - Active commercial environment contributing to natural surveillance
+2025-09-28 05:36:12,400 - INFO -   - Controlled intersection with functional traffic lights
+2025-09-28 05:36:12,400 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:36:12,400 - INFO -   - Verify the presence and functionality of dedicated pedestrian walk/don't walk signals at the intersection.
+2025-09-28 05:36:12,400 - INFO -   - Consider implementing additional physical separation (e.g., bollards, raised planters) between the sidewalk and traffic lanes, especially near the light rail tracks, to enhance pedestrian safety.
+2025-09-28 05:36:12,400 - INFO -   - Ensure clear signage and auditory warnings for light rail approaching the intersection.
+2025-09-28 05:36:12,400 - INFO -   - Conduct periodic assessments of traffic speed and volume to determine if additional traffic calming measures are necessary.
+2025-09-28 05:36:12,400 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:36:12,400 - INFO -   Exposure Visibility: 95% (Weight: 20%)
+2025-09-28 05:36:12,400 - INFO -   Infrastructure Condition: 90% (Weight: 15%)
+2025-09-28 05:36:12,400 - INFO -   Crime Markers: 95% (Weight: 20%)
+2025-09-28 05:36:12,400 - INFO -   Pedestrian Infrastructure: 85% (Weight: 15%)
+2025-09-28 05:36:12,400 - INFO -   Traffic Danger: 70% (Weight: 15%)
+2025-09-28 05:36:12,400 - INFO -   Vegetation Obstructions: 95% (Weight: 10%)
+2025-09-28 05:36:12,400 - INFO -   Human Activity: 80% (Weight: 5%)
+2025-09-28 05:36:12,400 - INFO - ANALYSIS NOTES: The analysis is based solely on the provided Google Street View image and its crops. The good image quality allows for detailed observation of most visible elements. However, certain aspects like pedestrian signal functionality, specific accessibility features (curb cuts), and actual traffic speed cannot be definitively determined from a static image. The overall assessment points to a generally safe and well-maintained urban environment, with the primary safety concerns revolving around inherent traffic dynamics of a multi-modal intersection.
+2025-09-28 05:36:12,400 - INFO - ================================================================================
+2025-09-28 05:36:12,400 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:36:12,400 - INFO - ================================================================================
+2025-09-28 05:36:12,401 - INFO - Street View Safety Score: 88.2%
+2025-09-28 05:36:12,401 - INFO - ================================================================================
