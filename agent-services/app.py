@@ -4,6 +4,8 @@ import json
 import logging
 import signal
 import sys
+import os
+import requests
 from gemini_api import analyze_route_safety
 from gemini_validation_agent import validate_route_safety_with_agent, GeminiValidationAgent
 from gemini_streetview_agent import analyze_streetview_safety, GeminiStreetViewAgent
@@ -31,6 +33,50 @@ def timeout_handler(signum, frame):
 
 # Set up timeout for long-running requests
 signal.signal(signal.SIGALRM, timeout_handler)
+
+def geocode_address(address):
+    """
+    Geocode an address to get coordinates using Google Geocoding API.
+    
+    Args:
+        address (str): Address to geocode
+        
+    Returns:
+        dict: Coordinates and formatted address, or None if failed
+    """
+    try:
+        # Use Google Geocoding API
+        api_key = os.getenv('GOOGLE_API_KEY')
+        if not api_key:
+            logger.warning("No Google API key found for geocoding")
+            return None
+            
+        url = f"https://maps.googleapis.com/maps/api/geocode/json"
+        params = {
+            'address': address,
+            'key': api_key
+        }
+        
+        response = requests.get(url, params=params, timeout=10)
+        response.raise_for_status()
+        
+        data = response.json()
+        
+        if data['status'] == 'OK' and data['results']:
+            result = data['results'][0]
+            location = result['geometry']['location']
+            return {
+                'lat': location['lat'],
+                'lng': location['lng'],
+                'formatted_address': result['formatted_address']
+            }
+        else:
+            logger.warning(f"Geocoding failed for {address}: {data.get('status', 'Unknown error')}")
+            return None
+            
+    except Exception as e:
+        logger.error(f"Geocoding error for {address}: {str(e)}")
+        return None
 
 @app.route('/analyze-route', methods=['POST'])
 def analyze_route():
@@ -122,10 +168,26 @@ def analyze_route():
         # Step 3: Analyze street view safety (text-based analysis)
         logger.info("Starting street view analysis (text-based)...")
         
-        # Create location info for streetview analysis
+        # Geocode the origin and destination for precise coordinates
+        logger.info("Geocoding addresses for precise location analysis...")
+        origin_coords = geocode_address(origin)
+        dest_coords = geocode_address(destination)
+        
+        # Create location info for streetview analysis with real coordinates
+        if origin_coords and dest_coords:
+            # Use midpoint coordinates for route analysis
+            mid_lat = (origin_coords['lat'] + dest_coords['lat']) / 2
+            mid_lng = (origin_coords['lng'] + dest_coords['lng']) / 2
+            coordinates = f"{mid_lat},{mid_lng}"
+            logger.info(f"Using precise coordinates: {coordinates}")
+        else:
+            # Fallback to address-based analysis if geocoding fails
+            coordinates = f"{origin} to {destination}"
+            logger.warning("Using address-based analysis (geocoding failed)")
+        
         streetview_location_info = {
             "address": f"{origin} to {destination}",
-            "coordinates": "route_coordinates",
+            "coordinates": coordinates,
             "time_context": "day"
         }
         
