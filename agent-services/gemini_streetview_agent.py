@@ -1,0 +1,439 @@
+import google.generativeai as genai
+import os
+import json
+import logging
+import base64
+from datetime import datetime
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('streetview_agent.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# Configure the API key
+api_key = os.getenv('GOOGLE_API_KEY')
+if not api_key:
+    logger.error("Error: Please set the GOOGLE_API_KEY in your .env file")
+    exit(1)
+
+genai.configure(api_key=api_key)
+
+# Create the model
+model = genai.GenerativeModel('gemini-2.5-flash')
+
+class GeminiStreetViewAgent:
+    """
+    Street view analysis agent that analyzes street view images for safety indicators.
+    """
+    
+    def __init__(self):
+        self.logger = logger
+        self.safety_metrics = {
+            "exposure_visibility": {
+                "weight": 0.20,
+                "description": "Lighting conditions, visibility, hidden areas"
+            },
+            "infrastructure_condition": {
+                "weight": 0.15,
+                "description": "Sidewalk condition, streetlights, crosswalks, building maintenance"
+            },
+            "crime_markers": {
+                "weight": 0.20,
+                "description": "Graffiti, boarded windows, security features, surveillance"
+            },
+            "pedestrian_infrastructure": {
+                "weight": 0.15,
+                "description": "Crosswalks, sidewalks, pedestrian signals, accessibility"
+            },
+            "traffic_danger": {
+                "weight": 0.15,
+                "description": "Road proximity, barriers, traffic separation"
+            },
+            "vegetation_obstructions": {
+                "weight": 0.10,
+                "description": "Overgrown foliage, visibility obstructions"
+            },
+            "human_activity": {
+                "weight": 0.05,
+                "description": "Presence of people, activity level (privacy-conscious)"
+            }
+        }
+    
+    def analyze_streetview_safety(self, image_data, location_info):
+        """
+        Analyze street view image for safety indicators.
+        
+        Args:
+            image_data (str): Base64 encoded image data
+            location_info (dict): Location information (address, coordinates, time_context)
+            
+        Returns:
+            dict: Analysis results with safety score and detailed breakdown
+        """
+        try:
+            self.logger.info("=" * 80)
+            self.logger.info("STREET VIEW AGENT STARTING ANALYSIS")
+            self.logger.info("=" * 80)
+            self.logger.info(f"Location: {location_info.get('address', 'Unknown')}")
+            self.logger.info(f"Coordinates: {location_info.get('coordinates', 'Unknown')}")
+            self.logger.info(f"Time Context: {location_info.get('time_context', 'Unknown')}")
+            
+            # Create comprehensive analysis prompt
+            analysis_prompt = self._create_streetview_analysis_prompt(location_info)
+            
+            # Prepare image for analysis
+            try:
+                # Decode base64 image data
+                image_bytes = base64.b64decode(image_data)
+                
+                # Create image part for Gemini
+                image_part = {
+                    "mime_type": "image/jpeg",
+                    "data": image_bytes
+                }
+                
+                self.logger.info("Sending street view image to Gemini for analysis...")
+                
+                # Generate content with image
+                response = model.generate_content([analysis_prompt, image_part])
+                
+            except Exception as e:
+                self.logger.error(f"Image processing failed: {str(e)}")
+                return {
+                    "success": False,
+                    "error": f"Image processing failed: {str(e)}",
+                    "safety_score": 0,
+                    "confidence_level": "low"
+                }
+            
+            # Parse analysis response
+            analysis_result = self._parse_streetview_response(response.text, location_info)
+            
+            # Log detailed analysis process
+            self._log_streetview_analysis(analysis_result)
+            
+            return analysis_result
+            
+        except Exception as e:
+            self.logger.error(f"Street view analysis failed: {str(e)}")
+            return {
+                "success": False,
+                "error": str(e),
+                "safety_score": 0,
+                "confidence_level": "low"
+            }
+    
+    def _create_streetview_analysis_prompt(self, location_info):
+        """Create comprehensive prompt for street view safety analysis."""
+        
+        prompt = f"""
+        You are a safety analysis expert specializing in visual assessment of street environments. Analyze this street view image for pedestrian safety indicators.
+
+        LOCATION CONTEXT:
+        - Address: {location_info.get('address', 'Unknown')}
+        - Coordinates: {location_info.get('coordinates', 'Unknown')}
+        - Time Context: {location_info.get('time_context', 'Unknown')}
+
+        YOUR TASK:
+        Analyze this street view image for the following safety metrics and provide a comprehensive safety assessment:
+
+        1. EXPOSURE/VISIBILITY (Weight: 20%):
+           - Lighting conditions (day/night, streetlights, building lights)
+           - Visibility of the area (clear sightlines, hidden corners)
+           - Dark alleys or poorly lit areas
+           - Overall visibility for pedestrians
+
+        2. INFRASTRUCTURE CONDITION (Weight: 15%):
+           - Sidewalk condition (cracked, broken, missing)
+           - Streetlight functionality and placement
+           - Crosswalk availability and condition
+           - Building maintenance and upkeep
+           - Fence and barrier condition
+
+        3. CRIME-RELATED MARKERS (Weight: 20%):
+           - Graffiti presence and extent
+           - Boarded-up windows or buildings
+           - Security bars on windows
+           - Surveillance cameras
+           - "No loitering" or security signs
+           - High fences or barriers
+           - Police presence indicators
+
+        4. PEDESTRIAN INFRASTRUCTURE (Weight: 15%):
+           - Crosswalk availability and visibility
+           - Sidewalk width and accessibility
+           - Pedestrian signals
+           - Curb cuts for accessibility
+           - Street-level access
+
+        5. TRAFFIC DANGER (Weight: 15%):
+           - Proximity to busy roads
+           - Separation between sidewalk and road
+           - Protective barriers
+           - Traffic flow and speed indicators
+
+        6. VEGETATION/OBSTRUCTIONS (Weight: 10%):
+           - Overgrown foliage blocking visibility
+           - Tree branches obstructing paths
+           - Other visibility obstructions
+
+        7. HUMAN ACTIVITY (Weight: 5%):
+           - Presence of people (be privacy-conscious)
+           - Activity level and type
+           - Social environment indicators
+
+        ADDITIONAL CONSIDERATIONS:
+        - Time context: Consider if this appears to be day/night based on lighting
+        - Weather conditions visible in the image
+        - Overall cleanliness and maintenance
+        - Accessibility features
+
+        RESPOND IN THIS EXACT JSON FORMAT:
+        {{
+            "safety_score": <overall score 0-100>,
+            "metric_breakdown": {{
+                "exposure_visibility": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "infrastructure_condition": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "crime_markers": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "pedestrian_infrastructure": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "traffic_danger": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "vegetation_obstructions": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "human_activity": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }}
+            }},
+            "detailed_observations": "<comprehensive analysis of what you see in the image>",
+            "key_concerns": ["<top 3-5 safety concerns>"],
+            "positive_factors": ["<top 3-5 positive safety factors>"],
+            "recommendations": ["<specific safety recommendations>"],
+            "confidence_level": "<high/medium/low>",
+            "time_context": "<day/night/unknown based on image analysis>",
+            "image_quality": "<excellent/good/fair/poor>",
+            "analysis_notes": "<any additional observations or limitations>"
+        }}
+
+        Be thorough, accurate, and realistic in your assessment. Focus on actual safety factors visible in the image.
+        Consider both risks and positive safety indicators. Be specific about what you observe.
+        """
+        
+        return prompt
+    
+    def _parse_streetview_response(self, response_text, location_info):
+        """Parse the street view analysis response and calculate weighted score."""
+        
+        try:
+            # Extract JSON from response
+            start_idx = response_text.find('{')
+            end_idx = response_text.rfind('}') + 1
+            
+            if start_idx != -1 and end_idx != -1:
+                json_str = response_text[start_idx:end_idx]
+                analysis_data = json.loads(json_str)
+            else:
+                # Fallback if no JSON found
+                analysis_data = {
+                    "safety_score": 50,
+                    "metric_breakdown": {},
+                    "detailed_observations": "Unable to parse analysis response",
+                    "key_concerns": ["Analysis parsing failed"],
+                    "positive_factors": [],
+                    "recommendations": ["Use caution"],
+                    "confidence_level": "low",
+                    "time_context": "unknown",
+                    "image_quality": "unknown",
+                    "analysis_notes": "JSON parsing failed"
+                }
+            
+            # Calculate weighted safety score
+            weighted_score = self._calculate_weighted_score(analysis_data.get('metric_breakdown', {}))
+            
+            # Use calculated score if available, otherwise use provided score
+            final_score = weighted_score if weighted_score > 0 else analysis_data.get('safety_score', 50)
+            
+            return {
+                "success": True,
+                "safety_score": final_score,
+                "metric_breakdown": analysis_data.get('metric_breakdown', {}),
+                "detailed_observations": analysis_data.get('detailed_observations', ''),
+                "key_concerns": analysis_data.get('key_concerns', []),
+                "positive_factors": analysis_data.get('positive_factors', []),
+                "recommendations": analysis_data.get('recommendations', []),
+                "confidence_level": analysis_data.get('confidence_level', 'medium'),
+                "time_context": analysis_data.get('time_context', 'unknown'),
+                "image_quality": analysis_data.get('image_quality', 'unknown'),
+                "analysis_notes": analysis_data.get('analysis_notes', ''),
+                "location_info": location_info,
+                "analysis_timestamp": datetime.now().isoformat(),
+                "raw_analysis": response_text
+            }
+            
+        except json.JSONDecodeError as e:
+            self.logger.error(f"JSON parsing error: {str(e)}")
+            return {
+                "success": False,
+                "error": f"JSON parsing failed: {str(e)}",
+                "safety_score": 0,
+                "confidence_level": "low"
+            }
+    
+    def _calculate_weighted_score(self, metric_breakdown):
+        """Calculate weighted safety score based on metric breakdown."""
+        
+        if not metric_breakdown:
+            return 0
+        
+        total_weighted_score = 0
+        total_weight = 0
+        
+        for metric_name, metric_data in metric_breakdown.items():
+            if isinstance(metric_data, dict) and 'score' in metric_data:
+                score = metric_data['score']
+                weight = self.safety_metrics.get(metric_name, {}).get('weight', 0.1)
+                
+                total_weighted_score += score * weight
+                total_weight += weight
+        
+        if total_weight > 0:
+            return round(total_weighted_score / total_weight, 1)
+        
+        return 0
+    
+    def _log_streetview_analysis(self, analysis_result):
+        """Log the complete street view analysis process."""
+        
+        self.logger.info("=" * 80)
+        self.logger.info("STREET VIEW AGENT ANALYSIS COMPLETE")
+        self.logger.info("=" * 80)
+        
+        if analysis_result.get("success", False):
+            self.logger.info("STREET VIEW AGENT OBSERVATIONS:")
+            self.logger.info(f"  Overall Safety Score: {analysis_result['safety_score']}%")
+            self.logger.info(f"  Confidence Level: {analysis_result['confidence_level']}")
+            self.logger.info(f"  Time Context: {analysis_result['time_context']}")
+            self.logger.info(f"  Image Quality: {analysis_result['image_quality']}")
+            
+            self.logger.info("DETAILED OBSERVATIONS:")
+            self.logger.info(f"  {analysis_result['detailed_observations']}")
+            
+            if analysis_result.get('key_concerns'):
+                self.logger.info("KEY SAFETY CONCERNS:")
+                for concern in analysis_result['key_concerns']:
+                    self.logger.info(f"  - {concern}")
+            
+            if analysis_result.get('positive_factors'):
+                self.logger.info("POSITIVE SAFETY FACTORS:")
+                for factor in analysis_result['positive_factors']:
+                    self.logger.info(f"  - {factor}")
+            
+            if analysis_result.get('recommendations'):
+                self.logger.info("SAFETY RECOMMENDATIONS:")
+                for rec in analysis_result['recommendations']:
+                    self.logger.info(f"  - {rec}")
+            
+            # Log metric breakdown
+            metric_breakdown = analysis_result.get('metric_breakdown', {})
+            if metric_breakdown:
+                self.logger.info("METRIC BREAKDOWN:")
+                for metric_name, metric_data in metric_breakdown.items():
+                    if isinstance(metric_data, dict):
+                        score = metric_data.get('score', 0)
+                        weight = self.safety_metrics.get(metric_name, {}).get('weight', 0) * 100
+                        self.logger.info(f"  {metric_name.replace('_', ' ').title()}: {score}% (Weight: {weight:.0f}%)")
+            
+            if analysis_result.get('analysis_notes'):
+                self.logger.info(f"ANALYSIS NOTES: {analysis_result['analysis_notes']}")
+            
+            self.logger.info("=" * 80)
+            self.logger.info("FINAL STREET VIEW SAFETY SCORE")
+            self.logger.info("=" * 80)
+            self.logger.info(f"Street View Safety Score: {analysis_result['safety_score']}%")
+            self.logger.info("=" * 80)
+            
+        else:
+            self.logger.error("STREET VIEW ANALYSIS FAILED:")
+            self.logger.error(f"  Error: {analysis_result.get('error', 'Unknown error')}")
+            self.logger.error(f"  Safety Score: {analysis_result.get('safety_score', 0)}%")
+
+def analyze_streetview_safety(image_data, location_info):
+    """
+    Convenience function to analyze street view safety.
+    
+    Args:
+        image_data (str): Base64 encoded image data
+        location_info (dict): Location information
+        
+    Returns:
+        dict: Analysis results with safety score and detailed breakdown
+    """
+    agent = GeminiStreetViewAgent()
+    return agent.analyze_streetview_safety(image_data, location_info)
+
+def main():
+    """
+    Test function for the street view agent.
+    """
+    # Sample test data (would normally come from actual street view images)
+    sample_location = {
+        "address": "123 Main St, Tempe, AZ",
+        "coordinates": "33.4255,-111.9400",
+        "time_context": "day"
+    }
+    
+    # Note: In real usage, this would be actual base64 image data
+    sample_image_data = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+    
+    print("Testing street view agent...")
+    result = analyze_streetview_safety(sample_image_data, sample_location)
+    
+    if result["success"]:
+        print(f"\nStreet View Safety Score: {result['safety_score']}%")
+        print(f"Confidence: {result['confidence_level']}")
+        print(f"Key Concerns: {result['key_concerns']}")
+    else:
+        print(f"Analysis failed: {result['error']}")
+
+if __name__ == "__main__":
+    main()

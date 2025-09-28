@@ -4,6 +4,7 @@ import json
 import logging
 from gemini_api import analyze_route_safety
 from gemini_validation_agent import validate_route_safety_with_agent, GeminiValidationAgent
+from gemini_streetview_agent import analyze_streetview_safety, GeminiStreetViewAgent
 
 # Configure logging
 logging.basicConfig(
@@ -122,6 +123,12 @@ def analyze_route():
                 "confidence_level": validation_data.get("confidence_level", "medium"),
                 "validation_notes": validation_data.get("validation_notes", ""),
                 "reasoning": validation_data.get("reasoning", "")
+            },
+            "streetview_analysis": {
+                "available": False,
+                "safety_score": "N/A",
+                "status": "Street view images not available for automatic analysis",
+                "note": "To enable street view analysis, provide street view images via the /analyze-streetview endpoint"
             }
         }
         
@@ -243,6 +250,282 @@ def validate_analysis():
             "error": f"Server error: {str(e)}"
         }), 500
 
+@app.route('/analyze-route-with-streetview', methods=['POST'])
+def analyze_route_with_streetview():
+    """
+    Analyze route safety with integrated street view analysis.
+    
+    Expected JSON payload:
+    {
+        "origin": "starting address",
+        "destination": "destination address",
+        "route_details": {
+            "distance": "route distance",
+            "duration": "route duration",
+            "summary": "route summary"
+        },
+        "streetview_images": [
+            {
+                "image_data": "base64_encoded_image_data",
+                "location_info": {
+                    "address": "street address",
+                    "coordinates": "lat,lng",
+                    "time_context": "day/night/unknown"
+                }
+            }
+        ]
+    }
+    """
+    try:
+        # Get JSON data from request
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({
+                "success": False,
+                "error": "No JSON data provided"
+            }), 400
+        
+        # Extract required fields
+        origin = data.get('origin')
+        destination = data.get('destination')
+        route_details = data.get('route_details', {})
+        streetview_images = data.get('streetview_images', [])
+        
+        if not origin or not destination:
+            return jsonify({
+                "success": False,
+                "error": "Both origin and destination are required"
+            }), 400
+        
+        # Step 1: Get initial analysis from Gemini API
+        logger.info("=" * 80)
+        logger.info("SAFEROUTE AI WORKFLOW WITH STREET VIEW STARTING")
+        logger.info("=" * 80)
+        logger.info(f"Analyzing route: {origin} → {destination}")
+        logger.info(f"Street view images provided: {len(streetview_images)}")
+        
+        initial_result = analyze_route_safety(origin, destination, route_details)
+        
+        if not initial_result["success"]:
+            logger.error(f"Initial analysis failed: {initial_result.get('error', 'Unknown error')}")
+            return jsonify({
+                "success": False,
+                "error": f"Initial analysis failed: {initial_result.get('error', 'Unknown error')}",
+                "workflow_stage": "initial_analysis"
+            }), 500
+        
+        logger.info("INITIAL AI ANALYSIS COMPLETED:")
+        logger.info(f"  Safety Score: {initial_result['analysis']['safety_score']}%")
+        logger.info(f"  Main Concerns: {initial_result['analysis']['main_concerns']}")
+        logger.info(f"  Quick Tips: {initial_result['analysis']['quick_tips']}")
+        
+        # Step 2: Validate the analysis using the validation agent
+        logger.info("Starting validation agent...")
+        route_context = {
+            "origin": origin,
+            "destination": destination
+        }
+        route_context.update(route_details)
+        
+        validation_result = validate_route_safety_with_agent(
+            initial_result["analysis"], 
+            route_context
+        )
+        
+        if not validation_result["success"]:
+            logger.error(f"Validation failed: {validation_result['error']}")
+            # Return original analysis if validation fails
+            return jsonify({
+                "success": True,
+                "analysis": initial_result["analysis"],
+                "validation_applied": False,
+                "validation_error": validation_result["error"],
+                "workflow_metadata": {
+                    "workflow_stage": "validation_failed",
+                    "initial_analysis_success": True
+                }
+            })
+        
+        # Step 3: Analyze street view images if provided
+        streetview_results = []
+        streetview_scores = []
+        
+        if streetview_images:
+            logger.info("Starting street view analysis...")
+            for i, streetview_data in enumerate(streetview_images):
+                logger.info(f"Analyzing street view image {i+1}/{len(streetview_images)}")
+                
+                streetview_result = analyze_streetview_safety(
+                    streetview_data.get('image_data'),
+                    streetview_data.get('location_info', {})
+                )
+                
+                if streetview_result["success"]:
+                    streetview_results.append(streetview_result)
+                    streetview_scores.append(streetview_result['safety_score'])
+                    logger.info(f"  Street view {i+1} safety score: {streetview_result['safety_score']}%")
+                else:
+                    logger.error(f"  Street view {i+1} analysis failed: {streetview_result.get('error', 'Unknown error')}")
+        
+        # Step 4: Create enhanced analysis with all results
+        logger.info("Creating enhanced analysis with all results...")
+        
+        # Get validation data
+        validation_data = validation_result["validation_analysis"]
+        final_score = validation_result["final_score"]
+        adjustment = validation_result["adjustment"]
+        
+        # Calculate average street view score if available
+        avg_streetview_score = None
+        if streetview_scores:
+            avg_streetview_score = round(sum(streetview_scores) / len(streetview_scores), 1)
+        
+        enhanced_analysis = {
+            "safety_score": final_score,
+            "main_concerns": initial_result["analysis"]["main_concerns"],
+            "quick_tips": initial_result["analysis"]["quick_tips"],
+            "validation_metadata": {
+                "original_score": initial_result["analysis"]["safety_score"],
+                "score_adjustment": adjustment,
+                "confidence_level": validation_data.get("confidence_level", "medium"),
+                "validation_notes": validation_data.get("validation_notes", ""),
+                "reasoning": validation_data.get("reasoning", "")
+            },
+            "streetview_analysis": {
+                "available": len(streetview_results) > 0,
+                "safety_score": avg_streetview_score if avg_streetview_score else "N/A",
+                "images_analyzed": len(streetview_results),
+                "total_images": len(streetview_images),
+                "detailed_results": streetview_results,
+                "status": f"Analyzed {len(streetview_results)}/{len(streetview_images)} street view images" if streetview_images else "No street view images provided"
+            }
+        }
+        
+        # Add any additional concerns or tips from validation
+        if validation_data.get("additional_concerns"):
+            enhanced_analysis["main_concerns"].extend(validation_data["additional_concerns"])
+        
+        if validation_data.get("additional_tips"):
+            enhanced_analysis["quick_tips"].extend(validation_data["additional_tips"])
+        
+        logger.info("=" * 80)
+        logger.info("WORKFLOW WITH STREET VIEW COMPLETED SUCCESSFULLY")
+        logger.info("=" * 80)
+        logger.info(f"Original Score: {initial_result['analysis']['safety_score']}%")
+        logger.info(f"Validation Adjustment: {adjustment:+d} points")
+        logger.info(f"Final Score: {final_score}%")
+        if avg_streetview_score:
+            logger.info(f"Average Street View Score: {avg_streetview_score}%")
+        logger.info("=" * 80)
+        
+        return jsonify({
+            "success": True,
+            "analysis": enhanced_analysis,
+            "validation_applied": True,
+            "streetview_applied": len(streetview_results) > 0,
+            "workflow_metadata": {
+                "workflow_stage": "completed",
+                "initial_analysis_success": True,
+                "validation_success": True,
+                "streetview_success": len(streetview_results) > 0,
+                "score_adjustment": adjustment,
+                "confidence_level": validation_data.get("confidence_level", "medium"),
+                "streetview_images_processed": len(streetview_results)
+            },
+            "raw_responses": {
+                "initial_analysis": initial_result["raw_response"],
+                "validation_response": validation_result.get("validation_response", ""),
+                "streetview_responses": [r.get("raw_analysis", {}) for r in streetview_results]
+            }
+        })
+            
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": f"Server error: {str(e)}"
+        }), 500
+
+@app.route('/analyze-streetview', methods=['POST'])
+def analyze_streetview():
+    """
+    Analyze street view images for safety indicators.
+    
+    Expected JSON payload:
+    {
+        "image_data": "base64_encoded_image_data",
+        "location_info": {
+            "address": "street address",
+            "coordinates": "lat,lng",
+            "time_context": "day/night/unknown"
+        }
+    }
+    """
+    try:
+        # Get JSON data from request
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({
+                "success": False,
+                "error": "No JSON data provided"
+            }), 400
+        
+        # Extract required fields
+        image_data = data.get('image_data')
+        location_info = data.get('location_info', {})
+        
+        if not image_data:
+            return jsonify({
+                "success": False,
+                "error": "Image data is required"
+            }), 400
+        
+        # Analyze street view image
+        logger.info("=" * 80)
+        logger.info("STREET VIEW ANALYSIS STARTING")
+        logger.info("=" * 80)
+        logger.info(f"Location: {location_info.get('address', 'Unknown')}")
+        
+        result = analyze_streetview_safety(image_data, location_info)
+        
+        if not result["success"]:
+            logger.error(f"Street view analysis failed: {result.get('error', 'Unknown error')}")
+            return jsonify({
+                "success": False,
+                "error": f"Street view analysis failed: {result.get('error', 'Unknown error')}"
+            }), 500
+        
+        logger.info("STREET VIEW ANALYSIS COMPLETED:")
+        logger.info(f"  Safety Score: {result['safety_score']}%")
+        logger.info(f"  Confidence: {result['confidence_level']}")
+        logger.info(f"  Key Concerns: {result['key_concerns']}")
+        
+        return jsonify({
+            "success": True,
+            "analysis": {
+                "safety_score": result['safety_score'],
+                "metric_breakdown": result['metric_breakdown'],
+                "detailed_observations": result['detailed_observations'],
+                "key_concerns": result['key_concerns'],
+                "positive_factors": result['positive_factors'],
+                "recommendations": result['recommendations'],
+                "confidence_level": result['confidence_level'],
+                "time_context": result['time_context'],
+                "image_quality": result['image_quality']
+            },
+            "metadata": {
+                "analysis_timestamp": result['analysis_timestamp'],
+                "location_info": result['location_info']
+            }
+        })
+            
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": f"Server error: {str(e)}"
+        }), 500
+
 @app.route('/workflow-stats', methods=['GET'])
 def get_workflow_stats():
     """
@@ -252,13 +535,14 @@ def get_workflow_stats():
         return jsonify({
             "success": True,
             "workflow_stats": {
-                "description": "AI-powered route safety analysis with validation",
-                "agents": ["Gemini Analysis Agent", "Gemini Validation Agent"],
+                "description": "AI-powered route safety analysis with validation and street view analysis",
+                "agents": ["Gemini Analysis Agent", "Gemini Validation Agent", "Gemini Street View Agent"],
                 "features": [
                     "Initial AI safety analysis",
                     "AI-powered validation of results", 
                     "Automatic score adjustment based on validation",
-                    "Comprehensive logging of both AI processes",
+                    "Street view image analysis for visual safety indicators",
+                    "Comprehensive logging of all AI processes",
                     "Score adjustment range: ±15 points"
                 ]
             }
@@ -275,21 +559,24 @@ def root():
     Root endpoint with API information.
     """
     return jsonify({
-        "message": "SafeRoute AI Analysis API with Validation",
+        "message": "SafeRoute AI Analysis API with Validation and Street View Analysis",
         "endpoints": {
             "POST /analyze-route": "Analyze route safety with integrated validation",
+            "POST /analyze-route-with-streetview": "Analyze route safety with integrated street view analysis",
+            "POST /analyze-streetview": "Analyze street view images for safety indicators",
             "POST /validate-analysis": "Manually validate an existing safety analysis",
             "GET /health": "Health check",
             "GET /workflow-stats": "Get validation statistics",
             "GET /": "This information"
         },
         "workflow": {
-            "description": "Enhanced AI Analysis with Validation: Initial Analysis → AI Validation → Score Adjustment",
-            "agents": ["Gemini Analysis Agent", "Gemini Validation Agent"],
+            "description": "Enhanced AI Analysis with Validation and Street View: Initial Analysis → AI Validation → Score Adjustment → Street View Analysis",
+            "agents": ["Gemini Analysis Agent", "Gemini Validation Agent", "Gemini Street View Agent"],
             "features": [
                 "Initial AI safety analysis",
                 "AI-powered validation of results", 
                 "Automatic score adjustment based on validation",
+                "Street view image analysis for visual safety indicators",
                 "Confidence scoring and validation notes",
                 "Historical tracking of validations",
                 "Enhanced safety recommendations"
@@ -300,17 +587,26 @@ def root():
                 "Validation notes and feedback",
                 "Additional safety concerns and tips from validation",
                 "Historical validation tracking and statistics"
+            ],
+            "streetview_features": [
+                "Visual analysis of street view images",
+                "7 comprehensive safety metrics (exposure, infrastructure, crime markers, etc.)",
+                "Weighted scoring system for accurate safety assessment",
+                "Detailed observations and recommendations",
+                "Time context and image quality assessment"
             ]
         }
     })
 
 if __name__ == '__main__':
-    print("Starting SafeRoute AI Analysis API with Validation...")
+    print("Starting SafeRoute AI Analysis API with Validation and Street View Analysis...")
     print("Available endpoints:")
     print("  POST /analyze-route - Analyze route safety with integrated validation")
+    print("  POST /analyze-route-with-streetview - Analyze route safety with integrated street view analysis")
+    print("  POST /analyze-streetview - Analyze street view images for safety indicators")
     print("  POST /validate-analysis - Manually validate an existing analysis")
     print("  GET /health - Health check")
     print("  GET /workflow-stats - Get validation statistics")
     print("  GET / - API information")
-    print("\nWorkflow: Initial Analysis → AI Validation → Score Adjustment")
+    print("\nWorkflow: Initial Analysis → AI Validation → Score Adjustment → Street View Analysis")
     app.run(debug=True, host='0.0.0.0', port=5002)

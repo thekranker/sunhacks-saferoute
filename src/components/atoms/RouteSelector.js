@@ -151,6 +151,37 @@ class RouteSelector {
             const aiScore = analysis.safety_score || 0;
             const aiColor = this.getSafetyColor(aiScore / 100);
             
+            // Check for streetview analysis
+            const streetviewAnalysis = analysis.streetview_analysis;
+            const hasStreetview = streetviewAnalysis && streetviewAnalysis.available && streetviewAnalysis.safety_score !== "N/A";
+            
+            let streetviewSection = '';
+            if (hasStreetview) {
+                const streetviewScore = streetviewAnalysis.safety_score;
+                const streetviewColor = this.getSafetyColor(streetviewScore / 100);
+                streetviewSection = `
+                    <div class="streetview-analysis">
+                        <div class="streetview-score" style="background-color: ${streetviewColor}">
+                            Streetview: ${streetviewScore}%
+                        </div>
+                        <div class="streetview-status">
+                            📸 ${streetviewAnalysis.images_analyzed}/${streetviewAnalysis.total_images} images analyzed
+                        </div>
+                    </div>
+                `;
+            } else {
+                streetviewSection = `
+                    <div class="streetview-analysis">
+                        <div class="streetview-score" style="background-color: #6c757d">
+                            Streetview: N/A
+                        </div>
+                        <div class="streetview-status">
+                            📸 No street view images available
+                        </div>
+                    </div>
+                `;
+            }
+            
             aiDiv.innerHTML = `
                 <div class="ai-analysis-mini">
                     <div class="ai-score" style="background-color: ${aiColor}">
@@ -164,6 +195,7 @@ class RouteSelector {
                         ${analysis.quick_tips && analysis.quick_tips.length > 0 ? 
                             `💡 ${analysis.quick_tips.slice(0, 2).join(', ')}` : ''}
                     </div>
+                    ${streetviewSection}
                 </div>
             `;
         } else {

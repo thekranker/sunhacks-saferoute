@@ -4564,3 +4564,286 @@ While the identified risks are valid (especially major road crossings, which rem
 2025-09-28 01:28:22,310 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/gemini_api.py', reloading
 2025-09-28 01:28:23,124 - WARNING -  * Debugger is active!
 2025-09-28 01:28:23,130 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 02:30:30,807 - WARNING -  * Debugger is active!
+2025-09-28 02:30:30,814 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 02:30:58,050 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/gemini_validation_agent.py', reloading
+2025-09-28 02:30:59,058 - WARNING -  * Debugger is active!
+2025-09-28 02:30:59,065 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 02:33:44,349 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 02:33:45,355 - WARNING -  * Debugger is active!
+2025-09-28 02:33:45,362 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 02:35:47,407 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/test_streetview_mock.py', reloading
+2025-09-28 02:35:48,244 - WARNING -  * Debugger is active!
+2025-09-28 02:35:48,252 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 02:36:02,380 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 02:36:03,270 - WARNING -  * Debugger is active!
+2025-09-28 02:36:03,276 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 02:36:39,435 - INFO - 127.0.0.1 - - [28/Sep/2025 02:36:39] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 02:36:39,436 - INFO - 127.0.0.1 - - [28/Sep/2025 02:36:39] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 02:36:39,436 - INFO - 127.0.0.1 - - [28/Sep/2025 02:36:39] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 02:36:39,437 - INFO - 127.0.0.1 - - [28/Sep/2025 02:36:39] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 02:36:39,438 - INFO - ================================================================================
+2025-09-28 02:36:39,438 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 02:36:39,439 - INFO - ================================================================================
+2025-09-28 02:36:39,439 - INFO - ================================================================================
+2025-09-28 02:36:39,439 - INFO - ================================================================================
+2025-09-28 02:36:39,439 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 02:36:39,439 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 02:36:39,440 - INFO - ================================================================================
+2025-09-28 02:36:39,440 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 02:36:39,440 - INFO - ================================================================================
+2025-09-28 02:36:39,441 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 02:36:39,441 - INFO - ================================================================================
+2025-09-28 02:36:39,441 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 02:36:39,441 - INFO - ================================================================================
+2025-09-28 02:36:39,441 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 02:36:39,441 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 02:36:39,669 - ERROR - Initial analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 20.273731979s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 20
+}
+]
+2025-09-28 02:36:39,670 - INFO - 127.0.0.1 - - [28/Sep/2025 02:36:39] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 02:36:39,675 - ERROR - Initial analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 20.270281053s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 20
+}
+]
+2025-09-28 02:36:39,676 - INFO - 127.0.0.1 - - [28/Sep/2025 02:36:39] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 02:36:39,679 - ERROR - Initial analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 20.266917987s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 20
+}
+]
+2025-09-28 02:36:39,679 - INFO - 127.0.0.1 - - [28/Sep/2025 02:36:39] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 02:36:49,208 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 02:36:49,208 - INFO -   Safety Score: 80%
+2025-09-28 02:36:49,208 - INFO -   Main Concerns: ['Pedestrian/Vehicle Interactions: High pedestrian, bike, and vehicle traffic, particularly at intersections and campus crossings, increases collision risk.', "Petty Crime: As a busy campus area, there's a moderate risk of opportunistic theft (e.g., bike theft, phone snatching) if valuables are left unsecured or unattended.", 'Reduced Visibility/Personal Safety at Night: While main paths are generally lit, some areas can be darker, increasing personal safety risks when walking alone after dark.']
+2025-09-28 02:36:49,209 - INFO -   Quick Tips: ['Stay Alert: Avoid distractions (phones, headphones) and be highly aware of your surroundings, especially when crossing streets or in crowded areas.', 'Enhance Visibility at Night: If walking after dark, wear bright or reflective clothing, and consider walking with others or utilizing campus safety services.', 'Secure Valuables: Keep personal items like phones, wallets, and bags out of easy reach and secured to deter opportunistic theft.']
+2025-09-28 02:36:49,209 - INFO - Starting validation agent...
+2025-09-28 02:36:49,209 - INFO - ============================================================
+2025-09-28 02:36:49,209 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 02:36:49,209 - INFO - ============================================================
+2025-09-28 02:36:49,209 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 02:36:49,209 - INFO -   Safety Score: 80%
+2025-09-28 02:36:49,209 - INFO -   Main Concerns: ['Pedestrian/Vehicle Interactions: High pedestrian, bike, and vehicle traffic, particularly at intersections and campus crossings, increases collision risk.', "Petty Crime: As a busy campus area, there's a moderate risk of opportunistic theft (e.g., bike theft, phone snatching) if valuables are left unsecured or unattended.", 'Reduced Visibility/Personal Safety at Night: While main paths are generally lit, some areas can be darker, increasing personal safety risks when walking alone after dark.']
+2025-09-28 02:36:49,209 - INFO -   Quick Tips: ['Stay Alert: Avoid distractions (phones, headphones) and be highly aware of your surroundings, especially when crossing streets or in crowded areas.', 'Enhance Visibility at Night: If walking after dark, wear bright or reflective clothing, and consider walking with others or utilizing campus safety services.', 'Secure Valuables: Keep personal items like phones, wallets, and bags out of easy reach and secured to deter opportunistic theft.']
+2025-09-28 02:36:49,209 - INFO -   Raw Response: N/A...
+2025-09-28 02:36:49,209 - INFO - Sending validation request to Gemini...
+2025-09-28 02:36:49,309 - ERROR - Validation failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 10.637842408s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 10
+}
+]
+2025-09-28 02:36:49,309 - ERROR - Validation failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 10.637842408s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 10
+}
+]
+2025-09-28 02:36:49,310 - INFO - 127.0.0.1 - - [28/Sep/2025 02:36:49] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 02:37:34,068 - INFO - 127.0.0.1 - - [28/Sep/2025 02:37:34] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 02:37:34,069 - INFO - 127.0.0.1 - - [28/Sep/2025 02:37:34] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 02:37:34,070 - INFO - 127.0.0.1 - - [28/Sep/2025 02:37:34] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 02:37:34,071 - INFO - 127.0.0.1 - - [28/Sep/2025 02:37:34] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 02:37:34,072 - INFO - ================================================================================
+2025-09-28 02:37:34,072 - INFO - ================================================================================
+2025-09-28 02:37:34,072 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 02:37:34,072 - INFO - ================================================================================
+2025-09-28 02:37:34,073 - INFO - ================================================================================
+2025-09-28 02:37:34,073 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 02:37:34,073 - INFO - ================================================================================
+2025-09-28 02:37:34,073 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 02:37:34,073 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 02:37:34,073 - INFO - ================================================================================
+2025-09-28 02:37:34,073 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 02:37:34,074 - INFO - ================================================================================
+2025-09-28 02:37:34,074 - INFO - ================================================================================
+2025-09-28 02:37:34,074 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 02:37:34,074 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 02:37:34,074 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 02:37:34,164 - ERROR - Initial analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 25.786931089s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 25
+}
+]
+2025-09-28 02:37:34,164 - INFO - 127.0.0.1 - - [28/Sep/2025 02:37:34] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 02:37:34,268 - ERROR - Initial analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 25.674912552s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 25
+}
+]
+2025-09-28 02:37:34,268 - INFO - 127.0.0.1 - - [28/Sep/2025 02:37:34] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 02:37:34,274 - ERROR - Initial analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 25.668472377s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 25
+}
+]
+2025-09-28 02:37:34,274 - INFO - 127.0.0.1 - - [28/Sep/2025 02:37:34] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 02:37:34,279 - ERROR - Initial analysis failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250
+Please retry in 25.667818079s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 250
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 25
+}
+]
+2025-09-28 02:37:34,280 - INFO - 127.0.0.1 - - [28/Sep/2025 02:37:34] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
