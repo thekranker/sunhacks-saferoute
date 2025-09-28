@@ -72,6 +72,12 @@ class RouteSelector {
             ${routeData.isSafestRoute ? '<span class="safest-badge">🛡️ ULTRA SAFE</span>' : ''}
         `;
 
+        // Add AI analysis if available
+        if (routeData.aiAnalysis) {
+            const aiAnalysisDiv = this.createAIAnalysisDisplay(routeData.aiAnalysis);
+            routeInfo.appendChild(aiAnalysisDiv);
+        }
+
         routeInfo.appendChild(summary);
         routeInfo.appendChild(details);
 
@@ -125,6 +131,53 @@ class RouteSelector {
         } else {
             return '#F44336'; // Red
         }
+    }
+
+    createAIAnalysisDisplay(aiAnalysis) {
+        const aiDiv = document.createElement('div');
+        aiDiv.className = 'route-ai-analysis';
+        
+        if (aiAnalysis.loading) {
+            aiDiv.innerHTML = `
+                <div class="ai-analysis-mini ai-analysis-loading">
+                    <div class="ai-score" style="background-color: #6c757d">
+                        AI: Loading...
+                    </div>
+                    <div class="ai-concerns">⏳ Getting AI analysis...</div>
+                </div>
+            `;
+        } else if (aiAnalysis.success && aiAnalysis.analysis) {
+            const analysis = aiAnalysis.analysis;
+            const aiScore = analysis.safety_score || 0;
+            const aiColor = this.getSafetyColor(aiScore / 100);
+            
+            aiDiv.innerHTML = `
+                <div class="ai-analysis-mini">
+                    <div class="ai-score" style="background-color: ${aiColor}">
+                        AI: ${aiScore}%
+                    </div>
+                    <div class="ai-concerns">
+                        ${analysis.main_concerns && analysis.main_concerns.length > 0 ? 
+                            `⚠️ ${analysis.main_concerns.slice(0, 2).join(', ')}` : ''}
+                    </div>
+                    <div class="ai-tips">
+                        ${analysis.quick_tips && analysis.quick_tips.length > 0 ? 
+                            `💡 ${analysis.quick_tips.slice(0, 2).join(', ')}` : ''}
+                    </div>
+                </div>
+            `;
+        } else {
+            aiDiv.innerHTML = `
+                <div class="ai-analysis-mini ai-analysis-error">
+                    <div class="ai-score" style="background-color: #F44336">
+                        AI: Failed
+                    </div>
+                    <div class="ai-concerns">⚠️ Analysis unavailable</div>
+                </div>
+            `;
+        }
+        
+        return aiDiv;
     }
 
     getSelectedRoute() {

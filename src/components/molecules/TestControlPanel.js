@@ -73,10 +73,23 @@ class TestControlPanel {
             // Filter routes by length - remove routes more than 2.5x longer than shortest
             const filteredRoutes = this.filterRoutesByLength(routesWithSafety);
             
+            // Get AI analysis for all routes automatically
+            this.outputDisplay.updateOutput("🤖 Getting AI analysis for all routes...");
+            
+            // Show routes first with loading indicators
+            this.routeSelector.setRoutes(filteredRoutes.map(route => ({
+                ...route,
+                aiAnalysis: { loading: true }
+            })));
+            this.routeSelector.show();
+            
+            // Get AI analysis in background
+            const routesWithAI = await this.getAIAnalysisForAllRoutes(filteredRoutes);
+            
             // Mark the safest route as "Ultra Safe" if it's significantly safer
-            if (filteredRoutes.length > 0) {
-                const safestRoute = filteredRoutes[0];
-                const secondSafest = filteredRoutes[1];
+            if (routesWithAI.length > 0) {
+                const safestRoute = routesWithAI[0];
+                const secondSafest = routesWithAI[1];
                 
                 // If the safest route is significantly safer than the second safest, mark it as ultra-safe
                 if (secondSafest && (safestRoute.safetyScore - secondSafest.safetyScore) > 0.1) {
@@ -85,14 +98,13 @@ class TestControlPanel {
                 }
             }
             
-            // Show route selector with filtered routes
-            this.routeSelector.setRoutes(filteredRoutes);
-            this.routeSelector.show();
+            // Update route selector with AI analysis
+            this.routeSelector.setRoutes(routesWithAI);
             
             // Display all filtered routes on map with the safest one selected
-            this.displayAllRoutes(filteredRoutes);
+            this.displayAllRoutes(routesWithAI);
             
-            this.outputDisplay.updateOutput(`Routes displayed. Safest route (${filteredRoutes[0].summary}) auto-selected.`);
+            this.outputDisplay.updateOutput(`Routes displayed with AI analysis. Safest route (${routesWithAI[0].summary}) auto-selected.`);
             
         } catch (error) {
             this.outputDisplay.updateOutput(`Route calculation failed: ${error.message}`);
@@ -438,8 +450,56 @@ class TestControlPanel {
             selectedIndex: index
         });
 
-        // Get AI analysis for the selected route
-        await this.getAIAnalysisForRoute(routeData);
+        // AI analysis is already loaded and displayed in the route selector
+        if (routeData.aiAnalysis && routeData.aiAnalysis.success) {
+            const analysis = routeData.aiAnalysis.analysis;
+            this.outputDisplay.updateOutput(`AI Analysis: ${analysis.safety_score}% safety score`);
+        }
+    }
+
+    async getAIAnalysisForAllRoutes(routes) {
+        const origin = this.startLocationInput.getValue();
+        const destination = this.endLocationInput.getValue();
+        
+        // Process all routes in parallel for faster loading
+        const aiPromises = routes.map(async (routeData, index) => {
+            try {
+                const routeDetails = {
+                    distance: routeData.distance,
+                    duration: routeData.duration,
+                    summary: routeData.summary
+                };
+
+                const aiAnalysis = await this.aiAnalysisService.analyzeRouteSafety(origin, destination, routeDetails);
+                
+                // Add AI analysis to route data
+                return {
+                    ...routeData,
+                    aiAnalysis: aiAnalysis
+                };
+            } catch (error) {
+                console.error(`AI Analysis Error for route ${index + 1}:`, error);
+                // Return route with failed analysis
+                return {
+                    ...routeData,
+                    aiAnalysis: {
+                        success: false,
+                        error: error.message,
+                        analysis: {
+                            safety_score: 50,
+                            main_concerns: ["Analysis failed"],
+                            quick_tips: ["Use caution"]
+                        }
+                    }
+                };
+            }
+        });
+
+        // Wait for all AI analyses to complete
+        const routesWithAI = await Promise.all(aiPromises);
+        
+        this.outputDisplay.updateOutput(`✅ AI analysis completed for ${routesWithAI.length} routes!`);
+        return routesWithAI;
     }
 
     async getAIAnalysisForRoute(routeData) {
