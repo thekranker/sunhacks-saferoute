@@ -168,55 +168,86 @@ header {
   transform: rotate(180deg);
 }
 
-/* Controls */
-.controls {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-xl);
-  padding: var(--spacing-xl);
-  margin-bottom: var(--spacing-xl);
-  box-shadow: 0 4px 20px var(--shadow-light);
-  border: 1px solid var(--border-color);
-  transition: all var(--transition-normal);
+/* Map Overlay */
+.map-overlay {
+  position: absolute;
+  top: var(--spacing-lg);
+  left: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 1000;
+  pointer-events: none;
 }
 
-.input-group {
-  margin-bottom: var(--spacing-lg);
+.destination-input-container {
+  pointer-events: auto;
 }
 
-.input-group label {
-  display: block;
-  margin-bottom: var(--spacing-sm);
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 1rem;
-}
-
-.input-group input {
-  width: 100%;
-  padding: var(--spacing-md) var(--spacing-lg);
-  border: 2px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  font-size: 1rem;
+.destination-input {
+  display: flex;
+  align-items: center;
   background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px var(--shadow-heavy);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-sm);
+  gap: var(--spacing-sm);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+}
+
+.destination-input:hover {
+  box-shadow: 0 12px 40px var(--shadow-heavy);
+  transform: translateY(-1px);
+}
+
+.input-icon {
+  font-size: 1.2rem;
+  color: var(--accent-primary);
+  margin-left: var(--spacing-sm);
+}
+
+.destination-input input {
+  flex: 1;
+  border: none;
+  background: transparent;
   color: var(--text-primary);
+  font-size: 1rem;
+  padding: var(--spacing-md);
+  outline: none;
+  border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
 }
 
-.input-group input:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px var(--focus-ring);
-}
-
-.input-group input::placeholder {
+.destination-input input::placeholder {
   color: var(--text-muted);
 }
 
-/* Button Group */
-.button-group {
+.destination-input input:focus {
+  background: var(--bg-secondary);
+}
+
+.overlay-btn {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
   display: flex;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.overlay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--shadow-medium);
+}
+
+.overlay-btn:active {
+  transform: translateY(0);
 }
 
 button {
@@ -320,6 +351,7 @@ button span {
 
 /* Map Container */
 .map-container {
+  position: relative;
   background: var(--bg-secondary);
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -327,10 +359,11 @@ button span {
   box-shadow: 0 4px 20px var(--shadow-light);
   border: 1px solid var(--border-color);
   transition: all var(--transition-normal);
+  min-height: 70vh;
 }
 
 #map {
-  height: 500px;
+  height: 70vh;
   width: 100%;
   border-radius: var(--radius-lg);
 }
@@ -705,12 +738,25 @@ button span {
     font-size: 2rem;
   }
   
-  .button-group {
-    flex-direction: column;
+  .map-overlay {
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    right: var(--spacing-md);
   }
   
-  button {
-    width: 100%;
+  .destination-input {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+  
+  .destination-input input {
+    min-width: 200px;
+  }
+  
+  .overlay-btn {
+    min-width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
   
   .route-details {
@@ -729,7 +775,7 @@ button span {
   }
   
   #map {
-    height: 400px;
+    height: 60vh;
   }
 }
 
@@ -742,8 +788,25 @@ button span {
     padding: var(--spacing-lg);
   }
   
-  .controls {
-    padding: var(--spacing-lg);
+  .map-overlay {
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    right: var(--spacing-sm);
+  }
+  
+  .destination-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .destination-input input {
+    min-width: auto;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .overlay-btn {
+    flex: 1;
+    margin: var(--spacing-xs);
   }
   
   .route-selector {
@@ -755,7 +818,7 @@ button span {
   }
   
   #map {
-    height: 350px;
+    height: 50vh;
   }
 }
 

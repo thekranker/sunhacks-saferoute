@@ -22,26 +22,25 @@
             </div>
         </header>
         
-        <div class="controls">
-            <div class="input-group">
-                <label for="endLocation">📍 Destination:</label>
-                <input type="text" id="endLocation" placeholder="Enter destination address (e.g., '123 Main St, City')">
-            </div>
-            
-            <div class="button-group">
-                <button id="directionsBtn" class="primary-btn">
-                    <span>🛡️</span> Find Safe Routes
-                </button>
-                <button id="safestRouteBtn" class="safety-btn">
-                    <span>🛡️</span> Ultra Safe Route
-                </button>
-                <button id="clearBtn" class="secondary-btn">
-                    <span>🗑️</span> Clear Map
-                </button>
-            </div>
-        </div>
-        
         <div class="map-container">
+            <!-- Floating destination input overlay -->
+            <div class="map-overlay">
+                <div class="destination-input-container">
+                    <div class="destination-input">
+                        <span class="input-icon">📍</span>
+                        <input type="text" id="endLocation" placeholder="Where to? Enter destination address">
+                        <button id="directionsBtn" class="overlay-btn primary-btn" title="Find Safe Routes">
+                            <span>🛡️</span>
+                        </button>
+                        <button id="safestRouteBtn" class="overlay-btn safety-btn" title="Ultra Safe Route">
+                            <span>🛡️</span>
+                        </button>
+                        <button id="clearBtn" class="overlay-btn secondary-btn" title="Clear Map">
+                            <span>🗑️</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div id="map"></div>
         </div>
         
