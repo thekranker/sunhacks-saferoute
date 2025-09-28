@@ -52,14 +52,16 @@ def analyze_route_safety(origin, destination, route_details=None):
         
         prompt += """
         
-        Give a QUICK safety assessment in this exact JSON format:
+        Give a REALISTIC safety assessment in this exact JSON format:
         {
             "safety_score": <number 0-100>,
             "main_concerns": [<2-3 key safety issues>],
             "quick_tips": [<2-3 brief safety recommendations>]
         }
         
-        Keep it brief - just essential safety info. No detailed explanations.
+        Be realistic and accurate. Consider the actual safety factors of this specific route.
+        Focus on practical concerns and real risks. Don't be overly optimistic or pessimistic.
+        Keep it brief - just essential safety info.
         """
         
         # Generate content using Gemini

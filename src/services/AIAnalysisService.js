@@ -22,7 +22,7 @@ class AIAnalysisService {
                     destination: destination,
                     route_details: routeDetails
                 }),
-                signal: AbortSignal.timeout(30000) // 30 second timeout for validation agent
+                signal: AbortSignal.timeout(60000) // 60 second timeout for validation agent
             });
 
             if (!response.ok) {

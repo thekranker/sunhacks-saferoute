@@ -37,7 +37,8 @@ class GeminiValidationAgent:
     
     def __init__(self):
         self.logger = logger
-        self.max_adjustment = 15  # Maximum score adjustment (+/-15)
+        self.max_adjustment = 12  # Balanced maximum score adjustment (+/-12)
+        self.bias_toward_positive = False  # No bias - be accurate
     
     def validate_safety_analysis(self, original_analysis, route_info):
         """
@@ -92,7 +93,7 @@ class GeminiValidationAgent:
         """Create a comprehensive validation prompt for the Gemini model."""
         
         prompt = f"""
-        You are a safety validation expert. Your job is to review another AI's safety analysis and determine if the score needs adjustment.
+        You are a safety validation expert with a realistic, accurate perspective. Your job is to review another AI's safety analysis and determine if the score needs adjustment.
 
         ROUTE INFORMATION:
         - Origin: {route_info.get('origin', 'Unknown')}
@@ -106,23 +107,28 @@ class GeminiValidationAgent:
         
         YOUR TASK:
         1. Review the original analysis for accuracy and completeness
-        2. Consider additional safety factors the original AI might have missed
-        3. Determine if the safety score needs adjustment (up to ±15 points)
-        4. Provide your reasoning for any adjustments
+        2. Consider both safety concerns AND positive safety factors (good lighting, safe infrastructure, low crime areas, etc.)
+        3. Be accurate and realistic - adjust the score based on actual safety factors (up to ±12 points)
+        4. Focus on practical, real-world safety rather than worst-case scenarios
+        5. Be harsh when there are genuine high-risk factors, but not overly harsh for normal urban routes
+        6. Consider the specific context of the route (university area, downtown, residential, etc.)
+        
+        IMPORTANT: Be accurate and realistic. Make adjustments based on actual safety factors, not just positive thinking.
+        Consider both risks and safety factors, but don't artificially inflate scores.
         
         Respond in this EXACT JSON format:
         {{
             "validation_score": <your assessment 0-100>,
             "original_score": {original_analysis.get('safety_score', 50)},
-            "adjustment_needed": <±15 to ±15>,
-            "reasoning": "<detailed explanation of your assessment>",
-            "additional_concerns": [<any new safety concerns you identified>],
+            "adjustment_needed": <±12 to ±12>,
+            "reasoning": "<realistic explanation focusing on actual safety factors and context>",
+            "additional_concerns": [<any significant new safety concerns you identified>],
             "additional_tips": [<any new safety recommendations>],
             "confidence_level": "<high/medium/low>",
-            "validation_notes": "<any other observations>"
+            "validation_notes": "<realistic observations about the route's actual safety context>"
         }}
         
-        Be thorough but concise. Focus on safety factors that might have been overlooked.
+        Be thorough and accurate. Consider both risks and safety factors realistically.
         """
         
         return prompt
@@ -155,8 +161,9 @@ class GeminiValidationAgent:
             original_score = original_analysis.get('safety_score', 50)
             adjustment = validation_data.get('adjustment_needed', 0)
             
-            # Ensure adjustment is within bounds
-            adjustment = max(-15, min(15, adjustment))
+            # No bias - be accurate and realistic
+            # Ensure adjustment is within bounds (±12)
+            adjustment = max(-12, min(12, adjustment))
             final_score = max(0, min(100, original_score + adjustment))
             
             return {
