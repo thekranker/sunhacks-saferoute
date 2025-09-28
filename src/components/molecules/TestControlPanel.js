@@ -14,6 +14,14 @@ class TestControlPanel {
         this.safetyScoreService = new SafetyScoreService();
         this.aiAnalysisService = new AIAnalysisService();
         
+        // Smart caching system for performance optimization
+        this.cache = {
+            safetyScores: new Map(), // Cache safety scores by route fingerprint
+            geocoding: new Map(),    // Cache geocoding results
+            aiAnalysis: new Map(),   // Cache AI analysis results
+            streetview: new Map()    // Cache streetview analysis
+        };
+        
         this.geocodeButton = new ActionButton('geocodeBtn', () => this.testGeocoding());
         this.directionsButton = new ActionButton('directionsBtn', () => this.testDirections());
         this.clearButton = new ActionButton('clearBtn', () => this.clearMap());
@@ -62,10 +70,20 @@ class TestControlPanel {
                 return;
             }
             
-            this.outputDisplay.updateOutput(`Found ${routes.length} route(s). Calculating safety scores...`);
+            this.outputDisplay.updateOutput(`Found ${routes.length} route(s). Pre-filtering unsafe routes...`);
             
-            // Calculate safety scores for all routes
-            const routesWithSafety = await this.calculateSafetyScores(routes);
+            // Pre-filter obviously unsafe routes before expensive analysis
+            const preFilteredRoutes = this.preFilterUnsafeRoutes(routes);
+            
+            if (preFilteredRoutes.length === 0) {
+                this.outputDisplay.updateOutput("No safe routes found after filtering!");
+                return;
+            }
+            
+            this.outputDisplay.updateOutput(`Processing ${preFilteredRoutes.length} route(s). Calculating safety scores...`);
+            
+            // Calculate safety scores for filtered routes
+            const routesWithSafety = await this.calculateSafetyScores(preFilteredRoutes);
             
             // Sort routes by safety score (highest first)
             routesWithSafety.sort((a, b) => b.safetyScore - a.safetyScore);
@@ -73,17 +91,19 @@ class TestControlPanel {
             // Filter routes by length - remove routes more than 2.5x longer than shortest
             const filteredRoutes = this.filterRoutesByLength(routesWithSafety);
             
-            // Get AI analysis for all routes automatically
-            this.outputDisplay.updateOutput("🤖 Getting AI analysis for all routes...");
-            
-            // Show routes first with loading indicators
+            // Show routes immediately with basic safety scores (progressive loading)
+            this.outputDisplay.updateOutput("🚀 Displaying routes with initial safety scores...");
             this.routeSelector.setRoutes(filteredRoutes.map(route => ({
                 ...route,
                 aiAnalysis: { loading: true }
             })));
             this.routeSelector.show();
             
-            // Get AI analysis in background
+            // Display routes on map immediately
+            this.displayAllRoutes(filteredRoutes);
+            
+            // Get AI analysis in background and update progressively
+            this.outputDisplay.updateOutput("🤖 Getting AI analysis for all routes...");
             const routesWithAI = await this.getAIAnalysisForAllRoutes(filteredRoutes);
             
             // Mark the safest route as "Ultra Safe" if it's significantly safer
@@ -98,13 +118,13 @@ class TestControlPanel {
                 }
             }
             
-            // Update route selector with AI analysis
+            // Update route selector with final AI analysis
             this.routeSelector.setRoutes(routesWithAI);
             
-            // Display all filtered routes on map with the safest one selected
+            // Re-display routes with final scores
             this.displayAllRoutes(routesWithAI);
             
-            this.outputDisplay.updateOutput(`Routes displayed with AI analysis. Safest route (${routesWithAI[0].summary}) auto-selected.`);
+            this.outputDisplay.updateOutput(`✅ All routes complete with AI analysis. Safest route (${routesWithAI[0].summary}) auto-selected.`);
             
         } catch (error) {
             this.outputDisplay.updateOutput(`Route calculation failed: ${error.message}`);
@@ -194,23 +214,25 @@ class TestControlPanel {
     }
 
     async calculateSafetyScores(routes) {
-        const routesWithSafety = [];
+        const origin = this.startLocationInput.getValue();
+        const destination = this.endLocationInput.getValue();
         
-        for (let i = 0; i < routes.length; i++) {
-            const route = routes[i];
-            
+        // Pre-extract route points for all routes to avoid redundant processing
+        const routesWithPoints = routes.map((route, i) => {
+            const routeResult = { routes: [route] };
+            const routePoints = this.safetyScoreService.extractRoutePointsFromDirections(routeResult);
+            return { route, routePoints, index: i };
+        });
+        
+        // Process all routes in parallel for maximum performance
+        const safetyPromises = routesWithPoints.map(async ({ route, routePoints, index }) => {
             try {
-                // Create a directions result object for this route
-                const routeResult = {
-                    routes: [route]
-                };
-                
-                const routePoints = this.safetyScoreService.extractRoutePointsFromDirections(routeResult);
-                
                 // Calculate weighted safety score with loading states
-                const weightedScore = await this.calculateWeightedSafetyScore(routePoints, i + 1);
+                const weightedScore = await this.calculateWeightedSafetyScore(routePoints, index + 1, origin, destination);
                 
-                routesWithSafety.push({
+                this.outputDisplay.updateOutput(`Route ${index + 1}: Overall Safety Score ${(weightedScore.overallScore * 100).toFixed(1)}%`);
+                
+                return {
                     route: route,
                     safetyScore: weightedScore.overallScore,
                     crimeScore: weightedScore.crimeScore,
@@ -219,15 +241,15 @@ class TestControlPanel {
                     safetyBreakdown: weightedScore.breakdown,
                     distance: route.legs[0].distance.text,
                     duration: route.legs[0].duration.text,
-                    summary: route.summary || `Route ${i + 1}`
-                });
-                
-                this.outputDisplay.updateOutput(`Route ${i + 1}: Overall Safety Score ${(weightedScore.overallScore * 100).toFixed(1)}%`);
+                    summary: route.summary || `Route ${index + 1}`,
+                    origin: origin,
+                    destination: destination
+                };
                 
             } catch (error) {
-                console.warn(`Failed to calculate safety score for route ${i + 1}:`, error);
+                console.warn(`Failed to calculate safety score for route ${index + 1}:`, error);
                 // Include route with default low safety score if calculation fails
-                routesWithSafety.push({
+                return {
                     route: route,
                     safetyScore: 0.1, // Low default score
                     crimeScore: 0.1,
@@ -236,21 +258,68 @@ class TestControlPanel {
                     safetyBreakdown: {},
                     distance: route.legs[0].distance.text,
                     duration: route.legs[0].duration.text,
-                    summary: route.summary || `Route ${i + 1}`,
-                    error: error.message
-                });
+                    summary: route.summary || `Route ${index + 1}`,
+                    error: error.message,
+                    origin: origin,
+                    destination: destination
+                };
             }
-        }
+        });
+        
+        // Wait for all routes to complete in parallel
+        const routesWithSafety = await Promise.all(safetyPromises);
         
         return routesWithSafety;
     }
 
-    async calculateWeightedSafetyScore(routePoints, routeNumber) {
+    // Generate cache key for route segments
+    generateRouteCacheKey(routePoints) {
+        if (routePoints.length === 0) return null;
+        const start = routePoints[0];
+        const end = routePoints[routePoints.length - 1];
+        return `${start.lat.toFixed(4)},${start.lon.toFixed(4)}-${end.lat.toFixed(4)},${end.lon.toFixed(4)}`;
+    }
+
+    // Get cached safety score or calculate new one
+    async getCachedSafetyScore(routePoints, routeNumber) {
+        const cacheKey = this.generateRouteCacheKey(routePoints);
+        if (cacheKey && this.cache.safetyScores.has(cacheKey)) {
+            this.outputDisplay.updateOutput(`Route ${routeNumber}: Using cached safety score`);
+            return this.cache.safetyScores.get(cacheKey);
+        }
+
+        const result = await this.safetyScoreService.getSafetyScore(routePoints);
+        
+        if (cacheKey) {
+            this.cache.safetyScores.set(cacheKey, result);
+        }
+        
+        return result;
+    }
+
+    // Get cached streetview score or calculate new one
+    async getCachedStreetviewScore(routePoints, routeNumber) {
+        const cacheKey = this.generateRouteCacheKey(routePoints);
+        if (cacheKey && this.cache.streetview.has(cacheKey)) {
+            this.outputDisplay.updateOutput(`Route ${routeNumber}: Using cached streetview score`);
+            return this.cache.streetview.get(cacheKey);
+        }
+
+        const result = await this.getStreetviewScore(routePoints);
+        
+        if (cacheKey) {
+            this.cache.streetview.set(cacheKey, result);
+        }
+        
+        return result;
+    }
+
+    async calculateWeightedSafetyScore(routePoints, routeNumber, origin, destination) {
         // Show loading screen with cycling messages
         const loadingMessages = [
             "Studying crime statistics",
             "Analyzing streetview data", 
-            "Picking optimal routes"
+            "Getting AI analysis"
         ];
         
         let messageIndex = 0;
@@ -260,21 +329,27 @@ class TestControlPanel {
         }, 1500);
 
         try {
-            // Step 1: Get crime data (65% weight)
-            this.outputDisplay.updateOutput(`Route ${routeNumber}: Studying crime statistics...`);
-            const crimeData = await this.safetyScoreService.getSafetyScore(routePoints);
+            // Run crime and streetview analysis in parallel with caching
+            this.outputDisplay.updateOutput(`Route ${routeNumber}: Running safety analysis in parallel...`);
+            
+            const [crimeData, streetviewScore] = await Promise.all([
+                // Step 1: Get crime data (65% weight) with caching
+                this.getCachedSafetyScore(routePoints, routeNumber).then(data => {
+                    this.outputDisplay.updateOutput(`Route ${routeNumber}: Crime analysis complete`);
+                    return data;
+                }),
+                
+                // Step 2: Get streetview analysis (25% weight) with caching
+                this.getCachedStreetviewScore(routePoints, routeNumber).then(score => {
+                    this.outputDisplay.updateOutput(`Route ${routeNumber}: Streetview analysis complete`);
+                    return score;
+                })
+            ]);
+
             const crimeScore = crimeData.safety_score;
-
-            // Step 2: Get streetview analysis (25% weight)
-            this.outputDisplay.updateOutput(`Route ${routeNumber}: Analyzing streetview data...`);
-            const streetviewScore = await this.getStreetviewScore(routePoints);
-
-            // Step 3: Get AI analysis (15% weight)
-            this.outputDisplay.updateOutput(`Route ${routeNumber}: Picking optimal routes...`);
-            const aiScore = await this.getAIScore(routePoints);
-
-            // Calculate weighted overall score
-            const overallScore = (crimeScore * 0.65) + (streetviewScore * 0.25) + (aiScore * 0.15);
+            
+            // Calculate weighted score without AI (AI will be added later in getAIAnalysisForAllRoutes)
+            const overallScore = (crimeScore * 0.65) + (streetviewScore * 0.25) + (0.6 * 0.15); // Use default AI score temporarily
 
             // Clear loading interval
             clearInterval(loadingInterval);
@@ -283,8 +358,10 @@ class TestControlPanel {
                 overallScore: overallScore,
                 crimeScore: crimeScore,
                 streetviewScore: streetviewScore,
-                aiScore: aiScore,
-                breakdown: crimeData.breakdown
+                aiScore: 0.6, // Temporary default, will be updated later
+                breakdown: crimeData.breakdown,
+                origin: origin,
+                destination: destination
             };
 
         } catch (error) {
@@ -351,6 +428,34 @@ class TestControlPanel {
             console.warn('AI analysis failed:', error);
             return 0.6; // 60% default
         }
+    }
+
+    // Smart route filtering to skip obviously unsafe routes
+    preFilterUnsafeRoutes(routes) {
+        return routes.filter(route => {
+            const distance = route.legs[0].distance.value; // Distance in meters
+            const duration = route.legs[0].duration.value; // Duration in seconds
+            
+            // Skip routes that are extremely long (more than 5km for walking)
+            if (distance > 5000) {
+                this.outputDisplay.updateOutput(`Skipping route: Too long (${(distance/1000).toFixed(1)}km)`);
+                return false;
+            }
+            
+            // Skip routes that take more than 1 hour to walk
+            if (duration > 3600) {
+                this.outputDisplay.updateOutput(`Skipping route: Too long duration (${Math.round(duration/60)}min)`);
+                return false;
+            }
+            
+            // Skip routes with suspicious patterns (very short segments might indicate issues)
+            if (route.overview_path && route.overview_path.length < 3) {
+                this.outputDisplay.updateOutput(`Skipping route: Insufficient path data`);
+                return false;
+            }
+            
+            return true;
+        });
     }
 
     filterRoutesByLength(routesWithSafety) {
@@ -573,48 +678,71 @@ class TestControlPanel {
         }
     }
 
-    async getAIAnalysisForAllRoutes(routes) {
-        const origin = this.startLocationInput.getValue();
-        const destination = this.endLocationInput.getValue();
+    // Batch API calls for similar routes to reduce overhead
+    async batchAIAnalysis(routes) {
+        const batchSize = 3; // Process 3 routes at a time to avoid overwhelming the API
+        const batches = [];
         
-        // Process all routes in parallel for faster loading
-        const aiPromises = routes.map(async (routeData, index) => {
-            try {
-                const routeDetails = {
-                    distance: routeData.distance,
-                    duration: routeData.duration,
-                    summary: routeData.summary
-                };
+        for (let i = 0; i < routes.length; i += batchSize) {
+            batches.push(routes.slice(i, i + batchSize));
+        }
+        
+        const results = [];
+        for (const batch of batches) {
+            const batchPromises = batch.map(async (routeData, index) => {
+                try {
+                    const routeDetails = {
+                        distance: routeData.distance,
+                        duration: routeData.duration,
+                        summary: routeData.summary
+                    };
 
-                const aiAnalysis = await this.aiAnalysisService.analyzeRouteSafety(origin, destination, routeDetails);
-                
-                // Add AI analysis to route data
-                return {
-                    ...routeData,
-                    aiAnalysis: aiAnalysis
-                };
-            } catch (error) {
-                console.error(`AI Analysis Error for route ${index + 1}:`, error);
-                // Return route with failed analysis
-                return {
-                    ...routeData,
-                    aiAnalysis: {
-                        success: false,
-                        error: error.message,
-                        analysis: {
-                            safety_score: 50,
-                            main_concerns: ["Analysis failed"],
-                            quick_tips: ["Use caution"]
+                    const aiAnalysis = await this.aiAnalysisService.analyzeRouteSafety(routeData.origin, routeData.destination, routeDetails);
+                    
+                    // Calculate final safety score with real AI score
+                    const realAiScore = aiAnalysis.success ? (aiAnalysis.analysis.safety_score / 100) : 0.6;
+                    const finalSafetyScore = (routeData.crimeScore * 0.65) + (routeData.streetviewScore * 0.25) + (realAiScore * 0.15);
+                    
+                    // Add AI analysis to route data and update safety score
+                    return {
+                        ...routeData,
+                        safetyScore: finalSafetyScore,
+                        aiScore: realAiScore,
+                        aiAnalysis: aiAnalysis
+                    };
+                } catch (error) {
+                    console.error(`AI Analysis Error for route:`, error);
+                    // Return route with failed analysis but keep existing safety score
+                    return {
+                        ...routeData,
+                        aiAnalysis: {
+                            success: false,
+                            error: error.message,
+                            analysis: {
+                                safety_score: 50,
+                                main_concerns: ["Analysis failed"],
+                                quick_tips: ["Use caution"]
+                            }
                         }
-                    }
-                };
-            }
-        });
-
-        // Wait for all AI analyses to complete
-        const routesWithAI = await Promise.all(aiPromises);
+                    };
+                }
+            });
+            
+            const batchResults = await Promise.all(batchPromises);
+            results.push(...batchResults);
+            
+            // Update UI progressively as each batch completes
+            this.outputDisplay.updateOutput(`✅ Batch ${batches.indexOf(batch) + 1}/${batches.length} AI analysis complete`);
+        }
         
-        this.outputDisplay.updateOutput(`✅ AI analysis completed for ${routesWithAI.length} routes!`);
+        return results;
+    }
+
+    async getAIAnalysisForAllRoutes(routes) {
+        // Use batched processing for better API efficiency
+        const routesWithAI = await this.batchAIAnalysis(routes);
+        
+        this.outputDisplay.updateOutput(`✅ All AI analysis completed for ${routesWithAI.length} routes!`);
         return routesWithAI;
     }
 
