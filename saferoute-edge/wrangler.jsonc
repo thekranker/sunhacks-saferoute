@@ -18,19 +18,7 @@
 	],
 
 	"vars": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 		"BACKEND_URL": "http://127.0.0.1:8081", 
-=======
-		"BACKEND_URL": "https://includes-ballot-usr-sub.trycloudflare.com", 
->>>>>>> 552480c (Added Cloudflare cache using KV pairs to increase systems efficency and connect to the cloud)
-=======
-		"BACKEND_URL": "http://127.0.0.1:8081", 
->>>>>>> b2f92c2 (Working Safety Score)
-=======
-		"BACKEND_URL": "http://127.0.0.1:8081", 
->>>>>>> karan-dev
 		"CACHE_VERSION": "v1"
 	}
 
