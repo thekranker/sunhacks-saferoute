@@ -4558,3 +4558,9 @@ While the identified risks are valid (especially major road crossings, which rem
 2025-09-28 01:28:01,019 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/gemini_api.py', reloading
 2025-09-28 01:28:04,034 - WARNING -  * Debugger is active!
 2025-09-28 01:28:04,042 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 01:28:20,145 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/gemini_api.py', reloading
+2025-09-28 01:28:21,291 - WARNING -  * Debugger is active!
+2025-09-28 01:28:21,298 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 01:28:22,310 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/gemini_api.py', reloading
+2025-09-28 01:28:23,124 - WARNING -  * Debugger is active!
+2025-09-28 01:28:23,130 - INFO -  * Debugger PIN: 692-290-271
