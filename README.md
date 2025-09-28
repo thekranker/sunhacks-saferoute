@@ -1,8 +1,20 @@
-# SafeRoute - Component-Based Architecture
+# SafeRoute 
 
-This project has been reorganized into a component-based architecture following atomic design principles.
+SafeRoute is an AI-powered web app that helps users find the safest walking routes, not just the fastest ones. By combining real-world police data, AI agent analysis, and Google Street View inspection, SafeRoute empowers people to make safer choices every day.
 
-## Project Structure
+## Functionality
+
+SafeRoute calculates and compares safety across all possible walking routes so users can make informed decisions. 
+For each route, our system generates three safety scores: 
+
+1. One derived from the public Tempe government database of police reports
+2. Another from a Gemini AI agent’s summarized safety analysis (validated through a second agent)
+3. A third from a Gemini agent that inspects Google Maps Street View imagery
+  
+These scores are combined and displayed to the user, highlighting the safest route while still showing all available options.
+
+
+## Frontend Project Structure
 
 ```
 /
@@ -39,26 +51,21 @@ This project has been reorganized into a component-based architecture following 
 ### Organisms (Complex Components)
 - **MainMapInterface.js**: Orchestrates the entire map interface, handling events between components
 
-## Key Features
-
-1. **Modular Design**: Each component has a single responsibility
-2. **Event-Driven**: Components communicate through custom events
-3. **Reusable**: Atomic components can be reused in different contexts
-4. **Maintainable**: Clear separation of concerns makes the code easier to maintain
-
 ## Usage
 
 1. Replace `YOUR_API_KEY` in `main.html` with your Google Maps API key
 2. Open `main.html` in a web browser
 3. The application will initialize automatically when the Google Maps API loads
 
-## Migration from Legacy Code
+# What’s next for SafeRoute 
 
-The original functionality from `legacy-script.js` has been preserved and reorganized:
-- Map initialization
-- Geocoding functionality
-- Directions service
-- Output logging
-- Clear map functionality
+Nationwide Expansion – Expand dataset beyond Tempe to cover the U.S.
 
-All features work exactly the same as before, but with better organization and maintainability.
+Mobile Apps – iOS & Android versions for accessibility on the go
+
+Emergency SOS – Quick help feature for unsafe situations
+
+Secure Accounts – Validation with encryption & privacy safeguards
+
+Live Safety Map – Real-time safety scores for nearby streets
+
