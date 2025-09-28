@@ -9,6 +9,7 @@ import requests
 from gemini_api import analyze_route_safety
 from gemini_validation_agent import validate_route_safety_with_agent, GeminiValidationAgent
 from gemini_streetview_agent import analyze_streetview_safety, GeminiStreetViewAgent
+from enhanced_streetview_agent import analyze_route_comprehensive, EnhancedStreetViewAgent
 
 # Configure logging
 logging.basicConfig(
@@ -577,6 +578,240 @@ def analyze_route_with_streetview():
             "error": f"Server error: {str(e)}"
         }), 500
 
+@app.route('/analyze-route-enhanced', methods=['POST'])
+def analyze_route_enhanced():
+    """
+    Analyze route safety with enhanced multi-point street view analysis.
+    
+    Expected JSON payload:
+    {
+        "origin": "starting address",
+        "destination": "destination address", 
+        "route_details": {
+            "distance": "route distance",
+            "duration": "route duration",
+            "summary": "route summary"
+        },
+        "max_samples": 5  // Optional: max number of points to analyze
+    }
+    """
+    try:
+        # Set a 120-second timeout for enhanced analysis
+        signal.alarm(120)
+        
+        # Get JSON data from request
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({
+                "success": False,
+                "error": "No JSON data provided"
+            }), 400
+        
+        # Extract required fields
+        origin = data.get('origin')
+        destination = data.get('destination')
+        route_details = data.get('route_details', {})
+        max_samples = data.get('max_samples', 5)
+        
+        if not origin or not destination:
+            return jsonify({
+                "success": False,
+                "error": "Both origin and destination are required"
+            }), 400
+        
+        # Step 1: Get initial analysis from Gemini API
+        logger.info("=" * 80)
+        logger.info("ENHANCED SAFEROUTE AI WORKFLOW STARTING")
+        logger.info("=" * 80)
+        logger.info(f"Analyzing route: {origin} → {destination}")
+        logger.info(f"Max samples: {max_samples}")
+        
+        initial_result = analyze_route_safety(origin, destination, route_details)
+        
+        if not initial_result["success"]:
+            logger.error(f"Initial analysis failed: {initial_result.get('error', 'Unknown error')}")
+            return jsonify({
+                "success": False,
+                "error": f"Initial analysis failed: {initial_result.get('error', 'Unknown error')}",
+                "workflow_stage": "initial_analysis"
+            }), 500
+        
+        logger.info("INITIAL AI ANALYSIS COMPLETED:")
+        logger.info(f"  Safety Score: {initial_result['analysis']['safety_score']}%")
+        logger.info(f"  Main Concerns: {initial_result['analysis']['main_concerns']}")
+        logger.info(f"  Quick Tips: {initial_result['analysis']['quick_tips']}")
+        
+        # Step 2: Validate the analysis using the validation agent
+        logger.info("Starting validation agent...")
+        route_context = {
+            "origin": origin,
+            "destination": destination
+        }
+        route_context.update(route_details)
+        
+        validation_result = validate_route_safety_with_agent(
+            initial_result["analysis"], 
+            route_context
+        )
+        
+        if not validation_result["success"]:
+            logger.error(f"Validation failed: {validation_result['error']}")
+            # Return original analysis if validation fails
+            return jsonify({
+                "success": True,
+                "analysis": initial_result["analysis"],
+                "validation_applied": False,
+                "validation_error": validation_result["error"],
+                "workflow_metadata": {
+                    "workflow_stage": "validation_failed",
+                    "initial_analysis_success": True
+                }
+            })
+        
+        # Step 3: Enhanced multi-point street view analysis
+        logger.info("Starting enhanced multi-point street view analysis...")
+        
+        # Geocode the origin and destination for precise coordinates
+        logger.info("Geocoding addresses for precise location analysis...")
+        origin_coords = geocode_address(origin)
+        dest_coords = geocode_address(destination)
+        
+        if not origin_coords or not dest_coords:
+            logger.error("Failed to geocode addresses for enhanced analysis")
+            return jsonify({
+                "success": False,
+                "error": "Failed to geocode addresses for enhanced analysis"
+            }), 500
+        
+        # Perform comprehensive multi-point analysis
+        comprehensive_result = analyze_route_comprehensive(
+            (origin_coords['lat'], origin_coords['lng']),
+            (dest_coords['lat'], dest_coords['lng']),
+            route_details,
+            max_samples
+        )
+        
+        if not comprehensive_result.get("success", False):
+            logger.error(f"Enhanced analysis failed: {comprehensive_result.get('error', 'Unknown error')}")
+            # Fall back to single-point analysis
+            logger.info("Falling back to single-point analysis...")
+            streetview_location_info = {
+                "address": f"{origin} to {destination}",
+                "coordinates": f"{(origin_coords['lat'] + dest_coords['lat']) / 2},{(origin_coords['lng'] + dest_coords['lng']) / 2}",
+                "time_context": "day"
+            }
+            
+            fallback_result = analyze_streetview_safety(None, streetview_location_info)
+            comprehensive_result = {
+                "success": fallback_result.get("success", False),
+                "comprehensive_safety_score": fallback_result.get("safety_score", 0),
+                "confidence_level": fallback_result.get("confidence_level", "low"),
+                "points_analyzed": 1 if fallback_result.get("success", False) else 0,
+                "total_points_sampled": 1,
+                "coverage_percentage": 100.0 if fallback_result.get("success", False) else 0.0,
+                "analysis_type": "fallback_single_point"
+            }
+        
+        # Step 4: Create enhanced analysis with all results
+        logger.info("Creating enhanced analysis with comprehensive results...")
+        
+        # Get validation data
+        validation_data = validation_result["validation_analysis"]
+        final_score = validation_result["final_score"]
+        adjustment = validation_result["adjustment"]
+        
+        # Combine initial analysis, validation, and comprehensive street view
+        enhanced_analysis = {
+            "safety_score": final_score,
+            "main_concerns": initial_result["analysis"]["main_concerns"],
+            "quick_tips": initial_result["analysis"]["quick_tips"],
+            "validation_metadata": {
+                "original_score": initial_result["analysis"]["safety_score"],
+                "score_adjustment": adjustment,
+                "confidence_level": validation_data.get("confidence_level", "medium"),
+                "validation_notes": validation_data.get("validation_notes", ""),
+                "reasoning": validation_data.get("reasoning", "")
+            },
+            "comprehensive_streetview_analysis": {
+                "available": comprehensive_result.get("success", False),
+                "safety_score": comprehensive_result.get("comprehensive_safety_score", "N/A"),
+                "points_analyzed": comprehensive_result.get("points_analyzed", 0),
+                "total_points_sampled": comprehensive_result.get("total_points_sampled", 0),
+                "coverage_percentage": comprehensive_result.get("coverage_percentage", 0),
+                "confidence_level": comprehensive_result.get("confidence_level", "low"),
+                "analysis_type": comprehensive_result.get("analysis_type", "unknown"),
+                "route_analysis": comprehensive_result.get("route_analysis", {}),
+                "aggregated_concerns": comprehensive_result.get("aggregated_concerns", []),
+                "aggregated_recommendations": comprehensive_result.get("aggregated_recommendations", []),
+                "aggregated_positive_factors": comprehensive_result.get("aggregated_positive_factors", []),
+                "detailed_results": comprehensive_result.get("detailed_results", []),
+                "enhancement_notes": comprehensive_result.get("enhancement_notes", "")
+            }
+        }
+        
+        # Add any additional concerns or tips from validation
+        if validation_data.get("additional_concerns"):
+            enhanced_analysis["main_concerns"].extend(validation_data["additional_concerns"])
+        
+        if validation_data.get("additional_tips"):
+            enhanced_analysis["quick_tips"].extend(validation_data["additional_tips"])
+        
+        # Add comprehensive concerns and recommendations
+        if comprehensive_result.get("aggregated_concerns"):
+            enhanced_analysis["main_concerns"].extend(comprehensive_result["aggregated_concerns"])
+        
+        if comprehensive_result.get("aggregated_recommendations"):
+            enhanced_analysis["quick_tips"].extend(comprehensive_result["aggregated_recommendations"])
+        
+        logger.info("=" * 80)
+        logger.info("ENHANCED WORKFLOW COMPLETED SUCCESSFULLY")
+        logger.info("=" * 80)
+        logger.info(f"Original Score: {initial_result['analysis']['safety_score']}%")
+        logger.info(f"Validation Adjustment: {adjustment:+d} points")
+        logger.info(f"Final Score: {final_score}%")
+        logger.info(f"Comprehensive Street View Score: {comprehensive_result.get('comprehensive_safety_score', 'N/A')}%")
+        logger.info(f"Points Analyzed: {comprehensive_result.get('points_analyzed', 0)}/{comprehensive_result.get('total_points_sampled', 0)}")
+        logger.info(f"Coverage: {comprehensive_result.get('coverage_percentage', 0)}%")
+        logger.info("=" * 80)
+        
+        signal.alarm(0)  # Cancel timeout
+        return jsonify({
+            "success": True,
+            "analysis": enhanced_analysis,
+            "validation_applied": True,
+            "comprehensive_analysis_applied": comprehensive_result.get("success", False),
+            "workflow_metadata": {
+                "workflow_stage": "enhanced_completed",
+                "initial_analysis_success": True,
+                "validation_success": True,
+                "comprehensive_analysis_success": comprehensive_result.get("success", False),
+                "score_adjustment": adjustment,
+                "confidence_level": validation_data.get("confidence_level", "medium"),
+                "points_analyzed": comprehensive_result.get("points_analyzed", 0),
+                "coverage_percentage": comprehensive_result.get("coverage_percentage", 0)
+            },
+            "raw_responses": {
+                "initial_analysis": initial_result["raw_response"],
+                "validation_response": validation_result.get("validation_response", ""),
+                "comprehensive_analysis": comprehensive_result
+            }
+        })
+            
+    except TimeoutException:
+        signal.alarm(0)  # Cancel timeout
+        return jsonify({
+            "success": False,
+            "error": "Enhanced AI analysis timed out after 120 seconds. Please try again.",
+            "workflow_stage": "timeout"
+        }), 408
+    except Exception as e:
+        signal.alarm(0)  # Cancel timeout
+        return jsonify({
+            "success": False,
+            "error": f"Server error: {str(e)}"
+        }), 500
+
 @app.route('/analyze-streetview', methods=['POST'])
 def analyze_streetview():
     """
@@ -693,6 +928,7 @@ def root():
         "message": "SafeRoute AI Analysis API with Validation and Street View Analysis",
         "endpoints": {
             "POST /analyze-route": "Analyze route safety with integrated validation",
+            "POST /analyze-route-enhanced": "Enhanced route analysis with multi-point street view",
             "POST /analyze-route-with-streetview": "Analyze route safety with integrated street view analysis",
             "POST /analyze-streetview": "Analyze street view images for safety indicators",
             "POST /validate-analysis": "Manually validate an existing safety analysis",
@@ -733,11 +969,12 @@ if __name__ == '__main__':
     print("Starting SafeRoute AI Analysis API with Validation and Street View Analysis...")
     print("Available endpoints:")
     print("  POST /analyze-route - Analyze route safety with integrated validation")
+    print("  POST /analyze-route-enhanced - Enhanced route analysis with multi-point street view")
     print("  POST /analyze-route-with-streetview - Analyze route safety with integrated street view analysis")
     print("  POST /analyze-streetview - Analyze street view images for safety indicators")
     print("  POST /validate-analysis - Manually validate an existing analysis")
     print("  GET /health - Health check")
     print("  GET /workflow-stats - Get validation statistics")
     print("  GET / - API information")
-    print("\nWorkflow: Initial Analysis → AI Validation → Score Adjustment → Street View Analysis")
+    print("\nWorkflow: Initial Analysis → AI Validation → Score Adjustment → Enhanced Multi-Point Street View Analysis")
     app.run(debug=True, host='0.0.0.0', port=5002)

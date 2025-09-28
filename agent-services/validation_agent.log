@@ -8579,3 +8579,1202 @@ message: "Requests to this API generativelanguage.googleapis.com method google.a
 2025-09-28 05:34:46,588 - INFO - Final Score: 79%
 2025-09-28 05:34:46,588 - INFO - ================================================================================
 2025-09-28 05:34:46,589 - INFO - 127.0.0.1 - - [28/Sep/2025 05:34:46] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:39:26,716 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 05:39:29,022 - INFO -  * Restarting with stat
+2025-09-28 05:39:30,623 - WARNING -  * Debugger is active!
+2025-09-28 05:39:30,630 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 05:39:46,797 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 05:39:47,124 - INFO -  * Restarting with stat
+2025-09-28 05:39:48,692 - WARNING -  * Debugger is active!
+2025-09-28 05:39:48,698 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 05:39:50,736 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 05:39:50,821 - INFO -  * Restarting with stat
+2025-09-28 05:39:52,096 - WARNING -  * Debugger is active!
+2025-09-28 05:39:52,106 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 05:39:56,162 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 05:39:56,284 - INFO -  * Restarting with stat
+2025-09-28 05:39:57,785 - WARNING -  * Debugger is active!
+2025-09-28 05:39:57,791 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 05:41:27,675 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 05:41:27,778 - INFO -  * Restarting with stat
+2025-09-28 05:41:29,594 - WARNING -  * Debugger is active!
+2025-09-28 05:41:29,602 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 05:41:46,955 - INFO - 127.0.0.1 - - [28/Sep/2025 05:41:46] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:41:46,958 - INFO - 127.0.0.1 - - [28/Sep/2025 05:41:46] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:41:46,961 - INFO - 127.0.0.1 - - [28/Sep/2025 05:41:46] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:41:46,963 - INFO - 127.0.0.1 - - [28/Sep/2025 05:41:46] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:41:46,965 - INFO - ================================================================================
+2025-09-28 05:41:46,965 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:41:46,965 - INFO - ================================================================================
+2025-09-28 05:41:46,967 - INFO - ================================================================================
+2025-09-28 05:41:46,967 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 05:41:46,967 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:41:46,969 - INFO - ================================================================================
+2025-09-28 05:41:46,969 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 05:41:46,968 - INFO - ================================================================================
+2025-09-28 05:41:46,971 - INFO - ================================================================================
+2025-09-28 05:41:46,972 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:41:46,971 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:41:46,973 - INFO - ================================================================================
+2025-09-28 05:41:46,972 - INFO - ================================================================================
+2025-09-28 05:41:46,976 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 05:41:46,976 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 05:41:54,926 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:41:54,926 - INFO -   Safety Score: 80%
+2025-09-28 05:41:54,926 - INFO -   Main Concerns: ['High traffic volume and potential for distracted drivers at Rural Road crossings.', 'Reduced situational awareness due to distractions (phones, headphones), especially after dark.', 'General urban/campus petty crime (e.g., opportunistic theft) can occur in busy student areas.']
+2025-09-28 05:41:54,926 - INFO -   Quick Tips: ['Always use designated crosswalks and remain vigilant for traffic, particularly on Rural Road.', 'Limit distractions like phones and headphones to stay aware of your surroundings, especially at night.', 'Consider walking with a friend or utilizing campus safety services (e.g., shuttles, walk-assist) during late hours.']
+2025-09-28 05:41:54,926 - INFO - Starting validation agent...
+2025-09-28 05:41:54,926 - INFO - ============================================================
+2025-09-28 05:41:54,926 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:41:54,926 - INFO - ============================================================
+2025-09-28 05:41:54,926 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:41:54,926 - INFO -   Safety Score: 80%
+2025-09-28 05:41:54,926 - INFO -   Main Concerns: ['High traffic volume and potential for distracted drivers at Rural Road crossings.', 'Reduced situational awareness due to distractions (phones, headphones), especially after dark.', 'General urban/campus petty crime (e.g., opportunistic theft) can occur in busy student areas.']
+2025-09-28 05:41:54,926 - INFO -   Quick Tips: ['Always use designated crosswalks and remain vigilant for traffic, particularly on Rural Road.', 'Limit distractions like phones and headphones to stay aware of your surroundings, especially at night.', 'Consider walking with a friend or utilizing campus safety services (e.g., shuttles, walk-assist) during late hours.']
+2025-09-28 05:41:54,926 - INFO -   Raw Response: N/A...
+2025-09-28 05:41:54,926 - INFO - Sending validation request to Gemini...
+2025-09-28 05:41:56,017 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:41:56,017 - INFO -   Safety Score: 75%
+2025-09-28 05:41:56,017 - INFO -   Main Concerns: ['Pedestrian Safety & Busy Intersections: The route crosses major roads with high vehicle and pedestrian traffic (e.g., University Drive).', "Opportunistic Theft: As a dense university area, there's a risk of petty theft (e.g., phone snatching) if distracted or valuables are exposed.", 'Nighttime Solitude: Some campus paths might be less populated or dimly lit late at night, increasing perceived vulnerability.']
+2025-09-28 05:41:56,017 - INFO -   Quick Tips: ['Stay alert at all crosswalks and intersections; do not assume drivers see you.', 'Keep personal belongings secure and out of sight, and be aware of your surroundings.', 'Walk with a buddy or stick to well-lit, main routes if traveling after dark.']
+2025-09-28 05:41:56,017 - INFO - Starting validation agent...
+2025-09-28 05:41:56,017 - INFO - ============================================================
+2025-09-28 05:41:56,017 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:41:56,017 - INFO - ============================================================
+2025-09-28 05:41:56,017 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:41:56,017 - INFO -   Safety Score: 75%
+2025-09-28 05:41:56,017 - INFO -   Main Concerns: ['Pedestrian Safety & Busy Intersections: The route crosses major roads with high vehicle and pedestrian traffic (e.g., University Drive).', "Opportunistic Theft: As a dense university area, there's a risk of petty theft (e.g., phone snatching) if distracted or valuables are exposed.", 'Nighttime Solitude: Some campus paths might be less populated or dimly lit late at night, increasing perceived vulnerability.']
+2025-09-28 05:41:56,017 - INFO -   Quick Tips: ['Stay alert at all crosswalks and intersections; do not assume drivers see you.', 'Keep personal belongings secure and out of sight, and be aware of your surroundings.', 'Walk with a buddy or stick to well-lit, main routes if traveling after dark.']
+2025-09-28 05:41:56,017 - INFO -   Raw Response: N/A...
+2025-09-28 05:41:56,017 - INFO - Sending validation request to Gemini...
+2025-09-28 05:41:56,132 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:41:56,132 - INFO -   Safety Score: 78%
+2025-09-28 05:41:56,132 - INFO -   Main Concerns: ['Navigating busy intersections with vehicular and bicycle traffic (e.g., Rural Rd, University Dr).', 'Reduced visibility and potential for isolated spots, especially when walking at night.', "High temperatures and sun exposure, particularly during daytime walks in Arizona's climate."]
+2025-09-28 05:41:56,132 - INFO -   Quick Tips: ['Always use marked crosswalks and obey traffic signals; be aware of distracted drivers and cyclists.', 'Whenever possible, travel with a friend or use well-lit, populated paths after dark.', 'Carry water and wear sun protection during the day, especially in warmer months.']
+2025-09-28 05:41:56,132 - INFO - Starting validation agent...
+2025-09-28 05:41:56,133 - INFO - ============================================================
+2025-09-28 05:41:56,133 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:41:56,133 - INFO - ============================================================
+2025-09-28 05:41:56,133 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:41:56,133 - INFO -   Safety Score: 78%
+2025-09-28 05:41:56,133 - INFO -   Main Concerns: ['Navigating busy intersections with vehicular and bicycle traffic (e.g., Rural Rd, University Dr).', 'Reduced visibility and potential for isolated spots, especially when walking at night.', "High temperatures and sun exposure, particularly during daytime walks in Arizona's climate."]
+2025-09-28 05:41:56,133 - INFO -   Quick Tips: ['Always use marked crosswalks and obey traffic signals; be aware of distracted drivers and cyclists.', 'Whenever possible, travel with a friend or use well-lit, populated paths after dark.', 'Carry water and wear sun protection during the day, especially in warmer months.']
+2025-09-28 05:41:56,133 - INFO -   Raw Response: N/A...
+2025-09-28 05:41:56,133 - INFO - Sending validation request to Gemini...
+2025-09-28 05:41:56,915 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:41:56,915 - INFO -   Safety Score: 75%
+2025-09-28 05:41:56,915 - INFO -   Main Concerns: ['Pedestrian/Vehicle Collisions: Crossing busy campus streets (e.g., University Dr, Rural Rd) with high traffic, bikes, and distracted pedestrians/drivers.', "Heat Exposure: Tempe's extreme temperatures, especially during summer and midday, pose a risk of dehydration or heat exhaustion even for a short walk.", 'Personal Safety/Theft (especially at night): While generally safe, urban campuses can have opportunistic thefts and reduced personal safety when walking alone in less-trafficked areas after dark.']
+2025-09-28 05:41:56,915 - INFO -   Quick Tips: ['Always use designated crosswalks, make eye contact with drivers, and be alert for traffic (vehicles, bikes, scooters).', 'Carry water, stay hydrated, and utilize shaded paths or buildings to escape the heat.', 'Walk with a buddy or in groups at night, stick to well-lit and populated paths, and avoid distractions like headphones.']
+2025-09-28 05:41:56,915 - INFO - Starting validation agent...
+2025-09-28 05:41:56,915 - INFO - ============================================================
+2025-09-28 05:41:56,915 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:41:56,915 - INFO - ============================================================
+2025-09-28 05:41:56,915 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:41:56,915 - INFO -   Safety Score: 75%
+2025-09-28 05:41:56,915 - INFO -   Main Concerns: ['Pedestrian/Vehicle Collisions: Crossing busy campus streets (e.g., University Dr, Rural Rd) with high traffic, bikes, and distracted pedestrians/drivers.', "Heat Exposure: Tempe's extreme temperatures, especially during summer and midday, pose a risk of dehydration or heat exhaustion even for a short walk.", 'Personal Safety/Theft (especially at night): While generally safe, urban campuses can have opportunistic thefts and reduced personal safety when walking alone in less-trafficked areas after dark.']
+2025-09-28 05:41:56,915 - INFO -   Quick Tips: ['Always use designated crosswalks, make eye contact with drivers, and be alert for traffic (vehicles, bikes, scooters).', 'Carry water, stay hydrated, and utilize shaded paths or buildings to escape the heat.', 'Walk with a buddy or in groups at night, stick to well-lit and populated paths, and avoid distractions like headphones.']
+2025-09-28 05:41:56,915 - INFO -   Raw Response: N/A...
+2025-09-28 05:41:56,915 - INFO - Sending validation request to Gemini...
+2025-09-28 05:42:08,122 - INFO - ============================================================
+2025-09-28 05:42:08,122 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:42:08,122 - INFO - ============================================================
+2025-09-28 05:42:08,122 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:42:08,122 - INFO -   Original Score: 75%
+2025-09-28 05:42:08,122 - INFO -   Validation Score: 82%
+2025-09-28 05:42:08,122 - INFO -   Adjustment Needed: 7 points
+2025-09-28 05:42:08,122 - INFO -   Final Score: 82%
+2025-09-28 05:42:08,122 - INFO -   Confidence: high
+2025-09-28 05:42:08,122 - INFO - VALIDATION REASONING:
+2025-09-28 05:42:08,122 - INFO -   The original analysis correctly identifies common concerns for a busy university environment, such as pedestrian safety at intersections (e.g., University Drive) and the risk of opportunistic theft in a dense area. However, it understates some inherent safety factors present on a major university campus. The route between Tooker House and Vista del Sol D is entirely within or immediately adjacent to the Arizona State University (ASU) Tempe campus. This area benefits from a dedicated university police department (ASU PD) with visible patrols, extensive security camera coverage, numerous emergency call boxes, and generally high pedestrian traffic throughout much of the day and evening, providing 'eyes on the street.' Main thoroughfares and pathways are typically well-lit and maintained. While the risks mentioned are valid and require vigilance, the overall environment is more secure than a generic urban route with similar traffic levels. The score is adjusted upwards to reflect these significant mitigating safety factors, while still acknowledging the need for situational awareness typical of any busy campus.
+2025-09-28 05:42:08,122 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:42:08,122 - INFO -   - High volume of scooters and bicycles: While not traditional vehicles, the density of electric scooters and bicycles on campus paths and crosswalks can create additional collision hazards for pedestrians, especially for those not paying full attention.
+2025-09-28 05:42:08,122 - INFO -   - Distraction from mobile devices: Particularly prevalent in a student population, walking while distracted by phones significantly increases the risk of pedestrian-vehicle/scooter collisions and vulnerability to theft.
+2025-09-28 05:42:08,122 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:42:08,122 - INFO -   - Be mindful of scooter and bicycle traffic, especially at shared pathways and intersections; they can approach quietly and quickly.
+2025-09-28 05:42:08,122 - INFO -   - Avoid using mobile devices while crossing streets or walking in congested areas to maintain full awareness of your surroundings.
+2025-09-28 05:42:08,122 - INFO - VALIDATION NOTES: This route is characteristic of a large, well-resourced university campus. The primary risks are those associated with high population density and active transportation modes (cars, bikes, scooters) rather than significant criminal activity beyond opportunistic petty theft. The presence of dedicated campus security and a generally high level of activity contribute positively to perceived and actual safety, tempering the identified concerns. The route is relatively short, minimizing prolonged exposure to any single risk factor.
+2025-09-28 05:42:08,122 - INFO - ============================================================
+2025-09-28 05:42:08,122 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:42:08,122 - INFO - ============================================================
+2025-09-28 05:42:08,122 - INFO - Original AI Score: 75%
+2025-09-28 05:42:08,122 - INFO - Validation Adjustment: +7 points
+2025-09-28 05:42:08,122 - INFO - Final Safety Score: 82%
+2025-09-28 05:42:08,122 - INFO - ============================================================
+2025-09-28 05:42:08,122 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:42:08,122 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:42:08,398 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 05:42:08,399 - INFO - ================================================================================
+2025-09-28 05:42:08,399 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:42:08,399 - INFO - ================================================================================
+2025-09-28 05:42:08,399 - INFO - Location: tooker house to vista del sol d
+2025-09-28 05:42:08,399 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 05:42:08,399 - INFO - Time Context: day
+2025-09-28 05:42:08,399 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:42:08,399 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 05:42:08,506 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 05:42:08,509 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:42:08,509 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:42:08,510 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:42:08,510 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:42:08,510 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:42:08,510 - INFO - 
+2025-09-28 05:42:08,510 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:42:08,510 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:42:08,510 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:42:08,510 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:42:09,893 - INFO - ============================================================
+2025-09-28 05:42:09,893 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:42:09,893 - INFO - ============================================================
+2025-09-28 05:42:09,893 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:42:09,893 - INFO -   Original Score: 80%
+2025-09-28 05:42:09,894 - INFO -   Validation Score: 85%
+2025-09-28 05:42:09,894 - INFO -   Adjustment Needed: 5 points
+2025-09-28 05:42:09,894 - INFO -   Final Score: 85%
+2025-09-28 05:42:09,894 - INFO -   Confidence: high
+2025-09-28 05:42:09,894 - INFO - VALIDATION REASONING:
+2025-09-28 05:42:09,894 - INFO -   The original analysis accurately identifies common concerns for a university campus route, such as high traffic at major crossings (Rural Road), pedestrian distraction, and opportunistic petty crime. However, it doesn't fully account for the significant positive safety factors inherent to an Arizona State University campus environment. Routes between Tooker House and Vista del Sol D are within a well-lit, actively patrolled (ASU PD) area with high pedestrian traffic, particularly during academic hours and early evening. The infrastructure generally supports pedestrian safety with sidewalks and designated crosswalks. While the identified concerns are valid, the strong presence of campus safety services, good lighting, and 'safety in numbers' due to student density significantly mitigate the overall risk, making the route slightly safer than an 80% score might suggest for a typical urban area.
+2025-09-28 05:42:09,894 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:42:09,894 - INFO -   - Potential for conflicts with bicycles and electric scooters, which are prevalent on campus and can be ridden unsafely.
+2025-09-28 05:42:09,894 - INFO -   - Increased risk of heat-related illness during warmer months, which can impair judgment and physical well-being.
+2025-09-28 05:42:09,894 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:42:09,894 - INFO -   - Be aware of fast-moving bicycles and scooters, especially at intersections and around corners.
+2025-09-28 05:42:09,894 - INFO -   - Stay hydrated and seek shade during hot weather to prevent heat exhaustion.
+2025-09-28 05:42:09,894 - INFO - VALIDATION NOTES: This route traverses a bustling university campus. The primary risks are traffic-related at major road crossings (especially Rural Road) and 'situational awareness' due to student distractions. Non-violent, opportunistic crime is a constant low-level risk in any university area. However, the comprehensive safety measures and active environment of ASU contribute to a generally safe pedestrian experience, warranting a slight upward adjustment.
+2025-09-28 05:42:09,894 - INFO - ============================================================
+2025-09-28 05:42:09,894 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:42:09,894 - INFO - ============================================================
+2025-09-28 05:42:09,894 - INFO - Original AI Score: 80%
+2025-09-28 05:42:09,894 - INFO - Validation Adjustment: +5 points
+2025-09-28 05:42:09,894 - INFO - Final Safety Score: 85%
+2025-09-28 05:42:09,894 - INFO - ============================================================
+2025-09-28 05:42:09,894 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:42:09,894 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:42:10,116 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 05:42:10,116 - INFO - ================================================================================
+2025-09-28 05:42:10,116 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:42:10,116 - INFO - ================================================================================
+2025-09-28 05:42:10,116 - INFO - Location: tooker house to vista del sol d
+2025-09-28 05:42:10,116 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 05:42:10,116 - INFO - Time Context: day
+2025-09-28 05:42:10,116 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:42:10,116 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 05:42:10,580 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 05:42:10,581 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:42:10,581 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:42:10,581 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:42:10,581 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:42:10,581 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:42:10,581 - INFO - 
+2025-09-28 05:42:10,582 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:42:10,582 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:42:10,582 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:42:10,582 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:42:15,861 - INFO - ============================================================
+2025-09-28 05:42:15,861 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:42:15,861 - INFO - ============================================================
+2025-09-28 05:42:15,861 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:42:15,861 - INFO -   Original Score: 78%
+2025-09-28 05:42:15,861 - INFO -   Validation Score: 75%
+2025-09-28 05:42:15,861 - INFO -   Adjustment Needed: -3 points
+2025-09-28 05:42:15,861 - INFO -   Final Score: 75%
+2025-09-28 05:42:15,861 - INFO -   Confidence: high
+2025-09-28 05:42:15,861 - INFO - VALIDATION REASONING:
+2025-09-28 05:42:15,861 - INFO -   The original analysis accurately identified key concerns, particularly the challenges of navigating busy intersections like Rural Rd and University Dr, and the significant risk of high temperatures and sun exposure typical of Arizona. These are high-impact, consistent risks. However, the route is primarily within or immediately adjacent to the Arizona State University (ASU) Tempe campus (Tooker House and Vista del Sol D are both ASU-related residential areas). This context implies several positive safety factors: generally well-maintained pedestrian infrastructure (sidewalks, marked crosswalks), good lighting along main campus thoroughfares, frequent presence of other students/staff (social surveillance), and the presence of university police/security. While the 'isolated spots' concern is valid for any urban area, it's perhaps slightly less prevalent on a busy campus than in truly isolated areas. The score is adjusted slightly down to reflect the consistent and severe nature of the environmental (heat, requiring constant vigilance) and traffic (multi-modal, busy intersections) hazards, which can lead to serious incidents, despite the mitigating factors of the university setting.
+2025-09-28 05:42:15,861 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:42:15,861 - INFO -   - High prevalence of distracted pedestrians, cyclists, and scooter/skateboard riders, increasing collision risk even without vehicle involvement.
+2025-09-28 05:42:15,861 - INFO -   - Potential for conflicts/collisions with electric scooters, skateboards, and bicycles, which are highly numerous and can be fast-moving in a university setting.
+2025-09-28 05:42:15,861 - INFO -   - Specific crime risks (e.g., petty theft, property crime) can be higher in peripheral or less-populated areas surrounding the main campus, especially late at night, although the core campus is generally safer.
+2025-09-28 05:42:15,861 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:42:15,861 - INFO -   - Actively scan for all types of traffic, including electric scooters, skateboards, and bicycles, which can move quickly and unexpectedly on shared paths.
+2025-09-28 05:42:15,861 - INFO -   - Consider utilizing campus safety resources or apps (e.g., ASU LiveSafe) for emergency contacts or safe walk services, particularly after dark or if feeling unsafe.
+2025-09-28 05:42:15,861 - INFO -   - Stay alert and minimize personal distractions (e.g., phone use) when walking, especially near intersections and high-traffic areas where multiple modes of transport converge.
+2025-09-28 05:42:15,862 - INFO - VALIDATION NOTES: The route traverses a very active university environment in Tempe, AZ. While this brings positive safety aspects like robust pedestrian infrastructure and population density during much of the day, it also means a complex mix of vehicular, bicycle, and pedestrian traffic, requiring constant vigilance. The most significant and constant risk is the extreme Arizona heat, which necessitates proactive hydration and sun protection measures to prevent serious health issues. Nighttime safety is generally good on well-lit campus paths but warrants increased caution on less-trafficked edges or surrounding urban areas where typical urban risks may be present.
+2025-09-28 05:42:15,862 - INFO - ============================================================
+2025-09-28 05:42:15,862 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:42:15,862 - INFO - ============================================================
+2025-09-28 05:42:15,862 - INFO - Original AI Score: 78%
+2025-09-28 05:42:15,862 - INFO - Validation Adjustment: -3 points
+2025-09-28 05:42:15,862 - INFO - Final Safety Score: 75%
+2025-09-28 05:42:15,862 - INFO - ============================================================
+2025-09-28 05:42:15,862 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:42:15,862 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:42:16,092 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 05:42:16,092 - INFO - ================================================================================
+2025-09-28 05:42:16,092 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:42:16,092 - INFO - ================================================================================
+2025-09-28 05:42:16,092 - INFO - Location: tooker house to vista del sol d
+2025-09-28 05:42:16,092 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 05:42:16,092 - INFO - Time Context: day
+2025-09-28 05:42:16,092 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:42:16,092 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 05:42:16,193 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 05:42:16,194 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:42:16,194 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:42:16,194 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:42:16,194 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:42:16,194 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:42:16,194 - INFO - 
+2025-09-28 05:42:16,194 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:42:16,194 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:42:16,194 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:42:16,194 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:42:16,783 - INFO - ============================================================
+2025-09-28 05:42:16,784 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:42:16,784 - INFO - ============================================================
+2025-09-28 05:42:16,784 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:42:16,784 - INFO -   Original Score: 75%
+2025-09-28 05:42:16,785 - INFO -   Validation Score: 71%
+2025-09-28 05:42:16,785 - INFO -   Adjustment Needed: -4 points
+2025-09-28 05:42:16,785 - INFO -   Final Score: 71%
+2025-09-28 05:42:16,786 - INFO -   Confidence: high
+2025-09-28 05:42:16,786 - INFO - VALIDATION REASONING:
+2025-09-28 05:42:16,786 - INFO -   The original analysis is largely accurate and comprehensive, identifying the critical risks for this route within the ASU Tempe campus area: extreme heat, pedestrian/vehicle collisions on busy thoroughfares like University Drive and Rural Road, and general urban personal safety concerns. The provided tips are highly practical and effective. However, the inherent severity and high potential impact of Tempe's extreme summer temperatures (which can lead to heat exhaustion or stroke even on a short walk) and the persistent danger of navigating high-volume, often-distracted traffic on major campus arteries warrant a slightly more cautious safety score. While the area benefits from good campus infrastructure and public safety presence, the baseline risks for an average individual (who might not always perfectly adhere to all safety tips) are significant enough to justify a minor downward adjustment.
+2025-09-28 05:42:16,787 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:42:16,787 - INFO -   - High-speed scooter and bicycle traffic on shared pedestrian paths and sidewalks, which can create collision risks for pedestrians even outside of designated road crossings.
+2025-09-28 05:42:16,787 - INFO -   - Temporary hazards and detours due to ongoing campus construction, which can alter familiar paths and introduce uneven surfaces or changed traffic patterns unexpectedly.
+2025-09-28 05:42:16,787 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:42:16,788 - INFO -   - When walking in hot weather, prioritize wearing light-colored, loose-fitting clothing and utilizing sun protection (hat, sunglasses, sunscreen).
+2025-09-28 05:42:16,788 - INFO -   - Even at marked crosswalks, make extra eye contact with drivers and ensure they are clearly yielding before stepping into the roadway.
+2025-09-28 05:42:16,788 - INFO -   - Familiarize yourself with and utilize campus safety resources such as the ASU LiveSafe app or the university's evening escort services, especially if walking alone at night.
+2025-09-28 05:42:16,789 - INFO - VALIDATION NOTES: This route is entirely within or immediately adjacent to the Arizona State University (ASU) Tempe campus. The area is characterized by a very high density of students, high vehicle traffic on major arterial roads, and seasonally extreme environmental conditions (severe heat). While ASU provides extensive safety resources and infrastructure, the actual safety for individuals heavily relies on personal vigilance against these specific, prevalent risks.
+2025-09-28 05:42:16,789 - INFO - ============================================================
+2025-09-28 05:42:16,789 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:42:16,789 - INFO - ============================================================
+2025-09-28 05:42:16,789 - INFO - Original AI Score: 75%
+2025-09-28 05:42:16,789 - INFO - Validation Adjustment: -4 points
+2025-09-28 05:42:16,789 - INFO - Final Safety Score: 71%
+2025-09-28 05:42:16,789 - INFO - ============================================================
+2025-09-28 05:42:16,789 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:42:16,789 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:42:17,054 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 05:42:17,054 - INFO - ================================================================================
+2025-09-28 05:42:17,054 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:42:17,055 - INFO - ================================================================================
+2025-09-28 05:42:17,055 - INFO - Location: tooker house to vista del sol d
+2025-09-28 05:42:17,055 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 05:42:17,055 - INFO - Time Context: day
+2025-09-28 05:42:17,055 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:42:17,055 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 05:42:17,314 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 05:42:17,318 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:42:17,318 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:42:17,318 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:42:17,318 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:42:17,318 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:42:17,319 - INFO - 
+2025-09-28 05:42:17,319 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:42:17,319 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:42:17,319 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:42:17,319 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:42:31,426 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:42:31,426 - INFO -   - Response length: 8695 characters
+2025-09-28 05:42:31,426 - INFO - ================================================================================
+2025-09-28 05:42:31,426 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:42:31,426 - INFO - ================================================================================
+2025-09-28 05:42:31,426 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:42:31,426 - INFO -   Overall Safety Score: 85.0%
+2025-09-28 05:42:31,426 - INFO -   Confidence Level: high
+2025-09-28 05:42:31,426 - INFO -   Time Context: day
+2025-09-28 05:42:31,426 - INFO -   Image Quality: good
+2025-09-28 05:42:31,426 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:42:31,426 - INFO -   The Google Street View image displays a clean and well-maintained urban environment, likely a part of a campus or commercial complex, during a bright, clear day. The primary focus is a parking area adjacent to a vehicular access road, bordered by modern, glass-facade buildings. Pedestrian infrastructure includes wide, intact concrete sidewalks with visible curb cuts, separated from the road by a landscaping strip. Streetlight poles are present, though their nighttime functionality cannot be confirmed. There are no visible signs of crime or neglect, such as graffiti or boarded-up windows. Vegetation is neatly maintained and does not obstruct visibility. A key observation is the absence of clearly marked pedestrian crosswalks across the vehicular path, which appears to be a lower-speed access road marked with 'RESERVED' parking. No people are visible, indicating a quiet moment, but the surrounding buildings suggest potential for human activity.
+2025-09-28 05:42:31,426 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:42:31,426 - INFO -   - Lack of clearly marked pedestrian crosswalks across the vehicular access road/parking area.
+2025-09-28 05:42:31,426 - INFO -   - Dependence on unconfirmed artificial lighting for nighttime safety.
+2025-09-28 05:42:31,426 - INFO -   - Absence of visible human activity at the time of capture (reduces 'eyes on the street' factor).
+2025-09-28 05:42:31,426 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:42:31,426 - INFO -   - Excellent daytime visibility and natural lighting.
+2025-09-28 05:42:31,426 - INFO -   - Well-maintained buildings and pedestrian infrastructure (sidewalks, curb cuts).
+2025-09-28 05:42:31,426 - INFO -   - Absence of visible crime markers (graffiti, derelict structures).
+2025-09-28 05:42:31,426 - INFO -   - Good physical separation between pedestrian and vehicular paths.
+2025-09-28 05:42:31,427 - INFO -   - Well-managed vegetation not obstructing views.
+2025-09-28 05:42:31,427 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:42:31,427 - INFO -   - Install clearly marked pedestrian crosswalks at appropriate locations where pedestrians are expected to cross the vehicular access road, possibly with accompanying signage.
+2025-09-28 05:42:31,427 - INFO -   - Verify the functionality and adequacy of existing streetlights for nighttime illumination to ensure consistent safety after dark.
+2025-09-28 05:42:31,427 - INFO -   - Consider enhancing pedestrian visibility at potential crossing points through improved signage or pavement markings.
+2025-09-28 05:42:31,427 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:42:31,427 - INFO -   Exposure Visibility: 90% (Weight: 20%)
+2025-09-28 05:42:31,427 - INFO -   Infrastructure Condition: 75% (Weight: 15%)
+2025-09-28 05:42:31,427 - INFO -   Crime Markers: 95% (Weight: 20%)
+2025-09-28 05:42:31,427 - INFO -   Pedestrian Infrastructure: 70% (Weight: 15%)
+2025-09-28 05:42:31,427 - INFO -   Traffic Danger: 90% (Weight: 15%)
+2025-09-28 05:42:31,427 - INFO -   Vegetation Obstructions: 95% (Weight: 10%)
+2025-09-28 05:42:31,427 - INFO -   Human Activity: 65% (Weight: 5%)
+2025-09-28 05:42:31,427 - INFO - ANALYSIS NOTES: The analysis is based strictly on the visual information available in the provided Street View image. The specific nature of the vehicular path (e.g., public street vs. private campus road) is inferred from the 'RESERVED' markings and surrounding buildings, suggesting lower speeds and traffic volume compared to an arterial road. The lack of visible human activity is noted but acknowledges that this may not represent typical conditions.
+2025-09-28 05:42:31,427 - INFO - ================================================================================
+2025-09-28 05:42:31,427 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:42:31,427 - INFO - ================================================================================
+2025-09-28 05:42:31,427 - INFO - Street View Safety Score: 85.0%
+2025-09-28 05:42:31,427 - INFO - ================================================================================
+2025-09-28 05:42:31,427 - INFO -   Street view safety score: 85.0%
+2025-09-28 05:42:31,427 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:42:31,427 - INFO - ================================================================================
+2025-09-28 05:42:31,427 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:42:31,427 - INFO - ================================================================================
+2025-09-28 05:42:31,427 - INFO - Original Score: 75%
+2025-09-28 05:42:31,427 - INFO - Validation Adjustment: +7 points
+2025-09-28 05:42:31,427 - INFO - Final Score: 82%
+2025-09-28 05:42:31,427 - INFO - ================================================================================
+2025-09-28 05:42:31,428 - INFO - 127.0.0.1 - - [28/Sep/2025 05:42:31] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:42:36,754 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:42:36,754 - INFO -   - Response length: 9977 characters
+2025-09-28 05:42:36,754 - INFO - ================================================================================
+2025-09-28 05:42:36,754 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:42:36,754 - INFO - ================================================================================
+2025-09-28 05:42:36,754 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:42:36,754 - INFO -   Overall Safety Score: 81.0%
+2025-09-28 05:42:36,754 - INFO -   Confidence Level: high
+2025-09-28 05:42:36,754 - INFO -   Time Context: day
+2025-09-28 05:42:36,755 - INFO -   Image Quality: good
+2025-09-28 05:42:36,755 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:42:36,755 - INFO -   The Google Street View image depicts a daytime scene of what appears to be a modern office park or university campus parking lot area. The sky is clear blue, indicating bright natural lighting. The environment is generally clean and well-maintained. Modern buildings with large windows are visible in the background, contrasting with a large white wall on the left. Sidewalks are present along the perimeter, made of concrete and appearing to be in good condition. Streetlights are installed, suggesting provisions for nighttime illumination. There are several parked vehicles, including a commercial utility truck with safety cones, indicating active use and possibly ongoing work in the area. Vegetation is neatly trimmed and does not obstruct views or pathways. There are no visible signs of disrepair, neglect, or crime such as graffiti or boarded-up structures. The main pedestrian safety concerns arise from the interaction with vehicular traffic within the parking lot, specifically the absence of clearly marked crosswalks across driving aisles and the lack of dedicated pedestrian signals. While the area itself is not a high-speed road, pedestrians would need to navigate through vehicle zones. Overall, it presents as a relatively safe environment, particularly during the day, with potential for improvement in specific pedestrian traffic management within the parking facility.
+2025-09-28 05:42:36,755 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:42:36,755 - INFO -   - Lack of clearly marked pedestrian crosswalks within the parking lot driving aisles
+2025-09-28 05:42:36,755 - INFO -   - Absence of dedicated pedestrian signals for crossing vehicular paths
+2025-09-28 05:42:36,755 - INFO -   - Pedestrians sharing space with vehicular traffic in parking lot driving lanes without specific barriers
+2025-09-28 05:42:36,755 - INFO -   - Nighttime lighting functionality is unconfirmed
+2025-09-28 05:42:36,755 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:42:36,755 - INFO -   - Excellent daytime visibility and clear sightlines
+2025-09-28 05:42:36,755 - INFO -   - Overall clean and well-maintained infrastructure (sidewalks, buildings)
+2025-09-28 05:42:36,755 - INFO -   - Absence of visible crime-related markers (graffiti, boarded-up windows)
+2025-09-28 05:42:36,755 - INFO -   - Well-maintained vegetation, free of obstructions
+2025-09-28 05:42:36,755 - INFO -   - Low expected traffic speeds in a parking lot environment
+2025-09-28 05:42:36,755 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:42:36,755 - INFO -   - Install clearly marked pedestrian crosswalks with high-visibility paint or materials across key vehicular pathways in the parking lot.
+2025-09-28 05:42:36,755 - INFO -   - Consider adding pedestrian signals or 'Stop for Pedestrians' signs at points where pedestrians frequently cross driving lanes.
+2025-09-28 05:42:36,755 - INFO -   - Implement dedicated pedestrian pathways or zones within the parking area, potentially using bollards or other physical barriers for separation where feasible.
+2025-09-28 05:42:36,755 - INFO -   - Regularly inspect and maintain streetlights to ensure optimal nighttime illumination.
+2025-09-28 05:42:36,755 - INFO -   - Conduct a pedestrian flow analysis to identify high-traffic crossing points for targeted improvements.
+2025-09-28 05:42:36,755 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:42:36,755 - INFO -   Exposure Visibility: 90% (Weight: 20%)
+2025-09-28 05:42:36,755 - INFO -   Infrastructure Condition: 75% (Weight: 15%)
+2025-09-28 05:42:36,755 - INFO -   Crime Markers: 95% (Weight: 20%)
+2025-09-28 05:42:36,755 - INFO -   Pedestrian Infrastructure: 65% (Weight: 15%)
+2025-09-28 05:42:36,755 - INFO -   Traffic Danger: 70% (Weight: 15%)
+2025-09-28 05:42:36,755 - INFO -   Vegetation Obstructions: 90% (Weight: 10%)
+2025-09-28 05:42:36,755 - INFO -   Human Activity: 70% (Weight: 5%)
+2025-09-28 05:42:36,755 - INFO - ANALYSIS NOTES: The analysis is based solely on the visual information provided in the Google Street View image. The environment appears to be an institutional or commercial campus parking area. The safety score reflects a generally safe environment with specific areas for improvement regarding pedestrian interaction with vehicular traffic in the parking lot. The absence of crime markers is a strong positive, but the lack of explicit pedestrian-specific traffic infrastructure within the parking area somewhat reduces the score.
+2025-09-28 05:42:36,755 - INFO - ================================================================================
+2025-09-28 05:42:36,755 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:42:36,755 - INFO - ================================================================================
+2025-09-28 05:42:36,756 - INFO - Street View Safety Score: 81.0%
+2025-09-28 05:42:36,756 - INFO - ================================================================================
+2025-09-28 05:42:36,756 - INFO -   Street view safety score: 81.0%
+2025-09-28 05:42:36,756 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:42:36,756 - INFO - ================================================================================
+2025-09-28 05:42:36,756 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:42:36,756 - INFO - ================================================================================
+2025-09-28 05:42:36,756 - INFO - Original Score: 80%
+2025-09-28 05:42:36,756 - INFO - Validation Adjustment: +5 points
+2025-09-28 05:42:36,756 - INFO - Final Score: 85%
+2025-09-28 05:42:36,756 - INFO - ================================================================================
+2025-09-28 05:42:36,756 - INFO - 127.0.0.1 - - [28/Sep/2025 05:42:36] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:42:39,826 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:42:39,826 - INFO -   - Response length: 8262 characters
+2025-09-28 05:42:39,826 - INFO - ================================================================================
+2025-09-28 05:42:39,827 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:42:39,827 - INFO - ================================================================================
+2025-09-28 05:42:39,827 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:42:39,827 - INFO -   Overall Safety Score: 82.0%
+2025-09-28 05:42:39,827 - INFO -   Confidence Level: high
+2025-09-28 05:42:39,827 - INFO -   Time Context: day
+2025-09-28 05:42:39,827 - INFO -   Image Quality: good
+2025-09-28 05:42:39,827 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:42:39,827 - INFO -   The Google Street View image depicts a clean, modern, and well-maintained street environment, likely part of a campus or business park, during clear daytime conditions. Natural lighting is excellent, providing clear visibility. Infrastructure, including sidewalks and buildings, is in good condition. Streetlights are present, suggesting adequate nighttime illumination. There are no visible signs of crime or neglect such as graffiti or boarded-up structures. Vegetation is well-managed and does not obstruct sightlines. The traffic environment appears to be low-speed, primarily serving parking and access, with good separation between vehicular and pedestrian areas via curbs. However, a significant safety concern is the complete absence of marked crosswalks or pedestrian signals, requiring pedestrians to navigate vehicular areas without designated safe crossing points. The lack of visible human activity suggests a quiet period, which could impact perceptions of safety at other times.
+2025-09-28 05:42:39,827 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:42:39,827 - INFO -   - Absence of clearly marked crosswalks for pedestrian safety
+2025-09-28 05:42:39,827 - INFO -   - Lack of pedestrian signals
+2025-09-28 05:42:39,827 - INFO -   - Low visible human activity could lead to feelings of isolation during off-peak hours
+2025-09-28 05:42:39,827 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:42:39,827 - INFO -   - Excellent daytime visibility and natural lighting
+2025-09-28 05:42:39,827 - INFO -   - Modern and well-maintained infrastructure and buildings
+2025-09-28 05:42:39,827 - INFO -   - No visible signs of crime, graffiti, or neglect
+2025-09-28 05:42:39,827 - INFO -   - Low-speed traffic environment with good separation from pedestrian paths
+2025-09-28 05:42:39,827 - INFO -   - Well-maintained vegetation that does not obstruct visibility
+2025-09-28 05:42:39,827 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:42:39,827 - INFO -   - Install clearly marked crosswalks at appropriate locations, especially where pedestrian desire lines are expected.
+2025-09-28 05:42:39,828 - INFO -   - Consider adding pedestrian-activated signals if traffic volumes or speeds warrant.
+2025-09-28 05:42:39,828 - INFO -   - Monitor pedestrian activity during different times of day to understand usage patterns and address potential isolation concerns.
+2025-09-28 05:42:39,828 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:42:39,828 - INFO -   Exposure Visibility: 90% (Weight: 20%)
+2025-09-28 05:42:39,828 - INFO -   Infrastructure Condition: 75% (Weight: 15%)
+2025-09-28 05:42:39,828 - INFO -   Crime Markers: 95% (Weight: 20%)
+2025-09-28 05:42:39,828 - INFO -   Pedestrian Infrastructure: 60% (Weight: 15%)
+2025-09-28 05:42:39,828 - INFO -   Traffic Danger: 85% (Weight: 15%)
+2025-09-28 05:42:39,828 - INFO -   Vegetation Obstructions: 90% (Weight: 10%)
+2025-09-28 05:42:39,828 - INFO -   Human Activity: 60% (Weight: 5%)
+2025-09-28 05:42:39,828 - INFO - ANALYSIS NOTES: The area's modern aesthetic and cleanliness suggest a well-managed property, likely a university campus or corporate park. While the infrastructure quality is generally high, the oversight in providing clear pedestrian crossings is a notable deficiency for pedestrian safety. The assessment is based solely on visual evidence from the provided image and its crops.
+2025-09-28 05:42:39,828 - INFO - ================================================================================
+2025-09-28 05:42:39,828 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:42:39,828 - INFO - ================================================================================
+2025-09-28 05:42:39,828 - INFO - Street View Safety Score: 82.0%
+2025-09-28 05:42:39,828 - INFO - ================================================================================
+2025-09-28 05:42:39,828 - INFO -   Street view safety score: 82.0%
+2025-09-28 05:42:39,828 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:42:39,828 - INFO - ================================================================================
+2025-09-28 05:42:39,828 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:42:39,828 - INFO - ================================================================================
+2025-09-28 05:42:39,828 - INFO - Original Score: 78%
+2025-09-28 05:42:39,829 - INFO - Validation Adjustment: -3 points
+2025-09-28 05:42:39,829 - INFO - Final Score: 75%
+2025-09-28 05:42:39,829 - INFO - ================================================================================
+2025-09-28 05:42:39,829 - INFO - 127.0.0.1 - - [28/Sep/2025 05:42:39] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:42:49,595 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:42:49,595 - INFO -   - Response length: 8206 characters
+2025-09-28 05:42:49,595 - INFO - ================================================================================
+2025-09-28 05:42:49,595 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:42:49,595 - INFO - ================================================================================
+2025-09-28 05:42:49,595 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:42:49,595 - INFO -   Overall Safety Score: 86.3%
+2025-09-28 05:42:49,595 - INFO -   Confidence Level: high
+2025-09-28 05:42:49,595 - INFO -   Time Context: day
+2025-09-28 05:42:49,595 - INFO -   Image Quality: excellent
+2025-09-28 05:42:49,595 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:42:49,595 - INFO -   The Street View image depicts a clean, well-maintained urban environment, likely a university campus or commercial area, during a bright, clear day. Natural lighting is excellent, providing clear visibility across the scene. Infrastructure, including sidewalks, parking lot surface, and building facades, appears to be in good condition. There is no visible graffiti, vandalism, or other crime-related markers, suggesting a low perception of crime risk. A dedicated sidewalk offers a safe path for pedestrians, separated from a low-speed parking access road. Vegetation is well-managed, causing no obstructions. The primary safety concerns revolve around the lack of explicit pedestrian crossing infrastructure, such as marked crosswalks or pedestrian signals, within the visible section of the image, particularly given the presence of vehicular movement in the parking lot. The absence of visible human activity contributes to a neutral social environment assessment.
+2025-09-28 05:42:49,596 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:42:49,596 - INFO -   - Absence of clearly marked crosswalks for pedestrian crossings in the vehicle path
+2025-09-28 05:42:49,596 - INFO -   - Lack of visible pedestrian signals at potential crossing points
+2025-09-28 05:42:49,596 - INFO -   - Potential for reduced natural surveillance due to low visible human activity
+2025-09-28 05:42:49,596 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:42:49,596 - INFO -   - Excellent natural lighting and clear sightlines during the day
+2025-09-28 05:42:49,596 - INFO -   - Well-maintained infrastructure with good sidewalks and road surface
+2025-09-28 05:42:49,596 - INFO -   - Absence of crime-related markers (graffiti, vandalism)
+2025-09-28 05:42:49,596 - INFO -   - Low apparent traffic danger due to low speed and good separation
+2025-09-28 05:42:49,596 - INFO -   - Well-maintained vegetation without obstructions
+2025-09-28 05:42:49,596 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:42:49,596 - INFO -   - Install clearly marked crosswalks at appropriate pedestrian crossing points within the parking area access road to improve pedestrian safety and clarity.
+2025-09-28 05:42:49,596 - INFO -   - Consider implementing pedestrian signals or clear signage to guide pedestrian movements across vehicle paths, especially at high-volume crossing areas (if applicable beyond the current image's scope).
+2025-09-28 05:42:49,596 - INFO -   - Review night-time lighting plans to ensure adequate illumination across all pedestrian and vehicular areas, confirming the functionality of existing streetlights.
+2025-09-28 05:42:49,596 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:42:49,596 - INFO -   Exposure Visibility: 95% (Weight: 20%)
+2025-09-28 05:42:49,596 - INFO -   Infrastructure Condition: 80% (Weight: 15%)
+2025-09-28 05:42:49,596 - INFO -   Crime Markers: 98% (Weight: 20%)
+2025-09-28 05:42:49,596 - INFO -   Pedestrian Infrastructure: 70% (Weight: 15%)
+2025-09-28 05:42:49,596 - INFO -   Traffic Danger: 85% (Weight: 15%)
+2025-09-28 05:42:49,596 - INFO -   Vegetation Obstructions: 90% (Weight: 10%)
+2025-09-28 05:42:49,596 - INFO -   Human Activity: 70% (Weight: 5%)
+2025-09-28 05:42:49,596 - INFO - ANALYSIS NOTES: The analysis is strictly based on the provided Street View image. The context 'tooker house to vista del sol d' suggests a university campus (Arizona State University), which often features dedicated pedestrian paths and lower-speed vehicular zones, generally aligning with observations regarding traffic danger and infrastructure. The absence of people is common in Street View captures and does not necessarily indicate a truly deserted area but rather reflects the moment of capture.
+2025-09-28 05:42:49,596 - INFO - ================================================================================
+2025-09-28 05:42:49,596 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:42:49,596 - INFO - ================================================================================
+2025-09-28 05:42:49,596 - INFO - Street View Safety Score: 86.3%
+2025-09-28 05:42:49,596 - INFO - ================================================================================
+2025-09-28 05:42:49,596 - INFO -   Street view safety score: 86.3%
+2025-09-28 05:42:49,596 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:42:49,596 - INFO - ================================================================================
+2025-09-28 05:42:49,596 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:42:49,596 - INFO - ================================================================================
+2025-09-28 05:42:49,596 - INFO - Original Score: 75%
+2025-09-28 05:42:49,596 - INFO - Validation Adjustment: -4 points
+2025-09-28 05:42:49,596 - INFO - Final Score: 71%
+2025-09-28 05:42:49,596 - INFO - ================================================================================
+2025-09-28 05:42:49,597 - INFO - 127.0.0.1 - - [28/Sep/2025 05:42:49] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:44:32,719 - INFO - 127.0.0.1 - - [28/Sep/2025 05:44:32] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:44:32,720 - INFO - 127.0.0.1 - - [28/Sep/2025 05:44:32] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:44:32,720 - INFO - 127.0.0.1 - - [28/Sep/2025 05:44:32] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:44:32,720 - INFO - 127.0.0.1 - - [28/Sep/2025 05:44:32] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:44:32,722 - INFO - 127.0.0.1 - - [28/Sep/2025 05:44:32] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:44:32,723 - INFO - 127.0.0.1 - - [28/Sep/2025 05:44:32] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:44:32,724 - INFO - ================================================================================
+2025-09-28 05:44:32,725 - INFO - ================================================================================
+2025-09-28 05:44:32,725 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:44:32,726 - INFO - ================================================================================
+2025-09-28 05:44:32,726 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:44:32,726 - INFO - ================================================================================
+2025-09-28 05:44:32,727 - INFO - ================================================================================
+2025-09-28 05:44:32,727 - INFO - ================================================================================
+2025-09-28 05:44:32,727 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:44:32,728 - INFO - ================================================================================
+2025-09-28 05:44:32,728 - INFO - ================================================================================
+2025-09-28 05:44:32,728 - INFO - Analyzing route: tempe marketplace → tooker house
+2025-09-28 05:44:32,728 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:44:32,728 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:44:32,728 - INFO - ================================================================================
+2025-09-28 05:44:32,728 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 05:44:32,728 - INFO - Analyzing route: tempe marketplace → tooker house
+2025-09-28 05:44:32,729 - INFO - ================================================================================
+2025-09-28 05:44:32,729 - INFO - ================================================================================
+2025-09-28 05:44:32,729 - INFO - Analyzing route: tempe marketplace → tooker house
+2025-09-28 05:44:32,729 - INFO - ================================================================================
+2025-09-28 05:44:32,730 - INFO - Analyzing route: tempe marketplace → tooker house
+2025-09-28 05:44:32,730 - INFO - Analyzing route: tempe marketplace → tooker house
+2025-09-28 05:44:32,730 - INFO - Analyzing route: tempe marketplace → tooker house
+2025-09-28 05:44:40,758 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:44:40,758 - INFO -   Safety Score: 80%
+2025-09-28 05:44:40,758 - INFO -   Main Concerns: ['Traffic safety at major intersections (e.g., Scottsdale Rd, Rio Salado Pkwy, Rural Rd) due to high vehicle and pedestrian volume.', 'Petty theft or property crime, especially around busy commercial areas like Tempe Marketplace and if belongings are left unattended.', 'Reduced visibility and potential for isolated sections if walking/biking late at night, despite generally good lighting.']
+2025-09-28 05:44:40,758 - INFO -   Quick Tips: ['Use marked crosswalks and always be attentive to traffic, especially when crossing major roads.', 'Keep personal belongings secure and out of sight to deter opportunistic theft.', "Consider traveling with a friend or utilizing ASU's safety resources (e.g., Devil's Walk, LiveSafe app) if walking alone after dark."]
+2025-09-28 05:44:40,758 - INFO - Starting validation agent...
+2025-09-28 05:44:40,758 - INFO - ============================================================
+2025-09-28 05:44:40,758 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:44:40,758 - INFO - ============================================================
+2025-09-28 05:44:40,758 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:44:40,758 - INFO -   Safety Score: 80%
+2025-09-28 05:44:40,758 - INFO -   Main Concerns: ['Traffic safety at major intersections (e.g., Scottsdale Rd, Rio Salado Pkwy, Rural Rd) due to high vehicle and pedestrian volume.', 'Petty theft or property crime, especially around busy commercial areas like Tempe Marketplace and if belongings are left unattended.', 'Reduced visibility and potential for isolated sections if walking/biking late at night, despite generally good lighting.']
+2025-09-28 05:44:40,758 - INFO -   Quick Tips: ['Use marked crosswalks and always be attentive to traffic, especially when crossing major roads.', 'Keep personal belongings secure and out of sight to deter opportunistic theft.', "Consider traveling with a friend or utilizing ASU's safety resources (e.g., Devil's Walk, LiveSafe app) if walking alone after dark."]
+2025-09-28 05:44:40,758 - INFO -   Raw Response: N/A...
+2025-09-28 05:44:40,758 - INFO - Sending validation request to Gemini...
+2025-09-28 05:44:41,167 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:44:41,167 - INFO -   Safety Score: 78%
+2025-09-28 05:44:41,167 - INFO -   Main Concerns: ['Pedestrian/Bicycle Traffic Safety (busy intersections, distracted drivers)', 'Opportunistic Petty Crime (e.g., phone snatching, especially after dark)', 'Variable Lighting in some intermediate areas, particularly at night']
+2025-09-28 05:44:41,167 - INFO -   Quick Tips: ['Stay alert and aware of your surroundings, especially when crossing roads.', 'Travel with others or use a rideshare/ASU SafeRide, especially after dark.', 'Keep valuables secured and out of sight.']
+2025-09-28 05:44:41,167 - INFO - Starting validation agent...
+2025-09-28 05:44:41,167 - INFO - ============================================================
+2025-09-28 05:44:41,167 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:44:41,167 - INFO - ============================================================
+2025-09-28 05:44:41,167 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:44:41,167 - INFO -   Safety Score: 78%
+2025-09-28 05:44:41,167 - INFO -   Main Concerns: ['Pedestrian/Bicycle Traffic Safety (busy intersections, distracted drivers)', 'Opportunistic Petty Crime (e.g., phone snatching, especially after dark)', 'Variable Lighting in some intermediate areas, particularly at night']
+2025-09-28 05:44:41,167 - INFO -   Quick Tips: ['Stay alert and aware of your surroundings, especially when crossing roads.', 'Travel with others or use a rideshare/ASU SafeRide, especially after dark.', 'Keep valuables secured and out of sight.']
+2025-09-28 05:44:41,168 - INFO -   Raw Response: N/A...
+2025-09-28 05:44:41,168 - INFO - Sending validation request to Gemini...
+2025-09-28 05:44:42,123 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:44:42,123 - INFO -   Safety Score: 75%
+2025-09-28 05:44:42,123 - INFO -   Main Concerns: ['High traffic volume on major roads (McClintock/Rural, University/Apache) increases pedestrian/cyclist risk.', 'General urban crime, including opportunistic theft, especially during evening or late-night hours.', 'Extreme heat exposure during much of the year, a significant health concern for outdoor activity.']
+2025-09-28 05:44:42,123 - INFO -   Quick Tips: ['Be highly vigilant of traffic, use crosswalks, and obey signals, especially at busy intersections.', 'Stay aware of your surroundings, minimize distractions (e.g., phone use), and secure valuables, particularly after dark.', 'Carry water and avoid walking during peak sun hours (10 AM - 4 PM) from April to October due to intense heat.']
+2025-09-28 05:44:42,123 - INFO - Starting validation agent...
+2025-09-28 05:44:42,123 - INFO - ============================================================
+2025-09-28 05:44:42,123 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:44:42,123 - INFO - ============================================================
+2025-09-28 05:44:42,123 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:44:42,123 - INFO -   Safety Score: 75%
+2025-09-28 05:44:42,123 - INFO -   Main Concerns: ['High traffic volume on major roads (McClintock/Rural, University/Apache) increases pedestrian/cyclist risk.', 'General urban crime, including opportunistic theft, especially during evening or late-night hours.', 'Extreme heat exposure during much of the year, a significant health concern for outdoor activity.']
+2025-09-28 05:44:42,123 - INFO -   Quick Tips: ['Be highly vigilant of traffic, use crosswalks, and obey signals, especially at busy intersections.', 'Stay aware of your surroundings, minimize distractions (e.g., phone use), and secure valuables, particularly after dark.', 'Carry water and avoid walking during peak sun hours (10 AM - 4 PM) from April to October due to intense heat.']
+2025-09-28 05:44:42,123 - INFO -   Raw Response: N/A...
+2025-09-28 05:44:42,123 - INFO - Sending validation request to Gemini...
+2025-09-28 05:44:42,453 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:44:42,454 - INFO -   Safety Score: 75%
+2025-09-28 05:44:42,454 - INFO -   Main Concerns: ['High traffic volume and busy intersections, particularly when crossing major arterial roads.', 'Opportunistic theft (e.g., bicycles, unattended electronics), common in bustling urban and campus environments.', 'Extreme heat during much of the year in Tempe, posing a risk for dehydration and heat-related illness for walkers/bikers.']
+2025-09-28 05:44:42,454 - INFO -   Quick Tips: ['Stay alert to traffic, use designated crosswalks, and minimize distractions (e.g., phone use).', 'Secure valuables, especially bicycles with strong locks, and avoid leaving items unattended.', 'For walking/biking, hydrate frequently, seek shade, and consider timing your travel during cooler parts of the day.']
+2025-09-28 05:44:42,454 - INFO - Starting validation agent...
+2025-09-28 05:44:42,454 - INFO - ============================================================
+2025-09-28 05:44:42,454 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:44:42,455 - INFO - ============================================================
+2025-09-28 05:44:42,455 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:44:42,455 - INFO -   Safety Score: 75%
+2025-09-28 05:44:42,455 - INFO -   Main Concerns: ['High traffic volume and busy intersections, particularly when crossing major arterial roads.', 'Opportunistic theft (e.g., bicycles, unattended electronics), common in bustling urban and campus environments.', 'Extreme heat during much of the year in Tempe, posing a risk for dehydration and heat-related illness for walkers/bikers.']
+2025-09-28 05:44:42,455 - INFO -   Quick Tips: ['Stay alert to traffic, use designated crosswalks, and minimize distractions (e.g., phone use).', 'Secure valuables, especially bicycles with strong locks, and avoid leaving items unattended.', 'For walking/biking, hydrate frequently, seek shade, and consider timing your travel during cooler parts of the day.']
+2025-09-28 05:44:42,455 - INFO -   Raw Response: N/A...
+2025-09-28 05:44:42,455 - INFO - Sending validation request to Gemini...
+2025-09-28 05:44:43,113 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:44:43,114 - INFO -   Safety Score: 80%
+2025-09-28 05:44:43,115 - INFO -   Main Concerns: ['Pedestrian safety at busy intersections (e.g., Rural Rd, Rio Salado Pkwy).', 'Extreme heat and sun exposure during much of the year in Arizona.', 'Situational awareness, especially when walking alone after dark, due to general urban risks.']
+2025-09-28 05:44:43,115 - INFO -   Quick Tips: ['Stay hydrated, use sun protection, and avoid walking during peak heat hours.', 'Use marked crosswalks, obey traffic signals, and make eye contact with drivers.', 'Travel with others if possible after dark, stick to well-lit routes, and limit distractions (e.g., phone use).']
+2025-09-28 05:44:43,115 - INFO - Starting validation agent...
+2025-09-28 05:44:43,115 - INFO - ============================================================
+2025-09-28 05:44:43,115 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:44:43,115 - INFO - ============================================================
+2025-09-28 05:44:43,115 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:44:43,115 - INFO -   Safety Score: 80%
+2025-09-28 05:44:43,115 - INFO -   Main Concerns: ['Pedestrian safety at busy intersections (e.g., Rural Rd, Rio Salado Pkwy).', 'Extreme heat and sun exposure during much of the year in Arizona.', 'Situational awareness, especially when walking alone after dark, due to general urban risks.']
+2025-09-28 05:44:43,116 - INFO -   Quick Tips: ['Stay hydrated, use sun protection, and avoid walking during peak heat hours.', 'Use marked crosswalks, obey traffic signals, and make eye contact with drivers.', 'Travel with others if possible after dark, stick to well-lit routes, and limit distractions (e.g., phone use).']
+2025-09-28 05:44:43,116 - INFO -   Raw Response: N/A...
+2025-09-28 05:44:43,116 - INFO - Sending validation request to Gemini...
+2025-09-28 05:44:44,320 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 05:44:44,320 - INFO -   Safety Score: 78%
+2025-09-28 05:44:44,320 - INFO -   Main Concerns: ['Heavy traffic and distracted drivers, especially at major intersections.', 'Extreme heat exposure, particularly for pedestrians/cyclists during warmer months.', 'Reduced visibility and potential for opportunistic crime after dark.']
+2025-09-28 05:44:44,320 - INFO -   Quick Tips: ['Stay hydrated and protect from sun; avoid midday outdoor travel in summer if possible.', 'Use designated crosswalks, be highly visible at night, and remain alert to traffic.', 'Secure personal belongings and consider traveling with others or sharing your location after dark.']
+2025-09-28 05:44:44,320 - INFO - Starting validation agent...
+2025-09-28 05:44:44,320 - INFO - ============================================================
+2025-09-28 05:44:44,320 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 05:44:44,320 - INFO - ============================================================
+2025-09-28 05:44:44,320 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 05:44:44,320 - INFO -   Safety Score: 78%
+2025-09-28 05:44:44,320 - INFO -   Main Concerns: ['Heavy traffic and distracted drivers, especially at major intersections.', 'Extreme heat exposure, particularly for pedestrians/cyclists during warmer months.', 'Reduced visibility and potential for opportunistic crime after dark.']
+2025-09-28 05:44:44,320 - INFO -   Quick Tips: ['Stay hydrated and protect from sun; avoid midday outdoor travel in summer if possible.', 'Use designated crosswalks, be highly visible at night, and remain alert to traffic.', 'Secure personal belongings and consider traveling with others or sharing your location after dark.']
+2025-09-28 05:44:44,320 - INFO -   Raw Response: N/A...
+2025-09-28 05:44:44,320 - INFO - Sending validation request to Gemini...
+2025-09-28 05:44:54,872 - INFO - ============================================================
+2025-09-28 05:44:54,872 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:44:54,872 - INFO - ============================================================
+2025-09-28 05:44:54,872 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:44:54,872 - INFO -   Original Score: 80%
+2025-09-28 05:44:54,872 - INFO -   Validation Score: 85%
+2025-09-28 05:44:54,872 - INFO -   Adjustment Needed: 5 points
+2025-09-28 05:44:54,872 - INFO -   Final Score: 85%
+2025-09-28 05:44:54,872 - INFO -   Confidence: high
+2025-09-28 05:44:54,872 - INFO - VALIDATION REASONING:
+2025-09-28 05:44:54,872 - INFO -   The original AI analysis accurately identifies the primary safety concerns for this route: high traffic at major intersections and the potential for opportunistic petty theft, particularly around commercial zones. The tips provided are also highly relevant and practical. However, the analysis slightly underplays the positive safety factors inherent to this specific route. The journey is predominantly through well-lit, highly trafficked areas of Tempe, connecting a major commercial hub with the ASU campus. Both Tempe and ASU have invested significantly in pedestrian and cycling infrastructure, including dedicated crosswalks, sidewalks, and bike lanes. There's a strong presence of ASU Police and Tempe Police, and ASU offers excellent safety resources like Devil's Walk and the LiveSafe app, which are specifically relevant to students and campus visitors. While the risks mentioned are valid, the combination of good infrastructure, high natural surveillance during most hours, and dedicated safety services means the overall safety profile is slightly better than an 80% score suggests, warranting a minor upward adjustment.
+2025-09-28 05:44:54,872 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:44:54,872 - INFO -   - Sun/heat exposure: For a route in Arizona, especially during warmer months (which is most of the year), dehydration and heat-related issues are a genuine, practical safety concern for anyone walking or biking.
+2025-09-28 05:44:54,872 - INFO -   - Temporary construction hazards: Tempe is continuously developing, and construction along major roads or on campus can lead to unexpected detours, uneven surfaces, or temporary obstructions.
+2025-09-28 05:44:54,872 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:44:54,872 - INFO -   - Carry water and stay hydrated, especially during daytime travel, regardless of the season.
+2025-09-28 05:44:54,872 - INFO -   - Be aware of and plan for potential construction-related detours or changes to pedestrian paths.
+2025-09-28 05:44:54,872 - INFO - VALIDATION NOTES: The route from Tempe Marketplace to Tooker House is a very common path for ASU students and local residents. It's largely urban, well-populated, and benefits from the robust safety measures and infrastructure typical of a major university town. While vigilance is always necessary in any urban environment (especially regarding traffic and opportunistic crime), the overall context makes this a generally safe route, particularly during daylight and early evening hours. The original analysis captured the main risks well; the adjustment reflects a more balanced view incorporating the strong safety support system in place.
+2025-09-28 05:44:54,872 - INFO - ============================================================
+2025-09-28 05:44:54,872 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:44:54,872 - INFO - ============================================================
+2025-09-28 05:44:54,872 - INFO - Original AI Score: 80%
+2025-09-28 05:44:54,872 - INFO - Validation Adjustment: +5 points
+2025-09-28 05:44:54,872 - INFO - Final Safety Score: 85%
+2025-09-28 05:44:54,872 - INFO - ============================================================
+2025-09-28 05:44:54,872 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:44:54,872 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:44:55,202 - INFO - Using precise coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:55,202 - INFO - ================================================================================
+2025-09-28 05:44:55,202 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:44:55,202 - INFO - ================================================================================
+2025-09-28 05:44:55,202 - INFO - Location: tempe marketplace to tooker house
+2025-09-28 05:44:55,202 - INFO - Coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:55,202 - INFO - Time Context: day
+2025-09-28 05:44:55,202 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:44:55,202 - INFO - Fetching Street View image for 33.42864375,-111.9170738
+2025-09-28 05:44:55,899 - INFO - Successfully fetched Street View image (88536 chars)
+2025-09-28 05:44:55,901 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:44:55,901 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:44:55,901 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:44:55,901 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:44:55,901 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:44:55,901 - INFO - 
+2025-09-28 05:44:55,901 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:44:55,901 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:44:55,901 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:44:55,901 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:44:56,241 - INFO - ============================================================
+2025-09-28 05:44:56,241 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:44:56,241 - INFO - ============================================================
+2025-09-28 05:44:56,241 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:44:56,241 - INFO -   Original Score: 80%
+2025-09-28 05:44:56,241 - INFO -   Validation Score: 85%
+2025-09-28 05:44:56,241 - INFO -   Adjustment Needed: 5 points
+2025-09-28 05:44:56,241 - INFO -   Final Score: 85%
+2025-09-28 05:44:56,241 - INFO -   Confidence: high
+2025-09-28 05:44:56,241 - INFO - VALIDATION REASONING:
+2025-09-28 05:44:56,241 - INFO -   The original AI analysis correctly identified key concerns, especially pedestrian safety at busy intersections (Rural Rd, Rio Salado Pkwy) and the significant impact of extreme Arizona heat. The tips provided are highly practical and relevant. However, the analysis could benefit from a slightly higher score due to several positive safety factors inherent to the route. This route traverses a highly active university and commercial area. Key positive factors include: generally well-lit streets and pedestrian pathways, high pedestrian traffic during most hours (especially between Tempe Marketplace and ASU), active ASU Police Department presence around Tooker House and the campus, and relatively good pedestrian infrastructure. While 'general urban risks' exist, the specific context of a university campus and a popular retail area mitigates some of these risks after dark, as these areas are typically more active and observed than quieter residential or industrial zones.
+2025-09-28 05:44:56,241 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:44:56,241 - INFO -   - Awareness of light rail crossings along Rio Salado Pkwy and on campus.
+2025-09-28 05:44:56,241 - INFO -   - Potential for construction zones around the university campus, which can create temporary hazards or detours.
+2025-09-28 05:44:56,241 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:44:56,241 - INFO -   - Be aware of light rail crossing signals and tracks when traversing Rio Salado Pkwy and within the campus area.
+2025-09-28 05:44:56,241 - INFO -   - Watch for and follow signage around any construction areas, which may require temporary detours or present uneven surfaces.
+2025-09-28 05:44:56,241 - INFO - VALIDATION NOTES: The route is largely safe for a typical urban environment. The biggest risks are environmental (heat) and traffic-related (busy intersections). The presence of a university campus and a large retail center means a higher degree of surveillance (both official and informal) and active foot traffic, which are significant positive safety factors. The 80% original score was a good baseline, but the specific context warrants a slight uplift due to these mitigating elements.
+2025-09-28 05:44:56,241 - INFO - ============================================================
+2025-09-28 05:44:56,241 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:44:56,241 - INFO - ============================================================
+2025-09-28 05:44:56,241 - INFO - Original AI Score: 80%
+2025-09-28 05:44:56,241 - INFO - Validation Adjustment: +5 points
+2025-09-28 05:44:56,241 - INFO - Final Safety Score: 85%
+2025-09-28 05:44:56,241 - INFO - ============================================================
+2025-09-28 05:44:56,241 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:44:56,241 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:44:56,538 - INFO - Using precise coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:56,538 - INFO - ================================================================================
+2025-09-28 05:44:56,538 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:44:56,538 - INFO - ================================================================================
+2025-09-28 05:44:56,538 - INFO - Location: tempe marketplace to tooker house
+2025-09-28 05:44:56,538 - INFO - Coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:56,538 - INFO - Time Context: day
+2025-09-28 05:44:56,538 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:44:56,538 - INFO - Fetching Street View image for 33.42864375,-111.9170738
+2025-09-28 05:44:56,779 - INFO - Successfully fetched Street View image (88536 chars)
+2025-09-28 05:44:56,780 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:44:56,780 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:44:56,780 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:44:56,780 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:44:56,780 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:44:56,780 - INFO - 
+2025-09-28 05:44:56,780 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:44:56,780 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:44:56,780 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:44:56,781 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:44:57,553 - INFO - ============================================================
+2025-09-28 05:44:57,553 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:44:57,553 - INFO - ============================================================
+2025-09-28 05:44:57,553 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:44:57,553 - INFO -   Original Score: 78%
+2025-09-28 05:44:57,553 - INFO -   Validation Score: 73%
+2025-09-28 05:44:57,553 - INFO -   Adjustment Needed: -5 points
+2025-09-28 05:44:57,553 - INFO -   Final Score: 73%
+2025-09-28 05:44:57,553 - INFO -   Confidence: high
+2025-09-28 05:44:57,553 - INFO - VALIDATION REASONING:
+2025-09-28 05:44:57,553 - INFO -   The original analysis correctly identifies key concerns for this route from Tempe Marketplace to Tooker House (ASU). Pedestrian/bicycle safety at busy intersections, opportunistic petty crime, and variable lighting, particularly after dark, are all legitimate risks. However, the score of 78% is slightly high given the practical realities of this route. The distance between Tempe Marketplace and Tooker House is significant (typically 1.5-2.5 miles), which increases exposure time to these risks. The route will undoubtedly involve crossing major multi-lane roads like Rio Salado Parkway, Rural Road, or Scottsdale Road, all of which experience high vehicle traffic, distracted drivers, and a substantial volume of pedestrian, bicycle, and scooter traffic characteristic of a dense university-adjacent area. While ASU provides resources like SafeRide and the campus is generally well-lit and patrolled, these mitigate risks rather than eliminate them for the walking route itself. The original score doesn't fully account for the elevated challenges of navigating these busy, high-traffic corridors for an extended period, especially at night where visibility and personal security concerns are amplified. A slight reduction better reflects the baseline level of vigilance and awareness required.
+2025-09-28 05:44:57,553 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:44:57,553 - INFO -   - High volume of shared mobility devices (scooters, e-bikes) adding to pedestrian collision risk, particularly around the campus and along major thoroughfares.
+2025-09-28 05:44:57,553 - INFO -   - Increased exposure time due to the route's length (1.5-2.5 miles), making prolonged vigilance necessary.
+2025-09-28 05:44:57,553 - INFO -   - Potential for construction or temporary detours in a developing area like Tempe, which can impact pedestrian paths.
+2025-09-28 05:44:57,553 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:44:57,553 - INFO -   - Prioritize well-marked crosswalks and fully utilize pedestrian signals; do not jaywalk, especially on major roads.
+2025-09-28 05:44:57,553 - INFO -   - If walking after dark, wear reflective clothing or carry a small light source to enhance visibility to drivers and other traffic.
+2025-09-28 05:44:57,553 - INFO -   - Be actively aware of scooter and bicycle traffic, as riders may not always adhere to traffic laws or yield to pedestrians.
+2025-09-28 05:44:57,553 - INFO - VALIDATION NOTES: The route connects a major commercial hub with a large university campus in a vibrant, dense urban environment. This means a mix of well-maintained infrastructure and high activity, but also significant traffic challenges and a diverse public. While the area benefits from university security presence and generally good lighting on main roads, the sheer volume of various forms of traffic and the length of the route necessitate a higher degree of personal vigilance than the original score implied. The adjustment aims for a more realistic assessment of the average pedestrian's experience.
+2025-09-28 05:44:57,553 - INFO - ============================================================
+2025-09-28 05:44:57,553 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:44:57,553 - INFO - ============================================================
+2025-09-28 05:44:57,553 - INFO - Original AI Score: 78%
+2025-09-28 05:44:57,553 - INFO - Validation Adjustment: -5 points
+2025-09-28 05:44:57,553 - INFO - Final Safety Score: 73%
+2025-09-28 05:44:57,553 - INFO - ============================================================
+2025-09-28 05:44:57,554 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:44:57,554 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:44:57,787 - INFO - Using precise coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:57,787 - INFO - ================================================================================
+2025-09-28 05:44:57,787 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:44:57,787 - INFO - ================================================================================
+2025-09-28 05:44:57,787 - INFO - Location: tempe marketplace to tooker house
+2025-09-28 05:44:57,787 - INFO - Coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:57,787 - INFO - Time Context: day
+2025-09-28 05:44:57,787 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:44:57,787 - INFO - Fetching Street View image for 33.42864375,-111.9170738
+2025-09-28 05:44:58,033 - INFO - ============================================================
+2025-09-28 05:44:58,033 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:44:58,033 - INFO - ============================================================
+2025-09-28 05:44:58,033 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:44:58,033 - INFO -   Original Score: 75%
+2025-09-28 05:44:58,033 - INFO -   Validation Score: 83%
+2025-09-28 05:44:58,033 - INFO -   Adjustment Needed: 8 points
+2025-09-28 05:44:58,033 - INFO -   Final Score: 83%
+2025-09-28 05:44:58,033 - INFO -   Confidence: high
+2025-09-28 05:44:58,033 - INFO - VALIDATION REASONING:
+2025-09-28 05:44:58,033 - INFO -   The original AI analysis accurately identifies major concerns for this route, particularly high traffic, opportunistic theft common in urban/campus settings, and the significant risk of extreme heat in Tempe. However, it understates several positive safety factors inherent to this specific route. The journey from Tempe Marketplace to Tooker House (ASU campus) largely traverses well-maintained urban infrastructure. This includes dedicated sidewalks, often bike lanes or shared paths, and generally good street lighting in both the commercial area and the university campus. The presence of a high volume of people ('eyes on the street') during most hours, combined with the active patrolling of the ASU Police Department around Tooker House, significantly enhances overall safety. While traffic is heavy, intersections are typically signalized with pedestrian crossings. The route is not inherently dangerous; rather, it requires standard urban vigilance. The initial score of 75% is a bit conservative given these positive factors. A slight upward adjustment reflects a more realistic assessment of a generally well-managed urban and university environment.
+2025-09-28 05:44:58,033 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:44:58,033 - INFO -   - Risk of collisions with e-scooters or skateboards, especially on campus pathways, due to high usage.
+2025-09-28 05:44:58,033 - INFO -   - Increased risk from impaired drivers or distracted pedestrians, particularly during evenings and weekends near entertainment districts adjacent to the campus.
+2025-09-28 05:44:58,033 - INFO -   - Temporary construction detours or hazards, common in a developing city like Tempe.
+2025-09-28 05:44:58,034 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:44:58,034 - INFO -   - Be aware of and yield to other path users, especially fast-moving e-scooters and bikes on campus.
+2025-09-28 05:44:58,034 - INFO -   - Exercise extra caution when crossing streets, especially near entertainment areas, and consider using ride-shares late at night.
+2025-09-28 05:44:58,034 - INFO -   - Check for local construction advisories if walking/biking to avoid unexpected detours.
+2025-09-28 05:44:58,034 - INFO - VALIDATION NOTES: This route connects a busy commercial hub to a dense university campus in a major metropolitan area. The primary risks are typical urban ones (traffic, opportunistic crime) amplified by extreme heat for active transport. However, the area benefits from good infrastructure, high visibility, and dedicated university safety resources, making it generally safe for those who exercise standard precautions. The adjustment reflects a balance between these risks and the robust urban and campus safety environment.
+2025-09-28 05:44:58,034 - INFO - ============================================================
+2025-09-28 05:44:58,034 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:44:58,034 - INFO - ============================================================
+2025-09-28 05:44:58,034 - INFO - Original AI Score: 75%
+2025-09-28 05:44:58,034 - INFO - Validation Adjustment: +8 points
+2025-09-28 05:44:58,034 - INFO - Final Safety Score: 83%
+2025-09-28 05:44:58,034 - INFO - ============================================================
+2025-09-28 05:44:58,034 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:44:58,034 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:44:58,131 - INFO - Successfully fetched Street View image (88536 chars)
+2025-09-28 05:44:58,132 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:44:58,132 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:44:58,132 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:44:58,132 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:44:58,132 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:44:58,132 - INFO - 
+2025-09-28 05:44:58,132 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:44:58,132 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:44:58,132 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:44:58,132 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:44:58,254 - INFO - Using precise coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:58,254 - INFO - ================================================================================
+2025-09-28 05:44:58,254 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:44:58,254 - INFO - ================================================================================
+2025-09-28 05:44:58,254 - INFO - Location: tempe marketplace to tooker house
+2025-09-28 05:44:58,254 - INFO - Coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:58,254 - INFO - Time Context: day
+2025-09-28 05:44:58,254 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:44:58,254 - INFO - Fetching Street View image for 33.42864375,-111.9170738
+2025-09-28 05:44:58,361 - INFO - Successfully fetched Street View image (88536 chars)
+2025-09-28 05:44:58,362 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:44:58,362 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:44:58,362 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:44:58,362 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:44:58,362 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:44:58,362 - INFO - 
+2025-09-28 05:44:58,362 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:44:58,362 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:44:58,362 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:44:58,362 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:44:58,464 - ERROR - Street view analysis failed: 403 Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked. [reason: "API_KEY_SERVICE_BLOCKED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "methodName"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+metadata {
+  key: "consumer"
+  value: "projects/568105310495"
+}
+metadata {
+  key: "apiName"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked."
+]
+2025-09-28 05:44:58,464 - ERROR -   Street view analysis failed: 403 Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked. [reason: "API_KEY_SERVICE_BLOCKED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "methodName"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+metadata {
+  key: "consumer"
+  value: "projects/568105310495"
+}
+metadata {
+  key: "apiName"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked."
+]
+2025-09-28 05:44:58,464 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:44:58,465 - INFO - ================================================================================
+2025-09-28 05:44:58,465 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:44:58,465 - INFO - ================================================================================
+2025-09-28 05:44:58,465 - INFO - Original Score: 75%
+2025-09-28 05:44:58,465 - INFO - Validation Adjustment: +8 points
+2025-09-28 05:44:58,465 - INFO - Final Score: 83%
+2025-09-28 05:44:58,465 - INFO - ================================================================================
+2025-09-28 05:44:58,465 - INFO - 127.0.0.1 - - [28/Sep/2025 05:44:58] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:44:59,064 - INFO - ============================================================
+2025-09-28 05:44:59,064 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:44:59,064 - INFO - ============================================================
+2025-09-28 05:44:59,064 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:44:59,064 - INFO -   Original Score: 75%
+2025-09-28 05:44:59,064 - INFO -   Validation Score: 80%
+2025-09-28 05:44:59,064 - INFO -   Adjustment Needed: 5 points
+2025-09-28 05:44:59,064 - INFO -   Final Score: 80%
+2025-09-28 05:44:59,064 - INFO -   Confidence: high
+2025-09-28 05:44:59,064 - INFO - VALIDATION REASONING:
+2025-09-28 05:44:59,064 - INFO -   The original AI analysis accurately identifies the primary safety concerns: high traffic, general urban crime, and extreme heat, which are significant in Tempe. The provided tips are also practical and highly relevant. However, the analysis could benefit from explicitly recognizing positive safety factors inherent to the route. The destination (Tooker House) is located on the Arizona State University (ASU) campus, which benefits from robust ASU Police presence, extensive lighting, and emergency call boxes. Similarly, the origin (Tempe Marketplace) is a commercial area with its own security and good lighting. The major roads, while high-traffic, generally feature well-maintained pedestrian infrastructure (sidewalks, marked crosswalks, signals). These factors somewhat mitigate the general urban crime concern and contribute to a safer environment, particularly at night, compared to less supervised urban areas. While traffic and heat remain significant challenges, the overall environment benefits from increased security and infrastructure. Therefore, a slight upward adjustment of +5 points is warranted to reflect these positive factors.
+2025-09-28 05:44:59,064 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 05:44:59,064 - INFO -   - The sheer width and multiple lanes of major roads (e.g., McClintock, Rural, Rio Salado) can be particularly challenging for pedestrians and cyclists, requiring extra caution even with marked crosswalks and signals.
+2025-09-28 05:44:59,064 - INFO -   - While general urban crime is mentioned, the specific context of a university area can lead to a higher prevalence of opportunistic theft (e.g., phones, laptops) targeting students, particularly in distracted moments.
+2025-09-28 05:44:59,064 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:44:59,065 - INFO -   - Consider using public transport (e.g., Tempe Orbit, Flash bus) or ride-sharing for parts of the route, especially during extreme heat, late at night, or if carrying valuables, to minimize pedestrian exposure to traffic and elements.
+2025-09-28 05:44:59,065 - INFO -   - Familiarize yourself with ASU's safety resources, such as the LiveSafe app, emergency call boxes, and ASU Police contacts, when on campus or in its vicinity.
+2025-09-28 05:44:59,065 - INFO - VALIDATION NOTES: The route traverses a busy urban landscape from a major commercial center to a university campus. While traffic and heat are undeniable high-risk factors for outdoor activity in Tempe, the presence of dedicated security (Tempe Marketplace security, ASU Police) and generally good, albeit busy, pedestrian infrastructure means that the overall safety profile is somewhat better than a generic urban route. The original score was good, and the adjustment reflects a more nuanced view of the specific environment's safety assets.
+2025-09-28 05:44:59,065 - INFO - ============================================================
+2025-09-28 05:44:59,065 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:44:59,065 - INFO - ============================================================
+2025-09-28 05:44:59,065 - INFO - Original AI Score: 75%
+2025-09-28 05:44:59,065 - INFO - Validation Adjustment: +5 points
+2025-09-28 05:44:59,065 - INFO - Final Safety Score: 80%
+2025-09-28 05:44:59,065 - INFO - ============================================================
+2025-09-28 05:44:59,065 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:44:59,065 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:44:59,283 - INFO - Using precise coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:59,283 - INFO - ================================================================================
+2025-09-28 05:44:59,283 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:44:59,283 - INFO - ================================================================================
+2025-09-28 05:44:59,283 - INFO - Location: tempe marketplace to tooker house
+2025-09-28 05:44:59,283 - INFO - Coordinates: 33.42864375,-111.9170738
+2025-09-28 05:44:59,283 - INFO - Time Context: day
+2025-09-28 05:44:59,283 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:44:59,283 - INFO - Fetching Street View image for 33.42864375,-111.9170738
+2025-09-28 05:44:59,621 - INFO - Successfully fetched Street View image (88536 chars)
+2025-09-28 05:44:59,623 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:44:59,623 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:44:59,623 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:44:59,623 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:44:59,623 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:44:59,623 - INFO - 
+2025-09-28 05:44:59,623 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:44:59,623 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:44:59,623 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:44:59,623 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:45:03,916 - INFO - ============================================================
+2025-09-28 05:45:03,916 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 05:45:03,916 - INFO - ============================================================
+2025-09-28 05:45:03,916 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 05:45:03,916 - INFO -   Original Score: 78%
+2025-09-28 05:45:03,916 - INFO -   Validation Score: 81%
+2025-09-28 05:45:03,916 - INFO -   Adjustment Needed: 3 points
+2025-09-28 05:45:03,916 - INFO -   Final Score: 81%
+2025-09-28 05:45:03,917 - INFO -   Confidence: high
+2025-09-28 05:45:03,917 - INFO - VALIDATION REASONING:
+2025-09-28 05:45:03,917 - INFO -   The original analysis accurately identifies significant concerns such as extreme heat exposure and heavy traffic/distracted drivers, which are major and critical safety factors in Tempe. However, the destination, Tooker House, is located deep within the Arizona State University (ASU) Tempe campus. The ASU campus is generally very well-lit, highly pedestrianized, and actively patrolled by campus police, leading to a comparatively lower risk of opportunistic crime within the campus core itself, especially compared to less monitored urban areas. The route benefits from generally good pedestrian infrastructure along major roads and within the campus. This slightly increased safety profile in the latter half of the journey, particularly regarding night-time safety within the university's managed environment, warrants a small upward adjustment. The score still heavily accounts for the severe environmental and traffic risks.
+2025-09-28 05:45:03,917 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 05:45:03,917 - INFO -   - If traveling after dark, be aware of and utilize ASU's safety resources such as the LiveSafe app or campus safety escorts, which can provide an added layer of security within the campus area.
+2025-09-28 05:45:03,917 - INFO -   - For cyclists, always wear a helmet and strictly adhere to traffic laws, especially on busy arterial roads with high vehicle volume.
+2025-09-28 05:45:03,917 - INFO - VALIDATION NOTES: This route traverses from a bustling outdoor retail center (Tempe Marketplace) to a major university campus (ASU Tempe). Both the origin and destination areas are generally well-maintained, well-lit, and have security measures in place. The primary, unmitigable safety challenges are the severe summer heat unique to the region and the high volume of vehicle and pedestrian traffic on the connecting arterial roads. The infrastructure for pedestrians and cyclists is generally good but requires vigilance due to traffic density.
+2025-09-28 05:45:03,917 - INFO - ============================================================
+2025-09-28 05:45:03,917 - INFO - FINAL RESULT SUMMARY
+2025-09-28 05:45:03,917 - INFO - ============================================================
+2025-09-28 05:45:03,917 - INFO - Original AI Score: 78%
+2025-09-28 05:45:03,917 - INFO - Validation Adjustment: +3 points
+2025-09-28 05:45:03,917 - INFO - Final Safety Score: 81%
+2025-09-28 05:45:03,917 - INFO - ============================================================
+2025-09-28 05:45:03,917 - INFO - Starting street view analysis (text-based)...
+2025-09-28 05:45:03,917 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 05:45:04,150 - INFO - Using precise coordinates: 33.42864375,-111.9170738
+2025-09-28 05:45:04,150 - INFO - ================================================================================
+2025-09-28 05:45:04,150 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 05:45:04,150 - INFO - ================================================================================
+2025-09-28 05:45:04,150 - INFO - Location: tempe marketplace to tooker house
+2025-09-28 05:45:04,150 - INFO - Coordinates: 33.42864375,-111.9170738
+2025-09-28 05:45:04,150 - INFO - Time Context: day
+2025-09-28 05:45:04,150 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 05:45:04,150 - INFO - Fetching Street View image for 33.42864375,-111.9170738
+2025-09-28 05:45:04,257 - INFO - Successfully fetched Street View image (88536 chars)
+2025-09-28 05:45:04,258 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 05:45:04,258 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 05:45:04,259 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 05:45:04,259 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 05:45:04,259 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 05:45:04,259 - INFO - 
+2025-09-28 05:45:04,259 - INFO - Sending image analysis request to Gemini...
+2025-09-28 05:45:04,259 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 05:45:04,259 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 05:45:04,259 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 05:45:18,647 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:45:18,648 - INFO -   - Response length: 7612 characters
+2025-09-28 05:45:18,649 - INFO - ================================================================================
+2025-09-28 05:45:18,649 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:45:18,649 - INFO - ================================================================================
+2025-09-28 05:45:18,649 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:45:18,649 - INFO -   Overall Safety Score: 62.0%
+2025-09-28 05:45:18,649 - INFO -   Confidence Level: high
+2025-09-28 05:45:18,649 - INFO -   Time Context: day
+2025-09-28 05:45:18,649 - INFO -   Image Quality: good
+2025-09-28 05:45:18,649 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:45:18,649 - INFO -   The Street View image captures a bright, sunny daytime scene dominated by a wide multi-lane road in the foreground and active construction sites in the background. A modern, tall building is visible on the far left. The immediate roadside area lacks any paved pedestrian infrastructure; instead, there's a dirt/gravel shoulder separated from the road by a concrete curb. Beyond this shoulder, the area is undeveloped dirt leading to the fenced-off construction zones. Several modern streetlights are present, suggesting planned illumination. No crime markers like graffiti or boarded-up buildings are visible, and the area appears generally clean and orderly. There are no visible people, vehicles, crosswalks, or pedestrian signals. The clear blue sky and bright sunlight provide excellent natural visibility.
+2025-09-28 05:45:18,649 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:45:18,649 - INFO -   - Severe lack of basic pedestrian infrastructure (no sidewalks, crosswalks, or signals)
+2025-09-28 05:45:18,649 - INFO -   - High exposure of potential pedestrians to traffic danger due to lack of separation and protective barriers
+2025-09-28 05:45:18,649 - INFO -   - Wide road design potentially encouraging high vehicle speeds in an area without pedestrian facilities
+2025-09-28 05:45:18,649 - INFO -   - Limited 'eyes on the street' due to low visible human activity
+2025-09-28 05:45:18,649 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:45:18,649 - INFO -   - Excellent natural visibility during the day
+2025-09-28 05:45:18,649 - INFO -   - Absence of visible crime-related markers (graffiti, neglect)
+2025-09-28 05:45:18,649 - INFO -   - Presence of modern streetlights for potential nighttime illumination
+2025-09-28 05:45:18,649 - INFO -   - Clean and orderly appearance of the visible area
+2025-09-28 05:45:18,649 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:45:18,649 - INFO -   - Install dedicated, wide, and accessible paved sidewalks along the roadway.
+2025-09-28 05:45:18,649 - INFO -   - Implement clearly marked crosswalks with pedestrian signals at appropriate intersections.
+2025-09-28 05:45:18,649 - INFO -   - Consider traffic calming measures on the wide road to reduce vehicle speeds.
+2025-09-28 05:45:18,649 - INFO -   - Add protective barriers (e.g., landscaping, bollards) to create a safer separation between pedestrians and traffic.
+2025-09-28 05:45:18,649 - INFO -   - Ensure proper maintenance and functionality of existing streetlights for nighttime safety.
+2025-09-28 05:45:18,649 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:45:18,649 - INFO -   Exposure Visibility: 90% (Weight: 20%)
+2025-09-28 05:45:18,649 - INFO -   Infrastructure Condition: 40% (Weight: 15%)
+2025-09-28 05:45:18,649 - INFO -   Crime Markers: 95% (Weight: 20%)
+2025-09-28 05:45:18,649 - INFO -   Pedestrian Infrastructure: 10% (Weight: 15%)
+2025-09-28 05:45:18,649 - INFO -   Traffic Danger: 40% (Weight: 15%)
+2025-09-28 05:45:18,649 - INFO -   Vegetation Obstructions: 90% (Weight: 10%)
+2025-09-28 05:45:18,649 - INFO -   Human Activity: 50% (Weight: 5%)
+2025-09-28 05:45:18,649 - INFO - ANALYSIS NOTES: The area appears to be undergoing significant urban development, as indicated by the multiple construction cranes and new buildings. While this suggests future improvements, the current state presents considerable safety risks for pedestrians due to the complete absence of dedicated infrastructure. The analysis is based solely on visual elements present in the provided image.
+2025-09-28 05:45:18,649 - INFO - ================================================================================
+2025-09-28 05:45:18,649 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:45:18,649 - INFO - ================================================================================
+2025-09-28 05:45:18,649 - INFO - Street View Safety Score: 62.0%
+2025-09-28 05:45:18,649 - INFO - ================================================================================
+2025-09-28 05:45:18,649 - INFO -   Street view safety score: 62.0%
+2025-09-28 05:45:18,650 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:45:18,650 - INFO - ================================================================================
+2025-09-28 05:45:18,650 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:45:18,650 - INFO - ================================================================================
+2025-09-28 05:45:18,650 - INFO - Original Score: 80%
+2025-09-28 05:45:18,650 - INFO - Validation Adjustment: +5 points
+2025-09-28 05:45:18,650 - INFO - Final Score: 85%
+2025-09-28 05:45:18,650 - INFO - ================================================================================
+2025-09-28 05:45:18,650 - INFO - 127.0.0.1 - - [28/Sep/2025 05:45:18] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:45:24,792 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:45:24,792 - INFO -   - Response length: 9861 characters
+2025-09-28 05:45:24,792 - INFO - ================================================================================
+2025-09-28 05:45:24,792 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:45:24,792 - INFO - ================================================================================
+2025-09-28 05:45:24,792 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:45:24,792 - INFO -   Overall Safety Score: 55.0%
+2025-09-28 05:45:24,792 - INFO -   Confidence Level: high
+2025-09-28 05:45:24,792 - INFO -   Time Context: day
+2025-09-28 05:45:24,792 - INFO -   Image Quality: good
+2025-09-28 05:45:24,792 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:45:24,792 - INFO -   The Google Street View image displays a wide, multi-lane road adjacent to a large, unpaved area with ongoing construction under a bright, clear daytime sky. In the immediate foreground, there is no paved sidewalk; instead, a dirt/gravel shoulder separates the road from what appears to be a construction zone or undeveloped land. A concrete curb delineates the edge of the roadway. Streetlights are installed along the road, suggesting an intention for night-time illumination, but their functionality is not ascertainable. No crosswalks or pedestrian signals are visible. In the background, modern high-rise buildings are visible, some completed and others under active construction with cranes. The area is largely free of litter or debris and shows no signs of graffiti, vandalism, or neglect. Vegetation consists of sparse, low-lying desert shrubs that do not obstruct visibility. There is no pedestrian activity observed in the immediate foreground, indicating that this area is not currently pedestrian-friendly or frequently used by walkers.
+2025-09-28 05:45:24,792 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:45:24,792 - INFO -   - Complete lack of dedicated pedestrian infrastructure (sidewalks, crosswalks, signals)
+2025-09-28 05:45:24,792 - INFO -   - High traffic danger due to proximity of a wide road and absence of protective barriers for pedestrians
+2025-09-28 05:45:24,792 - INFO -   - Unsafe and inaccessible walking surface (uneven dirt/gravel shoulder)
+2025-09-28 05:45:24,792 - INFO -   - Low pedestrian activity, which can reduce passive surveillance and a sense of security
+2025-09-28 05:45:24,792 - INFO -   - Night-time safety is uncertain due to unknown streetlight effectiveness in a desolate area.
+2025-09-28 05:45:24,792 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:45:24,792 - INFO -   - Excellent daytime visibility with clear sightlines
+2025-09-28 05:45:24,792 - INFO -   - Absence of visible crime markers like graffiti or boarded-up buildings
+2025-09-28 05:45:24,792 - INFO -   - Minimal obstructions from vegetation
+2025-09-28 05:45:24,792 - INFO -   - Modern development (construction of new buildings) indicates future potential for improved infrastructure
+2025-09-28 05:45:24,792 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:45:24,792 - INFO -   - Prioritize the installation of proper, wide, and accessible paved sidewalks along the road.
+2025-09-28 05:45:24,792 - INFO -   - Implement clearly marked crosswalks with pedestrian signals at appropriate intersections.
+2025-09-28 05:45:24,792 - INFO -   - Consider traffic calming measures or physical barriers to enhance pedestrian separation and safety from vehicular traffic.
+2025-09-28 05:45:24,792 - INFO -   - Ensure adequate and functional street lighting is provided for night-time visibility, especially once pedestrian paths are installed.
+2025-09-28 05:45:24,792 - INFO -   - As development progresses, integrate green spaces and amenities that encourage pedestrian activity and foster a sense of community.
+2025-09-28 05:45:24,793 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:45:24,793 - INFO -   Exposure Visibility: 80% (Weight: 20%)
+2025-09-28 05:45:24,793 - INFO -   Infrastructure Condition: 40% (Weight: 15%)
+2025-09-28 05:45:24,793 - INFO -   Crime Markers: 85% (Weight: 20%)
+2025-09-28 05:45:24,793 - INFO -   Pedestrian Infrastructure: 10% (Weight: 15%)
+2025-09-28 05:45:24,793 - INFO -   Traffic Danger: 30% (Weight: 15%)
+2025-09-28 05:45:24,793 - INFO -   Vegetation Obstructions: 90% (Weight: 10%)
+2025-09-28 05:45:24,793 - INFO -   Human Activity: 20% (Weight: 5%)
+2025-09-28 05:45:24,793 - INFO - ANALYSIS NOTES: The analysis is strictly based on the visible elements within the provided Google Street View image. The area appears to be in a transitional phase of development. While the current pedestrian safety is very poor, future development could significantly improve these conditions. The lack of visible human activity contributes to a feeling of desolation for pedestrians.
+2025-09-28 05:45:24,793 - INFO - ================================================================================
+2025-09-28 05:45:24,793 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:45:24,793 - INFO - ================================================================================
+2025-09-28 05:45:24,793 - INFO - Street View Safety Score: 55.0%
+2025-09-28 05:45:24,793 - INFO - ================================================================================
+2025-09-28 05:45:24,793 - INFO -   Street view safety score: 55.0%
+2025-09-28 05:45:24,793 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:45:24,793 - INFO - ================================================================================
+2025-09-28 05:45:24,793 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:45:24,793 - INFO - ================================================================================
+2025-09-28 05:45:24,793 - INFO - Original Score: 80%
+2025-09-28 05:45:24,793 - INFO - Validation Adjustment: +5 points
+2025-09-28 05:45:24,793 - INFO - Final Score: 85%
+2025-09-28 05:45:24,793 - INFO - ================================================================================
+2025-09-28 05:45:24,794 - INFO - 127.0.0.1 - - [28/Sep/2025 05:45:24] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:45:24,868 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:45:24,868 - INFO -   - Response length: 9294 characters
+2025-09-28 05:45:24,868 - INFO - ================================================================================
+2025-09-28 05:45:24,868 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:45:24,868 - INFO - ================================================================================
+2025-09-28 05:45:24,868 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:45:24,868 - INFO -   Overall Safety Score: 59.5%
+2025-09-28 05:45:24,868 - INFO -   Confidence Level: high
+2025-09-28 05:45:24,868 - INFO -   Time Context: day
+2025-09-28 05:45:24,868 - INFO -   Image Quality: good
+2025-09-28 05:45:24,868 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:45:24,868 - INFO -   The Google Street View image displays a wide, multi-lane road in the foreground, separated by a dirt/gravel median from an active construction site in the middle ground. Further in the background, undeveloped land and additional urban infrastructure are visible. The time context is clearly day, with bright sunlight and a clear blue sky. Natural lighting is excellent, providing good visibility across the expansive area. Modern streetlights are installed, suggesting adequate nighttime illumination for the road. However, there is a severe lack of pedestrian-specific infrastructure; no sidewalks, crosswalks, pedestrian signals, or accessible curb cuts are visible in the immediate foreground. Any pedestrian would be forced to walk on the uneven dirt/gravel median or directly on the road shoulder, in close proximity to potentially high-speed vehicular traffic, without any protective barriers. The construction site is well-fenced, indicating active development and controlled access. There are no visible signs of crime markers such as graffiti or boarded-up buildings. Vegetation is sparse and does not obstruct visibility. No people are visible, indicating low immediate public pedestrian activity at this specific spot, which may reduce natural surveillance.
+2025-09-28 05:45:24,868 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:45:24,868 - INFO -   - Complete absence of dedicated pedestrian infrastructure (sidewalks, crosswalks, signals)
+2025-09-28 05:45:24,868 - INFO -   - High pedestrian-traffic danger due to close proximity to a wide, potentially high-speed road with no separation or barriers
+2025-09-28 05:45:24,868 - INFO -   - Unsuitable and inaccessible walking surfaces (dirt/gravel median)
+2025-09-28 05:45:24,868 - INFO -   - Lack of natural surveillance due to low public pedestrian activity in the immediate vicinity
+2025-09-28 05:45:24,868 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:45:24,868 - INFO -   - Excellent natural lighting and clear sightlines during the day
+2025-09-28 05:45:24,868 - INFO -   - Absence of visible crime markers (graffiti, vandalism)
+2025-09-28 05:45:24,868 - INFO -   - Modern and seemingly well-maintained road lighting infrastructure
+2025-09-28 05:45:24,868 - INFO -   - No vegetation or physical obstructions blocking views
+2025-09-28 05:45:24,868 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:45:24,868 - INFO -   - Install clear, wide, and accessible sidewalks along the road, separated from vehicular traffic.
+2025-09-28 05:45:24,868 - INFO -   - Implement well-marked crosswalks at appropriate intersections, ideally with pedestrian signals.
+2025-09-28 05:45:24,868 - INFO -   - Provide protective barriers or ample buffer zones between pedestrian paths and the main road to enhance safety.
+2025-09-28 05:45:24,868 - INFO -   - Improve accessibility with curb cuts and smooth, even pedestrian surfaces.
+2025-09-28 05:45:24,868 - INFO -   - Consider dedicated pedestrian lighting along proposed sidewalks for nighttime safety.
+2025-09-28 05:45:24,868 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:45:24,868 - INFO -   Exposure Visibility: 85% (Weight: 20%)
+2025-09-28 05:45:24,868 - INFO -   Infrastructure Condition: 50% (Weight: 15%)
+2025-09-28 05:45:24,868 - INFO -   Crime Markers: 85% (Weight: 20%)
+2025-09-28 05:45:24,868 - INFO -   Pedestrian Infrastructure: 10% (Weight: 15%)
+2025-09-28 05:45:24,868 - INFO -   Traffic Danger: 30% (Weight: 15%)
+2025-09-28 05:45:24,869 - INFO -   Vegetation Obstructions: 95% (Weight: 10%)
+2025-09-28 05:45:24,869 - INFO -   Human Activity: 50% (Weight: 5%)
+2025-09-28 05:45:24,869 - INFO - ANALYSIS NOTES: The area appears to be in a state of transition and development, with new high-rise construction. While the construction itself is indicative of future growth, the immediate environment captured in the image is highly unfavorable for pedestrian safety due to a complete lack of dedicated infrastructure. The analysis is strictly limited to visible elements in the provided Street View image.
+2025-09-28 05:45:24,869 - INFO - ================================================================================
+2025-09-28 05:45:24,869 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:45:24,869 - INFO - ================================================================================
+2025-09-28 05:45:24,869 - INFO - Street View Safety Score: 59.5%
+2025-09-28 05:45:24,869 - INFO - ================================================================================
+2025-09-28 05:45:24,869 - INFO -   Street view safety score: 59.5%
+2025-09-28 05:45:24,869 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:45:24,869 - INFO - ================================================================================
+2025-09-28 05:45:24,869 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:45:24,869 - INFO - ================================================================================
+2025-09-28 05:45:24,869 - INFO - Original Score: 78%
+2025-09-28 05:45:24,869 - INFO - Validation Adjustment: -5 points
+2025-09-28 05:45:24,869 - INFO - Final Score: 73%
+2025-09-28 05:45:24,869 - INFO - ================================================================================
+2025-09-28 05:45:24,869 - INFO - 127.0.0.1 - - [28/Sep/2025 05:45:24] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:45:31,345 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:45:31,345 - INFO -   - Response length: 9439 characters
+2025-09-28 05:45:31,346 - INFO - ================================================================================
+2025-09-28 05:45:31,346 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:45:31,346 - INFO - ================================================================================
+2025-09-28 05:45:31,346 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:45:31,346 - INFO -   Overall Safety Score: 58.2%
+2025-09-28 05:45:31,346 - INFO -   Confidence Level: high
+2025-09-28 05:45:31,346 - INFO -   Time Context: day
+2025-09-28 05:45:31,346 - INFO -   Image Quality: good
+2025-09-28 05:45:31,346 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:45:31,346 - INFO -   The Google Street View image captures a street environment under bright daylight conditions, characterized by a clear blue sky. To the left, a modern high-rise building stands adjacent to an active construction site, marked by multiple cranes and unfinished building structures, all secured by a standard chain-link fence with orange mesh. In the foreground, a multi-lane paved road is visible, bordered by a concrete curb and a wide dirt/gravel shoulder, which serves as the only 'pedestrian area' as no dedicated paved sidewalk is present. To the right of the road and shoulder, the landscape is undeveloped, featuring sparse desert vegetation and dirt lots, with more streetlights and what appears to be an elevated structure (possibly a bridge or overpass) in the distance. Several modern streetlights are positioned along the road, one prominently in the foreground. No people, active vehicles (apart from distant parked ones near the construction site), graffiti, or overt crime indicators are visible. The road surface appears clean and well-maintained.
+2025-09-28 05:45:31,346 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:45:31,346 - INFO -   - Severe lack of dedicated paved pedestrian sidewalks, forcing pedestrians onto a dirt shoulder adjacent to traffic.
+2025-09-28 05:45:31,346 - INFO -   - Absence of visible crosswalks and pedestrian signals, creating hazardous conditions for crossing the multi-lane road.
+2025-09-28 05:45:31,346 - INFO -   - Minimal separation and no protective barriers between the pedestrian path (dirt shoulder) and the roadway, increasing traffic danger.
+2025-09-28 05:45:31,346 - INFO -   - Potential for high vehicle speeds on the wide road exacerbates the risk to unprotected pedestrians.
+2025-09-28 05:45:31,346 - INFO -   - Low visible human activity, which could contribute to feelings of isolation and reduced passive surveillance for pedestrians.
+2025-09-28 05:45:31,346 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:45:31,346 - INFO -   - Excellent natural lighting and clear sightlines during the day.
+2025-09-28 05:45:31,346 - INFO -   - Absence of visible crime markers such as graffiti or boarded-up buildings.
+2025-09-28 05:45:31,346 - INFO -   - Presence of streetlights for potential nighttime illumination.
+2025-09-28 05:45:31,346 - INFO -   - Well-maintained road surface.
+2025-09-28 05:45:31,346 - INFO -   - Minimal vegetation obstructions to visibility.
+2025-09-28 05:45:31,346 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:45:31,346 - INFO -   - Immediately implement and construct dedicated paved sidewalks on both sides of the road to ensure safe pedestrian passage.
+2025-09-28 05:45:31,346 - INFO -   - Install clearly marked crosswalks at appropriate intervals, complemented by pedestrian signals if traffic volume warrants, to provide safe road crossing points.
+2025-09-28 05:45:31,346 - INFO -   - Introduce physical barriers or widen the buffer zone between the pedestrian sidewalks and the roadway to enhance safety and protection from vehicle traffic.
+2025-09-28 05:45:31,346 - INFO -   - Conduct a comprehensive assessment of existing streetlights and ensure full functionality and adequate illumination for nighttime pedestrian safety.
+2025-09-28 05:45:31,347 - INFO -   - If traffic studies indicate high vehicle speeds, implement traffic calming measures to reduce speeds and improve safety for all road users, especially pedestrians.
+2025-09-28 05:45:31,347 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:45:31,347 - INFO -   Exposure Visibility: 90% (Weight: 20%)
+2025-09-28 05:45:31,347 - INFO -   Infrastructure Condition: 30% (Weight: 15%)
+2025-09-28 05:45:31,347 - INFO -   Crime Markers: 90% (Weight: 20%)
+2025-09-28 05:45:31,347 - INFO -   Pedestrian Infrastructure: 20% (Weight: 15%)
+2025-09-28 05:45:31,347 - INFO -   Traffic Danger: 25% (Weight: 15%)
+2025-09-28 05:45:31,347 - INFO -   Vegetation Obstructions: 85% (Weight: 10%)
+2025-09-28 05:45:31,347 - INFO -   Human Activity: 50% (Weight: 5%)
+2025-09-28 05:45:31,347 - INFO - ANALYSIS NOTES: The primary safety concern in this area is the severe deficiency in pedestrian infrastructure. While the daytime visibility is good and crime markers are absent, the lack of sidewalks, crosswalks, and adequate separation from vehicle traffic makes this environment highly unsafe for pedestrians. The area appears to be under development, which might explain the current state, but current conditions are inadequate for pedestrian safety. The analysis is based solely on the visible elements in the provided Google Street View image.
+2025-09-28 05:45:31,347 - INFO - ================================================================================
+2025-09-28 05:45:31,347 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:45:31,347 - INFO - ================================================================================
+2025-09-28 05:45:31,347 - INFO - Street View Safety Score: 58.2%
+2025-09-28 05:45:31,347 - INFO - ================================================================================
+2025-09-28 05:45:31,347 - INFO -   Street view safety score: 58.2%
+2025-09-28 05:45:31,347 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:45:31,347 - INFO - ================================================================================
+2025-09-28 05:45:31,347 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:45:31,348 - INFO - ================================================================================
+2025-09-28 05:45:31,348 - INFO - Original Score: 75%
+2025-09-28 05:45:31,348 - INFO - Validation Adjustment: +5 points
+2025-09-28 05:45:31,348 - INFO - Final Score: 80%
+2025-09-28 05:45:31,348 - INFO - ================================================================================
+2025-09-28 05:45:31,348 - INFO - 127.0.0.1 - - [28/Sep/2025 05:45:31] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 05:45:33,086 - INFO - Received response from Gemini, parsing analysis...
+2025-09-28 05:45:33,087 - INFO -   - Response length: 8934 characters
+2025-09-28 05:45:33,087 - INFO - ================================================================================
+2025-09-28 05:45:33,087 - INFO - STREET VIEW AGENT ANALYSIS COMPLETE
+2025-09-28 05:45:33,087 - INFO - ================================================================================
+2025-09-28 05:45:33,087 - INFO - STREET VIEW AGENT OBSERVATIONS:
+2025-09-28 05:45:33,087 - INFO -   Overall Safety Score: 62.8%
+2025-09-28 05:45:33,087 - INFO -   Confidence Level: high
+2025-09-28 05:45:33,087 - INFO -   Time Context: day
+2025-09-28 05:45:33,087 - INFO -   Image Quality: good
+2025-09-28 05:45:33,088 - INFO - DETAILED OBSERVATIONS:
+2025-09-28 05:45:33,088 - INFO -   The image captures a daytime scene with excellent natural lighting. In the foreground, a multi-lane road is visible, bordered by a concrete curb and a wide, unpaved dirt/gravel strip. Beyond this strip lies a large, active construction site with multiple cranes and partially erected high-rise buildings, secured by a high chain-link fence with green privacy screening. To the far left, a completed high-rise structure is present. Modern streetlights are installed along the road and in the undeveloped areas. No formal pedestrian infrastructure such as paved sidewalks, crosswalks, or pedestrian signals are discernible in the immediate foreground, forcing pedestrians onto an uneven dirt path. No individuals or active traffic are visible. The vegetation is sparse and low-lying, not obstructing any views. The area appears to be in an active phase of urban development.
+2025-09-28 05:45:33,088 - INFO - KEY SAFETY CONCERNS:
+2025-09-28 05:45:33,088 - INFO -   - Severe lack of formal, accessible pedestrian infrastructure (no paved sidewalks, crosswalks, or curb cuts) forcing pedestrians onto hazardous, uneven dirt paths.
+2025-09-28 05:45:33,088 - INFO -   - Low human activity in the immediate roadside area, which reduces passive surveillance and potential for assistance.
+2025-09-28 05:45:33,088 - INFO -   - Proximity to a multi-lane road with likely high traffic speeds, and an insufficient dedicated safe passage for pedestrians.
+2025-09-28 05:45:33,088 - INFO - POSITIVE SAFETY FACTORS:
+2025-09-28 05:45:33,088 - INFO -   - Excellent natural lighting and clear sightlines throughout the visible area.
+2025-09-28 05:45:33,088 - INFO -   - Presence of modern streetlights for future nighttime illumination.
+2025-09-28 05:45:33,088 - INFO -   - Significant physical buffer zone (unpaved strip and curb) separating pedestrians from the main road.
+2025-09-28 05:45:33,088 - INFO -   - Absence of visible negative crime markers like graffiti or vandalism.
+2025-09-28 05:45:33,088 - INFO -   - Construction site is securely fenced off, containing potential hazards.
+2025-09-28 05:45:33,088 - INFO - SAFETY RECOMMENDATIONS:
+2025-09-28 05:45:33,088 - INFO -   - Urgently construct paved, ADA-compliant sidewalks with appropriate curb cuts along the roadside to provide a safe and accessible pedestrian path.
+2025-09-28 05:45:33,088 - INFO -   - Install clearly marked crosswalks and pedestrian signals at appropriate intersections and desired crossing points, especially given the multi-lane road.
+2025-09-28 05:45:33,088 - INFO -   - Implement regular monitoring of pedestrian activity and safety once development progresses, potentially enhancing lighting or security measures if the area remains low in human activity during off-peak hours.
+2025-09-28 05:45:33,088 - INFO - METRIC BREAKDOWN:
+2025-09-28 05:45:33,088 - INFO -   Exposure Visibility: 95% (Weight: 20%)
+2025-09-28 05:45:33,088 - INFO -   Infrastructure Condition: 40% (Weight: 15%)
+2025-09-28 05:45:33,088 - INFO -   Crime Markers: 80% (Weight: 20%)
+2025-09-28 05:45:33,088 - INFO -   Pedestrian Infrastructure: 10% (Weight: 15%)
+2025-09-28 05:45:33,088 - INFO -   Traffic Danger: 65% (Weight: 15%)
+2025-09-28 05:45:33,088 - INFO -   Vegetation Obstructions: 95% (Weight: 10%)
+2025-09-28 05:45:33,088 - INFO -   Human Activity: 20% (Weight: 5%)
+2025-09-28 05:45:33,088 - INFO - ANALYSIS NOTES: The analysis is based solely on the provided static Street View image. The area is clearly under extensive development, which explains the temporary nature of some infrastructure elements (or lack thereof). However, for current pedestrian safety, the absence of basic infrastructure is a significant concern. The focus here is on the immediate visible environment for a pedestrian.
+2025-09-28 05:45:33,088 - INFO - ================================================================================
+2025-09-28 05:45:33,088 - INFO - FINAL STREET VIEW SAFETY SCORE
+2025-09-28 05:45:33,088 - INFO - ================================================================================
+2025-09-28 05:45:33,088 - INFO - Street View Safety Score: 62.8%
+2025-09-28 05:45:33,088 - INFO - ================================================================================
+2025-09-28 05:45:33,088 - INFO -   Street view safety score: 62.8%
+2025-09-28 05:45:33,089 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 05:45:33,089 - INFO - ================================================================================
+2025-09-28 05:45:33,089 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 05:45:33,089 - INFO - ================================================================================
+2025-09-28 05:45:33,089 - INFO - Original Score: 78%
+2025-09-28 05:45:33,089 - INFO - Validation Adjustment: +3 points
+2025-09-28 05:45:33,089 - INFO - Final Score: 81%
+2025-09-28 05:45:33,089 - INFO - ================================================================================
+2025-09-28 05:45:33,089 - INFO - 127.0.0.1 - - [28/Sep/2025 05:45:33] "POST /analyze-route HTTP/1.1" 200 -
