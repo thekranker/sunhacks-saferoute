@@ -26,54 +26,40 @@ def analyze_route_safety(origin, destination, route_details=None):
     Args:
         origin (str): Starting address
         destination (str): Destination address
-        route_details (dict, optional): Additional route information like distance, duration
     
     Returns:
-        dict: Analysis results with safety score, breakdown, and recommendations
+        safety score (int): Safety score as a percentage (0-100%)
+        
     """
+       #route_details (dict, optional): Additional route information like distance, duration
+       #dict: Analysis results with safety score, breakdown, and recommendations 
     try:
         # Create a comprehensive prompt for route safety analysis
+         # Analyze the safety of this walking route and provide a detailed assessment:
+
         prompt = f"""
-        Analyze the safety of this walking route and provide a detailed assessment:
 
         Route: {origin} to {destination}
         """
         
-        if route_details:
-            prompt += f"""
-        Additional Details:
-        - Distance: {route_details.get('distance', 'Not specified')}
-        - Duration: {route_details.get('duration', 'Not specified')}
-        - Route Summary: {route_details.get('summary', 'Not specified')}
-        """
+        # if route_details:
+        #     prompt += f"""
+        # Additional Details:
+        # - Distance: {route_details.get('distance', 'Not specified')}
+        # - Duration: {route_details.get('duration', 'Not specified')}
+        # - Route Summary: {route_details.get('summary', 'Not specified')}
+        # """
         
         prompt += """
         
-        Please provide:
-        1. A safety score as a percentage (0-100%)
-        2. A detailed breakdown of safety factors (lighting, crime rates, pedestrian infrastructure, etc.)
-        3. Specific safety concerns or risks along this route
-        4. Recommendations for safer alternatives if applicable
-        5. Time-of-day considerations for safety
-        6. Any recent safety incidents or patterns in this area (if available)
-        
-        Format your response as a JSON object with the following structure:
+        Give a QUICK safety assessment in this exact JSON format:
         {
-            "safety_score": <percentage>,
-            "safety_breakdown": {
-                "lighting": <assessment>,
-                "crime_rate": <assessment>,
-                "pedestrian_infrastructure": <assessment>,
-                "traffic_safety": <assessment>
-            },
-            "concerns": [<list of specific concerns>],
-            "recommendations": [<list of safety recommendations>],
-            "time_considerations": <advice for different times of day>,
-            "alternative_suggestions": [<safer route suggestions if applicable>],
-            "sources": [<any sources used for the analysis>]
+            "safety_score": <number 0-100>,
+            "main_concerns": [<2-3 key safety issues>],
+            "quick_tips": [<2-3 brief safety recommendations>]
         }
         
-        Be specific and cite any sources you use for crime data, safety statistics, or area information.
+        Keep it brief - just essential safety info. No detailed explanations.
         """
         
         # Generate content using Gemini
@@ -92,20 +78,11 @@ def analyze_route_safety(origin, destination, route_details=None):
                 json_str = response_text[start_idx:end_idx]
                 analysis = json.loads(json_str)
             else:
-                # If no JSON found, create a structured response from the text
+                # If no JSON found, create a simple response
                 analysis = {
                     "safety_score": 75,  # Default score
-                    "safety_breakdown": {
-                        "lighting": "Analysis not available",
-                        "crime_rate": "Analysis not available", 
-                        "pedestrian_infrastructure": "Analysis not available",
-                        "traffic_safety": "Analysis not available"
-                    },
-                    "concerns": ["Unable to parse detailed analysis"],
-                    "recommendations": ["Use caution and stay aware of surroundings"],
-                    "time_considerations": "Avoid walking alone at night",
-                    "alternative_suggestions": [],
-                    "sources": [],
+                    "main_concerns": ["Unable to analyze route"],
+                    "quick_tips": ["Use caution and stay aware of surroundings"],
                     "raw_response": response_text
                 }
             
@@ -116,22 +93,13 @@ def analyze_route_safety(origin, destination, route_details=None):
             }
             
         except json.JSONDecodeError:
-            # If JSON parsing fails, return the raw response in a structured format
+            # If JSON parsing fails, return a simple response
             return {
                 "success": True,
                 "analysis": {
                     "safety_score": 75,
-                    "safety_breakdown": {
-                        "lighting": "Analysis not available",
-                        "crime_rate": "Analysis not available",
-                        "pedestrian_infrastructure": "Analysis not available", 
-                        "traffic_safety": "Analysis not available"
-                    },
-                    "concerns": ["Unable to parse detailed analysis"],
-                    "recommendations": ["Use caution and stay aware of surroundings"],
-                    "time_considerations": "Avoid walking alone at night",
-                    "alternative_suggestions": [],
-                    "sources": [],
+                    "main_concerns": ["Unable to parse analysis"],
+                    "quick_tips": ["Use caution and stay aware of surroundings"],
                     "raw_response": response.text
                 },
                 "raw_response": response.text
@@ -143,17 +111,8 @@ def analyze_route_safety(origin, destination, route_details=None):
             "error": str(e),
             "analysis": {
                 "safety_score": 50,  # Default low score for errors
-                "safety_breakdown": {
-                    "lighting": "Analysis failed",
-                    "crime_rate": "Analysis failed",
-                    "pedestrian_infrastructure": "Analysis failed",
-                    "traffic_safety": "Analysis failed"
-                },
-                "concerns": ["Unable to analyze route safety"],
-                "recommendations": ["Use extreme caution"],
-                "time_considerations": "Avoid this route if possible",
-                "alternative_suggestions": [],
-                "sources": []
+                "main_concerns": ["Unable to analyze route safety"],
+                "quick_tips": ["Use extreme caution"]
             }
         }
 

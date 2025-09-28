@@ -444,7 +444,7 @@ class TestControlPanel {
 
     async getAIAnalysisForRoute(routeData) {
         try {
-            this.outputDisplay.updateOutput("🤖 Getting AI safety analysis...");
+            this.outputDisplay.updateOutput("🤖 Getting quick AI safety analysis...");
             
             const origin = this.startLocationInput.getValue();
             const destination = this.endLocationInput.getValue();

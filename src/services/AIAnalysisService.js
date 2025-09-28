@@ -21,7 +21,8 @@ class AIAnalysisService {
                     origin: origin,
                     destination: destination,
                     route_details: routeDetails
-                })
+                }),
+                signal: AbortSignal.timeout(10000) // 10 second timeout
             });
 
             if (!response.ok) {
@@ -38,17 +39,8 @@ class AIAnalysisService {
                 error: `Failed to analyze route: ${error.message}`,
                 analysis: {
                     safety_score: 50,
-                    safety_breakdown: {
-                        lighting: "Analysis failed",
-                        crime_rate: "Analysis failed",
-                        pedestrian_infrastructure: "Analysis failed",
-                        traffic_safety: "Analysis failed"
-                    },
-                    concerns: ["Unable to connect to AI analysis service"],
-                    recommendations: ["Use caution and stay aware of surroundings"],
-                    time_considerations: "Avoid walking alone at night",
-                    alternative_suggestions: [],
-                    sources: []
+                    main_concerns: ["Unable to connect to AI analysis service"],
+                    quick_tips: ["Use caution and stay aware of surroundings"]
                 }
             };
         }
@@ -96,55 +88,20 @@ class AIAnalysisService {
                     </div>
                 </div>
                 
-                <div class="safety-breakdown">
-                    <h5>Safety Breakdown:</h5>
-                    <ul>
-                        <li><strong>Lighting:</strong> ${data.safety_breakdown?.lighting || 'Not analyzed'}</li>
-                        <li><strong>Crime Rate:</strong> ${data.safety_breakdown?.crime_rate || 'Not analyzed'}</li>
-                        <li><strong>Pedestrian Infrastructure:</strong> ${data.safety_breakdown?.pedestrian_infrastructure || 'Not analyzed'}</li>
-                        <li><strong>Traffic Safety:</strong> ${data.safety_breakdown?.traffic_safety || 'Not analyzed'}</li>
-                    </ul>
-                </div>
-
-                ${data.concerns && data.concerns.length > 0 ? `
+                ${data.main_concerns && data.main_concerns.length > 0 ? `
                     <div class="safety-concerns">
-                        <h5>⚠️ Safety Concerns:</h5>
+                        <h5>⚠️ Main Concerns:</h5>
                         <ul>
-                            ${data.concerns.map(concern => `<li>${concern}</li>`).join('')}
+                            ${data.main_concerns.map(concern => `<li>${concern}</li>`).join('')}
                         </ul>
                     </div>
                 ` : ''}
 
-                ${data.recommendations && data.recommendations.length > 0 ? `
+                ${data.quick_tips && data.quick_tips.length > 0 ? `
                     <div class="safety-recommendations">
-                        <h5>💡 Recommendations:</h5>
+                        <h5>💡 Quick Tips:</h5>
                         <ul>
-                            ${data.recommendations.map(rec => `<li>${rec}</li>`).join('')}
-                        </ul>
-                    </div>
-                ` : ''}
-
-                ${data.time_considerations ? `
-                    <div class="time-considerations">
-                        <h5>🕐 Time Considerations:</h5>
-                        <p>${data.time_considerations}</p>
-                    </div>
-                ` : ''}
-
-                ${data.alternative_suggestions && data.alternative_suggestions.length > 0 ? `
-                    <div class="alternative-suggestions">
-                        <h5>🛣️ Alternative Suggestions:</h5>
-                        <ul>
-                            ${data.alternative_suggestions.map(alt => `<li>${alt}</li>`).join('')}
-                        </ul>
-                    </div>
-                ` : ''}
-
-                ${data.sources && data.sources.length > 0 ? `
-                    <div class="analysis-sources">
-                        <h5>📚 Sources:</h5>
-                        <ul>
-                            ${data.sources.map(source => `<li>${source}</li>`).join('')}
+                            ${data.quick_tips.map(tip => `<li>${tip}</li>`).join('')}
                         </ul>
                     </div>
                 ` : ''}
