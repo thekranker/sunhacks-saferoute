@@ -23,13 +23,22 @@
         </header>
         
         <div class="map-container">
-            <!-- Simple Google Maps-style search -->
+            <!-- Enhanced Google Maps-style search -->
             <div class="search-overlay">
-                <div class="search-input">
+                <div class="search-input" id="searchContainer">
                     <span class="search-icon">🔍</span>
                     <input type="text" id="endLocation" placeholder="Where to?" autocomplete="off" list="locationSuggestions">
-                    <datalist id="locationSuggestions"></datalist>
+                    <button class="clear-button" id="clearButton" style="display: none;" title="Clear search">
+                        <span>✕</span>
+                    </button>
+                    <div class="search-loading" id="searchLoading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                    </div>
                 </div>
+                <div class="search-suggestions" id="searchSuggestions" style="display: none;">
+                    <!-- Suggestions will be populated here -->
+                </div>
+                <datalist id="locationSuggestions"></datalist>
             </div>
             <div id="map"></div>
         </div>

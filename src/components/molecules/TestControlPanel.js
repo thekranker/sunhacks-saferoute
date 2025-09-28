@@ -850,10 +850,16 @@ class TestControlPanel {
     setupAutocomplete() {
         const destinationInput = document.getElementById('endLocation');
         const suggestionsList = document.getElementById('locationSuggestions');
+        const searchSuggestions = document.getElementById('searchSuggestions');
+        const clearButton = document.getElementById('clearButton');
+        const searchLoading = document.getElementById('searchLoading');
         
-        if (destinationInput && suggestionsList) {
+        if (destinationInput && suggestionsList && searchSuggestions && clearButton && searchLoading) {
             let autocompleteService = null;
             let placesService = null;
+            let currentSuggestions = [];
+            let selectedIndex = -1;
+            let searchTimeout = null;
             
             // Initialize Google Places services when available
             const initializePlacesServices = () => {
@@ -874,48 +880,199 @@ class TestControlPanel {
             // Also try after a delay in case Google Maps is still loading
             setTimeout(initializePlacesServices, 1000);
             
-            destinationInput.addEventListener('input', (event) => {
-                const query = event.target.value.trim();
+            // Show/hide clear button based on input content
+            const updateClearButton = () => {
+                if (destinationInput.value.trim()) {
+                    clearButton.style.display = 'flex';
+                } else {
+                    clearButton.style.display = 'none';
+                }
+            };
+            
+            // Clear input and hide suggestions
+            const clearInput = () => {
+                destinationInput.value = '';
+                searchSuggestions.style.display = 'none';
+                updateClearButton();
+                destinationInput.focus();
+            };
+            
+            // Show loading state
+            const showLoading = () => {
+                searchLoading.style.display = 'flex';
+                clearButton.style.display = 'none';
+            };
+            
+            // Hide loading state
+            const hideLoading = () => {
+                searchLoading.style.display = 'none';
+                updateClearButton();
+            };
+            
+            // Display suggestions in custom dropdown
+            const displaySuggestions = (predictions) => {
+                searchSuggestions.innerHTML = '';
+                currentSuggestions = predictions || [];
+                selectedIndex = -1;
                 
-                if (query.length < 2) {
-                    suggestionsList.innerHTML = '';
+                if (currentSuggestions.length === 0) {
+                    searchSuggestions.style.display = 'none';
                     return;
                 }
                 
-                // Try to initialize services if not already done
-                if (!autocompleteService) {
-                    initializePlacesServices();
+                currentSuggestions.forEach((prediction, index) => {
+                    const suggestion = document.createElement('div');
+                    suggestion.className = 'search-suggestion';
+                    suggestion.setAttribute('data-index', index);
+                    
+                    const icon = document.createElement('span');
+                    icon.className = 'search-suggestion-icon';
+                    icon.textContent = '📍';
+                    
+                    const text = document.createElement('div');
+                    text.className = 'search-suggestion-text';
+                    text.textContent = prediction.description;
+                    
+                    suggestion.appendChild(icon);
+                    suggestion.appendChild(text);
+                    
+                    // Add click handler
+                    suggestion.addEventListener('click', () => {
+                        this.selectSuggestion(prediction);
+                    });
+                    
+                    // Add hover effects
+                    suggestion.addEventListener('mouseenter', () => {
+                        this.highlightSuggestion(index);
+                    });
+                    
+                    searchSuggestions.appendChild(suggestion);
+                });
+                
+                searchSuggestions.style.display = 'block';
+            };
+            
+            // Highlight suggestion
+            this.highlightSuggestion = (index) => {
+                const suggestions = searchSuggestions.querySelectorAll('.search-suggestion');
+                suggestions.forEach((suggestion, i) => {
+                    suggestion.classList.toggle('selected', i === index);
+                });
+                selectedIndex = index;
+            };
+            
+            // Select suggestion
+            this.selectSuggestion = (prediction) => {
+                destinationInput.value = prediction.description;
+                searchSuggestions.style.display = 'none';
+                updateClearButton();
+                
+                // Trigger search
+                this.testDirections();
+            };
+            
+            // Handle input with debouncing
+            destinationInput.addEventListener('input', (event) => {
+                const query = event.target.value.trim();
+                updateClearButton();
+                
+                // Clear previous timeout
+                if (searchTimeout) {
+                    clearTimeout(searchTimeout);
                 }
                 
-                if (autocompleteService) {
-                    autocompleteService.getPlacePredictions({
-                        input: query,
-                        types: ['geocode', 'establishment']
-                    }, (predictions, status) => {
-                        if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
-                            suggestionsList.innerHTML = '';
-                            predictions.slice(0, 5).forEach(prediction => {
-                                const option = document.createElement('option');
-                                option.value = prediction.description;
-                                option.setAttribute('data-place-id', prediction.place_id);
-                                suggestionsList.appendChild(option);
-                            });
+                if (query.length < 2) {
+                    searchSuggestions.style.display = 'none';
+                    return;
+                }
+                
+                // Show loading state
+                showLoading();
+                
+                // Debounce search
+                searchTimeout = setTimeout(() => {
+                    // Try to initialize services if not already done
+                    if (!autocompleteService) {
+                        initializePlacesServices();
+                    }
+                    
+                    if (autocompleteService) {
+                        autocompleteService.getPlacePredictions({
+                            input: query,
+                            types: ['geocode', 'establishment']
+                        }, (predictions, status) => {
+                            hideLoading();
+                            if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+                                displaySuggestions(predictions.slice(0, 5));
+                            } else {
+                                searchSuggestions.style.display = 'none';
+                            }
+                        });
+                    } else {
+                        hideLoading();
+                        // Fallback: show basic suggestions if Places API not available
+                        this.showBasicSuggestions(query, searchSuggestions);
+                    }
+                }, 300); // 300ms debounce
+            });
+            
+            // Handle keyboard navigation
+            destinationInput.addEventListener('keydown', (event) => {
+                if (searchSuggestions.style.display === 'none') return;
+                
+                switch (event.key) {
+                    case 'ArrowDown':
+                        event.preventDefault();
+                        if (selectedIndex < currentSuggestions.length - 1) {
+                            this.highlightSuggestion(selectedIndex + 1);
                         }
-                    });
-                } else {
-                    // Fallback: show basic suggestions if Places API not available
-                    this.showBasicSuggestions(query, suggestionsList);
+                        break;
+                    case 'ArrowUp':
+                        event.preventDefault();
+                        if (selectedIndex > 0) {
+                            this.highlightSuggestion(selectedIndex - 1);
+                        }
+                        break;
+                    case 'Enter':
+                        event.preventDefault();
+                        if (selectedIndex >= 0 && currentSuggestions[selectedIndex]) {
+                            this.selectSuggestion(currentSuggestions[selectedIndex]);
+                        } else {
+                            this.testDirections();
+                        }
+                        break;
+                    case 'Escape':
+                        searchSuggestions.style.display = 'none';
+                        selectedIndex = -1;
+                        break;
                 }
             });
             
-            // Handle selection from autocomplete
+            // Clear button functionality
+            clearButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                clearInput();
+            });
+            
+            // Hide suggestions when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.search-overlay')) {
+                    searchSuggestions.style.display = 'none';
+                    selectedIndex = -1;
+                }
+            });
+            
+            // Handle selection from autocomplete (fallback)
             destinationInput.addEventListener('change', (event) => {
                 const selectedValue = event.target.value;
+                if (selectedValue) {
+                    searchSuggestions.style.display = 'none';
+                }
             });
         }
     }
     
-    showBasicSuggestions(query, suggestionsList) {
+    showBasicSuggestions(query, searchSuggestions) {
         // Basic fallback suggestions when Places API is not available
         const basicSuggestions = [
             `${query}, New York, NY`,
@@ -925,12 +1082,41 @@ class TestControlPanel {
             `${query}, Phoenix, AZ`
         ];
         
-        suggestionsList.innerHTML = '';
-        basicSuggestions.forEach(suggestion => {
-            const option = document.createElement('option');
-            option.value = suggestion;
-            suggestionsList.appendChild(option);
+        searchSuggestions.innerHTML = '';
+        
+        basicSuggestions.forEach((suggestion, index) => {
+            const suggestionElement = document.createElement('div');
+            suggestionElement.className = 'search-suggestion';
+            suggestionElement.setAttribute('data-index', index);
+            
+            const icon = document.createElement('span');
+            icon.className = 'search-suggestion-icon';
+            icon.textContent = '📍';
+            
+            const text = document.createElement('div');
+            text.className = 'search-suggestion-text';
+            text.textContent = suggestion;
+            
+            suggestionElement.appendChild(icon);
+            suggestionElement.appendChild(text);
+            
+            // Add click handler
+            suggestionElement.addEventListener('click', () => {
+                const destinationInput = document.getElementById('endLocation');
+                destinationInput.value = suggestion;
+                searchSuggestions.style.display = 'none';
+                this.testDirections();
+            });
+            
+            // Add hover effects
+            suggestionElement.addEventListener('mouseenter', () => {
+                this.highlightSuggestion(index);
+            });
+            
+            searchSuggestions.appendChild(suggestionElement);
         });
+        
+        searchSuggestions.style.display = 'block';
     }
 
     dispatchEvent(eventName, data = {}) {
