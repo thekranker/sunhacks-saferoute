@@ -69,12 +69,13 @@ class GeminiStreetViewAgent:
             }
         }
     
-    def analyze_streetview_safety(self, image_data, location_info):
+    def analyze_streetview_safety(self, image_data=None, location_info=None):
         """
-        Analyze street view image for safety indicators.
+        Analyze street view safety indicators using text-based analysis.
+        No longer requires actual street view images.
         
         Args:
-            image_data (str): Base64 encoded image data
+            image_data (str, optional): Base64 encoded image data (ignored)
             location_info (dict): Location information (address, coordinates, time_context)
             
         Returns:
@@ -82,39 +83,33 @@ class GeminiStreetViewAgent:
         """
         try:
             self.logger.info("=" * 80)
-            self.logger.info("STREET VIEW AGENT STARTING ANALYSIS")
+            self.logger.info("STREET VIEW AGENT STARTING TEXT-BASED ANALYSIS")
             self.logger.info("=" * 80)
             self.logger.info(f"Location: {location_info.get('address', 'Unknown')}")
             self.logger.info(f"Coordinates: {location_info.get('coordinates', 'Unknown')}")
             self.logger.info(f"Time Context: {location_info.get('time_context', 'Unknown')}")
+            self.logger.info("Note: Using text-based analysis (no street view images required)")
+            self.logger.info("")
+            self.logger.info("STREET VIEW AGENT THINKING PROCESS:")
+            self.logger.info("  - Analyzing location safety based on area knowledge")
+            self.logger.info("  - Evaluating 7 safety metrics with weighted scoring")
+            self.logger.info("  - Considering typical infrastructure and crime patterns")
+            self.logger.info("  - Assessing pedestrian safety factors")
+            self.logger.info("")
             
-            # Create comprehensive analysis prompt
-            analysis_prompt = self._create_streetview_analysis_prompt(location_info)
+            # Create comprehensive text-based analysis prompt
+            analysis_prompt = self._create_text_based_analysis_prompt(location_info)
             
-            # Prepare image for analysis
-            try:
-                # Decode base64 image data
-                image_bytes = base64.b64decode(image_data)
-                
-                # Create image part for Gemini
-                image_part = {
-                    "mime_type": "image/jpeg",
-                    "data": image_bytes
-                }
-                
-                self.logger.info("Sending street view image to Gemini for analysis...")
-                
-                # Generate content with image
-                response = model.generate_content([analysis_prompt, image_part])
-                
-            except Exception as e:
-                self.logger.error(f"Image processing failed: {str(e)}")
-                return {
-                    "success": False,
-                    "error": f"Image processing failed: {str(e)}",
-                    "safety_score": 0,
-                    "confidence_level": "low"
-                }
+            self.logger.info("Sending text-based analysis request to Gemini...")
+            self.logger.info("  - Prompt includes 7 weighted safety metrics")
+            self.logger.info("  - Requesting detailed observations and recommendations")
+            self.logger.info("  - Expecting JSON response with metric breakdown")
+            
+            # Generate content without image
+            response = model.generate_content(analysis_prompt)
+            
+            self.logger.info("Received response from Gemini, parsing analysis...")
+            self.logger.info(f"  - Response length: {len(response.text)} characters")
             
             # Parse analysis response
             analysis_result = self._parse_streetview_response(response.text, location_info)
@@ -261,6 +256,134 @@ class GeminiStreetViewAgent:
         
         return prompt
     
+    def _create_text_based_analysis_prompt(self, location_info):
+        """Create comprehensive prompt for text-based street safety analysis."""
+        
+        prompt = f"""
+        You are a safety analysis expert specializing in street environment assessment. Analyze the safety of this location based on available information and general knowledge.
+
+        LOCATION CONTEXT:
+        - Address: {location_info.get('address', 'Unknown')}
+        - Coordinates: {location_info.get('coordinates', 'Unknown')}
+        - Time Context: {location_info.get('time_context', 'Unknown')}
+
+        YOUR TASK:
+        Analyze this location for the following safety metrics and provide a comprehensive safety assessment:
+
+        1. EXPOSURE/VISIBILITY (Weight: 20%):
+           - Typical lighting conditions for this area
+           - Visibility of the area (clear sightlines, hidden corners)
+           - Dark alleys or poorly lit areas
+           - Overall visibility for pedestrians
+
+        2. INFRASTRUCTURE CONDITION (Weight: 15%):
+           - Typical sidewalk condition in this area
+           - Streetlight functionality and placement
+           - Crosswalk availability and condition
+           - Building maintenance and upkeep
+           - Fence and barrier condition
+
+        3. CRIME-RELATED MARKERS (Weight: 20%):
+           - Typical graffiti presence in this area
+           - Boarded-up windows or buildings
+           - Security bars on windows
+           - Surveillance cameras
+           - "No loitering" or security signs
+           - High fences or barriers
+           - Police presence indicators
+
+        4. PEDESTRIAN INFRASTRUCTURE (Weight: 15%):
+           - Crosswalk availability and visibility
+           - Sidewalk width and accessibility
+           - Pedestrian signals
+           - Curb cuts for accessibility
+           - Street-level access
+
+        5. TRAFFIC DANGER (Weight: 15%):
+           - Proximity to busy roads
+           - Separation between sidewalk and road
+           - Protective barriers
+           - Traffic flow and speed indicators
+
+        6. VEGETATION/OBSTRUCTIONS (Weight: 10%):
+           - Overgrown foliage blocking visibility
+           - Tree branches obstructing paths
+           - Other visibility obstructions
+
+        7. HUMAN ACTIVITY (Weight: 5%):
+           - Typical activity level in this area
+           - Social environment indicators
+
+        ADDITIONAL CONSIDERATIONS:
+        - Time context: Consider day/night safety differences
+        - Weather conditions typical for this area
+        - Overall cleanliness and maintenance
+        - Accessibility features
+        - Area reputation and crime statistics
+
+        RESPOND IN THIS EXACT JSON FORMAT:
+        {{
+            "safety_score": <overall score 0-100>,
+            "metric_breakdown": {{
+                "exposure_visibility": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "infrastructure_condition": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "crime_markers": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "pedestrian_infrastructure": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "traffic_danger": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "vegetation_obstructions": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }},
+                "human_activity": {{
+                    "score": <0-100>,
+                    "observations": "<detailed observations>",
+                    "concerns": ["<specific concerns>"],
+                    "positive_factors": ["<positive factors>"]
+                }}
+            }},
+            "detailed_observations": "<comprehensive analysis of what you know about this location>",
+            "key_concerns": ["<top 3-5 safety concerns>"],
+            "positive_factors": ["<top 3-5 positive safety factors>"],
+            "recommendations": ["<specific safety recommendations>"],
+            "confidence_level": "<high/medium/low>",
+            "time_context": "<day/night/unknown based on analysis>",
+            "image_quality": "text-based",
+            "analysis_notes": "<any additional observations or limitations>"
+        }}
+
+        Be thorough, accurate, and realistic in your assessment. Focus on actual safety factors for this location.
+        Consider both risks and positive safety indicators. Be specific about what you know about this area.
+        """
+        
+        return prompt
+    
     def _parse_streetview_response(self, response_text, location_info):
         """Parse the street view analysis response and calculate weighted score."""
         
@@ -397,12 +520,13 @@ class GeminiStreetViewAgent:
             self.logger.error(f"  Error: {analysis_result.get('error', 'Unknown error')}")
             self.logger.error(f"  Safety Score: {analysis_result.get('safety_score', 0)}%")
 
-def analyze_streetview_safety(image_data, location_info):
+def analyze_streetview_safety(image_data=None, location_info=None):
     """
     Convenience function to analyze street view safety.
+    No longer requires actual street view images.
     
     Args:
-        image_data (str): Base64 encoded image data
+        image_data (str, optional): Base64 encoded image data (ignored)
         location_info (dict): Location information
         
     Returns:

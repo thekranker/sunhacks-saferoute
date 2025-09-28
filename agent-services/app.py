@@ -119,7 +119,29 @@ def analyze_route():
                 }
             })
         
-        # Step 3: Create enhanced analysis with validation results
+        # Step 3: Analyze street view safety (text-based analysis)
+        logger.info("Starting street view analysis (text-based)...")
+        
+        # Create location info for streetview analysis
+        streetview_location_info = {
+            "address": f"{origin} to {destination}",
+            "coordinates": "route_coordinates",
+            "time_context": "day"
+        }
+        
+        streetview_result = analyze_streetview_safety(
+            None,  # No image data needed
+            streetview_location_info
+        )
+        
+        streetview_score = None
+        if streetview_result["success"]:
+            streetview_score = streetview_result['safety_score']
+            logger.info(f"  Street view safety score: {streetview_result['safety_score']}%")
+        else:
+            logger.error(f"  Street view analysis failed: {streetview_result.get('error', 'Unknown error')}")
+        
+        # Step 4: Create enhanced analysis with validation results
         logger.info("Creating enhanced analysis with validation results...")
         
         # Get validation data
@@ -139,10 +161,12 @@ def analyze_route():
                 "reasoning": validation_data.get("reasoning", "")
             },
             "streetview_analysis": {
-                "available": False,
-                "safety_score": "N/A",
-                "status": "Street view images not available for automatic analysis",
-                "note": "To enable street view analysis, provide street view images via the /analyze-streetview endpoint"
+                "available": streetview_result.get("success", False),
+                "safety_score": streetview_score if streetview_score else "N/A",
+                "images_analyzed": 1 if streetview_result.get("success", False) else 0,
+                "total_images": 1,
+                "status": f"Text-based analysis completed" if streetview_result.get("success", False) else "Text-based analysis failed",
+                "detailed_results": [streetview_result] if streetview_result.get("success", False) else []
             }
         }
         
@@ -370,12 +394,34 @@ def analyze_route_with_streetview():
                 }
             })
         
-        # Step 3: Analyze street view images if provided
+        # Step 3: Analyze street view safety (text-based analysis)
         streetview_results = []
         streetview_scores = []
         
+        logger.info("Starting street view analysis (text-based)...")
+        
+        # Create location info for streetview analysis
+        streetview_location_info = {
+            "address": f"{origin} to {destination}",
+            "coordinates": "route_coordinates",
+            "time_context": "day"
+        }
+        
+        streetview_result = analyze_streetview_safety(
+            None,  # No image data needed
+            streetview_location_info
+        )
+        
+        if streetview_result["success"]:
+            streetview_results.append(streetview_result)
+            streetview_scores.append(streetview_result['safety_score'])
+            logger.info(f"  Street view safety score: {streetview_result['safety_score']}%")
+        else:
+            logger.error(f"  Street view analysis failed: {streetview_result.get('error', 'Unknown error')}")
+        
+        # Also analyze individual street view images if provided
         if streetview_images:
-            logger.info("Starting street view analysis...")
+            logger.info(f"Analyzing {len(streetview_images)} additional street view images...")
             for i, streetview_data in enumerate(streetview_images):
                 logger.info(f"Analyzing street view image {i+1}/{len(streetview_images)}")
                 

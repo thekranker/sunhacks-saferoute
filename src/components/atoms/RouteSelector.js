@@ -153,7 +153,7 @@ class RouteSelector {
             
             // Check for streetview analysis
             const streetviewAnalysis = analysis.streetview_analysis;
-            const hasStreetview = streetviewAnalysis && streetviewAnalysis.available && streetviewAnalysis.safety_score !== "N/A";
+            const hasStreetview = streetviewAnalysis && streetviewAnalysis.available && streetviewAnalysis.safety_score !== "N/A" && streetviewAnalysis.safety_score !== null;
             
             let streetviewSection = '';
             if (hasStreetview) {
