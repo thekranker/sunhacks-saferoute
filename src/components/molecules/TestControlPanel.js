@@ -26,9 +26,13 @@ class TestControlPanel {
             streetview: new Map()    // Cache streetview analysis
         };
         
-        this.directionsButton = new ActionButton('directionsBtn', () => this.testDirections());
-        this.safestRouteButton = new ActionButton('safestRouteBtn', () => this.findSafestRoute());
-        this.clearButton = new ActionButton('clearBtn', () => this.clearMap());
+        // No buttons needed - just Enter key support
+        
+        // Add Enter key support for the destination input
+        this.setupEnterKeySupport();
+        
+        // Add autocomplete functionality
+        this.setupAutocomplete();
         
         // Automatically get user location on initialization
         this.autoDetectLocation();
@@ -907,6 +911,107 @@ class TestControlPanel {
             navigator.geolocation.clearWatch(this.locationWatchId);
             this.locationWatchId = null;
         }
+    }
+
+    setupEnterKeySupport() {
+        const destinationInput = document.getElementById('endLocation');
+        if (destinationInput) {
+            destinationInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    this.testDirections();
+                }
+            });
+        }
+    }
+
+    setupAutocomplete() {
+        const destinationInput = document.getElementById('endLocation');
+        const suggestionsList = document.getElementById('locationSuggestions');
+        
+        if (destinationInput && suggestionsList) {
+            let autocompleteService = null;
+            let placesService = null;
+            
+            // Initialize Google Places services when available
+            const initializePlacesServices = () => {
+                if (window.google && window.google.maps && window.google.maps.places) {
+                    try {
+                        autocompleteService = new google.maps.places.AutocompleteService();
+                        placesService = new google.maps.places.PlacesService(document.createElement('div'));
+                        console.log('Google Places services initialized successfully');
+                    } catch (error) {
+                        console.warn('Failed to initialize Google Places services:', error);
+                    }
+                }
+            };
+            
+            // Try to initialize immediately
+            initializePlacesServices();
+            
+            // Also try after a delay in case Google Maps is still loading
+            setTimeout(initializePlacesServices, 1000);
+            
+            destinationInput.addEventListener('input', (event) => {
+                const query = event.target.value.trim();
+                
+                if (query.length < 2) {
+                    suggestionsList.innerHTML = '';
+                    return;
+                }
+                
+                // Try to initialize services if not already done
+                if (!autocompleteService) {
+                    initializePlacesServices();
+                }
+                
+                if (autocompleteService) {
+                    autocompleteService.getPlacePredictions({
+                        input: query,
+                        types: ['geocode', 'establishment']
+                    }, (predictions, status) => {
+                        if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+                            suggestionsList.innerHTML = '';
+                            predictions.slice(0, 5).forEach(prediction => {
+                                const option = document.createElement('option');
+                                option.value = prediction.description;
+                                option.setAttribute('data-place-id', prediction.place_id);
+                                suggestionsList.appendChild(option);
+                            });
+                        }
+                    });
+                } else {
+                    // Fallback: show basic suggestions if Places API not available
+                    this.showBasicSuggestions(query, suggestionsList);
+                }
+            });
+            
+            // Handle selection from autocomplete
+            destinationInput.addEventListener('change', (event) => {
+                const selectedValue = event.target.value;
+                if (selectedValue) {
+                    this.outputDisplay.updateOutput(`📍 Selected: ${selectedValue}`);
+                }
+            });
+        }
+    }
+    
+    showBasicSuggestions(query, suggestionsList) {
+        // Basic fallback suggestions when Places API is not available
+        const basicSuggestions = [
+            `${query}, New York, NY`,
+            `${query}, Los Angeles, CA`,
+            `${query}, Chicago, IL`,
+            `${query}, Houston, TX`,
+            `${query}, Phoenix, AZ`
+        ];
+        
+        suggestionsList.innerHTML = '';
+        basicSuggestions.forEach(suggestion => {
+            const option = document.createElement('option');
+            option.value = suggestion;
+            suggestionsList.appendChild(option);
+        });
     }
 
     dispatchEvent(eventName, data = {}) {

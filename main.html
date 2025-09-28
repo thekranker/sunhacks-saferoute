@@ -23,22 +23,12 @@
         </header>
         
         <div class="map-container">
-            <!-- Floating destination input overlay -->
-            <div class="map-overlay">
-                <div class="destination-input-container">
-                    <div class="destination-input">
-                        <span class="input-icon">📍</span>
-                        <input type="text" id="endLocation" placeholder="Where to? Enter destination address">
-                        <button id="directionsBtn" class="overlay-btn primary-btn" title="Find Safe Routes">
-                            <span>🛡️</span>
-                        </button>
-                        <button id="safestRouteBtn" class="overlay-btn safety-btn" title="Ultra Safe Route">
-                            <span>🛡️</span>
-                        </button>
-                        <button id="clearBtn" class="overlay-btn secondary-btn" title="Clear Map">
-                            <span>🗑️</span>
-                        </button>
-                    </div>
+            <!-- Simple Google Maps-style search -->
+            <div class="search-overlay">
+                <div class="search-input">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="endLocation" placeholder="Where to?" autocomplete="off" list="locationSuggestions">
+                    <datalist id="locationSuggestions"></datalist>
                 </div>
             </div>
             <div id="map"></div>
@@ -64,9 +54,9 @@
     <!-- Initialize Google Maps callback first -->
     <script src="src/init.js"></script>
     
-    <!-- Google Maps API -->
+    <!-- Google Maps API with Places library -->
     <script async defer 
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX1Ytmu1hSFVwBT7jPjH470VP2w0G-7VA&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX1Ytmu1hSFVwBT7jPjH470VP2w0G-7VA&libraries=places&callback=initMap">
     </script>
 </body>
 </html>
