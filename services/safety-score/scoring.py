@@ -72,33 +72,14 @@ def score_route(points, buffer_m=50):
     points: list of dicts [{"lat":.., "lon":..}, ...]
     buffer_m: radius (in meters) around the route to consider
     """
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b2f92c2 (Working Safety Score)
-=======
->>>>>>> karan-dev
     if len(points) < 2:
         point = Point(points[0]["lon"], points[0]["lat"])
-        deg_buffer = buffer_m / 111_000
+        deg_buffer = buffer_m / 111_000  # rough deg-to-m conversion
         route_buffer = point.buffer(deg_buffer)
     else:
         line = LineString([(p["lon"], p["lat"]) for p in points])
         deg_buffer = buffer_m / 111_000
         route_buffer = line.buffer(deg_buffer)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    line = LineString([(p["lon"], p["lat"]) for p in points])
-    # Approximate buffer in degrees (good enough for demo)
-    deg_buffer = buffer_m / 111_000  # ~111km per degree
-    route_buffer = line.buffer(deg_buffer)
->>>>>>> 166347e (feat(safety-score): add Chicago crime data ingest + safety scoring API)
-=======
->>>>>>> b2f92c2 (Working Safety Score)
-=======
->>>>>>> karan-dev
 
     con = sqlite3.connect(DB_PATH)
     cur = con.cursor()
@@ -114,8 +95,8 @@ def score_route(points, buffer_m=50):
         pt = Point(lon, lat)
         if not route_buffer.contains(pt):
             continue
-        sev = SEVERITY_WEIGHT.get(itype.strip(), 0.2)  # default low severity
-        rec = max(0.1, 1 / (1 + days_since(dt)))      # decay older crimes
+        sev = SEVERITY_WEIGHT.get(itype.strip(), 0.2)  # default to low severity
+        rec = max(0.1, 1 / (1 + days_since(dt)))       # decay older crimes
         risk = sev * rec
         total_risk += risk
         breakdown[itype.strip()] = breakdown.get(itype.strip(), 0) + 1
