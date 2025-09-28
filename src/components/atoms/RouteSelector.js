@@ -5,6 +5,7 @@ class RouteSelector {
         this.routes = [];
         this.selectedRouteIndex = 0;
         this.onRouteSelect = null;
+        this.sidebarContentElement = document.getElementById('saferouteRoutesContent');
     }
 
     setRoutes(routes) {
@@ -18,23 +19,23 @@ class RouteSelector {
     }
 
     render() {
-        if (!this.element || this.routes.length === 0) {
+        if (!this.sidebarContentElement || this.routes.length === 0) {
             return;
         }
 
         // Clear existing content
-        this.element.innerHTML = '';
+        this.sidebarContentElement.innerHTML = '';
 
         // Create header
         const header = document.createElement('h3');
         header.textContent = `Available Routes (${this.routes.length})`;
         header.className = 'route-selector-header';
-        this.element.appendChild(header);
+        this.sidebarContentElement.appendChild(header);
 
         // Create route options
         this.routes.forEach((routeData, index) => {
             const routeOption = this.createRouteOption(routeData, index);
-            this.element.appendChild(routeOption);
+            this.sidebarContentElement.appendChild(routeOption);
         });
     }
 
@@ -113,7 +114,7 @@ class RouteSelector {
         }
 
         // Update visual selection
-        const options = this.element.querySelectorAll('.route-option');
+        const options = this.sidebarContentElement.querySelectorAll('.route-option');
         options.forEach((option, i) => {
             option.classList.toggle('selected', i === index);
             const indicator = option.querySelector('.selection-indicator');
@@ -244,14 +245,14 @@ class RouteSelector {
     }
 
     show() {
-        if (this.element) {
-            this.element.style.display = 'block';
+        if (this.sidebarContentElement) {
+            this.sidebarContentElement.classList.add('show');
         }
     }
 
     hide() {
-        if (this.element) {
-            this.element.style.display = 'none';
+        if (this.sidebarContentElement) {
+            this.sidebarContentElement.classList.remove('show');
         }
     }
 }

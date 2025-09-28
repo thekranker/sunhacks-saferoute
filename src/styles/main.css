@@ -499,6 +499,16 @@ button span {
   margin-bottom: var(--spacing-2xl);
   min-height: 90vh;
   position: relative;
+  transition: all var(--transition-normal);
+}
+
+/* Panel expansion states */
+.main-content.panel-expanded {
+  gap: var(--spacing-xl);
+}
+
+.main-content.panel-collapsed {
+  gap: var(--spacing-2xl);
 }
 
 /* Map Container - Glassmorphism Design */
@@ -517,6 +527,15 @@ button span {
   flex: 3;
   min-height: 90vh;
   position: relative;
+}
+
+/* Map container expansion states */
+.map-container.panel-expanded {
+  flex: 2;
+}
+
+.map-container.panel-collapsed {
+  flex: 3;
 }
 
 .map-container::before {
@@ -548,6 +567,17 @@ button span {
   display: flex;
   flex-direction: column;
   min-height: 90vh;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+/* Sidebar expansion states */
+.saferoute-sidebar.panel-expanded {
+  flex: 2;
+}
+
+.saferoute-sidebar.panel-collapsed {
+  flex: 1;
 }
 
 .saferoute-header {
@@ -627,6 +657,67 @@ button span {
   position: relative;
   z-index: 2;
   max-width: 300px;
+}
+
+/* Route content inside sidebar - replaces entire panel */
+.saferoute-routes-content {
+  display: none;
+  flex-direction: column;
+  padding: var(--spacing-2xl);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-2xl);
+  box-shadow: 
+    var(--shadow-2xl),
+    inset 0 1px 0 var(--glass-border);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-normal);
+  overflow-y: auto;
+  flex: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.saferoute-routes-content.show {
+  display: flex;
+}
+
+.saferoute-routes-content .route-selector-header {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.saferoute-routes-content .route-option {
+  margin-bottom: var(--spacing-md);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Ensure routes content maintains same visual style as original panel */
+.saferoute-routes-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--accent-gradient);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: var(--radius-2xl);
 }
 
 /* Hide Google Maps native controls */
@@ -1014,15 +1105,29 @@ button span {
     min-height: auto;
   }
   
+  .main-content.panel-expanded {
+    gap: var(--spacing-lg);
+  }
+  
   .map-container {
     flex: none;
     min-height: 60vh;
     border-radius: var(--radius-xl);
   }
   
+  .map-container.panel-expanded {
+    flex: none;
+    min-height: 50vh;
+  }
+  
   .saferoute-sidebar {
     flex: none;
     min-height: auto;
+  }
+  
+  .saferoute-sidebar.panel-expanded {
+    flex: none;
+    min-height: 40vh;
   }
   
   .saferoute-header {
@@ -1075,6 +1180,19 @@ button span {
     gap: var(--spacing-sm);
   }
   
+  .saferoute-routes-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: none;
+  }
+  
+  .saferoute-routes-content.show {
+    max-height: none;
+  }
+  
   .ai-analysis-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1119,6 +1237,19 @@ button span {
   
   .saferoute-header p {
     font-size: 1rem;
+  }
+  
+  .saferoute-routes-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: none;
+  }
+  
+  .saferoute-routes-content.show {
+    max-height: none;
   }
   
   .search-overlay {

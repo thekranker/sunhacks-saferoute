@@ -16,6 +16,13 @@ class TestControlPanel {
         this.userLocationAddress = '';
         this.locationWatchId = null;
         
+        // Panel expansion state
+        this.isPanelExpanded = false;
+        this.mainContentElement = document.querySelector('.main-content');
+        this.mapContainerElement = document.querySelector('.map-container');
+        this.sidebarElement = document.querySelector('.saferoute-sidebar');
+        this.saferouteHeaderElement = document.querySelector('.saferoute-header');
+        
         // Smart caching system for performance optimization
         this.cache = {
             safetyScores: new Map(), // Cache safety scores by route fingerprint
@@ -103,6 +110,7 @@ class TestControlPanel {
             const routes = await this.getAlternativeRoutes(start, end);
             
             if (routes.length === 0) {
+                this.collapsePanel();
                 return;
             }
             
@@ -110,6 +118,7 @@ class TestControlPanel {
             const preFilteredRoutes = this.preFilterUnsafeRoutes(routes);
             
             if (preFilteredRoutes.length === 0) {
+                this.collapsePanel();
                 return;
             }
             
@@ -128,6 +137,9 @@ class TestControlPanel {
                 aiAnalysis: { loading: true }
             })));
             this.routeSelector.show();
+            
+            // Expand the panel to show routes
+            this.expandPanel();
             
             // Display routes on map immediately
             this.displayAllRoutes(filteredRoutes);
@@ -517,6 +529,7 @@ class TestControlPanel {
             const routes = await this.getSafestRouteAlternatives(start, end);
             
             if (routes.length === 0) {
+                this.collapsePanel();
                 return;
             }
             
@@ -538,6 +551,9 @@ class TestControlPanel {
             // Show route selector with filtered routes
             this.routeSelector.setRoutes(filteredRoutes);
             this.routeSelector.show();
+            
+            // Expand the panel to show routes
+            this.expandPanel();
             
             // Display all filtered routes on map with the safest one selected
             this.displayAllRoutes(filteredRoutes);
@@ -774,6 +790,7 @@ class TestControlPanel {
 
     clearMap() {
         this.routeSelector.hide();
+        this.collapsePanel();
         this.dispatchEvent('clearMap');
     }
 
@@ -1144,6 +1161,61 @@ class TestControlPanel {
         });
         
         searchSuggestions.style.display = 'block';
+    }
+
+    // Panel expansion/collapse methods
+    expandPanel() {
+        if (this.isPanelExpanded) return;
+        
+        this.isPanelExpanded = true;
+        
+        // Add expansion classes
+        if (this.mainContentElement) {
+            this.mainContentElement.classList.add('panel-expanded');
+            this.mainContentElement.classList.remove('panel-collapsed');
+        }
+        
+        if (this.mapContainerElement) {
+            this.mapContainerElement.classList.add('panel-expanded');
+            this.mapContainerElement.classList.remove('panel-collapsed');
+        }
+        
+        if (this.sidebarElement) {
+            this.sidebarElement.classList.add('panel-expanded');
+            this.sidebarElement.classList.remove('panel-collapsed');
+        }
+        
+        // Hide the SafeRoute header when showing routes
+        if (this.saferouteHeaderElement) {
+            this.saferouteHeaderElement.style.display = 'none';
+        }
+    }
+    
+    collapsePanel() {
+        if (!this.isPanelExpanded) return;
+        
+        this.isPanelExpanded = false;
+        
+        // Add collapse classes
+        if (this.mainContentElement) {
+            this.mainContentElement.classList.add('panel-collapsed');
+            this.mainContentElement.classList.remove('panel-expanded');
+        }
+        
+        if (this.mapContainerElement) {
+            this.mapContainerElement.classList.add('panel-collapsed');
+            this.mapContainerElement.classList.remove('panel-expanded');
+        }
+        
+        if (this.sidebarElement) {
+            this.sidebarElement.classList.add('panel-collapsed');
+            this.sidebarElement.classList.remove('panel-expanded');
+        }
+        
+        // Show the SafeRoute header when collapsing
+        if (this.saferouteHeaderElement) {
+            this.saferouteHeaderElement.style.display = 'flex';
+        }
     }
 
     dispatchEvent(eventName, data = {}) {
