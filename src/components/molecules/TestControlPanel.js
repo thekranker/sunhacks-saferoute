@@ -131,15 +131,18 @@ class TestControlPanel {
             // Filter routes by length - remove routes more than 2.5x longer than shortest
             const filteredRoutes = this.filterRoutesByLength(routesWithSafety);
             
+            // Show loading state first
+            this.showRoutesLoading();
+            
+            // Expand the panel to show loading
+            this.expandPanel();
+            
             // Show routes immediately with basic safety scores (progressive loading)
             this.routeSelector.setRoutes(filteredRoutes.map(route => ({
                 ...route,
                 aiAnalysis: { loading: true }
             })));
             this.routeSelector.show();
-            
-            // Expand the panel to show routes
-            this.expandPanel();
             
             // Display routes on map immediately
             this.displayAllRoutes(filteredRoutes);
@@ -1185,9 +1188,12 @@ class TestControlPanel {
             this.sidebarElement.classList.remove('panel-collapsed');
         }
         
-        // Hide the SafeRoute header when showing routes
+        // Smooth fade out of SafeRoute header
         if (this.saferouteHeaderElement) {
-            this.saferouteHeaderElement.style.display = 'none';
+            this.saferouteHeaderElement.classList.add('fade-out');
+            setTimeout(() => {
+                this.saferouteHeaderElement.style.display = 'none';
+            }, 400); // Match the fade-out transition duration
         }
     }
     
@@ -1212,9 +1218,19 @@ class TestControlPanel {
             this.sidebarElement.classList.remove('panel-expanded');
         }
         
-        // Show the SafeRoute header when collapsing
+        // Smooth fade in of SafeRoute header
         if (this.saferouteHeaderElement) {
             this.saferouteHeaderElement.style.display = 'flex';
+            this.saferouteHeaderElement.classList.remove('fade-out');
+        }
+    }
+
+    showRoutesLoading() {
+        const routesContent = document.getElementById('saferouteRoutesContent');
+        if (routesContent) {
+            routesContent.innerHTML = '';
+            routesContent.classList.add('loading');
+            routesContent.classList.add('show');
         }
     }
 

@@ -246,12 +246,31 @@ class RouteSelector {
 
     show() {
         if (this.sidebarContentElement) {
+            // Remove loading state
+            this.sidebarContentElement.classList.remove('loading');
             this.sidebarContentElement.classList.add('show');
+            
+            // Add staggered animation to route options
+            setTimeout(() => {
+                const routeOptions = this.sidebarContentElement.querySelectorAll('.route-option');
+                routeOptions.forEach((option, index) => {
+                    setTimeout(() => {
+                        option.classList.add('animate-in');
+                    }, index * 100); // Stagger each option by 100ms
+                });
+            }, 200); // Wait for the main content to appear first
         }
     }
 
     hide() {
         if (this.sidebarContentElement) {
+            // Remove animation classes first
+            const routeOptions = this.sidebarContentElement.querySelectorAll('.route-option');
+            routeOptions.forEach(option => {
+                option.classList.remove('animate-in');
+            });
+            
+            // Then hide the content
             this.sidebarContentElement.classList.remove('show');
         }
     }
