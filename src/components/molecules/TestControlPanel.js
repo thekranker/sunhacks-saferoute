@@ -14,6 +14,7 @@ class TestControlPanel {
         
         this.geocodeButton = new ActionButton('geocodeBtn', () => this.testGeocoding());
         this.directionsButton = new ActionButton('directionsBtn', () => this.testDirections());
+        this.safestRouteButton = new ActionButton('safestRouteBtn', () => this.findSafestRoute());
         this.clearButton = new ActionButton('clearBtn', () => this.clearMap());
         
         // Set up route selection callback
@@ -193,6 +194,165 @@ class TestControlPanel {
         }
         
         return routesWithSafety;
+    }
+
+    async findSafestRoute() {
+        const start = this.startLocationInput.getValue();
+        const end = this.endLocationInput.getValue();
+        
+        this.outputDisplay.updateOutput("Finding the safest possible route (may be longer)...");
+        this.routeSelector.hide();
+        
+        try {
+            // Get extensive route alternatives with wider search parameters
+            const routes = await this.getSafestRouteAlternatives(start, end);
+            
+            if (routes.length === 0) {
+                this.outputDisplay.updateOutput("No safe routes found!");
+                return;
+            }
+            
+            this.outputDisplay.updateOutput(`Found ${routes.length} extended route(s). Calculating safety scores...`);
+            
+            // Calculate safety scores for all routes
+            const routesWithSafety = await this.calculateSafetyScores(routes);
+            
+            // Sort routes by safety score (highest first)
+            routesWithSafety.sort((a, b) => b.safetyScore - a.safetyScore);
+            
+            // Mark the safest route as "Ultra Safe"
+            if (routesWithSafety.length > 0) {
+                routesWithSafety[0].summary = `🛡️ Ultra Safe Route (${routesWithSafety[0].summary})`;
+                routesWithSafety[0].isSafestRoute = true;
+            }
+            
+            // Show route selector with all routes
+            this.routeSelector.setRoutes(routesWithSafety);
+            this.routeSelector.show();
+            
+            // Display all routes on map with the safest one selected
+            this.displayAllRoutes(routesWithSafety);
+            
+            this.outputDisplay.updateOutput(`Ultra-safe routes displayed. Safest route auto-selected with ${(routesWithSafety[0].safetyScore * 100).toFixed(1)}% safety score.`);
+            
+        } catch (error) {
+            this.outputDisplay.updateOutput(`Safest route calculation failed: ${error.message}`);
+        }
+    }
+
+    async getSafestRouteAlternatives(start, end) {
+        const directionsService = new google.maps.DirectionsService();
+        const routes = [];
+        
+        // Get intermediate waypoints to create safer, longer routes
+        const waypoints = await this.generateSafeWaypoints(start, end);
+        
+        // Request configurations for maximum safety (longer routes)
+        const requestConfigs = [
+            // Standard alternatives first
+            {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.WALKING,
+                provideRouteAlternatives: true
+            },
+            // Avoid highways and tolls for safer pedestrian routes
+            {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.WALKING,
+                avoidHighways: true,
+                avoidTolls: true
+            },
+            // Routes with safe waypoints (longer but potentially much safer)
+            ...waypoints.map(waypoint => ({
+                origin: start,
+                destination: end,
+                waypoints: [{ location: waypoint, stopover: false }],
+                travelMode: google.maps.TravelMode.WALKING,
+                avoidHighways: true
+            }))
+        ];
+        
+        // Get routes from each configuration
+        for (const request of requestConfigs) {
+            try {
+                const result = await new Promise((resolve, reject) => {
+                    directionsService.route(request, (result, status) => {
+                        if (status === "OK") {
+                            resolve(result);
+                        } else {
+                            reject(new Error(`Directions failed: ${status}`));
+                        }
+                    });
+                });
+                
+                // Add all routes from this result
+                if (result.routes && result.routes.length > 0) {
+                    routes.push(...result.routes);
+                }
+            } catch (error) {
+                console.warn(`Failed to get safe route with config:`, request, error);
+            }
+        }
+        
+        // Remove duplicate routes
+        const uniqueRoutes = this.removeDuplicateRoutes(routes);
+        
+        return uniqueRoutes;
+    }
+
+    async generateSafeWaypoints(start, end) {
+        // Generate waypoints that route through potentially safer areas
+        // This creates longer routes that avoid high-crime areas
+        const waypoints = [];
+        
+        try {
+            const geocoder = new google.maps.Geocoder();
+            
+            // Get coordinates for start and end
+            const startResult = await new Promise((resolve, reject) => {
+                geocoder.geocode({ address: start }, (results, status) => {
+                    if (status === "OK") resolve(results[0]);
+                    else reject(new Error(`Geocoding failed for start: ${status}`));
+                });
+            });
+            
+            const endResult = await new Promise((resolve, reject) => {
+                geocoder.geocode({ address: end }, (results, status) => {
+                    if (status === "OK") resolve(results[0]);
+                    else reject(new Error(`Geocoding failed for end: ${status}`));
+                });
+            });
+            
+            const startLat = startResult.geometry.location.lat();
+            const startLng = startResult.geometry.location.lng();
+            const endLat = endResult.geometry.location.lat();
+            const endLng = endResult.geometry.location.lng();
+            
+            // Generate waypoints that create detours through potentially safer areas
+            // These create longer routes that might avoid high-crime corridors
+            
+            // Waypoint 1: Route through commercial/business areas (usually safer)
+            const midLat = (startLat + endLat) / 2;
+            const midLng = (startLng + endLng) / 2;
+            
+            // Create waypoints that deviate from direct path
+            const deviations = [
+                { lat: midLat + 0.01, lng: midLng + 0.01 }, // Northeast deviation
+                { lat: midLat - 0.01, lng: midLng - 0.01 }, // Southwest deviation
+                { lat: midLat + 0.01, lng: midLng - 0.01 }, // Northwest deviation
+                { lat: midLat - 0.01, lng: midLng + 0.01 }  // Southeast deviation
+            ];
+            
+            // Add these as potential waypoints
+            waypoints.push(...deviations.map(point => `${point.lat},${point.lng}`));
+            
+        } catch (error) {
+            console.warn("Failed to generate safe waypoints:", error);
+        }
+        
+        return waypoints;
     }
 
     displayAllRoutes(routesWithSafety) {

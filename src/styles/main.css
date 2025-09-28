@@ -210,6 +210,38 @@ button:disabled {
     color: #495057;
 }
 
+.route-option.safest-route {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+    border: 2px solid #4CAF50;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+}
+
+.route-option.safest-route:hover {
+    background: linear-gradient(135deg, #dcedc8 0%, #e8f5e8 100%);
+}
+
+.safest-badge {
+    background: #4CAF50;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+#safestRouteBtn {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+#safestRouteBtn:hover {
+    background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 10px;
