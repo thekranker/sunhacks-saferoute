@@ -1,6 +1,5 @@
 import ActionButton from '../atoms/ActionButton.js';
 import LocationInput from '../atoms/LocationInput.js';
-import OutputDisplay from '../atoms/OutputDisplay.js';
 import RouteSelector from '../atoms/RouteSelector.js';
 import SafetyScoreService from '../../services/SafetyScoreService.js';
 import AIAnalysisService from '../../services/AIAnalysisService.js';
@@ -8,7 +7,6 @@ import AIAnalysisService from '../../services/AIAnalysisService.js';
 class TestControlPanel {
     constructor() {
         this.endLocationInput = new LocationInput('endLocation');
-        this.outputDisplay = new OutputDisplay('output');
         this.routeSelector = new RouteSelector('routeSelector');
         this.safetyScoreService = new SafetyScoreService();
         this.aiAnalysisService = new AIAnalysisService();
@@ -45,11 +43,8 @@ class TestControlPanel {
 
     autoDetectLocation() {
         if (!navigator.geolocation) {
-            this.outputDisplay.updateOutput("📍 Geolocation not supported. Please enter your location manually.");
             return;
         }
-
-        this.outputDisplay.updateOutput("📍 Automatically detecting your location...");
         
         navigator.geolocation.getCurrentPosition(
             (position) => {
@@ -72,34 +67,17 @@ class TestControlPanel {
                             formattedAddress: this.userLocationAddress
                         });
                         
-                        this.outputDisplay.updateOutput(`✅ Location detected: ${this.userLocationAddress}`);
                         
                         // Start continuous location tracking
                         this.startLocationTracking();
                     } else {
-                        this.outputDisplay.updateOutput(`📍 Location detected but couldn't get address: ${status}`);
                         // Start tracking even without address
                         this.startLocationTracking();
                     }
                 });
             },
             (error) => {
-                let errorMessage = "📍 Could not detect location automatically. ";
-                switch(error.code) {
-                    case error.PERMISSION_DENIED:
-                        errorMessage += "Please allow location access or enter your destination to get started.";
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        errorMessage += "Location unavailable. Please enter your destination to get started.";
-                        break;
-                    case error.TIMEOUT:
-                        errorMessage += "Location detection timed out. Please enter your destination to get started.";
-                        break;
-                    default:
-                        errorMessage += "Please enter your destination to get started.";
-                        break;
-                }
-                this.outputDisplay.updateOutput(errorMessage);
+                // Location detection failed - user can still enter destination manually
             },
             {
                 enableHighAccuracy: true,
@@ -111,7 +89,6 @@ class TestControlPanel {
 
     async testDirections() {
         if (!this.userLocation) {
-            this.outputDisplay.updateOutput("📍 Location not detected. Please allow location access or try refreshing the page.");
             return;
         }
         
@@ -119,7 +96,6 @@ class TestControlPanel {
         const end = this.endLocationInput.getValue();
         
         this.showLoadingIndicator();
-        this.outputDisplay.updateOutput("🔍 Finding routes with safety options...");
         this.routeSelector.hide(); // Hide route selector initially
         
         try {
@@ -127,21 +103,15 @@ class TestControlPanel {
             const routes = await this.getAlternativeRoutes(start, end);
             
             if (routes.length === 0) {
-                this.outputDisplay.updateOutput("No routes found!");
                 return;
             }
-            
-            this.outputDisplay.updateOutput(`Found ${routes.length} route(s). Pre-filtering unsafe routes...`);
             
             // Pre-filter obviously unsafe routes before expensive analysis
             const preFilteredRoutes = this.preFilterUnsafeRoutes(routes);
             
             if (preFilteredRoutes.length === 0) {
-                this.outputDisplay.updateOutput("No safe routes found after filtering!");
                 return;
             }
-            
-            this.outputDisplay.updateOutput(`Processing ${preFilteredRoutes.length} route(s). Calculating safety scores...`);
             
             // Calculate safety scores for filtered routes
             const routesWithSafety = await this.calculateSafetyScores(preFilteredRoutes);
@@ -153,7 +123,6 @@ class TestControlPanel {
             const filteredRoutes = this.filterRoutesByLength(routesWithSafety);
             
             // Show routes immediately with basic safety scores (progressive loading)
-            this.outputDisplay.updateOutput("🚀 Displaying routes with initial safety scores...");
             this.routeSelector.setRoutes(filteredRoutes.map(route => ({
                 ...route,
                 aiAnalysis: { loading: true }
@@ -164,7 +133,6 @@ class TestControlPanel {
             this.displayAllRoutes(filteredRoutes);
             
             // Get AI analysis in background and update progressively
-            this.outputDisplay.updateOutput("🤖 Getting AI analysis for all routes...");
             const routesWithAI = await this.getAIAnalysisForAllRoutes(filteredRoutes);
             
             // Mark the safest route as "Ultra Safe" if it's significantly safer
@@ -185,11 +153,9 @@ class TestControlPanel {
             // Re-display routes with final scores
             this.displayAllRoutes(routesWithAI);
             
-            this.outputDisplay.updateOutput(`✅ All routes complete with AI analysis. Safest route (${routesWithAI[0].summary}) auto-selected.`);
             this.hideLoadingIndicator();
             
         } catch (error) {
-            this.outputDisplay.updateOutput(`Route calculation failed: ${error.message}`);
             this.hideLoadingIndicator();
         }
     }
@@ -293,7 +259,6 @@ class TestControlPanel {
                 // Calculate weighted safety score with loading states
                 const weightedScore = await this.calculateWeightedSafetyScore(routePoints, index + 1, origin, destination);
                 
-                this.outputDisplay.updateOutput(`Route ${index + 1}: Overall Safety Score ${(weightedScore.overallScore * 100).toFixed(1)}%`);
                 
                 return {
                     route: route,
@@ -347,7 +312,6 @@ class TestControlPanel {
     async getCachedSafetyScore(routePoints, routeNumber) {
         const cacheKey = this.generateRouteCacheKey(routePoints);
         if (cacheKey && this.cache.safetyScores.has(cacheKey)) {
-            this.outputDisplay.updateOutput(`Route ${routeNumber}: Using cached safety score`);
             return this.cache.safetyScores.get(cacheKey);
         }
 
@@ -364,7 +328,6 @@ class TestControlPanel {
     async getCachedStreetviewScore(routePoints, routeNumber) {
         const cacheKey = this.generateRouteCacheKey(routePoints);
         if (cacheKey && this.cache.streetview.has(cacheKey)) {
-            this.outputDisplay.updateOutput(`Route ${routeNumber}: Using cached streetview score`);
             return this.cache.streetview.get(cacheKey);
         }
 
@@ -387,26 +350,17 @@ class TestControlPanel {
         
         let messageIndex = 0;
         const loadingInterval = setInterval(() => {
-            this.outputDisplay.updateOutput(`Route ${routeNumber}: ${loadingMessages[messageIndex]}...`);
             messageIndex = (messageIndex + 1) % loadingMessages.length;
         }, 1500);
 
         try {
             // Run crime and streetview analysis in parallel with caching
-            this.outputDisplay.updateOutput(`Route ${routeNumber}: Running safety analysis in parallel...`);
-            
             const [crimeData, streetviewScore] = await Promise.all([
                 // Step 1: Get crime data (65% weight) with caching
-                this.getCachedSafetyScore(routePoints, routeNumber).then(data => {
-                    this.outputDisplay.updateOutput(`Route ${routeNumber}: Crime analysis complete`);
-                    return data;
-                }),
+                this.getCachedSafetyScore(routePoints, routeNumber),
                 
                 // Step 2: Get streetview analysis (25% weight) with caching
-                this.getCachedStreetviewScore(routePoints, routeNumber).then(score => {
-                    this.outputDisplay.updateOutput(`Route ${routeNumber}: Streetview analysis complete`);
-                    return score;
-                })
+                this.getCachedStreetviewScore(routePoints, routeNumber)
             ]);
 
             const crimeScore = crimeData.safety_score;
@@ -501,19 +455,16 @@ class TestControlPanel {
             
             // Skip routes that are extremely long (more than 5km for walking)
             if (distance > 5000) {
-                this.outputDisplay.updateOutput(`Skipping route: Too long (${(distance/1000).toFixed(1)}km)`);
                 return false;
             }
             
             // Skip routes that take more than 1 hour to walk
             if (duration > 3600) {
-                this.outputDisplay.updateOutput(`Skipping route: Too long duration (${Math.round(duration/60)}min)`);
                 return false;
             }
             
             // Skip routes with suspicious patterns (very short segments might indicate issues)
             if (route.overview_path && route.overview_path.length < 3) {
-                this.outputDisplay.updateOutput(`Skipping route: Insufficient path data`);
                 return false;
             }
             
@@ -546,16 +497,12 @@ class TestControlPanel {
         // Log filtering results
         const originalCount = routesWithSafety.length;
         const filteredCount = filteredRoutes.length;
-        if (originalCount > filteredCount) {
-            this.outputDisplay.updateOutput(`Filtered out ${originalCount - filteredCount} route(s) that were more than 2.5x longer than the shortest route.`);
-        }
         
         return filteredRoutes;
     }
 
     async findSafestRoute() {
         if (!this.userLocation) {
-            this.outputDisplay.updateOutput("📍 Location not detected. Please allow location access or try refreshing the page.");
             return;
         }
         
@@ -563,7 +510,6 @@ class TestControlPanel {
         const end = this.endLocationInput.getValue();
         
         this.showLoadingIndicator();
-        this.outputDisplay.updateOutput("🛡️ Finding the safest possible route (may be longer)...");
         this.routeSelector.hide();
         
         try {
@@ -571,11 +517,8 @@ class TestControlPanel {
             const routes = await this.getSafestRouteAlternatives(start, end);
             
             if (routes.length === 0) {
-                this.outputDisplay.updateOutput("No safe routes found!");
                 return;
             }
-            
-            this.outputDisplay.updateOutput(`Found ${routes.length} extended route(s). Calculating safety scores...`);
             
             // Calculate safety scores for all routes
             const routesWithSafety = await this.calculateSafetyScores(routes);
@@ -599,11 +542,9 @@ class TestControlPanel {
             // Display all filtered routes on map with the safest one selected
             this.displayAllRoutes(filteredRoutes);
             
-            this.outputDisplay.updateOutput(`Ultra-safe routes displayed. Safest route auto-selected with ${(filteredRoutes[0].safetyScore * 100).toFixed(1)}% safety score.`);
             this.hideLoadingIndicator();
             
         } catch (error) {
-            this.outputDisplay.updateOutput(`Safest route calculation failed: ${error.message}`);
             this.hideLoadingIndicator();
         }
     }
@@ -734,19 +675,11 @@ class TestControlPanel {
     }
 
     async onRouteSelected(routeData, index) {
-        this.outputDisplay.updateOutput(`Selected route: ${routeData.summary} (Safety: ${(routeData.safetyScore * 100).toFixed(1)}%)`);
-        
         // Emit event for route selection change
         this.dispatchEvent('routeSelectionChanged', {
             routeData: routeData,
             selectedIndex: index
         });
-
-        // AI analysis is already loaded and displayed in the route selector
-        if (routeData.aiAnalysis && routeData.aiAnalysis.success) {
-            const analysis = routeData.aiAnalysis.analysis;
-            this.outputDisplay.updateOutput(`AI Analysis: ${analysis.safety_score}% safety score`);
-        }
     }
 
     // Batch API calls for similar routes to reduce overhead
@@ -803,7 +736,6 @@ class TestControlPanel {
             results.push(...batchResults);
             
             // Update UI progressively as each batch completes
-            this.outputDisplay.updateOutput(`✅ Batch ${batches.indexOf(batch) + 1}/${batches.length} AI analysis complete`);
         }
         
         return results;
@@ -813,14 +745,11 @@ class TestControlPanel {
         // Use batched processing for better API efficiency
         const routesWithAI = await this.batchAIAnalysis(routes);
         
-        this.outputDisplay.updateOutput(`✅ All AI analysis completed for ${routesWithAI.length} routes!`);
         return routesWithAI;
     }
 
     async getAIAnalysisForRoute(routeData) {
         try {
-            this.outputDisplay.updateOutput("🤖 Getting quick AI safety analysis...");
-            
             const origin = this.userLocationAddress;
             const destination = this.endLocationInput.getValue();
             
@@ -833,18 +762,12 @@ class TestControlPanel {
             const aiAnalysis = await this.aiAnalysisService.analyzeRouteSafety(origin, destination, routeDetails);
             
             if (aiAnalysis.success) {
-                this.outputDisplay.updateOutput("✅ AI analysis completed!");
                 const formattedAnalysis = this.aiAnalysisService.formatAnalysisForDisplay(aiAnalysis);
-                this.outputDisplay.displayAIAnalysis(formattedAnalysis);
             } else {
-                this.outputDisplay.updateOutput(`⚠️ AI analysis failed: ${aiAnalysis.error}`);
-                // Still show the formatted analysis even if it failed
                 const formattedAnalysis = this.aiAnalysisService.formatAnalysisForDisplay(aiAnalysis);
-                this.outputDisplay.displayAIAnalysis(formattedAnalysis);
             }
             
         } catch (error) {
-            this.outputDisplay.updateOutput(`❌ Error getting AI analysis: ${error.message}`);
             console.error('AI Analysis Error:', error);
         }
     }
@@ -852,7 +775,6 @@ class TestControlPanel {
     clearMap() {
         this.routeSelector.hide();
         this.dispatchEvent('clearMap');
-        this.outputDisplay.updateOutput("Map cleared!");
     }
 
     showLoadingIndicator() {
@@ -989,9 +911,6 @@ class TestControlPanel {
             // Handle selection from autocomplete
             destinationInput.addEventListener('change', (event) => {
                 const selectedValue = event.target.value;
-                if (selectedValue) {
-                    this.outputDisplay.updateOutput(`📍 Selected: ${selectedValue}`);
-                }
             });
         }
     }
