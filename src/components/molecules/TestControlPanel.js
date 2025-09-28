@@ -93,7 +93,7 @@ class TestControlPanel {
         }
         
         const start = this.userLocationAddress;
-        const end = this.endLocationInput.getValue();
+        const end = this.tempSelectedValue || this.endLocationInput.getValue();
         
         this.showLoadingIndicator();
         this.routeSelector.hide(); // Hide route selector initially
@@ -937,7 +937,8 @@ class TestControlPanel {
                     suggestion.appendChild(text);
                     
                     // Add click handler
-                    suggestion.addEventListener('click', () => {
+                    suggestion.addEventListener('click', (event) => {
+                        event.stopPropagation();
                         this.selectSuggestion(prediction);
                     });
                     
@@ -963,12 +964,23 @@ class TestControlPanel {
             
             // Select suggestion
             this.selectSuggestion = (prediction) => {
-                destinationInput.value = prediction.description;
+                const selectedValue = prediction.description;
+                destinationInput.value = selectedValue;
                 searchSuggestions.style.display = 'none';
                 updateClearButton();
                 
+                // Store the selected value temporarily for the search
+                this.tempSelectedValue = selectedValue;
+                
                 // Trigger search
                 this.testDirections();
+                
+                // Clear the input field after search is triggered
+                setTimeout(() => {
+                    destinationInput.value = '';
+                    updateClearButton();
+                    this.tempSelectedValue = null;
+                }, 100);
             };
             
             // Handle input with debouncing
@@ -1101,11 +1113,26 @@ class TestControlPanel {
             suggestionElement.appendChild(text);
             
             // Add click handler
-            suggestionElement.addEventListener('click', () => {
+            suggestionElement.addEventListener('click', (event) => {
+                event.stopPropagation();
                 const destinationInput = document.getElementById('endLocation');
                 destinationInput.value = suggestion;
                 searchSuggestions.style.display = 'none';
+                
+                // Store the selected value temporarily for the search
+                this.tempSelectedValue = suggestion;
+                
                 this.testDirections();
+                
+                // Clear the input field after search is triggered
+                setTimeout(() => {
+                    destinationInput.value = '';
+                    const clearButton = document.getElementById('clearButton');
+                    if (clearButton) {
+                        clearButton.style.display = 'none';
+                    }
+                    this.tempSelectedValue = null;
+                }, 100);
             });
             
             // Add hover effects

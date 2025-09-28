@@ -309,6 +309,7 @@ body::before {
     inset 0 1px 0 var(--glass-border);
   max-height: 350px;
   overflow-y: auto;
+  overflow-x: hidden;
   z-index: 1001;
   margin-top: 4px;
 }
@@ -323,6 +324,8 @@ body::before {
   position: relative;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  min-width: 0;
 }
 
 .search-suggestion:last-child {
@@ -362,6 +365,9 @@ body::before {
   font-size: 0.95rem;
   color: var(--text-primary);
   transition: all var(--transition-normal);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .search-suggestion:hover .search-suggestion-text {
@@ -1053,6 +1059,7 @@ button span {
   
   .search-suggestions {
     max-height: 250px;
+    overflow-x: hidden;
   }
   
   .search-suggestion {
@@ -1130,6 +1137,7 @@ button span {
   
   .search-suggestions {
     max-height: 200px;
+    overflow-x: hidden;
   }
   
   .search-suggestion {
