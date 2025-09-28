@@ -65,8 +65,15 @@ class RouteSelector {
 
         const details = document.createElement('div');
         details.className = 'route-details';
+        
+        // Create weighted score display
+        const weightedScoreDisplay = this.createWeightedScoreDisplay(routeData);
+        
         details.innerHTML = `
-            <span class="safety-score">Safety: ${(routeData.safetyScore * 100).toFixed(1)}%</span>
+            <div class="safety-score-section">
+                <div class="overall-safety-score">Overall: ${(routeData.safetyScore * 100).toFixed(1)}%</div>
+                ${weightedScoreDisplay}
+            </div>
             <span class="distance">${routeData.distance}</span>
             <span class="duration">${routeData.duration}</span>
             ${routeData.isSafestRoute ? '<span class="safest-badge">🛡️ ULTRA SAFE</span>' : ''}
@@ -118,6 +125,22 @@ class RouteSelector {
         // Trigger callback
         if (this.onRouteSelect) {
             this.onRouteSelect(this.routes[index], index);
+        }
+    }
+
+    createWeightedScoreDisplay(routeData) {
+        // Check if we have the new weighted score data
+        if (routeData.crimeScore !== undefined && routeData.streetviewScore !== undefined && routeData.aiScore !== undefined) {
+            return `
+                <div class="weighted-scores">
+                    <span class="score-item crime-score">Crime: ${(routeData.crimeScore * 100).toFixed(0)}%</span>
+                    <span class="score-item streetview-score">Streetview: ${(routeData.streetviewScore * 100).toFixed(0)}%</span>
+                    <span class="score-item ai-score">AI Search: ${(routeData.aiScore * 100).toFixed(0)}%</span>
+                </div>
+            `;
+        } else {
+            // Fallback to old format if weighted scores not available
+            return `<div class="safety-score">Safety: ${(routeData.safetyScore * 100).toFixed(1)}%</div>`;
         }
     }
 

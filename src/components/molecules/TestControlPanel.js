@@ -206,18 +206,23 @@ class TestControlPanel {
                 };
                 
                 const routePoints = this.safetyScoreService.extractRoutePointsFromDirections(routeResult);
-                const safetyData = await this.safetyScoreService.getSafetyScore(routePoints);
+                
+                // Calculate weighted safety score with loading states
+                const weightedScore = await this.calculateWeightedSafetyScore(routePoints, i + 1);
                 
                 routesWithSafety.push({
                     route: route,
-                    safetyScore: safetyData.safety_score,
-                    safetyBreakdown: safetyData.breakdown,
+                    safetyScore: weightedScore.overallScore,
+                    crimeScore: weightedScore.crimeScore,
+                    streetviewScore: weightedScore.streetviewScore,
+                    aiScore: weightedScore.aiScore,
+                    safetyBreakdown: weightedScore.breakdown,
                     distance: route.legs[0].distance.text,
                     duration: route.legs[0].duration.text,
                     summary: route.summary || `Route ${i + 1}`
                 });
                 
-                this.outputDisplay.updateOutput(`Route ${i + 1}: Safety Score ${safetyData.safety_score}/1.0`);
+                this.outputDisplay.updateOutput(`Route ${i + 1}: Overall Safety Score ${(weightedScore.overallScore * 100).toFixed(1)}%`);
                 
             } catch (error) {
                 console.warn(`Failed to calculate safety score for route ${i + 1}:`, error);
@@ -225,6 +230,9 @@ class TestControlPanel {
                 routesWithSafety.push({
                     route: route,
                     safetyScore: 0.1, // Low default score
+                    crimeScore: 0.1,
+                    streetviewScore: 0.1,
+                    aiScore: 0.1,
                     safetyBreakdown: {},
                     distance: route.legs[0].distance.text,
                     duration: route.legs[0].duration.text,
@@ -235,6 +243,114 @@ class TestControlPanel {
         }
         
         return routesWithSafety;
+    }
+
+    async calculateWeightedSafetyScore(routePoints, routeNumber) {
+        // Show loading screen with cycling messages
+        const loadingMessages = [
+            "Studying crime statistics",
+            "Analyzing streetview data", 
+            "Picking optimal routes"
+        ];
+        
+        let messageIndex = 0;
+        const loadingInterval = setInterval(() => {
+            this.outputDisplay.updateOutput(`Route ${routeNumber}: ${loadingMessages[messageIndex]}...`);
+            messageIndex = (messageIndex + 1) % loadingMessages.length;
+        }, 1500);
+
+        try {
+            // Step 1: Get crime data (65% weight)
+            this.outputDisplay.updateOutput(`Route ${routeNumber}: Studying crime statistics...`);
+            const crimeData = await this.safetyScoreService.getSafetyScore(routePoints);
+            const crimeScore = crimeData.safety_score;
+
+            // Step 2: Get streetview analysis (25% weight)
+            this.outputDisplay.updateOutput(`Route ${routeNumber}: Analyzing streetview data...`);
+            const streetviewScore = await this.getStreetviewScore(routePoints);
+
+            // Step 3: Get AI analysis (15% weight)
+            this.outputDisplay.updateOutput(`Route ${routeNumber}: Picking optimal routes...`);
+            const aiScore = await this.getAIScore(routePoints);
+
+            // Calculate weighted overall score
+            const overallScore = (crimeScore * 0.65) + (streetviewScore * 0.25) + (aiScore * 0.15);
+
+            // Clear loading interval
+            clearInterval(loadingInterval);
+
+            return {
+                overallScore: overallScore,
+                crimeScore: crimeScore,
+                streetviewScore: streetviewScore,
+                aiScore: aiScore,
+                breakdown: crimeData.breakdown
+            };
+
+        } catch (error) {
+            clearInterval(loadingInterval);
+            throw error;
+        }
+    }
+
+    async getStreetviewScore(routePoints) {
+        try {
+            // Use the streetview analysis endpoint
+            const response = await fetch('http://localhost:5002/analyze-streetview', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    location_info: {
+                        address: "Route Analysis",
+                        coordinates: `${routePoints[0].lat},${routePoints[0].lon}`,
+                        time_context: "day"
+                    }
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data.success && data.safety_score !== undefined) {
+                    return data.safety_score / 100; // Convert percentage to decimal
+                } else {
+                    console.warn('Streetview analysis returned unsuccessful result:', data);
+                    return 0.7; // 70% default
+                }
+            } else {
+                console.warn('Streetview analysis HTTP error:', response.status);
+                return 0.7; // 70% default
+            }
+        } catch (error) {
+            console.warn('Streetview analysis failed:', error);
+            return 0.7; // 70% default
+        }
+    }
+
+    async getAIScore(routePoints) {
+        try {
+            // Use the AI analysis service
+            const origin = this.startLocationInput.getValue();
+            const destination = this.endLocationInput.getValue();
+            
+            const routeDetails = {
+                distance: "Route Analysis",
+                duration: "Route Analysis", 
+                summary: "Route Analysis"
+            };
+
+            const aiAnalysis = await this.aiAnalysisService.analyzeRouteSafety(origin, destination, routeDetails);
+            
+            if (aiAnalysis.success && aiAnalysis.analysis) {
+                return aiAnalysis.analysis.safety_score / 100; // Convert percentage to decimal
+            } else {
+                return 0.6; // 60% default
+            }
+        } catch (error) {
+            console.warn('AI analysis failed:', error);
+            return 0.6; // 60% default
+        }
     }
 
     filterRoutesByLength(routesWithSafety) {

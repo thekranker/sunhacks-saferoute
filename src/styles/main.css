@@ -163,6 +163,46 @@ button:disabled {
     font-weight: bold;
 }
 
+.safety-score-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.overall-safety-score {
+    font-weight: bold;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.weighted-scores {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 11px;
+}
+
+.score-item {
+    padding: 2px 6px;
+    border-radius: 3px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    font-weight: 500;
+}
+
+.crime-score {
+    color: #dc3545;
+}
+
+.streetview-score {
+    color: #17a2b8;
+}
+
+.ai-score {
+    color: #6f42c1;
+}
+
 .selection-indicator {
     width: 20px;
     height: 20px;
