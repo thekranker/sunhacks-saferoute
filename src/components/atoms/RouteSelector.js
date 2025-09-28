@@ -43,6 +43,11 @@ class RouteSelector {
         option.className = `route-option ${index === this.selectedRouteIndex ? 'selected' : ''}`;
         option.dataset.routeIndex = index;
 
+        // Add special styling for safest route
+        if (routeData.isSafestRoute) {
+            option.classList.add('safest-route');
+        }
+
         // Safety color indicator
         const safetyColor = this.getSafetyColor(routeData.safetyScore);
         const safetyIndicator = document.createElement('div');
@@ -64,6 +69,7 @@ class RouteSelector {
             <span class="safety-score">Safety: ${(routeData.safetyScore * 100).toFixed(1)}%</span>
             <span class="distance">${routeData.distance}</span>
             <span class="duration">${routeData.duration}</span>
+            ${routeData.isSafestRoute ? '<span class="safest-badge">🛡️ SAFEST</span>' : ''}
         `;
 
         routeInfo.appendChild(summary);
