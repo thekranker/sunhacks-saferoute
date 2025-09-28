@@ -91,8 +91,9 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   transition: all var(--transition-normal);
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
+  height: 100vh;
 }
 
 body::before {
@@ -115,8 +116,9 @@ body::before {
   max-width: 1600px;
   margin: 0 auto;
   padding: var(--spacing-2xl);
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 /* Removed header styles - now integrated into SafeRoute window */
@@ -496,10 +498,10 @@ button span {
 .main-content {
   display: flex;
   gap: var(--spacing-2xl);
-  margin-bottom: var(--spacing-2xl);
-  min-height: 90vh;
+  height: calc(100vh - 4rem);
   position: relative;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
 /* Panel expansion states */
@@ -525,7 +527,7 @@ button span {
   border: 1px solid var(--glass-border);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   flex: 3;
-  min-height: 90vh;
+  height: 100%;
   position: relative;
 }
 
@@ -561,7 +563,7 @@ button span {
 }
 
 #map {
-  height: 90vh;
+  height: 100%;
   width: 100%;
   border-radius: var(--radius-xl);
   position: relative;
@@ -573,9 +575,10 @@ button span {
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
+  height: 100%;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: hidden;
 }
 
 /* Sidebar expansion states */
@@ -601,9 +604,10 @@ button span {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
   position: relative;
+  min-height: 300px;
   overflow: hidden;
 }
 
@@ -625,7 +629,10 @@ button span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: absolute;
+  top: 37.5%;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -692,6 +699,7 @@ button span {
   z-index: 10;
   opacity: 0;
   transform: translateX(20px);
+  max-height: 100%;
 }
 
 .saferoute-routes-content.show {
@@ -1083,6 +1091,74 @@ button span {
   color: var(--text-muted);
 }
 
+/* SafeRoute Logos Footer */
+.saferoute-logos-footer {
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.powered-by-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  text-align: center;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.logos-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.logo-link:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  border-color: var(--accent-primary);
+}
+
+.logo-link svg {
+  transition: transform 0.2s ease;
+}
+
+.logo-link:hover svg {
+  transform: scale(1.1);
+}
+
 /* Output Container */
 .output-container {
   background: var(--bg-secondary);
@@ -1294,7 +1370,7 @@ button span {
   .main-content {
     flex-direction: column;
     gap: var(--spacing-xl);
-    min-height: auto;
+    height: calc(100vh - 2rem);
   }
   
   .main-content.panel-expanded {
@@ -1303,23 +1379,23 @@ button span {
   
   .map-container {
     flex: none;
-    min-height: 60vh;
+    height: 50%;
     border-radius: var(--radius-xl);
   }
   
   .map-container.panel-expanded {
     flex: none;
-    min-height: 50vh;
+    height: 40%;
   }
   
   .saferoute-sidebar {
     flex: none;
-    min-height: auto;
+    height: 50%;
   }
   
   .saferoute-sidebar.panel-expanded {
     flex: none;
-    min-height: 40vh;
+    height: 60%;
   }
   
   .saferoute-header {
@@ -1417,7 +1493,7 @@ button span {
   }
   
   #map {
-    height: 60vh;
+    height: 100%;
   }
 }
 
@@ -1428,10 +1504,11 @@ button span {
   
   .main-content {
     gap: var(--spacing-lg);
+    height: calc(100vh - 1rem);
   }
   
   .map-container {
-    min-height: 50vh;
+    height: 50%;
     border-radius: var(--radius-lg);
   }
   
@@ -1537,7 +1614,7 @@ button span {
   }
   
   #map {
-    height: 50vh;
+    height: 100%;
   }
 }
 
