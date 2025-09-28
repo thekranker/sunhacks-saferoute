@@ -130,7 +130,7 @@ body::before {
   left: var(--spacing-xl);
   z-index: 1000;
   pointer-events: auto;
-  max-width: 600px;
+  max-width: 400px;
   width: 100%;
 }
 
@@ -145,7 +145,7 @@ body::before {
     var(--shadow-xl),
     inset 0 1px 0 var(--glass-border);
   border: 1px solid var(--glass-border);
-  padding: var(--spacing-lg) var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
