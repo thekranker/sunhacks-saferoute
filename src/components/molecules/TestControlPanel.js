@@ -7,12 +7,15 @@ import AIAnalysisService from '../../services/AIAnalysisService.js';
 
 class TestControlPanel {
     constructor() {
-        this.startLocationInput = new LocationInput('startLocation');
         this.endLocationInput = new LocationInput('endLocation');
         this.outputDisplay = new OutputDisplay('output');
         this.routeSelector = new RouteSelector('routeSelector');
         this.safetyScoreService = new SafetyScoreService();
         this.aiAnalysisService = new AIAnalysisService();
+        
+        // User's current location
+        this.userLocation = null;
+        this.userLocationAddress = '';
         
         // Smart caching system for performance optimization
         this.cache = {
@@ -22,7 +25,7 @@ class TestControlPanel {
             streetview: new Map()    // Cache streetview analysis
         };
         
-        this.geocodeButton = new ActionButton('geocodeBtn', () => this.testGeocoding());
+        this.getLocationButton = new ActionButton('getLocationBtn', () => this.getUserLocation());
         this.directionsButton = new ActionButton('directionsBtn', () => this.testDirections());
         this.clearButton = new ActionButton('clearBtn', () => this.clearMap());
         
@@ -32,30 +35,74 @@ class TestControlPanel {
         });
     }
 
-    testGeocoding() {
-        const geocoder = new google.maps.Geocoder();
-        const address = this.startLocationInput.getValue();
+    getUserLocation() {
+        if (!navigator.geolocation) {
+            this.outputDisplay.updateOutput("Geolocation is not supported by this browser.");
+            return;
+        }
+
+        this.outputDisplay.updateOutput("Getting your location...");
         
-        geocoder.geocode({ address: address }, (results, status) => {
-            if (status === "OK") {
-                const location = results[0].geometry.location;
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const userLat = position.coords.latitude;
+                const userLng = position.coords.longitude;
+                const userLocation = new google.maps.LatLng(userLat, userLng);
                 
-                // Emit event for map update
-                this.dispatchEvent('geocodeSuccess', {
-                    location: location,
-                    address: address,
-                    formattedAddress: results[0].formatted_address
+                this.userLocation = userLocation;
+                
+                // Reverse geocode to get address
+                const geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ location: userLocation }, (results, status) => {
+                    if (status === "OK" && results[0]) {
+                        this.userLocationAddress = results[0].formatted_address;
+                        
+                        // Emit event for map update
+                        this.dispatchEvent('geocodeSuccess', {
+                            location: userLocation,
+                            address: this.userLocationAddress,
+                            formattedAddress: this.userLocationAddress
+                        });
+                        
+                        this.outputDisplay.updateOutput(`Location found: ${this.userLocationAddress}`);
+                    } else {
+                        this.outputDisplay.updateOutput(`Location found but couldn't get address: ${status}`);
+                    }
                 });
-                
-                this.outputDisplay.updateOutput(`Geocoding successful! Found: ${results[0].formatted_address}`);
-            } else {
-                this.outputDisplay.updateOutput(`Geocoding failed: ${status}`);
+            },
+            (error) => {
+                let errorMessage = "Error getting location: ";
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        errorMessage += "Permission denied. Please allow location access.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        errorMessage += "Location information unavailable.";
+                        break;
+                    case error.TIMEOUT:
+                        errorMessage += "Location request timed out.";
+                        break;
+                    default:
+                        errorMessage += "Unknown error occurred.";
+                        break;
+                }
+                this.outputDisplay.updateOutput(errorMessage);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 60000
             }
-        });
+        );
     }
 
     async testDirections() {
-        const start = this.startLocationInput.getValue();
+        if (!this.userLocation) {
+            this.outputDisplay.updateOutput("Please get your location first by clicking 'Use My Location'");
+            return;
+        }
+        
+        const start = this.userLocationAddress;
         const end = this.endLocationInput.getValue();
         
         this.outputDisplay.updateOutput("Finding routes with safety options...");
@@ -214,7 +261,7 @@ class TestControlPanel {
     }
 
     async calculateSafetyScores(routes) {
-        const origin = this.startLocationInput.getValue();
+        const origin = this.userLocationAddress;
         const destination = this.endLocationInput.getValue();
         
         // Pre-extract route points for all routes to avoid redundant processing
@@ -408,7 +455,7 @@ class TestControlPanel {
     async getAIScore(routePoints) {
         try {
             // Use the AI analysis service
-            const origin = this.startLocationInput.getValue();
+            const origin = this.userLocationAddress;
             const destination = this.endLocationInput.getValue();
             
             const routeDetails = {
@@ -491,7 +538,12 @@ class TestControlPanel {
     }
 
     async findSafestRoute() {
-        const start = this.startLocationInput.getValue();
+        if (!this.userLocation) {
+            this.outputDisplay.updateOutput("Please get your location first by clicking 'Use My Location'");
+            return;
+        }
+        
+        const start = this.userLocationAddress;
         const end = this.endLocationInput.getValue();
         
         this.outputDisplay.updateOutput("Finding the safest possible route (may be longer)...");
@@ -657,7 +709,7 @@ class TestControlPanel {
         this.dispatchEvent('displayMultipleRoutes', {
             routes: routesWithSafety,
             selectedIndex: 0, // Auto-select the safest route (first in sorted array)
-            origin: this.startLocationInput.getValue(),
+            origin: this.userLocationAddress,
             destination: this.endLocationInput.getValue()
         });
     }
@@ -750,7 +802,7 @@ class TestControlPanel {
         try {
             this.outputDisplay.updateOutput("🤖 Getting quick AI safety analysis...");
             
-            const origin = this.startLocationInput.getValue();
+            const origin = this.userLocationAddress;
             const destination = this.endLocationInput.getValue();
             
             const routeDetails = {

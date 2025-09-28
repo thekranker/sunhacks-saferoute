@@ -3,8 +3,8 @@ class MapComponent {
         this.containerId = containerId;
         this.map = null;
         this.options = {
-            zoom: 13,
-            center: { lat: 40.7589, lng: -73.9851 }, // Times Square coordinates
+            zoom: 15,
+            center: { lat: 40.7589, lng: -73.9851 }, // Default to Times Square, will be updated with user location
             mapTypeId: 'roadmap',
             ...options
         };
