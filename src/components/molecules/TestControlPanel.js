@@ -3,6 +3,7 @@ import LocationInput from '../atoms/LocationInput.js';
 import OutputDisplay from '../atoms/OutputDisplay.js';
 import RouteSelector from '../atoms/RouteSelector.js';
 import SafetyScoreService from '../../services/SafetyScoreService.js';
+import AIAnalysisService from '../../services/AIAnalysisService.js';
 
 class TestControlPanel {
     constructor() {
@@ -11,6 +12,7 @@ class TestControlPanel {
         this.outputDisplay = new OutputDisplay('output');
         this.routeSelector = new RouteSelector('routeSelector');
         this.safetyScoreService = new SafetyScoreService();
+        this.aiAnalysisService = new AIAnalysisService();
         
         this.geocodeButton = new ActionButton('geocodeBtn', () => this.testGeocoding());
         this.directionsButton = new ActionButton('directionsBtn', () => this.testDirections());
@@ -427,7 +429,7 @@ class TestControlPanel {
         });
     }
 
-    onRouteSelected(routeData, index) {
+    async onRouteSelected(routeData, index) {
         this.outputDisplay.updateOutput(`Selected route: ${routeData.summary} (Safety: ${(routeData.safetyScore * 100).toFixed(1)}%)`);
         
         // Emit event for route selection change
@@ -435,6 +437,41 @@ class TestControlPanel {
             routeData: routeData,
             selectedIndex: index
         });
+
+        // Get AI analysis for the selected route
+        await this.getAIAnalysisForRoute(routeData);
+    }
+
+    async getAIAnalysisForRoute(routeData) {
+        try {
+            this.outputDisplay.updateOutput("🤖 Getting AI safety analysis...");
+            
+            const origin = this.startLocationInput.getValue();
+            const destination = this.endLocationInput.getValue();
+            
+            const routeDetails = {
+                distance: routeData.distance,
+                duration: routeData.duration,
+                summary: routeData.summary
+            };
+
+            const aiAnalysis = await this.aiAnalysisService.analyzeRouteSafety(origin, destination, routeDetails);
+            
+            if (aiAnalysis.success) {
+                this.outputDisplay.updateOutput("✅ AI analysis completed!");
+                const formattedAnalysis = this.aiAnalysisService.formatAnalysisForDisplay(aiAnalysis);
+                this.outputDisplay.displayAIAnalysis(formattedAnalysis);
+            } else {
+                this.outputDisplay.updateOutput(`⚠️ AI analysis failed: ${aiAnalysis.error}`);
+                // Still show the formatted analysis even if it failed
+                const formattedAnalysis = this.aiAnalysisService.formatAnalysisForDisplay(aiAnalysis);
+                this.outputDisplay.displayAIAnalysis(formattedAnalysis);
+            }
+            
+        } catch (error) {
+            this.outputDisplay.updateOutput(`❌ Error getting AI analysis: ${error.message}`);
+            console.error('AI Analysis Error:', error);
+        }
     }
 
     clearMap() {

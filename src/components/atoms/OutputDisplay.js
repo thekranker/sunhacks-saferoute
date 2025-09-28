@@ -12,6 +12,26 @@ class OutputDisplay {
         }
     }
 
+    updateOutputWithHTML(htmlContent) {
+        if (this.element) {
+            this.element.innerHTML += htmlContent;
+            this.element.scrollTop = this.element.scrollHeight;
+        }
+    }
+
+    displayAIAnalysis(analysis) {
+        if (this.element) {
+            // Add a separator and AI analysis section
+            this.element.innerHTML += `
+                <div class="ai-analysis-section">
+                    <hr style="margin: 20px 0; border: 1px solid #ddd;">
+                    ${analysis}
+                </div>
+            `;
+            this.element.scrollTop = this.element.scrollHeight;
+        }
+    }
+
     clear() {
         if (this.element) {
             this.element.innerHTML = '';
