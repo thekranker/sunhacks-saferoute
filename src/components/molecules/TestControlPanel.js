@@ -202,6 +202,11 @@ class TestControlPanel {
                 
                 this.outputDisplay.updateOutput(`Route ${i + 1}: Safety Score ${safetyData.safety_score}/1.0`);
                 
+                // Display safety breakdown if available
+                if (safetyData.breakdown && Object.keys(safetyData.breakdown).length > 0) {
+                    this.outputDisplay.updateOutputFormatted(JSON.stringify(safetyData.breakdown), true);
+                }
+                
             } catch (error) {
                 console.warn(`Failed to calculate safety score for route ${i + 1}:`, error);
                 // Include route with default low safety score if calculation fails
@@ -391,6 +396,11 @@ class TestControlPanel {
 
     onRouteSelected(routeData, index) {
         this.outputDisplay.updateOutput(`Selected route: ${routeData.summary} (Safety: ${(routeData.safetyScore * 100).toFixed(1)}%)`);
+        
+        // Display safety breakdown if available
+        if (routeData.safetyBreakdown && Object.keys(routeData.safetyBreakdown).length > 0) {
+            this.outputDisplay.updateOutputFormatted(JSON.stringify(routeData.safetyBreakdown), true);
+        }
         
         // Emit event for route selection change
         this.dispatchEvent('routeSelectionChanged', {
