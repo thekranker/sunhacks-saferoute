@@ -8,39 +8,36 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="header-content">
-                <div class="header-text">
-                    <h1>SafeRoute</h1>
-                    <p>Find the safest walking routes with AI-powered safety analysis</p>
+        <div class="main-content">
+            <div class="map-container">
+                <!-- Enhanced Google Maps-style search -->
+                <div class="search-overlay">
+                    <div class="search-input" id="searchContainer">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="endLocation" placeholder="Where to?" autocomplete="off" list="locationSuggestions">
+                        <button class="clear-button" id="clearButton" style="display: none;" title="Clear search">
+                            <span>✕</span>
+                        </button>
+                        <div class="search-loading" id="searchLoading" style="display: none;">
+                            <div class="loading-spinner"></div>
+                        </div>
+                    </div>
+                    <div class="search-suggestions" id="searchSuggestions" style="display: none;">
+                        <!-- Suggestions will be populated here -->
+                    </div>
+                    <datalist id="locationSuggestions"></datalist>
                 </div>
-                <div class="theme-toggle-container">
-                    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light theme">
-                        <span class="theme-icon">🌙</span>
-                    </button>
-                </div>
+                <div id="map"></div>
             </div>
-        </header>
-        
-        <div class="map-container">
-            <!-- Enhanced Google Maps-style search -->
-            <div class="search-overlay">
-                <div class="search-input" id="searchContainer">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" id="endLocation" placeholder="Where to?" autocomplete="off" list="locationSuggestions">
-                    <button class="clear-button" id="clearButton" style="display: none;" title="Clear search">
-                        <span>✕</span>
-                    </button>
-                    <div class="search-loading" id="searchLoading" style="display: none;">
-                        <div class="loading-spinner"></div>
+            
+            <div class="saferoute-sidebar">
+                <div class="saferoute-header">
+                    <div class="saferoute-content">
+                        <h1>SafeRoute</h1>
+                        <p>Find the safest walking routes with AI-powered safety analysis</p>
                     </div>
                 </div>
-                <div class="search-suggestions" id="searchSuggestions" style="display: none;">
-                    <!-- Suggestions will be populated here -->
-                </div>
-                <datalist id="locationSuggestions"></datalist>
             </div>
-            <div id="map"></div>
         </div>
         
         <!-- Route Selector Panel -->
