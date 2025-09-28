@@ -68,10 +68,13 @@ class TestControlPanel {
             // Sort routes by safety score (highest first)
             routesWithSafety.sort((a, b) => b.safetyScore - a.safetyScore);
             
+            // Filter routes by length - remove routes more than 2.5x longer than shortest
+            const filteredRoutes = this.filterRoutesByLength(routesWithSafety);
+            
             // Mark the safest route as "Ultra Safe" if it's significantly safer
-            if (routesWithSafety.length > 0) {
-                const safestRoute = routesWithSafety[0];
-                const secondSafest = routesWithSafety[1];
+            if (filteredRoutes.length > 0) {
+                const safestRoute = filteredRoutes[0];
+                const secondSafest = filteredRoutes[1];
                 
                 // If the safest route is significantly safer than the second safest, mark it as ultra-safe
                 if (secondSafest && (safestRoute.safetyScore - secondSafest.safetyScore) > 0.1) {
@@ -80,14 +83,14 @@ class TestControlPanel {
                 }
             }
             
-            // Show route selector with all routes
-            this.routeSelector.setRoutes(routesWithSafety);
+            // Show route selector with filtered routes
+            this.routeSelector.setRoutes(filteredRoutes);
             this.routeSelector.show();
             
-            // Display all routes on map with the safest one selected
-            this.displayAllRoutes(routesWithSafety);
+            // Display all filtered routes on map with the safest one selected
+            this.displayAllRoutes(filteredRoutes);
             
-            this.outputDisplay.updateOutput(`Routes displayed. Safest route (${routesWithSafety[0].summary}) auto-selected.`);
+            this.outputDisplay.updateOutput(`Routes displayed. Safest route (${filteredRoutes[0].summary}) auto-selected.`);
             
         } catch (error) {
             this.outputDisplay.updateOutput(`Route calculation failed: ${error.message}`);
@@ -220,6 +223,38 @@ class TestControlPanel {
         return routesWithSafety;
     }
 
+    filterRoutesByLength(routesWithSafety) {
+        if (routesWithSafety.length <= 1) {
+            return routesWithSafety; // If only one route or none, return as is
+        }
+        
+        // Get distance values in meters for all routes
+        const routesWithDistance = routesWithSafety.map(routeData => {
+            const distanceValue = routeData.route.legs[0].distance.value; // Distance in meters
+            return {
+                ...routeData,
+                distanceValue: distanceValue
+            };
+        });
+        
+        // Find the shortest route distance
+        const shortestDistance = Math.min(...routesWithDistance.map(r => r.distanceValue));
+        
+        // Filter routes that are more than 2.5x longer than the shortest
+        const filteredRoutes = routesWithDistance.filter(routeData => {
+            return routeData.distanceValue <= shortestDistance * 2.5;
+        });
+        
+        // Log filtering results
+        const originalCount = routesWithSafety.length;
+        const filteredCount = filteredRoutes.length;
+        if (originalCount > filteredCount) {
+            this.outputDisplay.updateOutput(`Filtered out ${originalCount - filteredCount} route(s) that were more than 2.5x longer than the shortest route.`);
+        }
+        
+        return filteredRoutes;
+    }
+
     async findSafestRoute() {
         const start = this.startLocationInput.getValue();
         const end = this.endLocationInput.getValue();
@@ -244,20 +279,23 @@ class TestControlPanel {
             // Sort routes by safety score (highest first)
             routesWithSafety.sort((a, b) => b.safetyScore - a.safetyScore);
             
+            // Filter routes by length - remove routes more than 2.5x longer than shortest
+            const filteredRoutes = this.filterRoutesByLength(routesWithSafety);
+            
             // Mark the safest route as "Ultra Safe"
-            if (routesWithSafety.length > 0) {
-                routesWithSafety[0].summary = `🛡️ Ultra Safe Route (${routesWithSafety[0].summary})`;
-                routesWithSafety[0].isSafestRoute = true;
+            if (filteredRoutes.length > 0) {
+                filteredRoutes[0].summary = `🛡️ Ultra Safe Route (${filteredRoutes[0].summary})`;
+                filteredRoutes[0].isSafestRoute = true;
             }
             
-            // Show route selector with all routes
-            this.routeSelector.setRoutes(routesWithSafety);
+            // Show route selector with filtered routes
+            this.routeSelector.setRoutes(filteredRoutes);
             this.routeSelector.show();
             
-            // Display all routes on map with the safest one selected
-            this.displayAllRoutes(routesWithSafety);
+            // Display all filtered routes on map with the safest one selected
+            this.displayAllRoutes(filteredRoutes);
             
-            this.outputDisplay.updateOutput(`Ultra-safe routes displayed. Safest route auto-selected with ${(routesWithSafety[0].safetyScore * 100).toFixed(1)}% safety score.`);
+            this.outputDisplay.updateOutput(`Ultra-safe routes displayed. Safest route auto-selected with ${(filteredRoutes[0].safetyScore * 100).toFixed(1)}% safety score.`);
             
         } catch (error) {
             this.outputDisplay.updateOutput(`Safest route calculation failed: ${error.message}`);
