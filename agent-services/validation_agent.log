@@ -12838,3 +12838,467 @@ By incorporating these strong mitigating factors (high visibility, active popula
 2025-09-28 06:14:15,303 - INFO -   Quick Tips: ['Stay alert and avoid distractions like phones while walking, especially near crosswalks and intersections.', 'Utilize well-lit, populated routes at night and consider walking with a buddy.', 'Be aware of bikes, scooters, and vehicles; use designated crosswalks and paths.']
 2025-09-28 06:14:15,303 - INFO -   Raw Response: N/A...
 2025-09-28 06:14:15,303 - INFO - Sending validation request to Gemini...
+2025-09-28 10:57:25,750 - WARNING -  * Debugger is active!
+2025-09-28 10:57:25,760 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 10:57:33,038 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "OPTIONS /analyze-streetview HTTP/1.1" 200 -
+2025-09-28 10:57:33,039 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "OPTIONS /analyze-streetview HTTP/1.1" 200 -
+2025-09-28 10:57:33,039 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "OPTIONS /analyze-streetview HTTP/1.1" 200 -
+2025-09-28 10:57:33,041 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "OPTIONS /analyze-streetview HTTP/1.1" 200 -
+2025-09-28 10:57:33,042 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "OPTIONS /analyze-streetview HTTP/1.1" 200 -
+2025-09-28 10:57:33,042 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "[31m[1mPOST /analyze-streetview HTTP/1.1[0m" 400 -
+2025-09-28 10:57:33,043 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "[31m[1mPOST /analyze-streetview HTTP/1.1[0m" 400 -
+2025-09-28 10:57:33,044 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "[31m[1mPOST /analyze-streetview HTTP/1.1[0m" 400 -
+2025-09-28 10:57:33,045 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "[31m[1mPOST /analyze-streetview HTTP/1.1[0m" 400 -
+2025-09-28 10:57:33,046 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "[31m[1mPOST /analyze-streetview HTTP/1.1[0m" 400 -
+2025-09-28 10:57:33,770 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 10:57:33,771 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 10:57:33,772 - INFO - 127.0.0.1 - - [28/Sep/2025 10:57:33] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 10:57:33,773 - INFO - ================================================================================
+2025-09-28 10:57:33,773 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 10:57:33,773 - INFO - ================================================================================
+2025-09-28 10:57:33,774 - INFO - ================================================================================
+2025-09-28 10:57:33,774 - INFO - Analyzing route: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA → tooker house
+2025-09-28 10:57:33,774 - INFO - ================================================================================
+2025-09-28 10:57:33,774 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 10:57:33,775 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 10:57:33,775 - INFO - ================================================================================
+2025-09-28 10:57:33,775 - INFO - ================================================================================
+2025-09-28 10:57:33,775 - INFO - Analyzing route: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA → tooker house
+2025-09-28 10:57:33,775 - INFO - Analyzing route: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA → tooker house
+2025-09-28 10:57:33,857 - INFO - ================================================================================
+2025-09-28 10:57:33,858 - INFO - ================================================================================
+2025-09-28 10:57:33,858 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 10:57:33,858 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 10:57:33,859 - INFO - ================================================================================
+2025-09-28 10:57:33,859 - INFO - ================================================================================
+2025-09-28 10:57:33,859 - INFO - ================================================================================
+2025-09-28 10:57:33,859 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 10:57:33,859 - INFO - Analyzing route: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA → tooker house
+2025-09-28 10:57:33,859 - INFO - Analyzing route: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA → tooker house
+2025-09-28 10:57:33,859 - INFO - ================================================================================
+2025-09-28 10:57:33,859 - INFO - Analyzing route: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA → tooker house
+2025-09-28 10:57:41,884 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 10:57:41,884 - INFO -   Safety Score: 80%
+2025-09-28 10:57:41,884 - INFO -   Main Concerns: ['High volume of vehicle, light rail, and pedestrian traffic on Apache Blvd.', 'Increased personal safety vigilance if walking alone late at night.']
+2025-09-28 10:57:41,884 - INFO -   Quick Tips: ['Always use designated crosswalks and be highly alert to traffic (vehicles, trains, bikes).', 'Avoid distractions like phones when navigating busy streets and intersections.', 'Travel with a buddy or utilize campus safety services (e.g., SafeWalk) if out late.']
+2025-09-28 10:57:41,884 - INFO - Starting validation agent...
+2025-09-28 10:57:41,884 - INFO - ============================================================
+2025-09-28 10:57:41,885 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 10:57:41,885 - INFO - ============================================================
+2025-09-28 10:57:41,885 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 10:57:41,885 - INFO -   Safety Score: 80%
+2025-09-28 10:57:41,885 - INFO -   Main Concerns: ['High volume of vehicle, light rail, and pedestrian traffic on Apache Blvd.', 'Increased personal safety vigilance if walking alone late at night.']
+2025-09-28 10:57:41,885 - INFO -   Quick Tips: ['Always use designated crosswalks and be highly alert to traffic (vehicles, trains, bikes).', 'Avoid distractions like phones when navigating busy streets and intersections.', 'Travel with a buddy or utilize campus safety services (e.g., SafeWalk) if out late.']
+2025-09-28 10:57:41,885 - INFO -   Raw Response: N/A...
+2025-09-28 10:57:41,885 - INFO - Sending validation request to Gemini...
+2025-09-28 10:57:42,191 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 10:57:42,191 - INFO -   Safety Score: 82%
+2025-09-28 10:57:42,191 - INFO -   Main Concerns: ['Pedestrian safety when crossing busy roads (e.g., Apache Blvd), especially during peak traffic.', 'Opportunistic theft of unattended items (phones, bags, bikes) in high-traffic campus areas.', 'Increased need for awareness at night due to lower foot traffic and reduced visibility.']
+2025-09-28 10:57:42,191 - INFO -   Quick Tips: ['Pay close attention at crosswalks and avoid distractions like headphones when near roads.', 'Keep personal belongings secure and out of sight to deter opportunistic theft.', 'Utilize well-lit, main pathways and consider walking with a buddy or using campus resources (like ASU PD escort) if traveling late at night.']
+2025-09-28 10:57:42,191 - INFO - Starting validation agent...
+2025-09-28 10:57:42,191 - INFO - ============================================================
+2025-09-28 10:57:42,191 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 10:57:42,191 - INFO - ============================================================
+2025-09-28 10:57:42,191 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 10:57:42,191 - INFO -   Safety Score: 82%
+2025-09-28 10:57:42,191 - INFO -   Main Concerns: ['Pedestrian safety when crossing busy roads (e.g., Apache Blvd), especially during peak traffic.', 'Opportunistic theft of unattended items (phones, bags, bikes) in high-traffic campus areas.', 'Increased need for awareness at night due to lower foot traffic and reduced visibility.']
+2025-09-28 10:57:42,191 - INFO -   Quick Tips: ['Pay close attention at crosswalks and avoid distractions like headphones when near roads.', 'Keep personal belongings secure and out of sight to deter opportunistic theft.', 'Utilize well-lit, main pathways and consider walking with a buddy or using campus resources (like ASU PD escort) if traveling late at night.']
+2025-09-28 10:57:42,191 - INFO -   Raw Response: N/A...
+2025-09-28 10:57:42,191 - INFO - Sending validation request to Gemini...
+2025-09-28 10:57:43,320 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 10:57:43,320 - INFO -   Safety Score: 75%
+2025-09-28 10:57:43,320 - INFO -   Main Concerns: ['Pedestrian Traffic & Light Rail: Apache Blvd is a busy street with vehicle traffic and light rail; requires vigilance at crossings.', "Opportunistic Crime: Like any urban area, there's a risk of petty theft (e.g., phone snatching) or street harassment, especially late at night."]
+2025-09-28 10:57:43,320 - INFO -   Quick Tips: ['Minimize Distractions: Stay off your phone and be fully aware of your surroundings, especially near roads and intersections.', 'Secure Valuables: Keep phones, wallets, and other valuable items out of sight and secure.', 'Travel Smart at Night: If walking after dark, try to travel with a buddy and stick to well-lit areas.']
+2025-09-28 10:57:43,320 - INFO - Starting validation agent...
+2025-09-28 10:57:43,320 - INFO - ============================================================
+2025-09-28 10:57:43,320 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 10:57:43,320 - INFO - ============================================================
+2025-09-28 10:57:43,320 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 10:57:43,320 - INFO -   Safety Score: 75%
+2025-09-28 10:57:43,320 - INFO -   Main Concerns: ['Pedestrian Traffic & Light Rail: Apache Blvd is a busy street with vehicle traffic and light rail; requires vigilance at crossings.', "Opportunistic Crime: Like any urban area, there's a risk of petty theft (e.g., phone snatching) or street harassment, especially late at night."]
+2025-09-28 10:57:43,320 - INFO -   Quick Tips: ['Minimize Distractions: Stay off your phone and be fully aware of your surroundings, especially near roads and intersections.', 'Secure Valuables: Keep phones, wallets, and other valuable items out of sight and secure.', 'Travel Smart at Night: If walking after dark, try to travel with a buddy and stick to well-lit areas.']
+2025-09-28 10:57:43,320 - INFO -   Raw Response: N/A...
+2025-09-28 10:57:43,320 - INFO - Sending validation request to Gemini...
+2025-09-28 10:57:44,751 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 10:57:44,751 - INFO -   Safety Score: 80%
+2025-09-28 10:57:44,751 - INFO -   Main Concerns: ['Busy Traffic & Scooters: Crossing Apache Blvd and navigating campus paths with high volumes of vehicles, bikes, and electric scooters.', 'Nighttime Vulnerability: Increased risk of opportunistic theft or harassment when walking alone after dark, despite campus lighting.']
+2025-09-28 10:57:44,751 - INFO -   Quick Tips: ['Stay Alert: Pay close attention to traffic (vehicles, bikes, scooters) when crossing streets and walking on campus paths.', 'Walk with Purpose & Light: Use well-lit and populated routes, especially at night; consider walking with a buddy after dark.', "Utilize Resources: Familiarize yourself with ASU PD's safety resources (e.g., LiveSafe app, emergency call boxes)."]
+2025-09-28 10:57:44,751 - INFO - Starting validation agent...
+2025-09-28 10:57:44,751 - INFO - ============================================================
+2025-09-28 10:57:44,751 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 10:57:44,751 - INFO - ============================================================
+2025-09-28 10:57:44,751 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 10:57:44,751 - INFO -   Safety Score: 80%
+2025-09-28 10:57:44,751 - INFO -   Main Concerns: ['Busy Traffic & Scooters: Crossing Apache Blvd and navigating campus paths with high volumes of vehicles, bikes, and electric scooters.', 'Nighttime Vulnerability: Increased risk of opportunistic theft or harassment when walking alone after dark, despite campus lighting.']
+2025-09-28 10:57:44,751 - INFO -   Quick Tips: ['Stay Alert: Pay close attention to traffic (vehicles, bikes, scooters) when crossing streets and walking on campus paths.', 'Walk with Purpose & Light: Use well-lit and populated routes, especially at night; consider walking with a buddy after dark.', "Utilize Resources: Familiarize yourself with ASU PD's safety resources (e.g., LiveSafe app, emergency call boxes)."]
+2025-09-28 10:57:44,751 - INFO -   Raw Response: N/A...
+2025-09-28 10:57:44,751 - INFO - Sending validation request to Gemini...
+2025-09-28 10:57:45,473 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 10:57:45,474 - INFO -   Safety Score: 75%
+2025-09-28 10:57:45,474 - INFO -   Main Concerns: ['High volume of vehicle, bike, and scooter traffic at major intersections (Apache, Rural, University).', 'Distracted pedestrians and drivers, increasing collision risk.', 'Opportunistic petty theft common in high-density college areas.']
+2025-09-28 10:57:45,474 - INFO -   Quick Tips: ['Be extremely vigilant at all crosswalks; obey signals and make eye contact with drivers.', 'Minimize phone use and other distractions to stay aware of your surroundings.', 'Keep valuables secured and out of sight, especially when walking after dark.']
+2025-09-28 10:57:45,474 - INFO - Starting validation agent...
+2025-09-28 10:57:45,474 - INFO - ============================================================
+2025-09-28 10:57:45,474 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 10:57:45,474 - INFO - ============================================================
+2025-09-28 10:57:45,474 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 10:57:45,474 - INFO -   Safety Score: 75%
+2025-09-28 10:57:45,475 - INFO -   Main Concerns: ['High volume of vehicle, bike, and scooter traffic at major intersections (Apache, Rural, University).', 'Distracted pedestrians and drivers, increasing collision risk.', 'Opportunistic petty theft common in high-density college areas.']
+2025-09-28 10:57:45,475 - INFO -   Quick Tips: ['Be extremely vigilant at all crosswalks; obey signals and make eye contact with drivers.', 'Minimize phone use and other distractions to stay aware of your surroundings.', 'Keep valuables secured and out of sight, especially when walking after dark.']
+2025-09-28 10:57:45,475 - INFO -   Raw Response: N/A...
+2025-09-28 10:57:45,475 - INFO - Sending validation request to Gemini...
+2025-09-28 10:57:47,208 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 10:57:47,208 - INFO -   Safety Score: 85%
+2025-09-28 10:57:47,208 - INFO -   Main Concerns: ['High vehicle and bicycle traffic at major intersections (e.g., Rural Rd, Apache Blvd).', 'Pedestrian distraction (e.g., phone use) leading to reduced situational awareness.', 'Low risk of opportunistic crime (e.g., petty theft) if not vigilant, particularly late at night.']
+2025-09-28 10:57:47,208 - INFO -   Quick Tips: ['Use designated crosswalks and obey traffic signals; be highly attentive to vehicles and bikes.', 'Minimize distractions (phone, loud headphones) to stay aware of your surroundings.', 'Consider walking with a friend or utilizing campus safety resources if traveling very late at night.']
+2025-09-28 10:57:47,208 - INFO - Starting validation agent...
+2025-09-28 10:57:47,208 - INFO - ============================================================
+2025-09-28 10:57:47,208 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 10:57:47,209 - INFO - ============================================================
+2025-09-28 10:57:47,209 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 10:57:47,209 - INFO -   Safety Score: 85%
+2025-09-28 10:57:47,209 - INFO -   Main Concerns: ['High vehicle and bicycle traffic at major intersections (e.g., Rural Rd, Apache Blvd).', 'Pedestrian distraction (e.g., phone use) leading to reduced situational awareness.', 'Low risk of opportunistic crime (e.g., petty theft) if not vigilant, particularly late at night.']
+2025-09-28 10:57:47,209 - INFO -   Quick Tips: ['Use designated crosswalks and obey traffic signals; be highly attentive to vehicles and bikes.', 'Minimize distractions (phone, loud headphones) to stay aware of your surroundings.', 'Consider walking with a friend or utilizing campus safety resources if traveling very late at night.']
+2025-09-28 10:57:47,209 - INFO -   Raw Response: N/A...
+2025-09-28 10:57:47,209 - INFO - Sending validation request to Gemini...
+2025-09-28 10:57:57,416 - INFO - ============================================================
+2025-09-28 10:57:57,416 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 10:57:57,416 - INFO - ============================================================
+2025-09-28 10:57:57,416 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 10:57:57,416 - INFO -   Original Score: 80%
+2025-09-28 10:57:57,416 - INFO -   Validation Score: 75%
+2025-09-28 10:57:57,416 - INFO -   Adjustment Needed: -5 points
+2025-09-28 10:57:57,416 - INFO -   Final Score: 75%
+2025-09-28 10:57:57,416 - INFO -   Confidence: high
+2025-09-28 10:57:57,416 - INFO - VALIDATION REASONING:
+2025-09-28 10:57:57,416 - INFO -   The original analysis accurately identifies the primary safety concerns, particularly the high volume of vehicle, light rail, and pedestrian traffic on Apache Blvd. This is indeed the most critical factor for this route. While the ASU Tempe campus area benefits from good lighting, a high density of students, and the presence of campus security, Apache Blvd itself presents significant challenges. It's a wide, busy arterial road with fast-moving vehicles and the light rail running through it, creating complex intersections. The risk of collision due to distraction (on the part of pedestrians, drivers, or cyclists) or misjudgment is elevated here. The original score of 80% is good, but a slight downward adjustment to 75% more realistically reflects the *constant, high level of vigilance* required to navigate this particular stretch safely, even during the day. It's not an inherently dangerous area in terms of violent crime (relative to other urban areas), but the physical hazard of traffic is a significant and persistent factor.
+2025-09-28 10:57:57,416 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 10:57:57,416 - INFO -   - Prevalence of electric scooters and bicycles, which add another layer of fast-moving, sometimes unpredictable traffic on sidewalks and in bike lanes.
+2025-09-28 10:57:57,416 - INFO -   - Potential for construction zones, common in a developing university area, which can create temporary obstacles, detours, and reduced visibility for pedestrians.
+2025-09-28 10:57:57,416 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 10:57:57,416 - INFO -   - Even at designated crosswalks, make eye contact with drivers and light rail operators to confirm they see you before stepping into the street.
+2025-09-28 10:57:57,416 - INFO -   - Be highly aware of electric scooter and bicycle traffic, as they may move quickly and sometimes disregard pedestrian rules on sidewalks.
+2025-09-28 10:57:57,416 - INFO -   - Consider using a reflective item or flashlight if walking during low-light conditions, even if the area is generally well-lit.
+2025-09-28 10:57:57,416 - INFO - VALIDATION NOTES: This route is entirely within the immediate vicinity of the Arizona State University Tempe campus. Vista Del Sol D is a major student housing complex, and Tooker House is a large, central campus dorm. The entire journey is through a very active, urban university environment. Positive factors include high pedestrian volume (safety in numbers during peak hours), good public lighting, and visible campus police presence. The main and unavoidable safety challenge is Apache Blvd itself, which demands extreme attentiveness. The original tips are spot on for mitigating these risks, but the score needs to underscore the baseline level of hazard from the sheer traffic volume and complexity.
+2025-09-28 10:57:57,416 - INFO - ============================================================
+2025-09-28 10:57:57,416 - INFO - FINAL RESULT SUMMARY
+2025-09-28 10:57:57,416 - INFO - ============================================================
+2025-09-28 10:57:57,416 - INFO - Original AI Score: 80%
+2025-09-28 10:57:57,416 - INFO - Validation Adjustment: -5 points
+2025-09-28 10:57:57,416 - INFO - Final Safety Score: 75%
+2025-09-28 10:57:57,416 - INFO - ============================================================
+2025-09-28 10:57:57,416 - INFO - Starting street view analysis (text-based)...
+2025-09-28 10:57:57,416 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 10:57:57,647 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:57:57,647 - INFO - ================================================================================
+2025-09-28 10:57:57,647 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 10:57:57,647 - INFO - ================================================================================
+2025-09-28 10:57:57,647 - INFO - Location: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA to tooker house
+2025-09-28 10:57:57,647 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:57:57,647 - INFO - Time Context: day
+2025-09-28 10:57:57,647 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 10:57:57,647 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 10:57:57,967 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 10:57:57,968 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 10:57:57,968 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 10:57:57,968 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 10:57:57,968 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 10:57:57,968 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 10:57:57,968 - INFO - 
+2025-09-28 10:57:57,968 - INFO - Sending image analysis request to Gemini...
+2025-09-28 10:57:57,968 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 10:57:57,968 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 10:57:57,968 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 10:57:58,644 - INFO - ============================================================
+2025-09-28 10:57:58,644 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 10:57:58,644 - INFO - ============================================================
+2025-09-28 10:57:58,644 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 10:57:58,644 - INFO -   Original Score: 75%
+2025-09-28 10:57:58,644 - INFO -   Validation Score: 83%
+2025-09-28 10:57:58,644 - INFO -   Adjustment Needed: 8 points
+2025-09-28 10:57:58,644 - INFO -   Final Score: 83%
+2025-09-28 10:57:58,645 - INFO -   Confidence: high
+2025-09-28 10:57:58,645 - INFO - VALIDATION REASONING:
+2025-09-28 10:57:58,645 - INFO -   The original analysis accurately identifies key concerns for Apache Blvd, including heavy vehicle/pedestrian traffic and light rail, as well as the general risk of opportunistic crime in an urban setting. The quick tips are practical and relevant. However, the analysis does not fully account for the positive safety factors inherent in a major university campus environment. The route is entirely within or immediately adjacent to the Arizona State University (ASU) Tempe campus. This context means there is generally excellent lighting, frequent pedestrian traffic at most hours, and a visible presence of ASU Police. While Apache Blvd requires vigilance, the crossings are typically well-marked and signalized. Once off Apache Blvd and onto the main campus, the environment becomes even safer due to dedicated campus security and infrastructure. The short duration of the walk also limits prolonged exposure to risk. Therefore, a slight upward adjustment is warranted to reflect the enhanced safety features of a university campus compared to a generic urban route.
+2025-09-28 10:57:58,645 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 10:57:58,645 - INFO -   - Distracted Pedestrians: In a high-traffic university area, many students may be distracted by phones, which can lead to collisions with other pedestrians, cyclists, or obstacles, particularly at busy intersections or pathways.
+2025-09-28 10:57:58,645 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 10:57:58,645 - INFO -   - Utilize Campus Resources: Familiarize yourself with the location of emergency blue light phones on campus. Consider downloading the ASU LiveSafe app for direct access to campus safety services.
+2025-09-28 10:57:58,645 - INFO -   - Be Aware of Cyclists/Scooters: Campus pathways can have high traffic of bicycles and electric scooters; maintain awareness to avoid collisions.
+2025-09-28 10:57:58,645 - INFO - VALIDATION NOTES: The route is typical for student travel within the ASU Tempe campus. It involves navigating a busy arterial road (Apache Blvd) with dedicated pedestrian infrastructure, followed by pathways within the well-lit and monitored university grounds. The overall safety profile is good during the day, and reasonably good at night due to campus lighting and security presence, provided standard urban awareness is maintained.
+2025-09-28 10:57:58,645 - INFO - ============================================================
+2025-09-28 10:57:58,645 - INFO - FINAL RESULT SUMMARY
+2025-09-28 10:57:58,645 - INFO - ============================================================
+2025-09-28 10:57:58,645 - INFO - Original AI Score: 75%
+2025-09-28 10:57:58,645 - INFO - Validation Adjustment: +8 points
+2025-09-28 10:57:58,645 - INFO - Final Safety Score: 83%
+2025-09-28 10:57:58,645 - INFO - ============================================================
+2025-09-28 10:57:58,645 - INFO - Starting street view analysis (text-based)...
+2025-09-28 10:57:58,645 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 10:57:58,800 - INFO - ============================================================
+2025-09-28 10:57:58,801 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 10:57:58,801 - INFO - ============================================================
+2025-09-28 10:57:58,801 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 10:57:58,801 - INFO -   Original Score: 82%
+2025-09-28 10:57:58,801 - INFO -   Validation Score: 87%
+2025-09-28 10:57:58,801 - INFO -   Adjustment Needed: 5 points
+2025-09-28 10:57:58,801 - INFO -   Final Score: 87%
+2025-09-28 10:57:58,801 - INFO -   Confidence: high
+2025-09-28 10:57:58,801 - INFO - VALIDATION REASONING:
+2025-09-28 10:57:58,801 - INFO -   The original AI analysis accurately identifies the main concerns for this route, particularly pedestrian safety on Apache Blvd and opportunistic theft in a high-traffic campus environment. However, it somewhat understates the positive safety factors inherent to a well-resourced university campus. The route is almost entirely within or immediately adjacent to the ASU Tempe campus, which benefits from consistent ASU Police Department presence, extensive lighting on pedestrian pathways, emergency call boxes, and a high density of students and staff acting as natural surveillance. While Apache Blvd remains a genuine traffic concern, it is a signalized crossing. The overall safety profile of this specific campus route is slightly higher due to these mitigating environmental factors.
+2025-09-28 10:57:58,801 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 10:57:58,801 - INFO -   - Be extra vigilant at the Apache Blvd light rail crossing – look both ways for trains in addition to vehicular traffic.
+2025-09-28 10:57:58,801 - INFO -   - Familiarize yourself with the location of emergency call boxes along the route on campus, though not typically needed.
+2025-09-28 10:57:58,801 - INFO - VALIDATION NOTES: The route is characteristic of a busy urban university campus. The main risks are practical and common to such environments (traffic interaction, petty theft). The safety infrastructure (lighting, marked crossings, campus police presence) significantly enhances the baseline safety, making it a relatively secure route for pedestrians when basic awareness is maintained.
+2025-09-28 10:57:58,801 - INFO - ============================================================
+2025-09-28 10:57:58,801 - INFO - FINAL RESULT SUMMARY
+2025-09-28 10:57:58,801 - INFO - ============================================================
+2025-09-28 10:57:58,801 - INFO - Original AI Score: 82%
+2025-09-28 10:57:58,801 - INFO - Validation Adjustment: +5 points
+2025-09-28 10:57:58,801 - INFO - Final Safety Score: 87%
+2025-09-28 10:57:58,801 - INFO - ============================================================
+2025-09-28 10:57:58,801 - INFO - Starting street view analysis (text-based)...
+2025-09-28 10:57:58,801 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 10:57:58,849 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:57:58,849 - INFO - ================================================================================
+2025-09-28 10:57:58,849 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 10:57:58,849 - INFO - ================================================================================
+2025-09-28 10:57:58,849 - INFO - Location: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA to tooker house
+2025-09-28 10:57:58,849 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:57:58,849 - INFO - Time Context: day
+2025-09-28 10:57:58,849 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 10:57:58,849 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 10:57:58,942 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 10:57:58,944 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 10:57:58,944 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 10:57:58,944 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 10:57:58,944 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 10:57:58,944 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 10:57:58,944 - INFO - 
+2025-09-28 10:57:58,944 - INFO - Sending image analysis request to Gemini...
+2025-09-28 10:57:58,944 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 10:57:58,944 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 10:57:58,944 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 10:57:59,001 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:57:59,001 - INFO - ================================================================================
+2025-09-28 10:57:59,001 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 10:57:59,001 - INFO - ================================================================================
+2025-09-28 10:57:59,001 - INFO - Location: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA to tooker house
+2025-09-28 10:57:59,001 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:57:59,001 - INFO - Time Context: day
+2025-09-28 10:57:59,001 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 10:57:59,001 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 10:57:59,224 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 10:57:59,226 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 10:57:59,226 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 10:57:59,226 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 10:57:59,226 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 10:57:59,226 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 10:57:59,226 - INFO - 
+2025-09-28 10:57:59,226 - INFO - Sending image analysis request to Gemini...
+2025-09-28 10:57:59,226 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 10:57:59,226 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 10:57:59,226 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 10:58:00,515 - INFO - ================================================================================
+2025-09-28 10:58:00,517 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 10:58:00,517 - INFO - ================================================================================
+2025-09-28 10:58:00,518 - INFO - ================================================================================
+2025-09-28 10:58:00,518 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 10:58:00,518 - INFO - ================================================================================
+2025-09-28 10:58:00,518 - INFO - Analyzing route: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA → tooker house
+2025-09-28 10:58:00,518 - INFO - ================================================================================
+2025-09-28 10:58:00,518 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 10:58:00,519 - INFO - Analyzing route: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA → tooker house
+2025-09-28 10:58:00,519 - INFO - ================================================================================
+2025-09-28 10:58:00,520 - INFO - Analyzing route: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA → tooker house
+2025-09-28 10:58:00,542 - INFO - 127.0.0.1 - - [28/Sep/2025 10:58:00] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 10:58:00,544 - INFO - 127.0.0.1 - - [28/Sep/2025 10:58:00] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 10:58:00,545 - INFO - 127.0.0.1 - - [28/Sep/2025 10:58:00] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 10:58:01,326 - INFO - ============================================================
+2025-09-28 10:58:01,326 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 10:58:01,326 - INFO - ============================================================
+2025-09-28 10:58:01,326 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 10:58:01,326 - INFO -   Original Score: 75%
+2025-09-28 10:58:01,326 - INFO -   Validation Score: 83%
+2025-09-28 10:58:01,326 - INFO -   Adjustment Needed: 8 points
+2025-09-28 10:58:01,326 - INFO -   Final Score: 83%
+2025-09-28 10:58:01,326 - INFO -   Confidence: high
+2025-09-28 10:58:01,326 - INFO - VALIDATION REASONING:
+2025-09-28 10:58:01,326 - INFO -   The original AI analysis accurately identifies the main concerns: high traffic volume (vehicles, bikes, scooters) at major intersections, distracted individuals (pedestrians and drivers), and opportunistic petty theft, which are all realistic risks in a dense college environment. However, the analysis does not fully account for the significant positive safety factors inherent to this specific route. The journey is entirely within or immediately adjacent to the Arizona State University Tempe campus, connecting a student residence to another campus building.
+
+Key mitigating factors include:
+1.  **Excellent Lighting:** The ASU campus and surrounding student housing areas are exceptionally well-lit, greatly reducing risks after dark.
+2.  **High Foot Traffic:** There's a constant, high volume of students, faculty, and staff, providing a strong sense of 'safety in numbers' and natural surveillance.
+3.  **ASU Police Department Presence:** Campus police actively patrol these areas, deterring more serious crime and ensuring quicker response times.
+4.  **Developed Infrastructure:** While Apache Blvd is busy, pedestrian infrastructure (well-marked crosswalks, functional traffic signals, maintained sidewalks) is generally robust.
+
+While vigilance remains crucial, particularly at intersections and against opportunistic theft, the overall environment is highly managed, monitored, and generally safer than a generic urban setting with similar traffic levels. The score adjustment reflects these strong mitigating factors, indicating a safer overall experience than the original score implied for this specific context.
+2025-09-28 10:58:01,326 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 10:58:01,326 - INFO -   - If walking at night, consider walking with a friend or in a group to enhance personal safety.
+2025-09-28 10:58:01,326 - INFO -   - Be especially mindful of e-scooters and bikes, as their movements can sometimes be unpredictable in crowded areas.
+2025-09-28 10:58:01,327 - INFO - VALIDATION NOTES: The route is short and directly connects two points within the ASU Tempe campus ecosystem. The identified risks are typical for a bustling university area, but the presence of robust campus infrastructure, active security, and a high density of people significantly contribute to overall safety. The route does not involve isolated or poorly maintained areas. The primary challenge remains navigating busy intersections safely and protecting personal belongings.
+2025-09-28 10:58:01,327 - INFO - ============================================================
+2025-09-28 10:58:01,327 - INFO - FINAL RESULT SUMMARY
+2025-09-28 10:58:01,327 - INFO - ============================================================
+2025-09-28 10:58:01,327 - INFO - Original AI Score: 75%
+2025-09-28 10:58:01,327 - INFO - Validation Adjustment: +8 points
+2025-09-28 10:58:01,327 - INFO - Final Safety Score: 83%
+2025-09-28 10:58:01,327 - INFO - ============================================================
+2025-09-28 10:58:01,327 - INFO - Starting street view analysis (text-based)...
+2025-09-28 10:58:01,327 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 10:58:01,531 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:58:01,532 - INFO - ================================================================================
+2025-09-28 10:58:01,532 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 10:58:01,532 - INFO - ================================================================================
+2025-09-28 10:58:01,532 - INFO - Location: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA to tooker house
+2025-09-28 10:58:01,532 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:58:01,532 - INFO - Time Context: day
+2025-09-28 10:58:01,532 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 10:58:01,532 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 10:58:01,621 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 10:58:01,622 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 10:58:01,622 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 10:58:01,622 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 10:58:01,622 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 10:58:01,622 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 10:58:01,622 - INFO - 
+2025-09-28 10:58:01,622 - INFO - Sending image analysis request to Gemini...
+2025-09-28 10:58:01,622 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 10:58:01,622 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 10:58:01,622 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 10:58:02,658 - INFO - ============================================================
+2025-09-28 10:58:02,658 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 10:58:02,658 - INFO - ============================================================
+2025-09-28 10:58:02,658 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 10:58:02,658 - INFO -   Original Score: 85%
+2025-09-28 10:58:02,658 - INFO -   Validation Score: 87%
+2025-09-28 10:58:02,658 - INFO -   Adjustment Needed: 2 points
+2025-09-28 10:58:02,658 - INFO -   Final Score: 87%
+2025-09-28 10:58:02,658 - INFO -   Confidence: high
+2025-09-28 10:58:02,658 - INFO - VALIDATION REASONING:
+2025-09-28 10:58:02,658 - INFO -   The route is almost entirely within or immediately adjacent to the Arizona State University (ASU) Tempe campus. This location benefits from several robust safety factors: excellent and consistent lighting throughout, well-maintained pedestrian infrastructure (wide sidewalks, clear crosswalks, pedestrian signals), a high volume of student foot traffic (offering 'safety in numbers' during most hours), and frequent patrols by the ASU Police Department. While the original AI correctly identified significant risks such as high vehicle, bicycle, and scooter traffic at major intersections (e.g., Apache Blvd, Rural Rd) and the prevalent issue of pedestrian distraction, these are mitigated by the strong safety infrastructure and visible security presence typical of a large university campus. The risk of opportunistic crime, while always present, is genuinely low in this highly visible and monitored environment. The original score was good, but a slight upward adjustment better reflects the strong positive safety factors and proactive measures inherent in a well-maintained university setting.
+2025-09-28 10:58:02,658 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 10:58:02,658 - INFO -   - Reckless usage of shared electric scooters and bikes by students, creating unpredictable hazards for pedestrians.
+2025-09-28 10:58:02,658 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 10:58:02,658 - INFO -   - Be particularly cautious of shared electric scooters and e-bikes, which can be fast, quiet, and ridden by distracted or inexperienced users.
+2025-09-28 10:58:02,658 - INFO -   - Make eye contact with drivers and cyclists before entering crosswalks, even when you have the right of way.
+2025-09-28 10:58:02,658 - INFO - VALIDATION NOTES: This route represents a common university campus walk. The primary safety concerns are related to traffic interaction (vehicles, bikes, scooters) and human behavioral factors (distraction), rather than environmental hazards or high crime rates. The environment itself is highly supportive of pedestrian safety through design, lighting, and security presence. Vigilance is key for pedestrians.
+2025-09-28 10:58:02,658 - INFO - ============================================================
+2025-09-28 10:58:02,658 - INFO - FINAL RESULT SUMMARY
+2025-09-28 10:58:02,658 - INFO - ============================================================
+2025-09-28 10:58:02,658 - INFO - Original AI Score: 85%
+2025-09-28 10:58:02,658 - INFO - Validation Adjustment: +2 points
+2025-09-28 10:58:02,659 - INFO - Final Safety Score: 87%
+2025-09-28 10:58:02,659 - INFO - ============================================================
+2025-09-28 10:58:02,659 - INFO - Starting street view analysis (text-based)...
+2025-09-28 10:58:02,659 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 10:58:02,862 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:58:02,862 - INFO - ================================================================================
+2025-09-28 10:58:02,863 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 10:58:02,863 - INFO - ================================================================================
+2025-09-28 10:58:02,863 - INFO - Location: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA to tooker house
+2025-09-28 10:58:02,863 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:58:02,863 - INFO - Time Context: day
+2025-09-28 10:58:02,863 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 10:58:02,863 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 10:58:03,099 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 10:58:03,101 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 10:58:03,101 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 10:58:03,101 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 10:58:03,101 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 10:58:03,101 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 10:58:03,101 - INFO - 
+2025-09-28 10:58:03,101 - INFO - Sending image analysis request to Gemini...
+2025-09-28 10:58:03,101 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 10:58:03,101 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 10:58:03,101 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 10:58:03,335 - INFO - ============================================================
+2025-09-28 10:58:03,335 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 10:58:03,335 - INFO - ============================================================
+2025-09-28 10:58:03,335 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 10:58:03,336 - INFO -   Original Score: 80%
+2025-09-28 10:58:03,336 - INFO -   Validation Score: 87%
+2025-09-28 10:58:03,336 - INFO -   Adjustment Needed: 7 points
+2025-09-28 10:58:03,336 - INFO -   Final Score: 87%
+2025-09-28 10:58:03,336 - INFO -   Confidence: high
+2025-09-28 10:58:03,336 - INFO - VALIDATION REASONING:
+2025-09-28 10:58:03,336 - INFO -   The original analysis accurately identified key concerns regarding busy traffic, scooters, and general nighttime vulnerability, which are legitimate factors on a large university campus like ASU Tempe. However, it slightly understated the robust positive safety factors inherent to this specific environment. The route is entirely within the ASU campus district, which benefits from a highly visible and active ASU Police Department, generally well-maintained and well-lit campus pathways, and a high volume of student and staff presence acting as a natural deterrent. While the density of traffic, bikes, and scooters certainly presents a daily challenge for situational awareness, the overall support infrastructure and proactive safety measures (like emergency call boxes and the LiveSafe app) make the area safer than a generic urban route with similar traffic volumes. The primary daily risk is indeed traffic/collision-related due to congestion and distraction, rather than high rates of violent crime. Given these strong mitigating factors, a slightly higher safety score is warranted, acknowledging the risks but also the proactive safety environment.
+2025-09-28 10:58:03,336 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 10:58:03,336 - INFO -   - Distracted individuals: A significant portion of pedestrians and riders on campus are often distracted by phones or headphones, which can increase the risk of collisions, even in otherwise safe zones.
+2025-09-28 10:58:03,336 - INFO -   - Congestion at major intersections: Specific intersections along Apache Blvd and University Drive can become extremely congested, requiring more than just basic crosswalk awareness; vigilance for turning vehicles and unexpected pedestrian movements is crucial.
+2025-09-28 10:58:03,336 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 10:58:03,336 - INFO -   - Eliminate distractions: Put away phones and remove headphones when navigating busy campus paths and crossing streets to maintain full situational awareness.
+2025-09-28 10:58:03,336 - INFO -   - Be predictable and make eye contact: When crossing paths or streets, try to make eye contact with drivers and riders to ensure you've been seen, and move predictably.
+2025-09-28 10:58:03,336 - INFO -   - Understand campus mobility rules: Familiarize yourself with ASU's specific regulations for bikes and scooters regarding speed limits, dismount zones, and parking to avoid conflicts.
+2025-09-28 10:58:03,336 - INFO - VALIDATION NOTES: The route traverses a very active and densely populated university campus. While the volume of traffic and various modes of transport (pedestrians, bikes, scooters, cars) creates inherent risks requiring constant vigilance, the presence of a dedicated campus police force, good lighting, and a generally engaged community significantly contribute to a higher baseline safety level compared to unpatrolled or less active urban areas. The score reflects a realistic balance between these factors, emphasizing personal awareness as key to mitigating the most common risks.
+2025-09-28 10:58:03,336 - INFO - ============================================================
+2025-09-28 10:58:03,336 - INFO - FINAL RESULT SUMMARY
+2025-09-28 10:58:03,336 - INFO - ============================================================
+2025-09-28 10:58:03,336 - INFO - Original AI Score: 80%
+2025-09-28 10:58:03,336 - INFO - Validation Adjustment: +7 points
+2025-09-28 10:58:03,336 - INFO - Final Safety Score: 87%
+2025-09-28 10:58:03,336 - INFO - ============================================================
+2025-09-28 10:58:03,336 - INFO - Starting street view analysis (text-based)...
+2025-09-28 10:58:03,336 - INFO - Geocoding addresses for precise location analysis...
+2025-09-28 10:58:03,544 - INFO - Using precise coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:58:03,544 - INFO - ================================================================================
+2025-09-28 10:58:03,544 - INFO - STREET VIEW AGENT STARTING REAL IMAGE ANALYSIS
+2025-09-28 10:58:03,544 - INFO - ================================================================================
+2025-09-28 10:58:03,544 - INFO - Location: Vista Del Sol D, 701 E Apache Blvd, Tempe, AZ 85281, USA to tooker house
+2025-09-28 10:58:03,544 - INFO - Coordinates: 33.417496299999996,-111.93151675
+2025-09-28 10:58:03,544 - INFO - Time Context: day
+2025-09-28 10:58:03,544 - INFO - No image data provided, fetching real Street View image...
+2025-09-28 10:58:03,544 - INFO - Fetching Street View image for 33.417496299999996,-111.93151675
+2025-09-28 10:58:03,633 - INFO - Successfully fetched Street View image (81448 chars)
+2025-09-28 10:58:03,634 - INFO - STREET VIEW AGENT THINKING PROCESS:
+2025-09-28 10:58:03,634 - INFO -   - Analyzing actual Street View image for visual safety indicators
+2025-09-28 10:58:03,634 - INFO -   - Evaluating 7 safety metrics with weighted scoring
+2025-09-28 10:58:03,634 - INFO -   - Looking for lighting, infrastructure, crime markers, etc.
+2025-09-28 10:58:03,634 - INFO -   - Assessing pedestrian safety factors from visual evidence
+2025-09-28 10:58:03,634 - INFO - 
+2025-09-28 10:58:03,634 - INFO - Sending image analysis request to Gemini...
+2025-09-28 10:58:03,634 - INFO -   - Prompt includes 7 weighted safety metrics
+2025-09-28 10:58:03,634 - INFO -   - Requesting detailed visual observations and recommendations
+2025-09-28 10:58:03,634 - INFO -   - Expecting JSON response with metric breakdown
+2025-09-28 10:58:09,076 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 10:58:09,077 - INFO -   Safety Score: 78%
+2025-09-28 10:58:09,077 - INFO -   Main Concerns: ['Traffic and Light Rail Crossings: Apache Blvd is a busy thoroughfare with cars, buses, and active light rail; crossings require vigilance.', 'Nighttime Personal Safety: While on campus, late-night walks can present increased risk for opportunistic crime or harassment due to lower visibility and fewer people.', 'Situational Awareness: Distraction (e.g., phone use) can lead to accidents or make one a target for petty theft.']
+2025-09-28 10:58:09,077 - INFO -   Quick Tips: ['Use designated crosswalks and obey all traffic signals, especially on Apache Blvd.', 'Remain alert and avoid distractions, particularly when walking alone or after dark.', 'Secure valuables; keep phones, wallets, and bags out of easy reach, and properly lock bicycles/scooters.']
+2025-09-28 10:58:09,077 - INFO - Starting validation agent...
+2025-09-28 10:58:09,077 - INFO - ============================================================
+2025-09-28 10:58:09,077 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 10:58:09,077 - INFO - ============================================================
+2025-09-28 10:58:09,077 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 10:58:09,077 - INFO -   Safety Score: 78%
+2025-09-28 10:58:09,077 - INFO -   Main Concerns: ['Traffic and Light Rail Crossings: Apache Blvd is a busy thoroughfare with cars, buses, and active light rail; crossings require vigilance.', 'Nighttime Personal Safety: While on campus, late-night walks can present increased risk for opportunistic crime or harassment due to lower visibility and fewer people.', 'Situational Awareness: Distraction (e.g., phone use) can lead to accidents or make one a target for petty theft.']
+2025-09-28 10:58:09,077 - INFO -   Quick Tips: ['Use designated crosswalks and obey all traffic signals, especially on Apache Blvd.', 'Remain alert and avoid distractions, particularly when walking alone or after dark.', 'Secure valuables; keep phones, wallets, and bags out of easy reach, and properly lock bicycles/scooters.']
+2025-09-28 10:58:09,077 - INFO -   Raw Response: N/A...
+2025-09-28 10:58:09,077 - INFO - Sending validation request to Gemini...
+2025-09-28 10:58:11,376 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 10:58:11,376 - INFO -   Safety Score: 75%
+2025-09-28 10:58:11,376 - INFO -   Main Concerns: ['High traffic and busy road crossings (especially Apache Blvd)', 'Personal safety, particularly if walking alone late at night']
+2025-09-28 10:58:11,376 - INFO -   Quick Tips: ['Use marked crosswalks and stay highly alert for vehicles at intersections.', 'Walk with others or utilize well-lit, populated campus paths, especially after dark.', 'Minimize distractions (e.g., phone use) and remain aware of your surroundings.']
+2025-09-28 10:58:11,376 - INFO - Starting validation agent...
+2025-09-28 10:58:11,376 - INFO - ============================================================
+2025-09-28 10:58:11,376 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 10:58:11,376 - INFO - ============================================================
+2025-09-28 10:58:11,376 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 10:58:11,376 - INFO -   Safety Score: 75%
+2025-09-28 10:58:11,376 - INFO -   Main Concerns: ['High traffic and busy road crossings (especially Apache Blvd)', 'Personal safety, particularly if walking alone late at night']
+2025-09-28 10:58:11,376 - INFO -   Quick Tips: ['Use marked crosswalks and stay highly alert for vehicles at intersections.', 'Walk with others or utilize well-lit, populated campus paths, especially after dark.', 'Minimize distractions (e.g., phone use) and remain aware of your surroundings.']
+2025-09-28 10:58:11,376 - INFO -   Raw Response: N/A...
+2025-09-28 10:58:11,376 - INFO - Sending validation request to Gemini...
+2025-09-28 10:58:11,588 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 10:58:11,589 - INFO -   Safety Score: 70%
+2025-09-28 10:58:11,589 - INFO -   Main Concerns: ['High traffic volume (vehicles, bikes, pedestrians) at major intersections like Apache/Rural and Rural/University.', 'Reduced visibility and lower foot traffic after dark, increasing vulnerability.', 'Potential for opportunistic petty theft (e.g., phone snatching) common in busy university districts.']
+2025-09-28 10:58:11,589 - INFO -   Quick Tips: ['Always use designated crosswalks, obey traffic signals, and be highly aware of traffic and cyclists.', 'If walking after dark, try to travel with a companion or utilize campus safety resources like safe rides.', 'Keep valuables secured and out of sight, and maintain awareness of your surroundings.']
+2025-09-28 10:58:11,589 - INFO - Starting validation agent...
+2025-09-28 10:58:11,589 - INFO - ============================================================
+2025-09-28 10:58:11,589 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 10:58:11,589 - INFO - ============================================================
+2025-09-28 10:58:11,589 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 10:58:11,589 - INFO -   Safety Score: 70%
+2025-09-28 10:58:11,589 - INFO -   Main Concerns: ['High traffic volume (vehicles, bikes, pedestrians) at major intersections like Apache/Rural and Rural/University.', 'Reduced visibility and lower foot traffic after dark, increasing vulnerability.', 'Potential for opportunistic petty theft (e.g., phone snatching) common in busy university districts.']
+2025-09-28 10:58:11,589 - INFO -   Quick Tips: ['Always use designated crosswalks, obey traffic signals, and be highly aware of traffic and cyclists.', 'If walking after dark, try to travel with a companion or utilize campus safety resources like safe rides.', 'Keep valuables secured and out of sight, and maintain awareness of your surroundings.']
+2025-09-28 10:58:11,589 - INFO -   Raw Response: N/A...
+2025-09-28 10:58:11,589 - INFO - Sending validation request to Gemini...
