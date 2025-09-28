@@ -21,7 +21,7 @@ export GOOGLE_API_KEY='your-google-api-key-here'
 python start_server.py
 ```
 
-The server will start on `http://localhost:5000`
+The server will start on `http://localhost:5002`
 
 ### 2. Test the Integration
 
@@ -104,7 +104,7 @@ Frontend Display (OutputDisplay.js)
 
 1. **"Cannot connect to API server"**
    - Make sure the AI service is running: `cd agent-services && python start_server.py`
-   - Check that port 5000 is available
+   - Check that port 5002 is available
 
 2. **"AI analysis failed"**
    - Verify your Google API key is set correctly

@@ -7,6 +7,10 @@ This script handles environment setup and starts the Flask server.
 import os
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 def check_environment():
     """Check if required environment variables are set."""

@@ -4847,3 +4847,793 @@ Please retry in 25.667818079s. [violations {
 }
 ]
 2025-09-28 02:37:34,280 - INFO - 127.0.0.1 - - [28/Sep/2025 02:37:34] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:06:24,535 - WARNING -  * Debugger is active!
+2025-09-28 03:06:24,540 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:06:39,557 - INFO - 127.0.0.1 - - [28/Sep/2025 03:06:39] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:06:39,558 - INFO - 127.0.0.1 - - [28/Sep/2025 03:06:39] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:06:39,560 - INFO - ================================================================================
+2025-09-28 03:06:39,560 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:06:39,560 - INFO - ================================================================================
+2025-09-28 03:06:39,560 - INFO - Analyzing route: tooker house → oliv tempe
+2025-09-28 03:06:39,560 - INFO - ================================================================================
+2025-09-28 03:06:39,561 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:06:39,561 - INFO - ================================================================================
+2025-09-28 03:06:39,561 - INFO - Analyzing route: tooker house → oliv tempe
+2025-09-28 03:06:39,761 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:06:39,762 - INFO - 127.0.0.1 - - [28/Sep/2025 03:06:39] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:06:39,765 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:06:39,765 - INFO - 127.0.0.1 - - [28/Sep/2025 03:06:39] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:12:00,094 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/gemini_validation_agent.py', reloading
+2025-09-28 03:12:03,200 - WARNING -  * Debugger is active!
+2025-09-28 03:12:03,207 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:12:11,074 - INFO - 127.0.0.1 - - [28/Sep/2025 03:12:11] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:12:11,075 - INFO - 127.0.0.1 - - [28/Sep/2025 03:12:11] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:12:11,076 - INFO - 127.0.0.1 - - [28/Sep/2025 03:12:11] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:12:11,077 - INFO - 127.0.0.1 - - [28/Sep/2025 03:12:11] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:12:11,078 - INFO - ================================================================================
+2025-09-28 03:12:11,079 - INFO - ================================================================================
+2025-09-28 03:12:11,079 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:12:11,079 - INFO - ================================================================================
+2025-09-28 03:12:11,079 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:12:11,079 - INFO - ================================================================================
+2025-09-28 03:12:11,080 - INFO - ================================================================================
+2025-09-28 03:12:11,080 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:12:11,080 - INFO - ================================================================================
+2025-09-28 03:12:11,080 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:12:11,080 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:12:11,080 - INFO - ================================================================================
+2025-09-28 03:12:11,080 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:12:11,081 - INFO - ================================================================================
+2025-09-28 03:12:11,081 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:12:11,081 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:12:11,264 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:12:11,264 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:12:11,264 - INFO - 127.0.0.1 - - [28/Sep/2025 03:12:11] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:12:11,265 - INFO - 127.0.0.1 - - [28/Sep/2025 03:12:11] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:12:11,271 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:12:11,271 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:12:11,271 - INFO - 127.0.0.1 - - [28/Sep/2025 03:12:11] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:12:11,271 - INFO - 127.0.0.1 - - [28/Sep/2025 03:12:11] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:18:55,507 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/start_server.py', reloading
+2025-09-28 03:18:58,421 - WARNING -  * Debugger is active!
+2025-09-28 03:18:58,428 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:19:09,027 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:09] "GET /health HTTP/1.1" 200 -
+2025-09-28 03:19:19,558 - INFO - ================================================================================
+2025-09-28 03:19:19,558 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:19:19,558 - INFO - ================================================================================
+2025-09-28 03:19:19,558 - INFO - Analyzing route: 704 S Myrtle Ave, Tempe, AZ 85281 → Vista Del Sol B, 701 E Apache Blvd, Tempe, AZ 85281
+2025-09-28 03:19:19,746 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:19:19,746 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:19] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:19:23,664 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/start_server.py', reloading
+2025-09-28 03:19:26,431 - WARNING -  * Debugger is active!
+2025-09-28 03:19:26,438 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:19:31,485 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/start_server.py', reloading
+2025-09-28 03:19:32,539 - WARNING -  * Debugger is active!
+2025-09-28 03:19:32,546 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:19:43,234 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:43] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:19:43,234 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:43] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:19:43,235 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:43] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:19:43,236 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:43] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:19:43,237 - INFO - ================================================================================
+2025-09-28 03:19:43,237 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:19:43,238 - INFO - ================================================================================
+2025-09-28 03:19:43,238 - INFO - ================================================================================
+2025-09-28 03:19:43,238 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:19:43,238 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:19:43,238 - INFO - ================================================================================
+2025-09-28 03:19:43,239 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:19:43,240 - INFO - ================================================================================
+2025-09-28 03:19:43,240 - INFO - ================================================================================
+2025-09-28 03:19:43,240 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:19:43,241 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:19:43,241 - INFO - ================================================================================
+2025-09-28 03:19:43,241 - INFO - ================================================================================
+2025-09-28 03:19:43,241 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:19:43,241 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:19:43,406 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:19:43,407 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:43] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:19:43,417 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:19:43,417 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:43] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:19:43,423 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:19:43,423 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:43] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:19:43,457 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:19:43,457 - INFO - 127.0.0.1 - - [28/Sep/2025 03:19:43] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:22:04,749 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://10.8.10.6:5002
+2025-09-28 03:22:04,749 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 03:22:04,750 - INFO -  * Restarting with stat
+2025-09-28 03:22:06,007 - WARNING -  * Debugger is active!
+2025-09-28 03:22:06,014 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:22:09,781 - INFO - 127.0.0.1 - - [28/Sep/2025 03:22:09] "GET /health HTTP/1.1" 200 -
+2025-09-28 03:22:16,239 - INFO - ================================================================================
+2025-09-28 03:22:16,239 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:22:16,239 - INFO - ================================================================================
+2025-09-28 03:22:16,239 - INFO - Analyzing route: 704 S Myrtle Ave, Tempe, AZ 85281 → Vista Del Sol B, 701 E Apache Blvd, Tempe, AZ 85281
+2025-09-28 03:22:16,413 - ERROR - Initial analysis failed: 403 Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Generative Language API"
+}
+metadata {
+  key: "containerInfo"
+  value: "584128058513"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+, locale: "en-US"
+message: "Generative Language API has not been used in project 584128058513 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/generativelanguage.googleapis.com/overview?project=584128058513"
+}
+]
+2025-09-28 03:22:16,414 - INFO - 127.0.0.1 - - [28/Sep/2025 03:22:16] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:25:31,229 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://10.8.10.6:5002
+2025-09-28 03:25:31,232 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 03:25:31,233 - INFO -  * Restarting with stat
+2025-09-28 03:25:32,412 - WARNING -  * Debugger is active!
+2025-09-28 03:25:32,420 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:26:09,566 - INFO - 127.0.0.1 - - [28/Sep/2025 03:26:09] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:26:09,567 - INFO - 127.0.0.1 - - [28/Sep/2025 03:26:09] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:26:09,568 - INFO - 127.0.0.1 - - [28/Sep/2025 03:26:09] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:26:09,569 - INFO - 127.0.0.1 - - [28/Sep/2025 03:26:09] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:26:09,573 - INFO - ================================================================================
+2025-09-28 03:26:09,574 - INFO - ================================================================================
+2025-09-28 03:26:09,574 - INFO - ================================================================================
+2025-09-28 03:26:09,574 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:26:09,574 - INFO - ================================================================================
+2025-09-28 03:26:09,575 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:26:09,575 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:26:09,575 - INFO - ================================================================================
+2025-09-28 03:26:09,575 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:26:09,575 - INFO - ================================================================================
+2025-09-28 03:26:09,575 - INFO - Analyzing route: tooker house → vista del sol D
+2025-09-28 03:26:09,575 - INFO - Analyzing route: tooker house → vista del sol D
+2025-09-28 03:26:09,575 - INFO - ================================================================================
+2025-09-28 03:26:09,575 - INFO - ================================================================================
+2025-09-28 03:26:09,577 - INFO - Analyzing route: tooker house → vista del sol D
+2025-09-28 03:26:09,578 - INFO - Analyzing route: tooker house → vista del sol D
+2025-09-28 03:26:09,826 - ERROR - Initial analysis failed: 403 Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked. [reason: "API_KEY_SERVICE_BLOCKED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "methodName"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "apiName"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked."
+]
+2025-09-28 03:26:09,826 - ERROR - Initial analysis failed: 403 Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked. [reason: "API_KEY_SERVICE_BLOCKED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "methodName"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "apiName"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked."
+]
+2025-09-28 03:26:09,826 - ERROR - Initial analysis failed: 403 Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked. [reason: "API_KEY_SERVICE_BLOCKED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "methodName"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "apiName"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked."
+]
+2025-09-28 03:26:09,826 - ERROR - Initial analysis failed: 403 Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked. [reason: "API_KEY_SERVICE_BLOCKED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "methodName"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "apiName"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked."
+]
+2025-09-28 03:26:09,827 - INFO - 127.0.0.1 - - [28/Sep/2025 03:26:09] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:26:09,827 - INFO - 127.0.0.1 - - [28/Sep/2025 03:26:09] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:26:09,827 - INFO - 127.0.0.1 - - [28/Sep/2025 03:26:09] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:26:09,828 - INFO - 127.0.0.1 - - [28/Sep/2025 03:26:09] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:26:51,876 - INFO - 127.0.0.1 - - [28/Sep/2025 03:26:51] "GET /health HTTP/1.1" 200 -
+2025-09-28 03:27:02,846 - INFO - ================================================================================
+2025-09-28 03:27:02,846 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:27:02,846 - INFO - ================================================================================
+2025-09-28 03:27:02,846 - INFO - Analyzing route: 704 S Myrtle Ave, Tempe, AZ 85281 → Vista Del Sol B, 701 E Apache Blvd, Tempe, AZ 85281
+2025-09-28 03:27:02,901 - ERROR - Initial analysis failed: 403 Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked. [reason: "API_KEY_SERVICE_BLOCKED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+metadata {
+  key: "methodName"
+  value: "google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent"
+}
+metadata {
+  key: "consumer"
+  value: "projects/584128058513"
+}
+metadata {
+  key: "apiName"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "Requests to this API generativelanguage.googleapis.com method google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent are blocked."
+]
+2025-09-28 03:27:02,902 - INFO - 127.0.0.1 - - [28/Sep/2025 03:27:02] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:30:26,095 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://10.8.10.6:5002
+2025-09-28 03:30:26,095 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 03:30:26,097 - INFO -  * Restarting with stat
+2025-09-28 03:30:27,319 - WARNING -  * Debugger is active!
+2025-09-28 03:30:27,328 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:30:30,315 - INFO - 127.0.0.1 - - [28/Sep/2025 03:30:30] "GET /health HTTP/1.1" 200 -
+2025-09-28 03:30:34,536 - INFO - ================================================================================
+2025-09-28 03:30:34,536 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:30:34,536 - INFO - ================================================================================
+2025-09-28 03:30:34,536 - INFO - Analyzing route: 704 S Myrtle Ave, Tempe, AZ 85281 → Vista Del Sol B, 701 E Apache Blvd, Tempe, AZ 85281
+2025-09-28 03:30:34,714 - ERROR - Initial analysis failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:30:34,714 - INFO - 127.0.0.1 - - [28/Sep/2025 03:30:34] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:31:00,283 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://10.8.10.6:5002
+2025-09-28 03:31:00,283 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 03:31:00,284 - INFO -  * Restarting with stat
+2025-09-28 03:31:01,507 - WARNING -  * Debugger is active!
+2025-09-28 03:31:01,513 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:31:08,955 - INFO - ================================================================================
+2025-09-28 03:31:08,955 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:31:08,955 - INFO - ================================================================================
+2025-09-28 03:31:08,955 - INFO - Analyzing route: 704 S Myrtle Ave, Tempe, AZ 85281 → Vista Del Sol B, 701 E Apache Blvd, Tempe, AZ 85281
+2025-09-28 03:31:19,644 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 03:31:19,645 - INFO -   Safety Score: 78%
+2025-09-28 03:31:19,645 - INFO -   Main Concerns: ['High traffic volume (vehicle, bicycle, pedestrian) in a dense campus area, increasing collision risk.', 'Distracted individuals (drivers, cyclists, and pedestrians) common in a university environment.', 'Crossing major, busy intersections like University Drive and Apache Boulevard, which require careful attention to signals and turning vehicles.']
+2025-09-28 03:31:19,645 - INFO -   Quick Tips: ['Stay alert and put away distractions (e.g., cell phones) to be aware of your surroundings.', 'Always use designated crosswalks and obey all pedestrian signals, especially at major intersections.', 'Make eye contact with drivers before crossing streets, especially when vehicles are turning.']
+2025-09-28 03:31:19,645 - INFO - Starting validation agent...
+2025-09-28 03:31:19,645 - INFO - ============================================================
+2025-09-28 03:31:19,645 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 03:31:19,645 - INFO - ============================================================
+2025-09-28 03:31:19,645 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 03:31:19,645 - INFO -   Safety Score: 78%
+2025-09-28 03:31:19,645 - INFO -   Main Concerns: ['High traffic volume (vehicle, bicycle, pedestrian) in a dense campus area, increasing collision risk.', 'Distracted individuals (drivers, cyclists, and pedestrians) common in a university environment.', 'Crossing major, busy intersections like University Drive and Apache Boulevard, which require careful attention to signals and turning vehicles.']
+2025-09-28 03:31:19,645 - INFO -   Quick Tips: ['Stay alert and put away distractions (e.g., cell phones) to be aware of your surroundings.', 'Always use designated crosswalks and obey all pedestrian signals, especially at major intersections.', 'Make eye contact with drivers before crossing streets, especially when vehicles are turning.']
+2025-09-28 03:31:19,645 - INFO -   Raw Response: N/A...
+2025-09-28 03:31:19,645 - INFO - Sending validation request to Gemini...
+2025-09-28 03:31:44,197 - INFO - ============================================================
+2025-09-28 03:31:44,197 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 03:31:44,198 - INFO - ============================================================
+2025-09-28 03:31:44,198 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 03:31:44,198 - INFO -   Original Score: 78%
+2025-09-28 03:31:44,198 - INFO -   Validation Score: 72%
+2025-09-28 03:31:44,198 - INFO -   Adjustment Needed: -6 points
+2025-09-28 03:31:44,198 - INFO -   Final Score: 72%
+2025-09-28 03:31:44,198 - INFO -   Confidence: high
+2025-09-28 03:31:44,198 - INFO - VALIDATION REASONING:
+2025-09-28 03:31:44,198 - INFO -   The original analysis accurately identifies the core risks: extremely high traffic volume (vehicles, bicycles, scooters, pedestrians) and widespread distraction among all road users in this dense university environment. These are genuine, high-frequency hazards that demand constant vigilance. While the route benefits from generally excellent pedestrian infrastructure (wide, well-maintained sidewalks, clearly marked crosswalks, pedestrian signals, good lighting, and dedicated bike lanes along Apache Blvd), and a visible ASU Police presence, these mitigating factors are significantly challenged by the sheer density of movement and the commonality of distracted behavior. Apache Blvd, in particular, is a major arterial road where turning vehicles are a constant threat to pedestrians and cyclists, even with walk signals. The original score of 78% feels slightly optimistic given the persistent, active collision risk. The route is not inherently unsafe from a crime perspective, but the constant need for heightened awareness due to traffic dynamics makes a slightly lower score more realistic.
+2025-09-28 03:31:44,198 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 03:31:44,198 - INFO -   - Prevalence of electric scooters and personal skateboards/longboards, often ridden by distracted individuals, adding to unpredictable movement.
+2025-09-28 03:31:44,198 - INFO -   - Blind spots for turning vehicles (especially larger vehicles like buses) at busy intersections, which can obscure pedestrians even when crossing with a signal.
+2025-09-28 03:31:44,198 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 03:31:44,198 - INFO -   - Assume drivers, cyclists, and scooter riders may not see you, and be prepared to react.
+2025-09-28 03:31:44,198 - INFO -   - Make eye contact with drivers, especially those turning right on red (where permitted) or turning left across your path, even if you have the right-of-way.
+2025-09-28 03:31:44,198 - INFO - VALIDATION NOTES: This route is located directly within the main Arizona State University (ASU) Tempe campus area. This context means exceptionally high pedestrian, bicycle, and vehicle traffic almost at all hours, particularly during the academic year. The infrastructure (sidewalks, crosswalks, lighting) is generally of high quality. However, the primary safety challenges stem from human factors: the sheer volume of individuals and the prevalent use of mobile devices leading to widespread distraction among students, faculty, and even drivers. Apache Blvd is a major thoroughfare, and crossing or walking alongside it requires maximum situational awareness. The area is generally safe from a crime perspective, with a strong ASU Police presence, making collision risk, rather than personal security, the dominant safety concern.
+2025-09-28 03:31:44,198 - INFO - ============================================================
+2025-09-28 03:31:44,198 - INFO - FINAL RESULT SUMMARY
+2025-09-28 03:31:44,198 - INFO - ============================================================
+2025-09-28 03:31:44,198 - INFO - Original AI Score: 78%
+2025-09-28 03:31:44,198 - INFO - Validation Adjustment: -6 points
+2025-09-28 03:31:44,198 - INFO - Final Safety Score: 72%
+2025-09-28 03:31:44,198 - INFO - ============================================================
+2025-09-28 03:31:44,198 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 03:31:44,198 - INFO - ================================================================================
+2025-09-28 03:31:44,198 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 03:31:44,198 - INFO - ================================================================================
+2025-09-28 03:31:44,198 - INFO - Original Score: 78%
+2025-09-28 03:31:44,198 - INFO - Validation Adjustment: -6 points
+2025-09-28 03:31:44,198 - INFO - Final Score: 72%
+2025-09-28 03:31:44,198 - INFO - ================================================================================
+2025-09-28 03:31:44,199 - INFO - 127.0.0.1 - - [28/Sep/2025 03:31:44] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:32:12,565 - INFO - 127.0.0.1 - - [28/Sep/2025 03:32:12] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:32:12,565 - INFO - 127.0.0.1 - - [28/Sep/2025 03:32:12] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:32:12,566 - INFO - 127.0.0.1 - - [28/Sep/2025 03:32:12] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:32:12,566 - INFO - 127.0.0.1 - - [28/Sep/2025 03:32:12] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:32:12,570 - INFO - ================================================================================
+2025-09-28 03:32:12,570 - INFO - ================================================================================
+2025-09-28 03:32:12,571 - INFO - ================================================================================
+2025-09-28 03:32:12,571 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:32:12,571 - INFO - ================================================================================
+2025-09-28 03:32:12,571 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:32:12,571 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:32:12,571 - INFO - ================================================================================
+2025-09-28 03:32:12,571 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:32:12,572 - INFO - ================================================================================
+2025-09-28 03:32:12,572 - INFO - ================================================================================
+2025-09-28 03:32:12,572 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:32:12,572 - INFO - ================================================================================
+2025-09-28 03:32:12,572 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:32:12,572 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:32:12,573 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:32:12,636 - ERROR - Initial analysis failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:32:12,637 - INFO - 127.0.0.1 - - [28/Sep/2025 03:32:12] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:32:12,741 - ERROR - Initial analysis failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:32:12,741 - INFO - 127.0.0.1 - - [28/Sep/2025 03:32:12] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:32:20,441 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 03:32:20,442 - INFO -   Safety Score: 82%
+2025-09-28 03:32:20,442 - INFO -   Main Concerns: ['Traffic & Crosswalk Safety: Busy urban roads with potential for distracted drivers, especially at major intersections.', 'Situational Awareness (especially at night): While generally safe, petty theft can occur; staying aware of surroundings is key.', 'Environmental Factors: Significant heat and sun exposure risk in Arizona for daytime walks, leading to dehydration/sunburn.']
+2025-09-28 03:32:20,442 - INFO -   Quick Tips: ['Prioritize Visibility & Crosswalk Use: Use well-lit routes, consider bright clothing if dark, and strictly obey traffic signals at crossings.', 'Stay Vigilant & Avoid Distractions: Keep phone put away, be aware of people around you, especially if walking alone after dark.', 'Hydrate & Protect from Sun: Carry water, use sunscreen and a hat if walking during the day in warm months.']
+2025-09-28 03:32:20,442 - INFO - Starting validation agent...
+2025-09-28 03:32:20,442 - INFO - ============================================================
+2025-09-28 03:32:20,442 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 03:32:20,442 - INFO - ============================================================
+2025-09-28 03:32:20,442 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 03:32:20,442 - INFO -   Safety Score: 82%
+2025-09-28 03:32:20,442 - INFO -   Main Concerns: ['Traffic & Crosswalk Safety: Busy urban roads with potential for distracted drivers, especially at major intersections.', 'Situational Awareness (especially at night): While generally safe, petty theft can occur; staying aware of surroundings is key.', 'Environmental Factors: Significant heat and sun exposure risk in Arizona for daytime walks, leading to dehydration/sunburn.']
+2025-09-28 03:32:20,442 - INFO -   Quick Tips: ['Prioritize Visibility & Crosswalk Use: Use well-lit routes, consider bright clothing if dark, and strictly obey traffic signals at crossings.', 'Stay Vigilant & Avoid Distractions: Keep phone put away, be aware of people around you, especially if walking alone after dark.', 'Hydrate & Protect from Sun: Carry water, use sunscreen and a hat if walking during the day in warm months.']
+2025-09-28 03:32:20,443 - INFO -   Raw Response: N/A...
+2025-09-28 03:32:20,443 - INFO - Sending validation request to Gemini...
+2025-09-28 03:32:21,156 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 03:32:21,156 - INFO -   Safety Score: 80%
+2025-09-28 03:32:21,156 - INFO -   Main Concerns: ['Traffic and crosswalk safety on busy streets (e.g., University Dr, Rural Rd, Apache Blvd).', 'Reduced visibility and awareness during nighttime, especially if walking alone.', 'Heat exposure during warmer months, even for a relatively short walk.']
+2025-09-28 03:32:21,156 - INFO -   Quick Tips: ['Always use marked crosswalks, obey signals, and stay alert for vehicles.', 'When walking at night, stick to well-lit, populated paths and consider walking with a buddy.', 'Carry water and dress appropriately for the heat, especially during spring/summer/fall.']
+2025-09-28 03:32:21,156 - INFO - Starting validation agent...
+2025-09-28 03:32:21,156 - INFO - ============================================================
+2025-09-28 03:32:21,156 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 03:32:21,156 - INFO - ============================================================
+2025-09-28 03:32:21,156 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 03:32:21,156 - INFO -   Safety Score: 80%
+2025-09-28 03:32:21,156 - INFO -   Main Concerns: ['Traffic and crosswalk safety on busy streets (e.g., University Dr, Rural Rd, Apache Blvd).', 'Reduced visibility and awareness during nighttime, especially if walking alone.', 'Heat exposure during warmer months, even for a relatively short walk.']
+2025-09-28 03:32:21,156 - INFO -   Quick Tips: ['Always use marked crosswalks, obey signals, and stay alert for vehicles.', 'When walking at night, stick to well-lit, populated paths and consider walking with a buddy.', 'Carry water and dress appropriately for the heat, especially during spring/summer/fall.']
+2025-09-28 03:32:21,156 - INFO -   Raw Response: N/A...
+2025-09-28 03:32:21,156 - INFO - Sending validation request to Gemini...
+2025-09-28 03:32:21,211 - ERROR - Validation failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:32:21,211 - ERROR - Validation failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:32:21,212 - INFO - 127.0.0.1 - - [28/Sep/2025 03:32:21] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:32:40,304 - INFO - ============================================================
+2025-09-28 03:32:40,305 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 03:32:40,305 - INFO - ============================================================
+2025-09-28 03:32:40,305 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 03:32:40,305 - INFO -   Original Score: 82%
+2025-09-28 03:32:40,305 - INFO -   Validation Score: 76%
+2025-09-28 03:32:40,305 - INFO -   Adjustment Needed: -6 points
+2025-09-28 03:32:40,305 - INFO -   Final Score: 76%
+2025-09-28 03:32:40,305 - INFO -   Confidence: high
+2025-09-28 03:32:40,305 - INFO - VALIDATION REASONING:
+2025-09-28 03:32:40,305 - INFO -   The original analysis accurately identified key concerns. The route is situated within a university campus (ASU Tempe), which typically benefits from enhanced pedestrian infrastructure, good lighting, and active university police patrols, contributing to a generally higher baseline of safety compared to generic urban areas. This supports a relatively high safety score. However, the *severity* of the environmental factors in Arizona (extreme heat and sun exposure for much of the year) is a critical hazard that can lead to serious health issues like heatstroke or severe dehydration. While identified, its impact might be slightly underestimated in the initial 82% score. While petty theft is a realistic concern, violent crime risk is low due to campus security. The score has been adjusted slightly downwards to more realistically reflect the significant, unavoidable environmental risks, even within an otherwise safe campus environment.
+2025-09-28 03:32:40,305 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 03:32:40,305 - INFO -   - E-scooter and bicycle traffic: High volume of e-scooters and bicycles on campus paths can create collision risks for pedestrians, especially on shared-use pathways.
+2025-09-28 03:32:40,305 - INFO -   - Limited shade: Some campus pathways may have limited natural shade, exacerbating heat and sun exposure risks.
+2025-09-28 03:32:40,305 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 03:32:40,305 - INFO -   - Be mindful of fast-moving e-scooters and bikes, particularly on shared-use pathways and at intersections.
+2025-09-28 03:32:40,305 - INFO -   - During extreme heat, consider utilizing indoor walking routes within campus buildings or taking campus shuttles for longer distances.
+2025-09-28 03:32:40,305 - INFO -   - Check local weather forecasts and heat advisories before planning daytime walks in warmer months.
+2025-09-28 03:32:40,305 - INFO - VALIDATION NOTES: The route is almost certainly within the Arizona State University (ASU) Tempe campus, connecting two residential buildings. This context implies a relatively safe environment due to dedicated pedestrian infrastructure, good lighting, and active university police presence, which mitigates general crime risks. Traffic can be busy around major campus arteries, but internal campus pathways prioritize pedestrian safety. The most significant and realistic risk factor is the extreme Arizona heat, which is a major health hazard for a substantial portion of the year. While the original AI identified this, the severity of this particular environmental risk is critical and merits a slightly lower overall safety score to accurately reflect the real-world danger it poses. Petty theft is a moderate, opportunistic risk on any college campus, but violent crime is low. The rise of e-scooters also adds a new, practical collision risk for pedestrians on campus.
+2025-09-28 03:32:40,305 - INFO - ============================================================
+2025-09-28 03:32:40,305 - INFO - FINAL RESULT SUMMARY
+2025-09-28 03:32:40,306 - INFO - ============================================================
+2025-09-28 03:32:40,306 - INFO - Original AI Score: 82%
+2025-09-28 03:32:40,306 - INFO - Validation Adjustment: -6 points
+2025-09-28 03:32:40,306 - INFO - Final Safety Score: 76%
+2025-09-28 03:32:40,306 - INFO - ============================================================
+2025-09-28 03:32:40,306 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 03:32:40,306 - INFO - ================================================================================
+2025-09-28 03:32:40,306 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 03:32:40,306 - INFO - ================================================================================
+2025-09-28 03:32:40,306 - INFO - Original Score: 82%
+2025-09-28 03:32:40,306 - INFO - Validation Adjustment: -6 points
+2025-09-28 03:32:40,306 - INFO - Final Score: 76%
+2025-09-28 03:32:40,306 - INFO - ================================================================================
+2025-09-28 03:32:40,306 - INFO - 127.0.0.1 - - [28/Sep/2025 03:32:40] "POST /analyze-route HTTP/1.1" 200 -

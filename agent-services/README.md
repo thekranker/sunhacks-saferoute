@@ -97,7 +97,7 @@ The frontend will automatically connect to this service when a route is selected
 ## Troubleshooting
 
 1. **API Key Issues**: Make sure your Google API key is valid and has access to the Gemini API
-2. **Connection Issues**: Ensure the server is running on port 5001
+2. **Connection Issues**: Ensure the server is running on port 5002
 3. **CORS Issues**: The server includes CORS headers to allow frontend connections
 
 ## Development
