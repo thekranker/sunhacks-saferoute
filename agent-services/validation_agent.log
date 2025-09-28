@@ -5637,3 +5637,194 @@ message: "API key expired. Please renew the API key."
 2025-09-28 03:32:40,306 - INFO - Final Score: 76%
 2025-09-28 03:32:40,306 - INFO - ================================================================================
 2025-09-28 03:32:40,306 - INFO - 127.0.0.1 - - [28/Sep/2025 03:32:40] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:33:06,601 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/start_server.py', reloading
+2025-09-28 03:33:08,726 - INFO -  * Restarting with stat
+2025-09-28 03:33:10,461 - WARNING -  * Debugger is active!
+2025-09-28 03:33:10,468 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:33:50,820 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 03:33:50,956 - INFO -  * Restarting with stat
+2025-09-28 03:33:52,588 - WARNING -  * Debugger is active!
+2025-09-28 03:33:52,595 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:33:53,610 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 03:33:53,719 - INFO -  * Restarting with stat
+2025-09-28 03:33:55,031 - WARNING -  * Debugger is active!
+2025-09-28 03:33:55,037 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:34:08,160 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 03:34:08,264 - INFO -  * Restarting with stat
+2025-09-28 03:34:09,824 - WARNING -  * Debugger is active!
+2025-09-28 03:34:09,834 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:34:13,887 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 03:34:14,242 - INFO -  * Restarting with stat
+2025-09-28 03:34:15,712 - WARNING -  * Debugger is active!
+2025-09-28 03:34:15,718 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:34:23,739 - INFO - ================================================================================
+2025-09-28 03:34:23,739 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:34:23,739 - INFO - ================================================================================
+2025-09-28 03:34:23,739 - INFO - Analyzing route: 704 S Myrtle Ave, Tempe, AZ 85281 → Vista Del Sol B, 701 E Apache Blvd, Tempe, AZ 85281
+2025-09-28 03:34:23,912 - ERROR - Initial analysis failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:34:23,913 - INFO - 127.0.0.1 - - [28/Sep/2025 03:34:23] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:34:43,136 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://10.8.10.6:5002
+2025-09-28 03:34:43,136 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-28 03:34:43,137 - INFO -  * Restarting with stat
+2025-09-28 03:34:44,367 - WARNING -  * Debugger is active!
+2025-09-28 03:34:44,375 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:34:51,487 - INFO - ================================================================================
+2025-09-28 03:34:51,487 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:34:51,487 - INFO - ================================================================================
+2025-09-28 03:34:51,487 - INFO - Analyzing route: 704 S Myrtle Ave, Tempe, AZ 85281 → Vista Del Sol B, 701 E Apache Blvd, Tempe, AZ 85281
+2025-09-28 03:34:51,667 - ERROR - Initial analysis failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:34:51,668 - INFO - 127.0.0.1 - - [28/Sep/2025 03:34:51] "[35m[1mPOST /analyze-route HTTP/1.1[0m" 500 -
+2025-09-28 03:35:08,585 - INFO -  * Detected change in '/Users/saanvikakde/sunhacks-saferoute/agent-services/app.py', reloading
+2025-09-28 03:35:10,679 - INFO -  * Restarting with stat
+2025-09-28 03:35:12,178 - WARNING -  * Debugger is active!
+2025-09-28 03:35:12,188 - INFO -  * Debugger PIN: 692-290-271
+2025-09-28 03:35:19,493 - INFO - 127.0.0.1 - - [28/Sep/2025 03:35:19] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:35:19,493 - INFO - 127.0.0.1 - - [28/Sep/2025 03:35:19] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:35:19,494 - INFO - 127.0.0.1 - - [28/Sep/2025 03:35:19] "OPTIONS /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:35:19,497 - INFO - ================================================================================
+2025-09-28 03:35:19,498 - INFO - ================================================================================
+2025-09-28 03:35:19,498 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:35:19,498 - INFO - ================================================================================
+2025-09-28 03:35:19,498 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:35:19,499 - INFO - ================================================================================
+2025-09-28 03:35:19,499 - INFO - SAFEROUTE AI WORKFLOW STARTING
+2025-09-28 03:35:19,499 - INFO - ================================================================================
+2025-09-28 03:35:19,499 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:35:19,499 - INFO - ================================================================================
+2025-09-28 03:35:19,499 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:35:19,500 - INFO - Analyzing route: tooker house → vista del sol d
+2025-09-28 03:35:26,709 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 03:35:26,710 - INFO -   Safety Score: 80%
+2025-09-28 03:35:26,710 - INFO -   Main Concerns: ['Pedestrian-vehicle interactions at busy campus intersections (e.g., University Drive).', 'Opportunistic theft or personal security concerns, especially late at night in less crowded areas.', 'Extreme heat and sun exposure, particularly during warmer months in Tempe.']
+2025-09-28 03:35:26,710 - INFO -   Quick Tips: ['Always use marked crosswalks and remain attentive when crossing streets.', 'Stay aware of your surroundings, avoid walking alone late at night if possible, and utilize campus safety escorts if uncomfortable.', "Carry water and seek shade during daylight hours, especially in Arizona's heat."]
+2025-09-28 03:35:26,710 - INFO - Starting validation agent...
+2025-09-28 03:35:26,710 - INFO - ============================================================
+2025-09-28 03:35:26,711 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 03:35:26,711 - INFO - ============================================================
+2025-09-28 03:35:26,711 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 03:35:26,711 - INFO -   Safety Score: 80%
+2025-09-28 03:35:26,712 - INFO -   Main Concerns: ['Pedestrian-vehicle interactions at busy campus intersections (e.g., University Drive).', 'Opportunistic theft or personal security concerns, especially late at night in less crowded areas.', 'Extreme heat and sun exposure, particularly during warmer months in Tempe.']
+2025-09-28 03:35:26,712 - INFO -   Quick Tips: ['Always use marked crosswalks and remain attentive when crossing streets.', 'Stay aware of your surroundings, avoid walking alone late at night if possible, and utilize campus safety escorts if uncomfortable.', "Carry water and seek shade during daylight hours, especially in Arizona's heat."]
+2025-09-28 03:35:26,712 - INFO -   Raw Response: N/A...
+2025-09-28 03:35:26,712 - INFO - Sending validation request to Gemini...
+2025-09-28 03:35:26,766 - ERROR - Validation failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:35:26,767 - ERROR - Validation failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:35:26,768 - INFO - 127.0.0.1 - - [28/Sep/2025 03:35:26] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:35:26,965 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 03:35:26,965 - INFO -   Safety Score: 80%
+2025-09-28 03:35:26,965 - INFO -   Main Concerns: ['High-Traffic Road Crossings: University Drive and Apache Boulevard are busy, requiring careful attention at crosswalks.', 'Evening/Nighttime Visibility: While the route is generally well-lit on campus, reduced visibility at night can increase risks, especially near roads.']
+2025-09-28 03:35:26,965 - INFO -   Quick Tips: ['Utilize marked crosswalks and always obey pedestrian signals.', 'Minimize distractions (e.g., phone use) while walking, especially near traffic.', 'Walk with a buddy or share your ETA if traveling late at night.']
+2025-09-28 03:35:26,965 - INFO - Starting validation agent...
+2025-09-28 03:35:26,965 - INFO - ============================================================
+2025-09-28 03:35:26,965 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 03:35:26,965 - INFO - ============================================================
+2025-09-28 03:35:26,966 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 03:35:26,966 - INFO -   Safety Score: 80%
+2025-09-28 03:35:26,966 - INFO -   Main Concerns: ['High-Traffic Road Crossings: University Drive and Apache Boulevard are busy, requiring careful attention at crosswalks.', 'Evening/Nighttime Visibility: While the route is generally well-lit on campus, reduced visibility at night can increase risks, especially near roads.']
+2025-09-28 03:35:26,966 - INFO -   Quick Tips: ['Utilize marked crosswalks and always obey pedestrian signals.', 'Minimize distractions (e.g., phone use) while walking, especially near traffic.', 'Walk with a buddy or share your ETA if traveling late at night.']
+2025-09-28 03:35:26,966 - INFO -   Raw Response: N/A...
+2025-09-28 03:35:26,966 - INFO - Sending validation request to Gemini...
+2025-09-28 03:35:30,598 - INFO - INITIAL AI ANALYSIS COMPLETED:
+2025-09-28 03:35:30,598 - INFO -   Safety Score: 75%
+2025-09-28 03:35:30,598 - INFO -   Main Concerns: ['Heavy traffic and Light Rail crossings, particularly at University Drive and Apache Boulevard.', 'Reduced visibility and increased personal safety concerns when walking late at night.']
+2025-09-28 03:35:30,598 - INFO -   Quick Tips: ['Always use marked crosswalks and obey traffic signals, especially at major intersections.', 'Stay alert and avoid distractions (like phones) while walking, particularly near roads or after dark.', 'Consider walking with a friend or sharing your location if traveling late at night.']
+2025-09-28 03:35:30,598 - INFO - Starting validation agent...
+2025-09-28 03:35:30,598 - INFO - ============================================================
+2025-09-28 03:35:30,598 - INFO - VALIDATION AGENT STARTING ANALYSIS
+2025-09-28 03:35:30,598 - INFO - ============================================================
+2025-09-28 03:35:30,598 - INFO - ORIGINAL ANALYSIS RECEIVED:
+2025-09-28 03:35:30,598 - INFO -   Safety Score: 75%
+2025-09-28 03:35:30,598 - INFO -   Main Concerns: ['Heavy traffic and Light Rail crossings, particularly at University Drive and Apache Boulevard.', 'Reduced visibility and increased personal safety concerns when walking late at night.']
+2025-09-28 03:35:30,598 - INFO -   Quick Tips: ['Always use marked crosswalks and obey traffic signals, especially at major intersections.', 'Stay alert and avoid distractions (like phones) while walking, particularly near roads or after dark.', 'Consider walking with a friend or sharing your location if traveling late at night.']
+2025-09-28 03:35:30,598 - INFO -   Raw Response: N/A...
+2025-09-28 03:35:30,598 - INFO - Sending validation request to Gemini...
+2025-09-28 03:35:30,652 - ERROR - Validation failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:35:30,652 - ERROR - Validation failed: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-09-28 03:35:30,652 - INFO - 127.0.0.1 - - [28/Sep/2025 03:35:30] "POST /analyze-route HTTP/1.1" 200 -
+2025-09-28 03:35:44,014 - INFO - ============================================================
+2025-09-28 03:35:44,014 - INFO - VALIDATION AGENT ANALYSIS COMPLETE
+2025-09-28 03:35:44,014 - INFO - ============================================================
+2025-09-28 03:35:44,014 - INFO - VALIDATION AGENT THOUGHTS:
+2025-09-28 03:35:44,015 - INFO -   Original Score: 80%
+2025-09-28 03:35:44,015 - INFO -   Validation Score: 88%
+2025-09-28 03:35:44,015 - INFO -   Adjustment Needed: 8 points
+2025-09-28 03:35:44,015 - INFO -   Final Score: 88%
+2025-09-28 03:35:44,015 - INFO -   Confidence: high
+2025-09-28 03:35:44,015 - INFO - VALIDATION REASONING:
+2025-09-28 03:35:44,017 - INFO -   The route connects two major student housing complexes (Tooker House to Vista Del Sol D) within or immediately adjacent to the Arizona State University (ASU) Tempe campus. This environment is characterized by high pedestrian traffic (safety in numbers), extensive street lighting across campus and along major arterials, well-marked crosswalks with signals, and a visible university police presence (ASUPD). While University Drive and Apache Boulevard are indeed high-traffic arterial roads that require diligent attention at crosswalks, the existing pedestrian infrastructure and the constant flow of students crossing these roads make these risks manageable and an expected part of campus navigation. The original analysis correctly identifies these traffic crossings and nighttime visibility as primary concerns. However, it perhaps underemphasizes the inherent safety factors of a dense, well-maintained university environment where pedestrian movement is a primary design consideration and security is a priority. The route is also relatively short and direct, minimizing prolonged exposure to potential risks. The score adjustment reflects these positive safety factors while still acknowledging the genuine need for vigilance at major road crossings.
+2025-09-28 03:35:44,017 - INFO - ADDITIONAL CONCERNS IDENTIFIED:
+2025-09-28 03:35:44,017 - INFO -   - Light Rail Crossing: The route likely involves crossing the Valley Metro Light Rail tracks along Apache Boulevard, requiring awareness of approaching trains.
+2025-09-28 03:35:44,017 - INFO -   - Distracted Pedestrians/Cyclists: In a high-density campus environment, other pedestrians and cyclists can also be distracted, requiring mutual awareness to avoid collisions.
+2025-09-28 03:35:44,017 - INFO -   - Occasional Loitering/Panhandling: While generally not a direct safety threat, this is common in urban areas, especially near public transit stops and student-heavy zones, and individuals should be aware of their surroundings.
+2025-09-28 03:35:44,017 - INFO - ADDITIONAL SAFETY TIPS:
+2025-09-28 03:35:44,017 - INFO -   - Be mindful of the light rail; always look and listen for approaching trains when crossing tracks on Apache Boulevard.
+2025-09-28 03:35:44,017 - INFO -   - Even with pedestrian signals, make eye contact with drivers before and during crossing major intersections.
+2025-09-28 03:35:44,017 - INFO -   - Stay alert for other pedestrians and cyclists who may also be distracted, especially in crowded campus areas.
+2025-09-28 03:35:44,017 - INFO - VALIDATION NOTES: This is a very common route for ASU students. Safety is significantly prioritized through infrastructure design (well-lit paths, numerous crosswalks, pedestrian signals) within the campus and surrounding student housing areas. The main risks are typical urban traffic hazards, which are mitigated by good design but still require active pedestrian awareness. The potential for petty theft is present, as in any high-density urban student area, but direct physical harm is a low probability.
+2025-09-28 03:35:44,017 - INFO - ============================================================
+2025-09-28 03:35:44,017 - INFO - FINAL RESULT SUMMARY
+2025-09-28 03:35:44,017 - INFO - ============================================================
+2025-09-28 03:35:44,017 - INFO - Original AI Score: 80%
+2025-09-28 03:35:44,018 - INFO - Validation Adjustment: +8 points
+2025-09-28 03:35:44,018 - INFO - Final Safety Score: 88%
+2025-09-28 03:35:44,018 - INFO - ============================================================
+2025-09-28 03:35:44,018 - INFO - Creating enhanced analysis with validation results...
+2025-09-28 03:35:44,018 - INFO - ================================================================================
+2025-09-28 03:35:44,018 - INFO - WORKFLOW COMPLETED SUCCESSFULLY
+2025-09-28 03:35:44,018 - INFO - ================================================================================
+2025-09-28 03:35:44,018 - INFO - Original Score: 80%
+2025-09-28 03:35:44,018 - INFO - Validation Adjustment: +8 points
+2025-09-28 03:35:44,018 - INFO - Final Score: 88%
+2025-09-28 03:35:44,018 - INFO - ================================================================================
+2025-09-28 03:35:44,019 - INFO - 127.0.0.1 - - [28/Sep/2025 03:35:44] "POST /analyze-route HTTP/1.1" 200 -

@@ -22,7 +22,7 @@ class AIAnalysisService {
                     destination: destination,
                     route_details: routeDetails
                 }),
-                signal: AbortSignal.timeout(60000) // 60 second timeout for validation agent
+                signal: AbortSignal.timeout(120000) // 2 minute timeout for AI analysis with validation
             });
 
             if (!response.ok) {
@@ -39,6 +39,20 @@ class AIAnalysisService {
                 name: error.name,
                 stack: error.stack
             });
+            
+            // Handle timeout specifically
+            if (error.name === 'AbortError' || error.message.includes('timeout')) {
+                return {
+                    success: false,
+                    error: "AI analysis timed out. The request took longer than 2 minutes to complete. Please try again.",
+                    analysis: {
+                        safety_score: 50,
+                        main_concerns: ["AI analysis timed out - please try again"],
+                        quick_tips: ["Use caution and stay aware of surroundings", "Try the analysis again in a moment"]
+                    }
+                };
+            }
+            
             return {
                 success: false,
                 error: `Failed to analyze route: ${error.message}`,

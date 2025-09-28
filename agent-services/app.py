@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
 import logging
+import signal
+import sys
 from gemini_api import analyze_route_safety
 from gemini_validation_agent import validate_route_safety_with_agent, GeminiValidationAgent
 from gemini_streetview_agent import analyze_streetview_safety, GeminiStreetViewAgent
@@ -20,6 +22,16 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+# Configure timeout handling
+class TimeoutException(Exception):
+    pass
+
+def timeout_handler(signum, frame):
+    raise TimeoutException("Request timed out")
+
+# Set up timeout for long-running requests
+signal.signal(signal.SIGALRM, timeout_handler)
+
 @app.route('/analyze-route', methods=['POST'])
 def analyze_route():
     """
@@ -37,6 +49,8 @@ def analyze_route():
     }
     """
     try:
+        # Set a 90-second timeout for the entire analysis process
+        signal.alarm(90)
         # Get JSON data from request
         data = request.get_json()
         
@@ -147,6 +161,7 @@ def analyze_route():
         logger.info(f"Final Score: {final_score}%")
         logger.info("=" * 80)
         
+        signal.alarm(0)  # Cancel timeout
         return jsonify({
             "success": True,
             "analysis": enhanced_analysis,
@@ -164,7 +179,15 @@ def analyze_route():
             }
         })
             
+    except TimeoutException:
+        signal.alarm(0)  # Cancel timeout
+        return jsonify({
+            "success": False,
+            "error": "AI analysis timed out after 90 seconds. Please try again.",
+            "workflow_stage": "timeout"
+        }), 408
     except Exception as e:
+        signal.alarm(0)  # Cancel timeout
         return jsonify({
             "success": False,
             "error": f"Server error: {str(e)}"
