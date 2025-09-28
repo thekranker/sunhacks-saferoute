@@ -36,7 +36,7 @@ Or run directly:
 python app.py
 ```
 
-The server will start on `http://localhost:5001`
+The server will start on `http://localhost:5002`
 
 ## API Endpoints
 

@@ -11,7 +11,7 @@ import time
 def test_api_health():
     """Test if the API server is running."""
     try:
-        response = requests.get('http://localhost:5001/health', timeout=5)
+        response = requests.get('http://localhost:5002/health', timeout=5)
         if response.status_code == 200:
             print("✅ API server is running")
             return True
@@ -19,7 +19,7 @@ def test_api_health():
             print(f"❌ API server returned status {response.status_code}")
             return False
     except requests.exceptions.ConnectionError:
-        print("❌ Cannot connect to API server. Make sure it's running on port 5001.")
+        print("❌ Cannot connect to API server. Make sure it's running on port 5002.")
         return False
     except Exception as e:
         print(f"❌ Error testing API health: {e}")
@@ -40,7 +40,7 @@ def test_route_analysis():
     try:
         print("🤖 Testing AI route analysis...")
         response = requests.post(
-            'http://localhost:5001/analyze-route',
+            'http://localhost:5002/analyze-route',
             json=test_data,
             headers={'Content-Type': 'application/json'},
             timeout=30

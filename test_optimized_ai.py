@@ -24,7 +24,7 @@ def test_optimized_analysis():
         start_time = time.time()
         
         response = requests.post(
-            'http://localhost:5001/analyze-route',
+            'http://localhost:5002/analyze-route',
             json=test_data,
             headers={'Content-Type': 'application/json'},
             timeout=15  # 15 second timeout

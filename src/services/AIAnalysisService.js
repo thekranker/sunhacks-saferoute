@@ -1,6 +1,6 @@
 class AIAnalysisService {
     constructor() {
-        this.apiBaseUrl = 'http://localhost:5001';
+        this.apiBaseUrl = 'http://localhost:5002';
     }
 
     /**
@@ -22,7 +22,7 @@ class AIAnalysisService {
                     destination: destination,
                     route_details: routeDetails
                 }),
-                signal: AbortSignal.timeout(10000) // 10 second timeout
+                signal: AbortSignal.timeout(30000) // 30 second timeout for validation agent
             });
 
             if (!response.ok) {
@@ -34,6 +34,11 @@ class AIAnalysisService {
 
         } catch (error) {
             console.error('AI Analysis Service Error:', error);
+            console.error('Error details:', {
+                message: error.message,
+                name: error.name,
+                stack: error.stack
+            });
             return {
                 success: false,
                 error: `Failed to analyze route: ${error.message}`,
@@ -67,10 +72,16 @@ class AIAnalysisService {
      */
     formatAnalysisForDisplay(analysis) {
         if (!analysis || !analysis.success) {
+            const errorMessage = analysis?.error || 'Unknown error occurred';
             return `
                 <div class="ai-analysis-error">
                     <h4>⚠️ AI Analysis Unavailable</h4>
+                    <p><strong>Error:</strong> ${errorMessage}</p>
                     <p>Unable to get AI safety analysis. Using standard safety scoring.</p>
+                    <details>
+                        <summary>Technical Details</summary>
+                        <pre>${JSON.stringify(analysis, null, 2)}</pre>
+                    </details>
                 </div>
             `;
         }
@@ -79,14 +90,30 @@ class AIAnalysisService {
         const safetyScore = data.safety_score || 0;
         const safetyColor = this.getSafetyColor(safetyScore);
 
+        // Check if validation was applied
+        const validationApplied = analysis.validation_applied;
+        const validationMetadata = data.validation_metadata;
+        
         return `
             <div class="ai-analysis-results">
                 <div class="ai-analysis-header">
-                    <h4>🤖 AI Safety Analysis</h4>
+                    <h4>🤖 AI Safety Analysis ${validationApplied ? '(with Validation Agent)' : ''}</h4>
                     <div class="safety-score-display" style="background-color: ${safetyColor}">
                         ${safetyScore}% Safety Score
                     </div>
                 </div>
+                
+                ${validationApplied && validationMetadata ? `
+                    <div class="validation-info">
+                        <h5>🔍 Validation Agent Review:</h5>
+                        <div class="validation-details">
+                            <p><strong>Original Score:</strong> ${validationMetadata.original_score}%</p>
+                            <p><strong>Adjustment:</strong> ${validationMetadata.score_adjustment > 0 ? '+' : ''}${validationMetadata.score_adjustment} points</p>
+                            <p><strong>Confidence:</strong> ${validationMetadata.confidence_level}</p>
+                            ${validationMetadata.reasoning ? `<p><strong>Reasoning:</strong> ${validationMetadata.reasoning}</p>` : ''}
+                        </div>
+                    </div>
+                ` : ''}
                 
                 ${data.main_concerns && data.main_concerns.length > 0 ? `
                     <div class="safety-concerns">

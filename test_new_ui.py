@@ -85,7 +85,7 @@ def analyze_single_route(route_data, route_num):
     """Analyze a single route (simulating the parallel processing)."""
     try:
         response = requests.post(
-            'http://localhost:5001/analyze-route',
+            'http://localhost:5002/analyze-route',
             json=route_data,
             headers={'Content-Type': 'application/json'},
             timeout=15
@@ -129,7 +129,7 @@ def main():
     
     # Test API health first
     try:
-        response = requests.get('http://localhost:5001/health', timeout=5)
+        response = requests.get('http://localhost:5002/health', timeout=5)
         if response.status_code != 200:
             print("❌ API server not running. Please start it first:")
             print("   cd agent-services && python start_server.py")

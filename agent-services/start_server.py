@@ -47,15 +47,17 @@ def start_server():
     try:
         from app import app
         print("\n🚀 Starting SafeRoute AI Analysis API...")
-        print("📍 Server will be available at: http://localhost:5001")
+        print("📍 Server will be available at: http://localhost:5002")
         print("🔗 API endpoints:")
-        print("   POST /analyze-route - Analyze route safety")
+        print("   POST /analyze-route - Analyze route safety with validation")
+        print("   POST /validate-analysis - Manually validate an existing analysis")
         print("   GET /health - Health check")
+        print("   GET /workflow-stats - Get validation statistics")
         print("   GET / - API information")
         print("\n💡 To stop the server, press Ctrl+C")
         print("=" * 50)
         
-        app.run(debug=True, host='0.0.0.0', port=5001)
+        app.run(debug=True, host='0.0.0.0', port=5002)
         
     except ImportError as e:
         print(f"❌ Failed to import app: {e}")
