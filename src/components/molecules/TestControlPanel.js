@@ -14,7 +14,6 @@ class TestControlPanel {
         
         this.geocodeButton = new ActionButton('geocodeBtn', () => this.testGeocoding());
         this.directionsButton = new ActionButton('directionsBtn', () => this.testDirections());
-        this.safestRouteButton = new ActionButton('safestRouteBtn', () => this.findSafestRoute());
         this.clearButton = new ActionButton('clearBtn', () => this.clearMap());
         
         // Set up route selection callback
@@ -49,11 +48,11 @@ class TestControlPanel {
         const start = this.startLocationInput.getValue();
         const end = this.endLocationInput.getValue();
         
-        this.outputDisplay.updateOutput("Finding safest route...");
+        this.outputDisplay.updateOutput("Finding routes with safety options...");
         this.routeSelector.hide(); // Hide route selector initially
         
         try {
-            // Get multiple alternative routes
+            // Get both standard and ultra-safe route alternatives
             const routes = await this.getAlternativeRoutes(start, end);
             
             if (routes.length === 0) {
@@ -68,6 +67,18 @@ class TestControlPanel {
             
             // Sort routes by safety score (highest first)
             routesWithSafety.sort((a, b) => b.safetyScore - a.safetyScore);
+            
+            // Mark the safest route as "Ultra Safe" if it's significantly safer
+            if (routesWithSafety.length > 0) {
+                const safestRoute = routesWithSafety[0];
+                const secondSafest = routesWithSafety[1];
+                
+                // If the safest route is significantly safer than the second safest, mark it as ultra-safe
+                if (secondSafest && (safestRoute.safetyScore - secondSafest.safetyScore) > 0.1) {
+                    safestRoute.summary = `🛡️ Ultra Safe Route (${safestRoute.summary})`;
+                    safestRoute.isSafestRoute = true;
+                }
+            }
             
             // Show route selector with all routes
             this.routeSelector.setRoutes(routesWithSafety);
@@ -87,8 +98,12 @@ class TestControlPanel {
         const directionsService = new google.maps.DirectionsService();
         const routes = [];
         
+        // Get intermediate waypoints for ultra-safe routes
+        const safeWaypoints = await this.generateSafeWaypoints(start, end);
+        
         // Request configurations for different route alternatives
         const requestConfigs = [
+            // Standard alternatives
             {
                 origin: start,
                 destination: end,
@@ -106,7 +121,16 @@ class TestControlPanel {
                 destination: end,
                 travelMode: google.maps.TravelMode.WALKING,
                 avoidTolls: true
-            }
+            },
+            // Ultra-safe routes with waypoints (longer but potentially much safer)
+            ...safeWaypoints.slice(0, 3).map(waypoint => ({
+                origin: start,
+                destination: end,
+                waypoints: [{ location: waypoint, stopover: false }],
+                travelMode: google.maps.TravelMode.WALKING,
+                avoidHighways: true,
+                avoidTolls: true
+            }))
         ];
         
         // Get routes from each configuration
@@ -131,7 +155,7 @@ class TestControlPanel {
             }
         }
         
-        // Remove duplicate routes (simple deduplication by comparing route summaries)
+        // Remove duplicate routes
         const uniqueRoutes = this.removeDuplicateRoutes(routes);
         
         return uniqueRoutes;
