@@ -30,12 +30,16 @@ export default {
 		  // 2. Forward to backend
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		  console.log("Forwarding to backend:", env.BACKEND_URL + "/score-route");
 =======
 >>>>>>> 552480c (Added Cloudflare cache using KV pairs to increase systems efficency and connect to the cloud)
 =======
 		  console.log("Forwarding to backend:", env.BACKEND_URL + "/score-route");
 >>>>>>> b2f92c2 (Working Safety Score)
+=======
+		  console.log("Forwarding to backend:", env.BACKEND_URL + "/score-route");
+>>>>>>> karan-dev
 		  const backendRes = await fetch(env.BACKEND_URL + "/score-route", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
@@ -43,10 +47,14 @@ export default {
 		  });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> karan-dev
 
 		  console.log("Backend response status:", backendRes.status);
 		  const result = await backendRes.text();
 		  console.log("Backend response:", result);
+<<<<<<< HEAD
 =======
   
 		  const result = await backendRes.text();
@@ -57,6 +65,8 @@ export default {
 		  const result = await backendRes.text();
 		  console.log("Backend response:", result);
 >>>>>>> b2f92c2 (Working Safety Score)
+=======
+>>>>>>> karan-dev
   
 		  // 3. Save to KV
 		  await env.SAFEROUTE_CACHE.put(routeKey, result);
